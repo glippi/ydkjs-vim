@@ -4,17 +4,17 @@
 ================================================================================
 CONTENTS                                                          *YDKSContents*
 
-1. Up&going................ |Up&going|
-2. Scope&Closures.......... |Scope&Closures|
-3. this&Object Prototypes.. |this&Object Prototypes|
-4. Types&Grammar........... |Types&Grammar|
-5. Async&Performance....... |Async&Performance|
-6. ES6&Beyond.............. |ES6&Beyond|
+1. Up & going................ |Up&going|
+2. Scope & Closures.......... |Scope&Closures|
+3. this & Object Prototypes.. |this & Object Prototypes|
+4. Types & Grammar........... |Types&Grammar|
+5. Async & Performance....... |Async&Performance|
+6. ES6 & Beyond.............. |ES6&Beyond|
 
 
 
 ================================================================================
-this & Object Prototypes                                 *this&ObjectPrototypes*
+this & Object Prototypes                                 *this & Object Prototypes*
 
 <You Don't Know JS: *this* & Object Prototypes>
 <Chapter 1: `this` Or That?>
