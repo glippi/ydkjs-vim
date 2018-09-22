@@ -1,3 +1,5 @@
+*this & Object Prototypes.txt* Read YDKS in vim.
+
 <You Don't Know JS: *this* & Object Prototypes>
 <Chapter 1: `this` Or That?>
 
