@@ -4,17 +4,52 @@
 CONTENTS                                                         *YDKSContents*
 
 1. Up & going................ |Up&going|
+  1. Into Programming
+  2. Into JavaScript
+  3. Into YDKS
+
 2. Scope & Closures.......... |Scope&Closures|
+  1. What is Scope ?
+  2. Lexical Scope
+  3. Function vs. Block Scope
+  4. Hoisting
+  5. Scope Closures
+
 3. this & Object Prototypes.. |this&ObjectPrototypes|
+  1. this or that?
+  2. this All Makes Sense Now!
+  3. Objects
+  4. Mixing (Up) "Class" Objects
+  5. Protorypes
+  6. Behavior Delegation
+
 4. Types & Grammar........... |Types&Grammar|
+  1. Types
+  2. Values
+  3. Natives
+  4. Coercion
+  5. Grammar
+
 5. Async & Performance....... |Async&Performance|
+  1. Asynchrony: Now & Later
+  2. Callbacks
+  3. Promises
+  4. Generators
+  5. Program Performance
+  6. Benchmarking & Turing
+
 6. ES6 & Beyond.............. |ES6&Beyond|
-
-
+  1. ES? Now & Future
+  2. Syntax
+  3. Organization
+  4. Async Flow Control
+  5. Collections
+  6. API Additions
+  7. Meta Programming
+  8. Beyond ES6
 
 ================================================================================
 YDKJS                                                   *this&ObjectPrototypes*
-
 
 Chapter 1: this Or That? ~
 One of the most confused mechanisms in JavaScript is the *this* keyword. It's a special identifier keyword that's automatically defined in the scope of every function, but what exactly it refers to bedevils even seasoned JavaScript developers.
