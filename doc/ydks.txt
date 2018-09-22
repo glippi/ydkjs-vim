@@ -27,7 +27,7 @@ Note: The word "this" is a terribly common pronoun in general discourse. So, it 
 Why this? ~
 If the *this* mechanism is so confusing, even to seasoned JavaScript developers, one may wonder why it's even useful? Is it more trouble than it's worth? Before we jump into the *how,* we should examine the *why.*
 Let's try to illustrate the motivation and utility of *this:*
-
+  >
   function identify() {
           return this.name.toUpperCase();
   }
@@ -51,6 +51,7 @@ Let's try to illustrate the motivation and utility of *this:*
   identify.call( you ); // READER
   speak.call( me ); // Hello, I'm KYLE
   speak.call( you ); // Hello, I'm READER
+  
 
 If the *how* of this snippet confuses you, don't worry! We'll get to that shortly. Just set those questions aside briefly so we can look into the *why* more clearly.
 This code snippet allows the  ( *this* ) objects, rather than needing a separate version of the function for each object.
