@@ -16,8 +16,8 @@ CONTENTS                                                          *YDKSContents*
 ================================================================================
 this & Object Prototypes                                 *this&ObjectPrototypes*
 
-<You Don't Know JS: *this* & Object Prototypes>
-<Chapter 1: `this` Or That?>
+You Don't Know JS: *this* & Object Prototypes ~
+Chapter 1: `this` Or That?
 
 One of the most confused mechanisms in JavaScript is the `this` keyword. It's a special identifier keyword that's automatically defined in the scope of every function, but what exactly it refers to bedevils even seasoned JavaScript developers.
 
@@ -33,7 +33,7 @@ If the `this` mechanism is so confusing, even to seasoned JavaScript developers,
 
 Let's try to illustrate the motivation and utility of `this`:
 
-```js
+<js
 function identify() {
 	return this.name.toUpperCase();
 }
@@ -56,7 +56,7 @@ identify.call( you ); // READER
 
 speak.call( me ); // Hello, I'm KYLE
 speak.call( you ); // Hello, I'm READER
-```
+>
 
 If the *how* of this snippet confuses you, don't worry! We'll get to that shortly. Just set those questions aside briefly so we can look into the *why* more clearly.
 
