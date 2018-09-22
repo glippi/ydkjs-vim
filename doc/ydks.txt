@@ -1,4 +1,13 @@
-*ydks.txt* Read YDKS in vim.
+*ydks.txt* Read You Don't Know JS in Vim!
+
+              '##:::'##:'########::'##:::'##:::::::'##::'######:: ~
+              . ##:'##:: ##.... ##: ##::'##:::::::: ##:'##... ##: ~
+              :. ####::: ##:::: ##: ##:'##::::::::: ##: ##:::..:: ~
+              ::. ##:::: ##:::: ##: #####:::::::::: ##:. ######:: ~
+              ::: ##:::: ##:::: ##: ##. ##:::'##::: ##::..... ##: ~
+              ::: ##:::: ##:::: ##: ##:. ##:: ##::: ##:'##::: ##: ~
+              ::: ##:::: ########:: ##::. ##:. ######::. ######:: ~
+              :::..:::::........:::..::::..:::......::::......::: ~
 
 ================================================================================
 CONTENTS                                                         *YDKSContents*
@@ -288,4 +297,4 @@ Review (TL;DR) ~
 To learn *this* is neither a reference to the function itself, nor is it a reference to the function's *lexical* scope.
 *this* is actually a binding that is made when a function is invoked, and *what* it references is determined entirely by the call-site where the function is called.
 
-  vim:tw=78:et:ft=help:norl:
+
