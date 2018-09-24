@@ -1,0 +1,1598 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://assets-cdn.github.com">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-/yZA7MGD9acBi5MmgjnivwjGeiNsmimsI/bhLlK7akrRuw+hMxNpJoQEMO9Zt0Nq6ZRu1m1NGV6r95Ib0zx7Qw==" rel="stylesheet" href="https://assets-cdn.github.com/assets/frameworks-1ca00d32d1a8adc78ae7bb6677410eb1.css" />
+  <link crossorigin="anonymous" media="all" integrity="sha512-pHF1luoMSUFxvz63bW3jEbbifYl/pruHUw+kljThAPi2g0nhgMdvWj4bQRh4O8MYp9NR60XYcylaLXmYA8YXSw==" rel="stylesheet" href="https://assets-cdn.github.com/assets/github-5043b3d96d50b119b971c2cdde4e0a62.css" />
+  
+  
+  <link crossorigin="anonymous" media="all" integrity="sha512-yiJlaqOzeTU+S1E7OWf1xHkAosW1l4Lum0URPcPeQqKjKdZuSb9JoS5h1Dn8vs5rmdGshJ8pTr/FWwGKHlr1SQ==" rel="stylesheet" href="https://assets-cdn.github.com/assets/site-f84f81f77b3e1a4462036783c13c150d.css" />
+  
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>You-Dont-Know-JS/ch3.md at master · getify/You-Dont-Know-JS · GitHub</title>
+    <meta name="description" content="A book series on JavaScript. @YDKJS on twitter. Contribute to getify/You-Dont-Know-JS development by creating an account on GitHub.">
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    
+    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/150330?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="getify/You-Dont-Know-JS" /><meta property="og:url" content="https://github.com/getify/You-Dont-Know-JS" /><meta property="og:description" content="A book series on JavaScript. @YDKJS on twitter. Contribute to getify/You-Dont-Know-JS development by creating an account on GitHub." />
+
+  <link rel="assets" href="https://assets-cdn.github.com/">
+  
+  <meta name="pjax-timeout" content="1000">
+  
+  <meta name="request-id" content="F940:37B6:49B5646:77045BE:5BA8D2D8" data-pjax-transient>
+
+
+  
+
+  <meta name="selected-link" value="repo_source" data-pjax-transient>
+
+      <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+    <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="F940:37B6:49B5646:77045BE:5BA8D2D8" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" />
+<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
+
+
+
+    <meta name="google-analytics" content="UA-3769691-2">
+
+
+<meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+
+  
+
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+      <meta name="expected-hostname" content="github.com">
+    <meta name="js-proxy-site-detection-payload" content="MTAyOWRkNTBhNDJmODZjZTIwYWM4ZGI1N2IxMDRjOWZkNDFlYTNkNjFkOTQxMTcyMGJiOGUwODY0MzU2ODg3NXx7InJlbW90ZV9hZGRyZXNzIjoiMzEuMjcuMzguOTUiLCJyZXF1ZXN0X2lkIjoiRjk0MDozN0I2OjQ5QjU2NDY6NzcwNDVCRTo1QkE4RDJEOCIsInRpbWVzdGFtcCI6MTUzNzc5MDY4MSwiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
+
+    <meta name="enabled-features" content="DASHBOARD_V2_LAYOUT_OPT_IN,EXPLORE_DISCOVER_REPOSITORIES,UNIVERSE_BANNER,MARKETPLACE_PLAN_RESTRICTION_EDITOR,QUOTE_MARKDOWN">
+
+  <meta name="html-safe-nonce" content="e765b30f68049a1e35efac7327d05ac460d8dbdc">
+
+  <meta http-equiv="x-pjax-version" content="48839070ece5a75b6db249504aa0072e">
+  
+
+      <link href="https://github.com/getify/You-Dont-Know-JS/commits/master.atom" rel="alternate" title="Recent Commits to You-Dont-Know-JS:master" type="application/atom+xml">
+
+  <meta name="go-import" content="github.com/getify/You-Dont-Know-JS git https://github.com/getify/You-Dont-Know-JS.git">
+
+  <meta name="octolytics-dimension-user_id" content="150330" /><meta name="octolytics-dimension-user_login" content="getify" /><meta name="octolytics-dimension-repository_id" content="14440270" /><meta name="octolytics-dimension-repository_nwo" content="getify/You-Dont-Know-JS" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="14440270" /><meta name="octolytics-dimension-repository_network_root_nwo" content="getify/You-Dont-Know-JS" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
+
+
+    <link rel="canonical" href="https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch3.md" data-pjax-transient>
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://assets-cdn.github.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+
+  <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
+
+  </head>
+
+  <body class="logged-out env-production page-blob">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    
+
+
+
+        
+
+  <header class="Header header-logged-out  position-relative f4 py-3" role="banner" data-ga-load="(Logged out) Header, view, experiment:site_header_dropdowns; group:dropdowns">
+    <div class="container-lg d-flex px-3">
+      <div class="d-flex flex-justify-between flex-items-center">
+          <a class="mr-5" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark; experiment:site_header_dropdowns; group:dropdowns">
+            <svg height="32" class="octicon octicon-mark-github text-white" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+      </div>
+
+      <div class="HeaderMenu HeaderMenu--experiment d-flex flex-justify-between flex-items-center flex-auto">
+        <div class="d-none">
+          <button class="btn-link js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <svg height="24" class="octicon octicon-x text-gray" viewBox="0 0 12 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+          </button>
+        </div>
+
+          <nav class="">
+            <ul class="d-flex list-style-none">
+                <li class="HeaderMenu-item dropdown mr-5">
+                  <details class="details-expanded details-reset js-dropdown-details ">
+                    <summary class="HeaderMenu-target text-white">
+                      <div class="d-flex flex-items-baseline flex-justify-between">
+                        <span class="d-inline-block mr-1">Features</span>
+                        <span class="dropdown-caret"></span>
+                      </div>
+                    </summary>
+                    <div class="dropdown-menu dropdown-menu-s p-4 ml-n4 mt-3 mt-lg-2">
+                      <a href="/features" class="d-block d-lg-flex flex-items-center flex-justify-between f5 link-gray-dark text-bold mb-2" data-ga-click="(Logged out) Header, go to Features, experiment:site_header_dropdowns; group:dropdowns"><span>Features overview</span> <svg height="16" class="octicon octicon-chevron-right text-gray-dark" viewBox="0 0 8 16" version="1.1" width="8" aria-hidden="true"><path fill-rule="evenodd" d="M7.5 8l-5 5L1 11.5 4.75 8 1 4.5 2.5 3l5 5z"/></svg></a>
+                      <hr class="border border-dashed my-3 d-none d-lg-block">
+                      <ul class="list-style-none f5">
+                        <li class="mb-2"><a href="/features/code-review/" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Code review, experiment:site_header_dropdowns; group:dropdowns">Code review</a></li>
+                        <li class="mb-2"><a href="/features/project-management/" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Project management, experiment:site_header_dropdowns; group:dropdowns">Project management</a></li>
+                        <li class="mb-2"><a href="/features/integrations" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Integrations, experiment:site_header_dropdowns; group:dropdowns">Integrations</a></li>
+                        <li class="mb-2"><a href="/features#team-management" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Team management, experiment:site_header_dropdowns; group:dropdowns">Team management</a></li>
+                        <li class="mb-2"><a href="/features#social-coding" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Social coding, experiment:site_header_dropdowns; group:dropdowns">Social coding</a></li>
+                        <li class="mb-2"><a href="/features#documentation" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Documentation, experiment:site_header_dropdowns; group:dropdowns">Documentation</a></li>
+                        <li class="mb-2"><a href="/features#code-hosting" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Code hosting, experiment:site_header_dropdowns; group:dropdowns">Code hosting</a></li>
+                      </ul>
+                    </div>
+                  </details>
+                </li>
+                <li class="HeaderMenu-item dropdown platform-nav mr-5">
+                  <details class="details-expanded details-reset js-dropdown-details ">
+                    <summary class="HeaderMenu-target text-white">
+                      <div class="d-flex flex-items-baseline flex-justify-between">
+                        <span class="d-inline-block mr-1">Platform</span>
+                        <span class="dropdown-caret"></span>
+                      </div>
+                    </summary>
+                    <div class="dropdown-menu dropdown-menu-s p-4 ml-n4 mt-3 mt-lg-2">
+                      <div class="d-flex gutter-spacious ">
+                        <div class="position-relative col-8">
+                          <dl class="my-0">
+                            <a href="/marketplace" class="d-flex mb-3 link-gray-dark no-underline" data-ga-click="(Logged out) Header, go to Marketplace, experiment:site_header_dropdowns; group:dropdowns">
+                              <div class="mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.92 56.98" class="d-block" width="34"><title>Asset 1</title><g data-name="Layer 2"><path d="M6.18 57H1a1 1 0 0 1 0-2h5.18a1 1 0 0 1 0 2zM69.92 57h-5.18a1 1 0 1 1 0-2h5.18a1 1 0 0 1 0 2z" fill="#2088ff"></path><path d="M29.67 56.47a1 1 0 0 1-1-1V34.84H16v20.23a1 1 0 0 1-2 0V33.84a1 1 0 0 1 1-1h14.67a1 1 0 0 1 1 1v21.63a1 1 0 0 1-1 1z" fill="#79b8ff"></path><path d="M64.74 57H6.18a1 1 0 0 1-1-1v-8.65a1 1 0 0 1 2 0V55h56.56V33.84a1 1 0 0 1 2 0V56a1 1 0 0 1-1 1zM6.18 41.24a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1h58.58a1 1 0 0 1 1 1v10.52a1 1 0 1 1-2 0V2H7.18v38.24a1 1 0 0 1-1 1z" fill="#2088ff"></path><path d="M56.82 45.94H36.34a1 1 0 0 1-1-1v-11.1a1 1 0 0 1 1-1h20.48a1 1 0 0 1 1 1v11.1a1 1 0 0 1-1 1zm-19.48-2h18.48v-9.1H37.34z" fill="#79b8ff"></path><path d="M31.55 27.5a7.84 7.84 0 0 1-5.21-2.42c-1.06-1-11.87-9.74-12-9.83a1 1 0 0 1 .66-1.78h43.66a1 1 0 0 1 .64.24l11.26 9.48a1 1 0 0 1-1.29 1.53l-11-9.25H17.81c3.26 2.65 9.08 7.4 9.88 8.12a6 6 0 0 0 3.87 1.9 3.3 3.3 0 0 0 3-1.95 1 1 0 1 1 1.82.82 5.3 5.3 0 0 1-4.83 3.14z" fill="#2088ff"></path><path d="M40.24 27.5a5.26 5.26 0 0 1-1.86-.34 1 1 0 0 1 .71-1.87 3.26 3.26 0 0 0 1.16.21 3.3 3.3 0 0 0 3-1.95 1 1 0 1 1 1.82.82 5.3 5.3 0 0 1-4.83 3.13zM48.82 27.5a5.26 5.26 0 0 1-1.82-.34 1 1 0 0 1 .71-1.87 3.26 3.26 0 0 0 1.16.21 3.3 3.3 0 0 0 3-1.95 1 1 0 1 1 1.82.82 5.3 5.3 0 0 1-4.87 3.13zM57.41 27.5a5.26 5.26 0 0 1-1.86-.34 1 1 0 0 1 .71-1.87 3.26 3.26 0 0 0 1.16.21 3.3 3.3 0 0 0 3-1.95 1 1 0 1 1 1.82.82 5.3 5.3 0 0 1-4.83 3.13zM66 27.5a5.26 5.26 0 0 1-1.86-.34 1 1 0 0 1 .71-1.87 3.26 3.26 0 0 0 1.15.21 3.3 3.3 0 0 0 3-2 1 1 0 0 1 1.82.82A5.31 5.31 0 0 1 66 27.5zM15 27.22a1 1 0 0 1-1-1V14.71a1 1 0 0 1 2 0v11.51a1 1 0 0 1-1 1z" fill="#2088ff"></path><path d="M44.16 25a1 1 0 0 1-.65-.24L38.07 20a1 1 0 0 1 1.3-1.52l5.43 4.67a1 1 0 0 1-.64 1.85zM35.52 25a1 1 0 0 1-.65-.24L29.44 20a1 1 0 0 1 1.3-1.52l5.43 4.67a1 1 0 0 1-.65 1.85zM52.74 25a1 1 0 0 1-.65-.24L46.66 20A1 1 0 0 1 48 18.53l5.43 4.67a1 1 0 0 1-.69 1.8zM61.33 25a1 1 0 0 1-.65-.24L55.25 20a1 1 0 0 1 1.3-1.52L62 23.2a1 1 0 0 1-.67 1.8zM22.23 8.42H6.51a1 1 0 0 1 0-2h15.72a1 1 0 0 1 0 2zM64.76 8.42H58.4a1 1 0 0 1 0-2h6.36a1 1 0 0 1 0 2z" fill="#2088ff"></path><path d="M46.58 45.72a1 1 0 0 1-1-1V34.1a1 1 0 0 1 2 0v10.62a1 1 0 0 1-1 1z" fill="#79b8ff"></path></g></svg>
+
+                              </div>
+                              <div>
+                                <dt class="f4">Marketplace</dt>
+                                <dd class="f6 text-gray">Find developer tools that work with GitHub</dd>
+                              </div>
+                            </a>
+                            <a href="https://developer.github.com" class="d-flex mb-3 link-gray-dark no-underline" data-ga-click="(Logged out) Header, go to Developers, experiment:site_header_dropdowns; group:dropdowns">
+                              <div class="mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.23 60.12" class="d-block" width="34"><title>Asset 1</title><g data-name="Layer 2"><path fill="none" stroke="#79b8ff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M14.75 13.22H3.52M18.02 6.33H6.54"></path><path fill="none" stroke="#2088ff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M56.96 51.89H45.73M60.23 44.99H48.75"></path><circle cx="22.5" cy="37.62" r="7.48" transform="rotate(-45 22.502 37.62)" fill="none" stroke="#2088ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="M36.72 29.79l1.35 3.4 5.93 2V40l-5.92 2.08-1.44 3.39 2.83 5.58L36 54.54l-5.66-2.7L27 53.22l-2 5.9h-4.89L18 53.18l-3.36-1.4L9 54.58 5.58 51.1l2.7-5.66-1.38-3.37-5.9-2v-4.89l5.92-2.08 1.44-3.39-2.82-5.57L9 20.69l5.66 2.7L18 22l2-5.9h4.89L27 22l3.36 1.4L36 20.66l3.45 3.48z" fill="none" stroke="#2088ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M7.22 22.48L9 20.69l5.66 2.7L18 22l2-5.9h4.89L27 22l3.36 1.4L36 20.66l3.45 3.48-2.7 5.66 1.35 3.4 5.93 2L44 40l-5.92 2.08-1.44 3.39 2.83 5.58-1.83 1.82" fill="none" stroke="#2088ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".1"></path><path d="M37.22 14.11a6.05 6.05 0 1 1 8.56 8.56M30.07 12l-2.29-4.51 2.81-2.79 4.58 2.19 2.72-1.12L39.5 1h4l1.64 4.8 2.71 1.14 4.54-2.26 2.79 2.81L53 12.06l1.09 2.75 4.8 1.58v4L54.09 22l-1.16 2.74 2.29 4.51-2.82 2.83-4.58-2.19" fill="none" stroke="#79b8ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M29.14 6.14l1.45-1.44 4.58 2.19 2.72-1.12L39.5 1h4l1.64 4.8 2.71 1.14 4.54-2.26 2.79 2.81L53 12.06l1.09 2.75 4.8 1.58v4L54.09 22l-1.16 2.74 2.29 4.51-1.48 1.47" fill="none" stroke="#79b8ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity=".1"></path></g></svg>
+
+                              </div>
+                              <div>
+                                <dt class="f4">GitHub API</dt>
+                                <dd class="f6 text-gray">Start building on the GitHub platform</dd>
+                              </div>
+                            </a>
+                            <a href="https://partner.github.com/?source=github-header-loggedout&experiment=site_header_dropdowns&group=dropdowns" class="d-flex mb-3 link-gray-dark no-underline" data-ga-click="(Logged out) Header, go to Partner program, experiment:site_header_dropdowns; group:dropdowns">
+                              <div class="mr-3">
+                                <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 37 23" style="enable-background:new 0 0 37 23;" xml:space="preserve" class="d-block" width="34">
+<style type="text/css">
+	.st0{fill:none;stroke:#79B8FF;stroke-linecap:round;stroke-linejoin:round;}
+	.st1{fill:none;stroke:#2088FF;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<path class="st0" d="M6,1l4.5,1.4L5.3,15.2L1,12.9L6,1z"></path>
+<path class="st1" d="M30.9,1.2L36,12.8l-3.9,2.6l-5.2-13L30.9,1.2z"></path>
+<path class="st1" d="M5.2,11.7c0-0.6-0.5-1-1-1c-0.6,0-1,0.5-1,1c0,0.6,0.5,1,1,1"></path>
+<path class="st0" d="M29.7,4.6c0.4,0,0.8-0.3,0.8-0.8v0c0-0.4-0.3-0.8-0.8-0.8h0c-0.4,0-0.8,0.3-0.8,0.8v0C29,4.3,29.3,4.6,29.7,4.6  L29.7,4.6z"></path>
+<path class="st0" d="M6.2,13.4c0,0,2.4,0.8,3.9,2.3L6.2,13.4z M9.6,4.8c0,0,4.3,2.3,6.9,2.8L9.6,4.8z"></path>
+<path class="st1" d="M30.4,11.5l-3.2,2.6"></path>
+<path class="st0" d="M19.7,9l8.7,6.2c0.4,0.3,1.1,1.2,0.4,2.2c-0.7,0.9-1.5,0.2-1.5,0.2l-6-4.2"></path>
+<path class="st1" d="M27.5,4.8c0,0-2,1.6-3.3,1.4c-1.3-0.2-4.7-0.9-4.7-0.9c-0.7,0.8-3.7,3.5-4.6,3.6c0,0-0.2,1.5,1.6,1.3  c1.7-0.2,2.7-0.9,3.7-1.7"></path>
+<path class="st0" d="M24.6,18.9c0,0,0.2,0.9-0.2,1.4c-0.2,0.3-0.7,0.6-1.3,0.3l-3.7-2.5L24.6,18.9z M27.1,17.6c0,0,0.1,0.9-0.5,1.4  c-0.3,0.3-0.8,0.6-1.5,0.3l-5.9-4.3L27.1,17.6z"></path>
+<path class="st0" d="M22.4,20.1c0,0,0,0.6-0.2,1.1c-0.2,0.3-0.4,0.6-1.1,0.4l-2.8-1.9"></path>
+<path class="st1" d="M17.8,17c0.3-0.3,1.6-0.2,1.4,1c-0.3,1.2-1.7,2.4-2.1,2.6c-0.4,0.2-1.4,0.2-1.4-0.7L17.8,17z M14.3,14.6  c0,0-0.7-1.5-1.5-1.2c-0.8,0.3-2.8,2-2.8,2.7c0,0.7,1,1.5,1.9,0.8L14.3,14.6z"></path>
+<path class="st1" d="M16.1,15.8c0.2-0.3,1.8-0.4,1.5,1.1c-0.3,1.4-2.1,2.7-2.4,2.9c-0.3,0.1-1.7,0.3-1.9-0.9"></path>
+<path class="st1" d="M15.9,16.1c0,0,0.5-0.9-0.1-1.5c-0.6-0.6-1.2-0.2-1.6,0.2c-0.3,0.3-2.9,2.8-2.9,2.8s0.5,1.8,1.7,1.3  C14.2,18.5,15.9,16.1,15.9,16.1z"></path>
+</svg>
+
+                              </div>
+                              <div>
+                                <dt class="f4">Partner program</dt>
+                                <dd class="f6 text-gray">Help millions of developers do their best work</dd>
+                              </div>
+                            </a>
+                          </dl>
+                          <div class="d-none d-lg-block border-left position-absolute top-0 right-0 bottom-0"></div>
+                        </div>
+                        <div class="col-4">
+                          <strong class="d-block f5 text-bold mb-2 text-gray-dark">Apps by GitHub</strong>
+                          <ul class="list-style-none f5">
+                            <li class="mb-2"><a href="https://desktop.github.com/" class="link-gray" data-ga-click="(Logged out) Header, go to Desktop, experiment:site_header_dropdowns; group:dropdowns">Desktop <span style="color: #959da5;">&#8599;</span></a></li>
+                            <li class="mb-2"><a href="https://atom.io/" class="link-gray" data-ga-click="(Logged out) Header, go to Atom, experiment:site_header_dropdowns; group:dropdowns">Atom <span style="color: #959da5;">&#8599;</span></a></li>
+                            <li class="mb-2"><a href="https://visualstudio.github.com/" class="link-gray" data-ga-click="(Logged out) Header, go to Visual Studio, experiment:site_header_dropdowns; group:dropdowns">Visual Studio <span style="color: #959da5;">&#8599;</span></a></li>
+                            <li class="mb-2"><a href="https://unity.github.com/" class="link-gray" data-ga-click="(Logged out) Header, go to Unity Extension, experiment:site_header_dropdowns; group:dropdowns">Unity Extension <span style="color: #959da5;">&#8599;</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                </li>
+                <li class="HeaderMenu-item dropdown mr-5">
+                  <details class="details-expanded details-reset js-dropdown-details ">
+                    <summary class="HeaderMenu-target text-white">
+                      <div class="d-flex flex-items-baseline flex-justify-between">
+                        <span class="d-inline-block mr-1">Business</span>
+                        <span class="dropdown-caret"></span>
+                      </div>
+                    </summary>
+                    <div class="dropdown-menu dropdown-menu-s p-4 ml-n4 mt-3 mt-lg-2">
+                      <a href="/business" class="d-block d-lg-flex flex-items-center flex-justify-between f5 link-gray-dark text-bold mb-2" data-ga-click="(Logged out) Header, go to Business, experiment:site_header_dropdowns; group:dropdowns"><span>Business overview</span> <svg height="16" class="octicon octicon-chevron-right text-gray-dark" viewBox="0 0 8 16" version="1.1" width="8" aria-hidden="true"><path fill-rule="evenodd" d="M7.5 8l-5 5L1 11.5 4.75 8 1 4.5 2.5 3l5 5z"/></svg></a>
+                      <hr class="border border-dashed my-3 d-none d-lg-block">
+                      <ul class="list-style-none f5">
+                        <li class="mb-2"><a href="/business/customers" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Customers, experiment:site_header_dropdowns; group:dropdowns">Customers</a></li>
+                        <li class="mb-2"><a href="/business/security" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Security, experiment:site_header_dropdowns; group:dropdowns">Security</a></li>
+                        <li class="mb-2"><a href="https://enterprise.github.com/contact" class="d-block link-gray" data-ga-click="(Logged out) Header, go to Contact, experiment:site_header_dropdowns; group:dropdowns">Contact</a></li>
+                      </ul>
+                    </div>
+                  </details>
+                </li>
+
+                <li class="HeaderMenu-item dropdown mr-5">
+                  <details class="details-expanded details-reset js-dropdown-details ">
+                    <summary class="HeaderMenu-target text-white">
+                      <div class="d-flex flex-items-baseline flex-justify-between">
+                        <span class="d-inline-block mr-1">Explore</span>
+                        <span class="dropdown-caret"></span>
+                      </div>
+                    </summary>
+                    <div class="dropdown-menu dropdown-menu-s p-4 ml-n4 mt-3 mt-lg-2">
+                      <ul class="list-style-none f5">
+                        <li class="mb-2"><a href="/explore" class="d-lg-flex flex-items-center flex-justify-between link-gray-dark text-bold" data-ga-click="(Logged out) Header, go to Explore GitHub, experiment:site_header_dropdowns; group:dropdowns"><span>Explore GitHub</span> <svg height="16" class="octicon octicon-chevron-right text-gray-dark" viewBox="0 0 8 16" version="1.1" width="8" aria-hidden="true"><path fill-rule="evenodd" d="M7.5 8l-5 5L1 11.5 4.75 8 1 4.5 2.5 3l5 5z"/></svg></a></li>
+                        <li class="mb-3"><a href="/trending" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Trending, experiment:site_header_dropdowns; group:dropdowns">Trending</a></li>
+                      </ul>
+
+                      <hr class="border border-dashed my-3 d-none d-lg-block">
+
+                      <strong class="d-block f5 text-bold mb-2 text-gray-dark">Learn</strong>
+                      <ul class="list-style-none f5">
+                        <li class="mb-2"><a href="/topics" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Topics, experiment:site_header_dropdowns; group:dropdowns">Topics</a></li>
+                        <li class="mb-2"><a href="/collections" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Collections, experiment:site_header_dropdowns; group:dropdowns">Collections</a></li>
+                        <li class="mb-2"><a href="https://lab.github.com/" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Learning Lab, experiment:site_header_dropdowns; group:dropdowns">Learning Lab <span style="color: #959da5;">&#8599;</span></a></li>
+                        <li class="mb-3"><a href="https://opensource.guide/" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Open source guides, experiment:site_header_dropdowns; group:dropdowns">Open source guides <span style="color: #959da5;">&#8599;</span></a></li>
+                      </ul>
+
+                      <hr class="border border-dashed my-3 d-none d-lg-block">
+
+                      <strong class="d-block f5 text-bold mb-2 text-gray-dark">Connect</strong>
+                      <ul class="list-style-none f5">
+                        <li class="mb-2"><a href="/events" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Events, experiment:site_header_dropdowns; group:dropdowns">Events</a></li>
+                        <li class="mb-2"><a href="https://github.community/" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Community forum, experiment:site_header_dropdowns; group:dropdowns">Community forum <span style="color: #959da5;">&#8599;</span></a></li>
+                        <li class="mb-3"><a href="https://education.github.community/" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Education community, experiment:site_header_dropdowns; group:dropdowns">Education community <span style="color: #959da5;">&#8599;</span></a></li>
+                      </ul>
+                    </div>
+                  </details>
+                </li>
+
+                <li class="HeaderMenu-item dropdown mr-5">
+                  <details class="details-expanded details-reset js-dropdown-details ">
+                    <summary class="HeaderMenu-target text-white">
+                      <div class="d-flex flex-items-baseline flex-justify-between">
+                        <span class="d-inline-block mr-1">Pricing</span>
+                        <span class="dropdown-caret"></span>
+                      </div>
+                    </summary>
+                    <div class="dropdown-menu dropdown-menu-s p-4 ml-n4 mt-3 mt-lg-2">
+                      <a href="/pricing" class="d-block d-lg-flex flex-items-center flex-justify-between f5 link-gray-dark text-bold mb-3" data-ga-click="(Logged out) Header, go to Pricing, experiment:site_header_dropdowns; group:dropdowns"><span>Pricing overview</span> <svg height="16" class="octicon octicon-chevron-right text-gray-dark" viewBox="0 0 8 16" version="1.1" width="8" aria-hidden="true"><path fill-rule="evenodd" d="M7.5 8l-5 5L1 11.5 4.75 8 1 4.5 2.5 3l5 5z"/></svg></a>
+                      <hr class="border border-dashed my-3 d-none d-lg-block">
+                      <strong class="d-block f5 text-bold text-gray-dark mb-2">Plans</strong>
+                      <ul class="list-style-none f5">
+                        <li class="mb-2"><a href="/pricing/developer" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Developer, experiment:site_header_dropdowns; group:dropdowns">Developer</a></li>
+                        <li class="mb-2"><a href="/pricing/team" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Team, experiment:site_header_dropdowns; group:dropdowns">Team</a></li>
+                        <li class="mb-2"><a href="/pricing/business-hosted" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Business, experiment:site_header_dropdowns; group:dropdowns">Business</a></li>
+                        <li class="mb-3"><a href="/pricing#feature-comparison" class="link-gray d-block" data-ga-click="(Logged out) Header, go to Compare plans, experiment:site_header_dropdowns; group:dropdowns">Compare plans</a></li>
+                      </ul>
+                      <hr class="border border-dashed my-3 d-none d-lg-block">
+                      <ul class="list-style-none f5">
+                        <li class="mb-2"><a href="https://github.com/nonprofit" class="link-gray-dark" data-ga-click="(Logged out) Header, go to Nonprofits, experiment:site_header_dropdowns; group:dropdowns">Nonprofits</a></li>
+                        <li class="mb-2"><a href="https://education.github.com/discount_requests/new" class="link-gray-dark" data-ga-click="(Logged out) Header, go to Education, experiment:site_header_dropdowns; group:dropdowns">Education <span style="color: #959da5;">&#8599;</span></a></li>
+                      </ul>
+                    </div>
+                  </details>
+                </li>
+            </ul>
+          </nav>
+
+        <div class="d-flex flex-items-center">
+            <div class="d-flex mr-3 flex-items-center">
+              <div class="header-search scoped-search site-scoped-search js-site-search position-relative js-jump-to"
+  role="combobox"
+  aria-owns="jump-to-results"
+  aria-label="Search or jump to"
+  aria-haspopup="listbox"
+  aria-expanded="false"
+>
+  <div class="position-relative">
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" data-scope-type="Repository" data-scope-id="14440270" data-scoped-search-url="/getify/You-Dont-Know-JS/search" data-unscoped-search-url="/search" action="/getify/You-Dont-Know-JS/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <label class="form-control header-search-wrapper header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
+        <input type="text"
+          class="form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+          data-hotkey="s,/"
+          name="q"
+          value=""
+          placeholder="Search"
+          data-unscoped-placeholder="Search GitHub"
+          data-scoped-placeholder="Search"
+          autocapitalize="off"
+          aria-autocomplete="list"
+          aria-controls="jump-to-results"
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=5o3ZTxuOPa02NOIHevWdZ0n/YiXsQDnIPQ5hTrfD+HBPuWieZhMLEpcRXokHM+MiAs7+SQys4INEWsDuXN1VuQ=="
+          spellcheck="false"
+          autocomplete="off"
+          >
+          <input type="hidden" class="js-site-search-type-field" name="type" >
+            <img src="https://assets-cdn.github.com/images/search-shortcut-hint.svg" alt="" class="mr-2 header-search-key-slash">
+
+            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
+              <ul class="d-none js-jump-to-suggestions-template-container">
+                <li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item" role="option">
+                  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center p-2 jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open" href="">
+                    <div class="jump-to-octicon js-jump-to-octicon mr-2 text-center d-none">
+                      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+                      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+                      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
+                    </div>
+
+                    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+                    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+                    </div>
+
+                    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+                      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+                        In this repository
+                      </span>
+                      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+                        All GitHub
+                      </span>
+                      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+                    </div>
+
+                    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+                      Jump to
+                      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <ul class="d-none js-jump-to-no-results-template-container">
+                <li class="d-flex flex-justify-center flex-items-center p-3 f5 d-none">
+                  <span class="text-gray">No suggested jump to results</span>
+                </li>
+              </ul>
+
+              <ul id="jump-to-results" role="listbox" class="js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container" >
+                <li class="d-flex flex-justify-center flex-items-center p-0 f5">
+                  <img src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" alt="Octocat Spinner Icon" class="m-2" width="28">
+                </li>
+              </ul>
+            </div>
+      </label>
+</form>  </div>
+</div>
+
+            </div>
+
+          <a class="HeaderMenu-target text-white no-underline mr-3" href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS%2Fblob%2Fmaster%2Fthis%2520%2526%2520object%2520prototypes%2Fch3.md" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in; experiment:site_header_dropdowns; group:dropdowns">Sign&nbsp;in</a>
+            <a class="HeaderMenu-target d-inline-block text-white no-underline border border-gray-dark rounded-2 px-2 py-1" href="/join" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up; experiment:site_header_dropdowns; group:dropdowns">Sign&nbsp;up</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+    <div id="js-flash-container">
+
+
+</div>
+
+
+
+  <div role="main" class="application-main ">
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode" class="">
+    <div id="js-repo-pjax-container" data-pjax-container >
+      
+
+
+
+
+
+
+
+  <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  ">
+    <div class="repohead-details-container clearfix container">
+
+      <ul class="pagehead-actions">
+  <li>
+      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-s"
+    aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+    Watch
+  </a>
+  <a class="social-count" href="/getify/You-Dont-Know-JS/watchers"
+     aria-label="4796 users are watching this repository">
+    4,796
+  </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-s"
+    aria-label="You must be signed in to star a repository" rel="nofollow">
+    <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="/getify/You-Dont-Know-JS/stargazers"
+      aria-label="88853 users starred this repository">
+      88,853
+    </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
+        class="btn btn-sm btn-with-count tooltipped tooltipped-s"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        Fork
+      </a>
+
+    <a href="/getify/You-Dont-Know-JS/network/members" class="social-count"
+       aria-label="16864 users forked this repository">
+      16,864
+    </a>
+  </li>
+</ul>
+
+      <h1 class="public ">
+  <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author" itemprop="author"><a class="url fn" rel="author" href="/getify">getify</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="/getify/You-Dont-Know-JS">You-Dont-Know-JS</a></strong>
+
+</h1>
+
+    </div>
+    
+<nav class="reponav js-repo-nav js-sidenav-container-pjax container"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a class="js-selected-navigation-item selected reponav-item" itemprop="url" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /getify/You-Dont-Know-JS" href="/getify/You-Dont-Know-JS">
+      <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /getify/You-Dont-Know-JS/issues" href="/getify/You-Dont-Know-JS/issues">
+        <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span itemprop="name">Issues</span>
+        <span class="Counter">110</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /getify/You-Dont-Know-JS/pulls" href="/getify/You-Dont-Know-JS/pulls">
+      <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="Counter">75</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+    <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /getify/You-Dont-Know-JS/projects" href="/getify/You-Dont-Know-JS/projects">
+      <svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      Projects
+      <span class="Counter" >1</span>
+</a>
+
+
+    <a class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /getify/You-Dont-Know-JS/wiki" href="/getify/You-Dont-Know-JS/wiki">
+      <svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
+      Wiki
+</a>
+  <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse alerts /getify/You-Dont-Know-JS/pulse" href="/getify/You-Dont-Know-JS/pulse">
+    <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
+    Insights
+</a>
+
+</nav>
+
+
+  </div>
+
+<div class="container new-discussion-timeline experiment-repo-nav  ">
+  <div class="repository-content ">
+
+    
+  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/getify/You-Dont-Know-JS/blob/0cc17c53ff772e20dfd6a7072c965df2486116e8/this%20%26%20object%20prototypes/ch3.md">Permalink</a>
+
+  <!-- blob contrib key: blob_contributors:v21:d49e2c5a5490f9c4576ba792d3d8aa4c -->
+
+      <div class="signup-prompt-bg rounded-1">
+      <div class="signup-prompt p-4 text-center mb-4 rounded-1">
+        <div class="position-relative">
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/site/dismiss_signup_prompt" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="5J3yb3X8eZDu9QtYc+V1oiqiMpa2qw1jqOVWSYBzEol2CJyKmBDenu7JHhRe2QdiN4rZPw7IIZ1mrjAWggPsdg==" />
+            <button type="submit" class="position-absolute top-0 right-0 btn-link link-gray" data-ga-click="(Logged out) Sign up prompt, clicked Dismiss, text:dismiss">
+              Dismiss
+            </button>
+</form>          <h3 class="pt-2">Join GitHub today</h3>
+          <p class="col-6 mx-auto">GitHub is home to over 28 million developers working together to host and review code, manage projects, and build software together.</p>
+          <a class="btn btn-primary" href="/join?source=prompt-blob-show" data-ga-click="(Logged out) Sign up prompt, clicked Sign up, text:sign-up">Sign up</a>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="file-navigation">
+    
+<div class="select-menu branch-select-menu js-menu-container js-select-menu float-left">
+  <button class=" btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
+    
+    type="button" aria-label="Switch branches or tags" aria-expanded="false" aria-haspopup="true">
+      <i>Branch:</i>
+      <span class="js-select-button css-truncate-target">master</span>
+  </button>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax>
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <svg class="octicon octicon-x js-menu-close" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+        <span class="select-menu-title">Switch branches/tags</span>
+      </div>
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/getify/You-Dont-Know-JS/blob/1ed-zh-CN/this%20&amp;%20object%20prototypes/ch3.md"
+               data-name="1ed-zh-CN"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
+                1ed-zh-CN
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open selected"
+               href="/getify/You-Dont-Know-JS/blob/master/this%20&amp;%20object%20prototypes/ch3.md"
+               data-name="master"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
+                master
+              </span>
+            </a>
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <div class="BtnGroup float-right">
+      <a href="/getify/You-Dont-Know-JS/find/master"
+            class="js-pjax-capture-input btn btn-sm BtnGroup-item"
+            data-pjax
+            data-hotkey="t">
+        Find file
+      </a>
+      <clipboard-copy for="blob-path" class="btn btn-sm BtnGroup-item">
+        Copy path
+      </clipboard-copy>
+    </div>
+    <div id="blob-path" class="breadcrumb">
+      <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/getify/You-Dont-Know-JS"><span>You-Dont-Know-JS</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/getify/You-Dont-Know-JS/tree/master/this%20%26%20object%20prototypes"><span>this &amp; object prototypes</span></a></span><span class="separator">/</span><strong class="final-path">ch3.md</strong>
+    </div>
+  </div>
+
+
+  
+  <div class="commit-tease">
+      <span class="float-right">
+        <a class="commit-tease-sha" href="/getify/You-Dont-Know-JS/commit/6efd08c9db8e9808a9046204c719c99cb4702c18" data-pjax>
+          6efd08c
+        </a>
+        <relative-time datetime="2017-08-15T15:40:04Z">Aug 15, 2017</relative-time>
+      </span>
+      <div>
+        <a rel="author" data-skip-pjax="true" data-hovercard-user-id="150330" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify"><img class="avatar" src="https://avatars3.githubusercontent.com/u/150330?s=40&amp;v=4" width="20" height="20" alt="@getify" /></a>
+        <a class="user-mention" rel="author" data-hovercard-user-id="150330" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify">getify</a>
+          <a data-pjax="true" title="Merge pull request #990 from whitepear/master
+
+Fix typos" class="message" href="/getify/You-Dont-Know-JS/commit/6efd08c9db8e9808a9046204c719c99cb4702c18">Merge pull request</a> <a href="https://github.com/getify/You-Dont-Know-JS/pull/990" class="issue-link js-issue-link" data-url="https://github.com/getify/You-Dont-Know-JS/issues/990" data-id="214563509" data-error-text="Failed to load issue title" data-permission-text="Issue title is private">#990</a> <a data-pjax="true" title="Merge pull request #990 from whitepear/master
+
+Fix typos" class="message" href="/getify/You-Dont-Know-JS/commit/6efd08c9db8e9808a9046204c719c99cb4702c18">from whitepear/master</a>
+      </div>
+
+    <div class="commit-tease-contributors">
+      
+<details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark float-left mr-2" id="blob_contributors_box">
+  <summary class="btn-link" aria-haspopup="dialog"  >
+    
+    <span><strong>16</strong> contributors</span>
+  </summary>
+  <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast " aria-label="Users who have contributed to this file">
+    <div class="Box-header">
+      <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
+        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+      </button>
+      <h3 class="Box-title">Users who have contributed to this file</h3>
+    </div>
+    
+        <ul class="list-style-none overflow-auto">
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/getify">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/150330?s=40&amp;v=4" width="20" height="20" />
+                getify
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/harpreetkhalsagtbit">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/2958292?s=40&amp;v=4" width="20" height="20" />
+                harpreetkhalsagtbit
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/masak">
+                <img class="avatar mr-2" alt="" src="https://avatars0.githubusercontent.com/u/20627?s=40&amp;v=4" width="20" height="20" />
+                masak
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/zackgao">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/1768718?s=40&amp;v=4" width="20" height="20" />
+                zackgao
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/whitepear">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/18552013?s=40&amp;v=4" width="20" height="20" />
+                whitepear
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/varun06">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/1284070?s=40&amp;v=4" width="20" height="20" />
+                varun06
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/regularmike">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/1693897?s=40&amp;v=4" width="20" height="20" />
+                regularmike
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/pdawyndt">
+                <img class="avatar mr-2" alt="" src="https://avatars2.githubusercontent.com/u/5736113?s=40&amp;v=4" width="20" height="20" />
+                pdawyndt
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/lw7360">
+                <img class="avatar mr-2" alt="" src="https://avatars1.githubusercontent.com/u/1806683?s=40&amp;v=4" width="20" height="20" />
+                lw7360
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/joeldudley">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/8593927?s=40&amp;v=4" width="20" height="20" />
+                joeldudley
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/machineloop">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/3682072?s=40&amp;v=4" width="20" height="20" />
+                machineloop
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/ibjhb">
+                <img class="avatar mr-2" alt="" src="https://avatars1.githubusercontent.com/u/265779?s=40&amp;v=4" width="20" height="20" />
+                ibjhb
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/HugoGiraudel">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/1889710?s=40&amp;v=4" width="20" height="20" />
+                HugoGiraudel
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/framini">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/840935?s=40&amp;v=4" width="20" height="20" />
+                framini
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/cardern">
+                <img class="avatar mr-2" alt="" src="https://avatars1.githubusercontent.com/u/4327333?s=40&amp;v=4" width="20" height="20" />
+                cardern
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/alexreardon">
+                <img class="avatar mr-2" alt="" src="https://avatars2.githubusercontent.com/u/2182637?s=40&amp;v=4" width="20" height="20" />
+                alexreardon
+</a>            </li>
+        </ul>
+
+  </details-dialog>
+</details>
+          <a class="avatar-link" data-hovercard-user-id="150330" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=getify">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/150330?s=40&amp;v=4" width="20" height="20" alt="@getify" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="2958292" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=harpreetkhalsagtbit">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/2958292?s=40&amp;v=4" width="20" height="20" alt="@harpreetkhalsagtbit" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="20627" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=masak">
+      <img class="avatar" src="https://avatars0.githubusercontent.com/u/20627?s=40&amp;v=4" width="20" height="20" alt="@masak" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="1768718" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=zackgao">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/1768718?s=40&amp;v=4" width="20" height="20" alt="@zackgao" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="18552013" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=whitepear">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/18552013?s=40&amp;v=4" width="20" height="20" alt="@whitepear" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="1284070" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=varun06">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/1284070?s=40&amp;v=4" width="20" height="20" alt="@varun06" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="1693897" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=regularmike">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/1693897?s=40&amp;v=4" width="20" height="20" alt="@regularmike" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="5736113" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=pdawyndt">
+      <img class="avatar" src="https://avatars2.githubusercontent.com/u/5736113?s=40&amp;v=4" width="20" height="20" alt="@pdawyndt" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="1806683" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=lw7360">
+      <img class="avatar" src="https://avatars1.githubusercontent.com/u/1806683?s=40&amp;v=4" width="20" height="20" alt="@lw7360" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="8593927" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=joeldudley">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/8593927?s=40&amp;v=4" width="20" height="20" alt="@joeldudley" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="3682072" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=machineloop">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/3682072?s=40&amp;v=4" width="20" height="20" alt="@machineloop" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="265779" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=ibjhb">
+      <img class="avatar" src="https://avatars1.githubusercontent.com/u/265779?s=40&amp;v=4" width="20" height="20" alt="@ibjhb" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="1889710" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=HugoGiraudel">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/1889710?s=40&amp;v=4" width="20" height="20" alt="@HugoGiraudel" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="840935" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=framini">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/840935?s=40&amp;v=4" width="20" height="20" alt="@framini" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="4327333" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=cardern">
+      <img class="avatar" src="https://avatars1.githubusercontent.com/u/4327333?s=40&amp;v=4" width="20" height="20" alt="@cardern" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="2182637" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md?author=alexreardon">
+      <img class="avatar" src="https://avatars2.githubusercontent.com/u/2182637?s=40&amp;v=4" width="20" height="20" alt="@alexreardon" /> 
+</a>
+
+    </div>
+  </div>
+
+
+
+  <div class="file">
+    <div class="file-header">
+  <div class="file-actions">
+
+    <div class="BtnGroup">
+      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/getify/You-Dont-Know-JS/raw/master/this%20%26%20object%20prototypes/ch3.md">Raw</a>
+        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/getify/You-Dont-Know-JS/blame/master/this%20%26%20object%20prototypes/ch3.md">Blame</a>
+      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch3.md">History</a>
+    </div>
+
+
+        <button type="button" class="btn-octicon disabled tooltipped tooltipped-nw"
+          aria-label="You must be signed in to make or propose changes">
+          <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
+        </button>
+        <button type="button" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
+          aria-label="You must be signed in to make or propose changes">
+          <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
+        </button>
+  </div>
+
+  <div class="file-info">
+      947 lines (630 sloc)
+      <span class="file-info-divider"></span>
+    45.7 KB
+  </div>
+</div>
+
+    
+  <div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-you-dont-know-js-this--object-prototypes" class="anchor" aria-hidden="true" href="#you-dont-know-js-this--object-prototypes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>You Don't Know JS: <em>this</em> &amp; Object Prototypes</h1>
+<h1><a id="user-content-chapter-3-objects" class="anchor" aria-hidden="true" href="#chapter-3-objects"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Chapter 3: Objects</h1>
+<p>In Chapters 1 and 2, we explained how the <code>this</code> binding points to various objects depending on the call-site of the function invocation. But what exactly are objects, and why do we need to point to them? We will explore objects in detail in this chapter.</p>
+<h2><a id="user-content-syntax" class="anchor" aria-hidden="true" href="#syntax"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Syntax</h2>
+<p>Objects come in two forms: the declarative (literal) form, and the constructed form.</p>
+<p>The literal syntax for an object looks like this:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObj <span class="pl-k">=</span> {
+	key<span class="pl-k">:</span> value
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+};</pre></div>
+<p>The constructed form looks like this:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObj <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Object</span>();
+<span class="pl-smi">myObj</span>.<span class="pl-smi">key</span> <span class="pl-k">=</span> value;</pre></div>
+<p>The constructed form and the literal form result in exactly the same sort of object. The only difference really is that you can add one or more key/value pairs to the literal declaration, whereas with constructed-form objects, you must add the properties one-by-one.</p>
+<p><strong>Note:</strong> It's extremely uncommon to use the "constructed form" for creating objects as just shown. You would pretty much always want to use the literal syntax form. The same will be true of most of the built-in objects (see below).</p>
+<h2><a id="user-content-type" class="anchor" aria-hidden="true" href="#type"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type</h2>
+<p>Objects are the general building block upon which much of JS is built. They are one of the 6 primary types (called "language types" in the specification) in JS:</p>
+<ul>
+<li><code>string</code></li>
+<li><code>number</code></li>
+<li><code>boolean</code></li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+<li><code>object</code></li>
+</ul>
+<p>Note that the <em>simple primitives</em> (<code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, and <code>undefined</code>) are <strong>not</strong> themselves <code>objects</code>. <code>null</code> is sometimes referred to as an object type, but this misconception stems from a bug in the language which causes <code>typeof null</code> to return the string <code>"object"</code> incorrectly (and confusingly). In fact, <code>null</code> is its own primitive type.</p>
+<p><strong>It's a common mis-statement that "everything in JavaScript is an object". This is clearly not true.</strong></p>
+<p>By contrast, there <em>are</em> a few special object sub-types, which we can refer to as <em>complex primitives</em>.</p>
+<p><code>function</code> is a sub-type of object (technically, a "callable object"). Functions in JS are said to be "first class" in that they are basically just normal objects (with callable behavior semantics bolted on), and so they can be handled like any other plain object.</p>
+<p>Arrays are also a form of objects, with extra behavior. The organization of contents in arrays is slightly more structured than for general objects.</p>
+<h3><a id="user-content-built-in-objects" class="anchor" aria-hidden="true" href="#built-in-objects"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Built-in Objects</h3>
+<p>There are several other object sub-types, usually referred to as built-in objects. For some of them, their names seem to imply they are directly related to their simple primitives counter-parts, but in fact, their relationship is more complicated, which we'll explore shortly.</p>
+<ul>
+<li><code>String</code></li>
+<li><code>Number</code></li>
+<li><code>Boolean</code></li>
+<li><code>Object</code></li>
+<li><code>Function</code></li>
+<li><code>Array</code></li>
+<li><code>Date</code></li>
+<li><code>RegExp</code></li>
+<li><code>Error</code></li>
+</ul>
+<p>These built-ins have the appearance of being actual types, even classes, if you rely on the similarity to other languages such as Java's <code>String</code> class.</p>
+<p>But in JS, these are actually just built-in functions. Each of these built-in functions can be used as a constructor (that is, a function call with the <code>new</code> operator -- see Chapter 2), with the result being a newly <em>constructed</em> object of the sub-type in question. For instance:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> strPrimitive <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>I am a string<span class="pl-pds">"</span></span>;
+<span class="pl-k">typeof</span> strPrimitive;							<span class="pl-c"><span class="pl-c">//</span> "string"</span>
+strPrimitive <span class="pl-k">instanceof</span> <span class="pl-c1">String</span>;					<span class="pl-c"><span class="pl-c">//</span> false</span>
+
+<span class="pl-k">var</span> strObject <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">String</span>( <span class="pl-s"><span class="pl-pds">"</span>I am a string<span class="pl-pds">"</span></span> );
+<span class="pl-k">typeof</span> strObject; 								<span class="pl-c"><span class="pl-c">//</span> "object"</span>
+strObject <span class="pl-k">instanceof</span> <span class="pl-c1">String</span>;					<span class="pl-c"><span class="pl-c">//</span> true</span>
+
+<span class="pl-c"><span class="pl-c">//</span> inspect the object sub-type</span>
+<span class="pl-c1">Object</span>.<span class="pl-c1">prototype</span>.<span class="pl-smi">toString</span>.<span class="pl-c1">call</span>( strObject );	<span class="pl-c"><span class="pl-c">//</span> [object String]</span></pre></div>
+<p>We'll see in detail in a later chapter exactly how the <code>Object.prototype.toString...</code> bit works, but briefly, we can inspect the internal sub-type by borrowing the base default <code>toString()</code> method, and you can see it reveals that <code>strObject</code> is an object that was in fact created by the <code>String</code> constructor.</p>
+<p>The primitive value <code>"I am a string"</code> is not an object, it's a primitive literal and immutable value. To perform operations on it, such as checking its length, accessing its individual character contents, etc, a <code>String</code> object is required.</p>
+<p>Luckily, the language automatically coerces a <code>"string"</code> primitive to a <code>String</code> object when necessary, which means you almost never need to explicitly create the Object form. It is <strong>strongly preferred</strong> by the majority of the JS community to use the literal form for a value, where possible, rather than the constructed object form.</p>
+<p>Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> strPrimitive <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>I am a string<span class="pl-pds">"</span></span>;
+
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">strPrimitive</span>.<span class="pl-c1">length</span> );			<span class="pl-c"><span class="pl-c">//</span> 13</span>
+
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">strPrimitive</span>.<span class="pl-c1">charAt</span>( <span class="pl-c1">3</span> ) );	<span class="pl-c"><span class="pl-c">//</span> "m"</span></pre></div>
+<p>In both cases, we call a property or method on a string primitive, and the engine automatically coerces it to a <code>String</code> object, so that the property/method access works.</p>
+<p>The same sort of coercion happens between the number literal primitive <code>42</code> and the <code>new Number(42)</code> object wrapper, when using methods like <code>42.359.toFixed(2)</code>. Likewise for <code>Boolean</code> objects from <code>"boolean"</code> primitives.</p>
+<p><code>null</code> and <code>undefined</code> have no object wrapper form, only their primitive values. By contrast, <code>Date</code> values can <em>only</em> be created with their constructed object form, as they have no literal form counter-part.</p>
+<p><code>Object</code>s, <code>Array</code>s, <code>Function</code>s, and <code>RegExp</code>s (regular expressions) are all objects regardless of whether the literal or constructed form is used. The constructed form does offer, in some cases, more options in creation than the literal form counterpart. Since objects are created either way, the simpler literal form is almost universally preferred. <strong>Only use the constructed form if you need the extra options.</strong></p>
+<p><code>Error</code> objects are rarely created explicitly in code, but usually created automatically when exceptions are thrown. They can be created with the constructed form <code>new Error(..)</code>, but it's often unnecessary.</p>
+<h2><a id="user-content-contents" class="anchor" aria-hidden="true" href="#contents"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contents</h2>
+<p>As mentioned earlier, the contents of an object consist of values (any type) stored at specifically named <em>locations</em>, which we call properties.</p>
+<p>It's important to note that while we say "contents" which implies that these values are <em>actually</em> stored inside the object, that's merely an appearance. The engine stores values in implementation-dependent ways, and may very well not store them <em>in</em> some object container. What <em>is</em> stored in the container are these property names, which act as pointers (technically, <em>references</em>) to where the values are stored.</p>
+<p>Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;		<span class="pl-c"><span class="pl-c">//</span> 2</span>
+
+myObject[<span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>];	<span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p>To access the value at the <em>location</em> <code>a</code> in <code>myObject</code>, we need to use either the <code>.</code> operator or the <code>[ ]</code> operator. The <code>.a</code> syntax is usually referred to as "property" access, whereas the <code>["a"]</code> syntax is usually referred to as "key" access. In reality, they both access the same <em>location</em>, and will pull out the same value, <code>2</code>, so the terms can be used interchangeably. We will use the most common term, "property access" from here on.</p>
+<p>The main difference between the two syntaxes is that the <code>.</code> operator requires an <code>Identifier</code> compatible property name after it, whereas the <code>[".."]</code> syntax can take basically any UTF-8/unicode compatible string as the name for the property. To reference a property of the name "Super-Fun!", for instance, you would have to use the <code>["Super-Fun!"]</code> access syntax, as <code>Super-Fun!</code> is not a valid <code>Identifier</code> property name.</p>
+<p>Also, since the <code>[".."]</code> syntax uses a string's <strong>value</strong> to specify the location, this means the program can programmatically build up the value of the string, such as:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> wantA <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-k">var</span> idx;
+
+<span class="pl-k">if</span> (wantA) {
+	idx <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>;
+}
+
+<span class="pl-c"><span class="pl-c">//</span> later</span>
+
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>( myObject[idx] ); <span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p>In objects, property names are <strong>always</strong> strings. If you use any other value besides a <code>string</code> (primitive) as the property, it will first be converted to a string. This even includes numbers, which are commonly used as array indexes, so be careful not to confuse the use of numbers between objects and arrays.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> { };
+
+myObject[<span class="pl-c1">true</span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>;
+myObject[<span class="pl-c1">3</span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>;
+myObject[myObject] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>baz<span class="pl-pds">"</span></span>;
+
+myObject[<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>];				<span class="pl-c"><span class="pl-c">//</span> "foo"</span>
+myObject[<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>];					<span class="pl-c"><span class="pl-c">//</span> "bar"</span>
+myObject[<span class="pl-s"><span class="pl-pds">"</span>[object Object]<span class="pl-pds">"</span></span>];	<span class="pl-c"><span class="pl-c">//</span> "baz"</span></pre></div>
+<h3><a id="user-content-computed-property-names" class="anchor" aria-hidden="true" href="#computed-property-names"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Computed Property Names</h3>
+<p>The <code>myObject[..]</code> property access syntax we just described is useful if you need to use a computed expression value <em>as</em> the key name, like <code>myObject[prefix + name]</code>. But that's not really helpful when declaring objects using the object-literal syntax.</p>
+<p>ES6 adds <em>computed property names</em>, where you can specify an expression, surrounded by a <code>[ ]</code> pair, in the key-name position of an object-literal declaration:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> prefix <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>;
+
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	[prefix <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>]<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>hello<span class="pl-pds">"</span></span>,
+	[prefix <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>baz<span class="pl-pds">"</span></span>]<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>world<span class="pl-pds">"</span></span>
+};
+
+myObject[<span class="pl-s"><span class="pl-pds">"</span>foobar<span class="pl-pds">"</span></span>]; <span class="pl-c"><span class="pl-c">//</span> hello</span>
+myObject[<span class="pl-s"><span class="pl-pds">"</span>foobaz<span class="pl-pds">"</span></span>]; <span class="pl-c"><span class="pl-c">//</span> world</span></pre></div>
+<p>The most common usage of <em>computed property names</em> will probably be for ES6 <code>Symbol</code>s, which we will not be covering in detail in this book. In short, they're a new primitive data type which has an opaque unguessable value (technically a <code>string</code> value). You will be strongly discouraged from working with the <em>actual value</em> of a <code>Symbol</code> (which can theoretically be different between different JS engines), so the name of the <code>Symbol</code>, like <code>Symbol.Something</code> (just a made up name!), will be what you use:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	[<span class="pl-c1">Symbol</span>.<span class="pl-smi">Something</span>]<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>hello world<span class="pl-pds">"</span></span>
+};</pre></div>
+<h3><a id="user-content-property-vs-method" class="anchor" aria-hidden="true" href="#property-vs-method"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Property vs. Method</h3>
+<p>Some developers like to make a distinction when talking about a property access on an object, if the value being accessed happens to be a function. Because it's tempting to think of the function as <em>belonging</em> to the object, and in other languages, functions which belong to objects (aka, "classes") are referred to as "methods", it's not uncommon to hear, "method access" as opposed to "property access".</p>
+<p><strong>The specification makes this same distinction</strong>, interestingly.</p>
+<p>Technically, functions never "belong" to objects, so saying that a function that just happens to be accessed on an object reference is automatically a "method" seems a bit of a stretch of semantics.</p>
+<p>It <em>is</em> true that some functions have <code>this</code> references in them, and that <em>sometimes</em> these <code>this</code> references refer to the object reference at the call-site. But this usage really does not make that function any more a "method" than any other function, as <code>this</code> is dynamically bound at run-time, at the call-site, and thus its relationship to the object is indirect, at best.</p>
+<p>Every time you access a property on an object, that is a <strong>property access</strong>, regardless of the type of value you get back. If you <em>happen</em> to get a function from that property access, it's not magically a "method" at that point. There's nothing special (outside of possible implicit <code>this</code> binding as explained earlier) about a function that comes from a property access.</p>
+<p>For instance:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>() {
+	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> );
+}
+
+<span class="pl-k">var</span> someFoo <span class="pl-k">=</span> foo;	<span class="pl-c"><span class="pl-c">//</span> variable reference to `foo`</span>
+
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	someFoo<span class="pl-k">:</span> foo
+};
+
+foo;				<span class="pl-c"><span class="pl-c">//</span> function foo(){..}</span>
+
+someFoo;			<span class="pl-c"><span class="pl-c">//</span> function foo(){..}</span>
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">someFoo</span>;	<span class="pl-c"><span class="pl-c">//</span> function foo(){..}</span></pre></div>
+<p><code>someFoo</code> and <code>myObject.someFoo</code> are just two separate references to the same function, and neither implies anything about the function being special or "owned" by any other object. If <code>foo()</code> above was defined to have a <code>this</code> reference inside it, that <code>myObject.someFoo</code> <em>implicit binding</em> would be the <strong>only</strong> observable difference between the two references. Neither reference really makes sense to be called a "method".</p>
+<p><strong>Perhaps one could argue</strong> that a function <em>becomes a method</em>, not at definition time, but during run-time just for that invocation, depending on how it's called at its call-site (with an object reference context or not -- see Chapter 2 for more details). Even this interpretation is a bit of a stretch.</p>
+<p>The safest conclusion is probably that "function" and "method" are interchangeable in JavaScript.</p>
+<p><strong>Note:</strong> ES6 adds a <code>super</code> reference, which is typically going to be used with <code>class</code> (see Appendix A). The way <code>super</code> behaves (static binding rather than late binding as <code>this</code>) gives further weight to the idea that a function which is <code>super</code> bound somewhere is more a "method" than "function". But again, these are just subtle semantic (and mechanical) nuances.</p>
+<p>Even when you declare a function expression as part of the object-literal, that function doesn't magically <em>belong</em> more to the object -- still just multiple references to the same function object:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	<span class="pl-en">foo</span><span class="pl-k">:</span> <span class="pl-k">function</span> <span class="pl-en">foo</span>() {
+		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> );
+	}
+};
+
+<span class="pl-k">var</span> someFoo <span class="pl-k">=</span> <span class="pl-smi">myObject</span>.<span class="pl-smi">foo</span>;
+
+someFoo;		<span class="pl-c"><span class="pl-c">//</span> function foo(){..}</span>
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">foo</span>;	<span class="pl-c"><span class="pl-c">//</span> function foo(){..}</span></pre></div>
+<p><strong>Note:</strong> In Chapter 6, we will cover an ES6 short-hand for that <code>foo: function foo(){ .. }</code> declaration syntax in our object-literal.</p>
+<h3><a id="user-content-arrays" class="anchor" aria-hidden="true" href="#arrays"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Arrays</h3>
+<p>Arrays also use the <code>[ ]</code> access form, but as mentioned above, they have slightly more structured organization for how and where values are stored (though still no restriction on what <em>type</em> of values are stored). Arrays assume <em>numeric indexing</em>, which means that values are stored in locations, usually called <em>indices</em>, at non-negative integers, such as <code>0</code> and <code>42</code>.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myArray <span class="pl-k">=</span> [ <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-c1">42</span>, <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> ];
+
+<span class="pl-smi">myArray</span>.<span class="pl-c1">length</span>;		<span class="pl-c"><span class="pl-c">//</span> 3</span>
+
+myArray[<span class="pl-c1">0</span>];			<span class="pl-c"><span class="pl-c">//</span> "foo"</span>
+
+myArray[<span class="pl-c1">2</span>];			<span class="pl-c"><span class="pl-c">//</span> "bar"</span></pre></div>
+<p>Arrays <em>are</em> objects, so even though each index is a positive integer, you can <em>also</em> add properties onto the array:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myArray <span class="pl-k">=</span> [ <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-c1">42</span>, <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> ];
+
+<span class="pl-smi">myArray</span>.<span class="pl-smi">baz</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>baz<span class="pl-pds">"</span></span>;
+
+<span class="pl-smi">myArray</span>.<span class="pl-c1">length</span>;	<span class="pl-c"><span class="pl-c">//</span> 3</span>
+
+<span class="pl-smi">myArray</span>.<span class="pl-smi">baz</span>;	<span class="pl-c"><span class="pl-c">//</span> "baz"</span></pre></div>
+<p>Notice that adding named properties (regardless of <code>.</code> or <code>[ ]</code> operator syntax) does not change the reported <code>length</code> of the array.</p>
+<p>You <em>could</em> use an array as a plain key/value object, and never add any numeric indices, but this is a bad idea because arrays have behavior and optimizations specific to their intended use, and likewise with plain objects. Use objects to store key/value pairs, and arrays to store values at numeric indices.</p>
+<p><strong>Be careful:</strong> If you try to add a property to an array, but the property name <em>looks</em> like a number, it will end up instead as a numeric index (thus modifying the array contents):</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myArray <span class="pl-k">=</span> [ <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, <span class="pl-c1">42</span>, <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> ];
+
+myArray[<span class="pl-s"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>baz<span class="pl-pds">"</span></span>;
+
+<span class="pl-smi">myArray</span>.<span class="pl-c1">length</span>;	<span class="pl-c"><span class="pl-c">//</span> 4</span>
+
+myArray[<span class="pl-c1">3</span>];		<span class="pl-c"><span class="pl-c">//</span> "baz"</span></pre></div>
+<h3><a id="user-content-duplicating-objects" class="anchor" aria-hidden="true" href="#duplicating-objects"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Duplicating Objects</h3>
+<p>One of the most commonly requested features when developers newly take up the JavaScript language is how to duplicate an object. It would seem like there should just be a built-in <code>copy()</code> method, right? It turns out that it's a little more complicated than that, because it's not fully clear what, by default, should be the algorithm for the duplication.</p>
+<p>For example, consider this object:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">anotherFunction</span>() { <span class="pl-c"><span class="pl-c">/*</span>..<span class="pl-c">*/</span></span> }
+
+<span class="pl-k">var</span> anotherObject <span class="pl-k">=</span> {
+	c<span class="pl-k">:</span> <span class="pl-c1">true</span>
+};
+
+<span class="pl-k">var</span> anotherArray <span class="pl-k">=</span> [];
+
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+	b<span class="pl-k">:</span> anotherObject,	<span class="pl-c"><span class="pl-c">//</span> reference, not a copy!</span>
+	c<span class="pl-k">:</span> anotherArray,	<span class="pl-c"><span class="pl-c">//</span> another reference!</span>
+	d<span class="pl-k">:</span> anotherFunction
+};
+
+<span class="pl-smi">anotherArray</span>.<span class="pl-c1">push</span>( anotherObject, myObject );</pre></div>
+<p>What exactly should be the representation of a <em>copy</em> of <code>myObject</code>?</p>
+<p>Firstly, we should answer if it should be a <em>shallow</em> or <em>deep</em> copy. A <em>shallow copy</em> would end up with <code>a</code> on the new object as a copy of the value <code>2</code>, but <code>b</code>, <code>c</code>, and <code>d</code> properties as just references to the same places as the references in the original object. A <em>deep copy</em> would duplicate not only <code>myObject</code>, but <code>anotherObject</code> and <code>anotherArray</code>. But then we have issues that <code>anotherArray</code> has references to <code>anotherObject</code> and <code>myObject</code> in it, so <em>those</em> should also be duplicated rather than reference-preserved. Now we have an infinite circular duplication problem because of the circular reference.</p>
+<p>Should we detect a circular reference and just break the circular traversal (leaving the deep element not fully duplicated)? Should we error out completely? Something in between?</p>
+<p>Moreover, it's not really clear what "duplicating" a function would mean? There are some hacks like pulling out the <code>toString()</code> serialization of a function's source code (which varies across implementations and is not even reliable in all engines depending on the type of function being inspected).</p>
+<p>So how do we resolve all these tricky questions? Various JS frameworks have each picked their own interpretations and made their own decisions. But which of these (if any) should JS adopt as <em>the</em> standard? For a long time, there was no clear answer.</p>
+<p>One subset solution is that objects which are JSON-safe (that is, can be serialized to a JSON string and then re-parsed to an object with the same structure and values) can easily be <em>duplicated</em> with:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> newObj <span class="pl-k">=</span> <span class="pl-c1">JSON</span>.<span class="pl-c1">parse</span>( <span class="pl-c1">JSON</span>.<span class="pl-c1">stringify</span>( someObj ) );</pre></div>
+<p>Of course, that requires you to ensure your object is JSON safe. For some situations, that's trivial. For others, it's insufficient.</p>
+<p>At the same time, a shallow copy is fairly understandable and has far less issues, so ES6 has now defined <code>Object.assign(..)</code> for this task. <code>Object.assign(..)</code> takes a <em>target</em> object as its first parameter, and one or more <em>source</em> objects as its subsequent parameters. It iterates over all the <em>enumerable</em> (see below), <em>owned keys</em> (<strong>immediately present</strong>) on the <em>source</em> object(s) and copies them (via <code>=</code> assignment only) to <em>target</em>. It also, helpfully, returns <em>target</em>, as you can see below:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> newObj <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">assign</span>( {}, myObject );
+
+<span class="pl-smi">newObj</span>.<span class="pl-smi">a</span>;						<span class="pl-c"><span class="pl-c">//</span> 2</span>
+<span class="pl-smi">newObj</span>.<span class="pl-smi">b</span> <span class="pl-k">===</span> anotherObject;		<span class="pl-c"><span class="pl-c">//</span> true</span>
+<span class="pl-smi">newObj</span>.<span class="pl-smi">c</span> <span class="pl-k">===</span> anotherArray;		<span class="pl-c"><span class="pl-c">//</span> true</span>
+<span class="pl-smi">newObj</span>.<span class="pl-smi">d</span> <span class="pl-k">===</span> anotherFunction;	<span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p><strong>Note:</strong> In the next section, we describe "property descriptors" (property characteristics) and show the use of <code>Object.defineProperty(..)</code>. The duplication that occurs for <code>Object.assign(..)</code> however is purely <code>=</code> style assignment, so any special characteristics of a property (like <code>writable</code>) on a source object <strong>are not preserved</strong> on the target object.</p>
+<h3><a id="user-content-property-descriptors" class="anchor" aria-hidden="true" href="#property-descriptors"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Property Descriptors</h3>
+<p>Prior to ES5, the JavaScript language gave no direct way for your code to inspect or draw any distinction between the characteristics of properties, such as whether the property was read-only or not.</p>
+<p>But as of ES5, all properties are described in terms of a <strong>property descriptor</strong>.</p>
+<p>Consider this code:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-c1">Object</span>.<span class="pl-en">getOwnPropertyDescriptor</span>( myObject, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> );
+<span class="pl-c"><span class="pl-c">//</span> {</span>
+<span class="pl-c"><span class="pl-c">//</span>    value: 2,</span>
+<span class="pl-c"><span class="pl-c">//</span>    writable: true,</span>
+<span class="pl-c"><span class="pl-c">//</span>    enumerable: true,</span>
+<span class="pl-c"><span class="pl-c">//</span>    configurable: true</span>
+<span class="pl-c"><span class="pl-c">//</span> }</span></pre></div>
+<p>As you can see, the property descriptor (called a "data descriptor" since it's only for holding a data value) for our normal object property <code>a</code> is much more than just its <code>value</code> of <code>2</code>. It includes 3 other characteristics: <code>writable</code>, <code>enumerable</code>, and <code>configurable</code>.</p>
+<p>While we can see what the default values for the property descriptor characteristics are when we create a normal property, we can use <code>Object.defineProperty(..)</code> to add a new property, or modify an existing one (if it's <code>configurable</code>!), with the desired characteristics.</p>
+<p>For example:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {};
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( myObject, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, {
+	value<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+	writable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	configurable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>
+} );
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p>Using <code>defineProperty(..)</code>, we added the plain, normal <code>a</code> property to <code>myObject</code> in a manually explicit way. However, you generally wouldn't use this manual approach unless you wanted to modify one of the descriptor characteristics from its normal behavior.</p>
+<h4><a id="user-content-writable" class="anchor" aria-hidden="true" href="#writable"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Writable</h4>
+<p>The ability for you to change the value of a property is controlled by <code>writable</code>.</p>
+<p>Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {};
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( myObject, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, {
+	value<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+	writable<span class="pl-k">:</span> <span class="pl-c1">false</span>, <span class="pl-c"><span class="pl-c">//</span> not writable!</span>
+	configurable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>
+} );
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span> <span class="pl-k">=</span> <span class="pl-c1">3</span>;
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p>As you can see, our modification of the <code>value</code> silently failed. If we try in <code>strict mode</code>, we get an error:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-s"><span class="pl-pds">"</span>use strict<span class="pl-pds">"</span></span>;
+
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> {};
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( myObject, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, {
+	value<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+	writable<span class="pl-k">:</span> <span class="pl-c1">false</span>, <span class="pl-c"><span class="pl-c">//</span> not writable!</span>
+	configurable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>
+} );
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span> <span class="pl-k">=</span> <span class="pl-c1">3</span>; <span class="pl-c"><span class="pl-c">//</span> TypeError</span></pre></div>
+<p>The <code>TypeError</code> tells us we cannot change a non-writable property.</p>
+<p><strong>Note:</strong> We will discuss getters/setters shortly, but briefly, you can observe that <code>writable:false</code> means a value cannot be changed, which is somewhat equivalent to if you defined a no-op setter. Actually, your no-op setter would need to throw a <code>TypeError</code> when called, to be truly conformant to <code>writable:false</code>.</p>
+<h4><a id="user-content-configurable" class="anchor" aria-hidden="true" href="#configurable"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configurable</h4>
+<p>As long as a property is currently configurable, we can modify its descriptor definition, using the same <code>defineProperty(..)</code> utility.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span> <span class="pl-k">=</span> <span class="pl-c1">3</span>;
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;					<span class="pl-c"><span class="pl-c">//</span> 3</span>
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( myObject, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, {
+	value<span class="pl-k">:</span> <span class="pl-c1">4</span>,
+	writable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	configurable<span class="pl-k">:</span> <span class="pl-c1">false</span>,	<span class="pl-c"><span class="pl-c">//</span> not configurable!</span>
+	enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>
+} );
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;					<span class="pl-c"><span class="pl-c">//</span> 4</span>
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span> <span class="pl-k">=</span> <span class="pl-c1">5</span>;
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;					<span class="pl-c"><span class="pl-c">//</span> 5</span>
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( myObject, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, {
+	value<span class="pl-k">:</span> <span class="pl-c1">6</span>,
+	writable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	configurable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>
+} ); <span class="pl-c"><span class="pl-c">//</span> TypeError</span></pre></div>
+<p>The final <code>defineProperty(..)</code> call results in a TypeError, regardless of <code>strict mode</code>, if you attempt to change the descriptor definition of a non-configurable property. Be careful: as you can see, changing <code>configurable</code> to <code>false</code> is a <strong>one-way action, and cannot be undone!</strong></p>
+<p><strong>Note:</strong> There's a nuanced exception to be aware of: even if the property is already <code>configurable:false</code>, <code>writable</code> can always be changed from <code>true</code> to <code>false</code> without error, but not back to <code>true</code> if already <code>false</code>.</p>
+<p>Another thing <code>configurable:false</code> prevents is the ability to use the <code>delete</code> operator to remove an existing property.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;				<span class="pl-c"><span class="pl-c">//</span> 2</span>
+<span class="pl-k">delete</span> <span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;				<span class="pl-c"><span class="pl-c">//</span> undefined</span>
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( myObject, <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, {
+	value<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+	writable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	configurable<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+	enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>
+} );
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;				<span class="pl-c"><span class="pl-c">//</span> 2</span>
+<span class="pl-k">delete</span> <span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>;				<span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p>As you can see, the last <code>delete</code> call failed (silently) because we made the <code>a</code> property non-configurable.</p>
+<p><code>delete</code> is only used to remove object properties (which can be removed) directly from the object in question. If an object property is the last remaining <em>reference</em> to some object/function, and you <code>delete</code> it, that removes the reference and now that unreferenced object/function can be garbage collected. But, it is <strong>not</strong> proper to think of <code>delete</code> as a tool to free up allocated memory as it does in other languages (like C/C++). <code>delete</code> is just an object property removal operation -- nothing more.</p>
+<h4><a id="user-content-enumerable" class="anchor" aria-hidden="true" href="#enumerable"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enumerable</h4>
+<p>The final descriptor characteristic we will mention here (there are two others, which we deal with shortly when we discuss getter/setters) is <code>enumerable</code>.</p>
+<p>The name probably makes it obvious, but this characteristic controls if a property will show up in certain object-property enumerations, such as the <code>for..in</code> loop. Set to <code>false</code> to keep it from showing up in such enumerations, even though it's still completely accessible. Set to <code>true</code> to keep it present.</p>
+<p>All normal user-defined properties are defaulted to <code>enumerable</code>, as this is most commonly what you want. But if you have a special property you want to hide from enumeration, set it to <code>enumerable:false</code>.</p>
+<p>We'll demonstrate enumerability in much more detail shortly, so keep a mental bookmark on this topic.</p>
+<h3><a id="user-content-immutability" class="anchor" aria-hidden="true" href="#immutability"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Immutability</h3>
+<p>It is sometimes desired to make properties or objects that cannot be changed (either by accident or intentionally). ES5 adds support for handling that in a variety of different nuanced ways.</p>
+<p>It's important to note that <strong>all</strong> of these approaches create shallow immutability. That is, they affect only the object and its direct property characteristics. If an object has a reference to another object (array, object, function, etc), the <em>contents</em> of that object are not affected, and remain mutable.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">myImmutableObject</span>.<span class="pl-smi">foo</span>; <span class="pl-c"><span class="pl-c">//</span> [1,2,3]</span>
+<span class="pl-smi">myImmutableObject</span>.<span class="pl-smi">foo</span>.<span class="pl-c1">push</span>( <span class="pl-c1">4</span> );
+<span class="pl-smi">myImmutableObject</span>.<span class="pl-smi">foo</span>; <span class="pl-c"><span class="pl-c">//</span> [1,2,3,4]</span></pre></div>
+<p>We assume in this snippet that <code>myImmutableObject</code> is already created and protected as immutable. But, to also protect the contents of <code>myImmutableObject.foo</code> (which is its own object -- array), you would also need to make <code>foo</code> immutable, using one or more of the following functionalities.</p>
+<p><strong>Note:</strong> It is not terribly common to create deeply entrenched immutable objects in JS programs. Special cases can certainly call for it, but as a general design pattern, if you find yourself wanting to <em>seal</em> or <em>freeze</em> all your objects, you may want to take a step back and reconsider your program design to be more robust to potential changes in objects' values.</p>
+<h4><a id="user-content-object-constant" class="anchor" aria-hidden="true" href="#object-constant"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Object Constant</h4>
+<p>By combining <code>writable:false</code> and <code>configurable:false</code>, you can essentially create a <em>constant</em> (cannot be changed, redefined or deleted) as an object property, like:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {};
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( myObject, <span class="pl-s"><span class="pl-pds">"</span>FAVORITE_NUMBER<span class="pl-pds">"</span></span>, {
+	value<span class="pl-k">:</span> <span class="pl-c1">42</span>,
+	writable<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+	configurable<span class="pl-k">:</span> <span class="pl-c1">false</span>
+} );</pre></div>
+<h4><a id="user-content-prevent-extensions" class="anchor" aria-hidden="true" href="#prevent-extensions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prevent Extensions</h4>
+<p>If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call <code>Object.preventExtensions(..)</code>:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-c1">Object</span>.<span class="pl-en">preventExtensions</span>( myObject );
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">b</span> <span class="pl-k">=</span> <span class="pl-c1">3</span>;
+<span class="pl-smi">myObject</span>.<span class="pl-smi">b</span>; <span class="pl-c"><span class="pl-c">//</span> undefined</span></pre></div>
+<p>In <code>non-strict mode</code>, the creation of <code>b</code> fails silently. In <code>strict mode</code>, it throws a <code>TypeError</code>.</p>
+<h4><a id="user-content-seal" class="anchor" aria-hidden="true" href="#seal"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Seal</h4>
+<p><code>Object.seal(..)</code> creates a "sealed" object, which means it takes an existing object and essentially calls <code>Object.preventExtensions(..)</code> on it, but also marks all its existing properties as <code>configurable:false</code>.</p>
+<p>So, not only can you not add any more properties, but you also cannot reconfigure or delete any existing properties (though you <em>can</em> still modify their values).</p>
+<h4><a id="user-content-freeze" class="anchor" aria-hidden="true" href="#freeze"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Freeze</h4>
+<p><code>Object.freeze(..)</code> creates a frozen object, which means it takes an existing object and essentially calls <code>Object.seal(..)</code> on it, but it also marks all "data accessor" properties as <code>writable:false</code>, so that their values cannot be changed.</p>
+<p>This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned above, the contents of any referenced other objects are unaffected).</p>
+<p>You could "deep freeze" an object by calling <code>Object.freeze(..)</code> on the object, and then recursively iterating over all objects it references (which would have been unaffected thus far), and calling <code>Object.freeze(..)</code> on them as well. Be careful, though, as that could affect other (shared) objects you're not intending to affect.</p>
+<h3><a id="user-content-get" class="anchor" aria-hidden="true" href="#get"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>[[Get]]</code></h3>
+<p>There's a subtle, but important, detail about how property accesses are performed.</p>
+<p>Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p>The <code>myObject.a</code> is a property access, but it doesn't <em>just</em> look in <code>myObject</code> for a property of the name <code>a</code>, as it might seem.</p>
+<p>According to the spec, the code above actually performs a <code>[[Get]]</code> operation (kinda like a function call: <code>[[Get]]()</code>) on the <code>myObject</code>. The default built-in <code>[[Get]]</code> operation for an object <em>first</em> inspects the object for a property of the requested name, and if it finds it, it will return the value accordingly.</p>
+<p>However, the <code>[[Get]]</code> algorithm defines other important behavior if it does <em>not</em> find a property of the requested name. We will examine in Chapter 5 what happens <em>next</em> (traversal of the <code>[[Prototype]]</code> chain, if any).</p>
+<p>But one important result of this <code>[[Get]]</code> operation is that if it cannot through any means come up with a value for the requested property, it instead returns the value <code>undefined</code>.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">b</span>; <span class="pl-c"><span class="pl-c">//</span> undefined</span></pre></div>
+<p>This behavior is different from when you reference <em>variables</em> by their identifier names. If you reference a variable that cannot be resolved within the applicable lexical scope look-up, the result is not <code>undefined</code> as it is for object properties, but instead a <code>ReferenceError</code> is thrown.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">undefined</span>
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> undefined</span>
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">b</span>; <span class="pl-c"><span class="pl-c">//</span> undefined</span></pre></div>
+<p>From a <em>value</em> perspective, there is no difference between these two references -- they both result in <code>undefined</code>. However, the <code>[[Get]]</code> operation underneath, though subtle at a glance, potentially performed a bit more "work" for the reference <code>myObject.b</code> than for the reference <code>myObject.a</code>.</p>
+<p>Inspecting only the value results, you cannot distinguish whether a property exists and holds the explicit value <code>undefined</code>, or whether the property does <em>not</em> exist and <code>undefined</code> was the default return value after <code>[[Get]]</code> failed to return something explicitly. However, we will see shortly how you <em>can</em> distinguish these two scenarios.</p>
+<h3><a id="user-content-put" class="anchor" aria-hidden="true" href="#put"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>[[Put]]</code></h3>
+<p>Since there's an internally defined <code>[[Get]]</code> operation for getting a value from a property, it should be obvious there's also a default <code>[[Put]]</code> operation.</p>
+<p>It may be tempting to think that an assignment to a property on an object would just invoke <code>[[Put]]</code> to set or create that property on the object in question. But the situation is more nuanced than that.</p>
+<p>When invoking <code>[[Put]]</code>, how it behaves differs based on a number of factors, including (most impactfully) whether the property is already present on the object or not.</p>
+<p>If the property is present, the <code>[[Put]]</code> algorithm will roughly check:</p>
+<ol>
+<li>Is the property an accessor descriptor (see "Getters &amp; Setters" section below)? <strong>If so, call the setter, if any.</strong></li>
+<li>Is the property a data descriptor with <code>writable</code> of <code>false</code>? <strong>If so, silently fail in <code>non-strict mode</code>, or throw <code>TypeError</code> in <code>strict mode</code>.</strong></li>
+<li>Otherwise, set the value to the existing property as normal.</li>
+</ol>
+<p>If the property is not yet present on the object in question, the <code>[[Put]]</code> operation is even more nuanced and complex. We will revisit this scenario in Chapter 5 when we discuss <code>[[Prototype]]</code> to give it more clarity.</p>
+<h3><a id="user-content-getters--setters" class="anchor" aria-hidden="true" href="#getters--setters"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Getters &amp; Setters</h3>
+<p>The default <code>[[Put]]</code> and <code>[[Get]]</code> operations for objects completely control how values are set to existing or new properties, or retrieved from existing properties, respectively.</p>
+<p><strong>Note:</strong> Using future/advanced capabilities of the language, it may be possible to override the default <code>[[Get]]</code> or <code>[[Put]]</code> operations for an entire object (not just per property). This is beyond the scope of our discussion in this book, but will be covered later in the "You Don't Know JS" series.</p>
+<p>ES5 introduced a way to override part of these default operations, not on an object level but a per-property level, through the use of getters and setters. Getters are properties which actually call a hidden function to retrieve a value. Setters are properties which actually call a hidden function to set a value.</p>
+<p>When you define a property to have either a getter or a setter or both, its definition becomes an "accessor descriptor" (as opposed to a "data descriptor"). For accessor-descriptors, the <code>value</code> and <code>writable</code> characteristics of the descriptor are moot and ignored, and instead JS considers the <code>set</code> and <code>get</code> characteristics of the property (as well as <code>configurable</code> and <code>enumerable</code>).</p>
+<p>Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	<span class="pl-c"><span class="pl-c">//</span> define a getter for `a`</span>
+	<span class="pl-k">get</span> <span class="pl-en">a</span>() {
+		<span class="pl-k">return</span> <span class="pl-c1">2</span>;
+	}
+};
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>(
+	myObject,	<span class="pl-c"><span class="pl-c">//</span> target</span>
+	<span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span>,		<span class="pl-c"><span class="pl-c">//</span> property name</span>
+	{			<span class="pl-c"><span class="pl-c">//</span> descriptor</span>
+		<span class="pl-c"><span class="pl-c">//</span> define a getter for `b`</span>
+		<span class="pl-en">get</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){ <span class="pl-k">return</span> <span class="pl-c1">this</span>.<span class="pl-smi">a</span> <span class="pl-k">*</span> <span class="pl-c1">2</span> },
+
+		<span class="pl-c"><span class="pl-c">//</span> make sure `b` shows up as an object property</span>
+		enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>
+	}
+);
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span>
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">b</span>; <span class="pl-c"><span class="pl-c">//</span> 4</span></pre></div>
+<p>Either through object-literal syntax with <code>get a() { .. }</code> or through explicit definition with <code>defineProperty(..)</code>, in both cases we created a property on the object that actually doesn't hold a value, but whose access automatically results in a hidden function call to the getter function, with whatever value it returns being the result of the property access.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	<span class="pl-c"><span class="pl-c">//</span> define a getter for `a`</span>
+	<span class="pl-k">get</span> <span class="pl-en">a</span>() {
+		<span class="pl-k">return</span> <span class="pl-c1">2</span>;
+	}
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span> <span class="pl-k">=</span> <span class="pl-c1">3</span>;
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p>Since we only defined a getter for <code>a</code>, if we try to set the value of <code>a</code> later, the set operation won't throw an error but will just silently throw the assignment away. Even if there was a valid setter, our custom getter is hard-coded to return only <code>2</code>, so the set operation would be moot.</p>
+<p>To make this scenario more sensible, properties should also be defined with setters, which override the default <code>[[Put]]</code> operation (aka, assignment), per-property, just as you'd expect. You will almost certainly want to always declare both getter and setter (having only one or the other often leads to unexpected/surprising behavior):</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	<span class="pl-c"><span class="pl-c">//</span> define a getter for `a`</span>
+	<span class="pl-k">get</span> <span class="pl-en">a</span>() {
+		<span class="pl-k">return</span> <span class="pl-c1">this</span>.<span class="pl-smi">_a_</span>;
+	},
+
+	<span class="pl-c"><span class="pl-c">//</span> define a setter for `a`</span>
+	<span class="pl-k">set</span> <span class="pl-en">a</span>(<span class="pl-smi">val</span>) {
+		<span class="pl-c1">this</span>.<span class="pl-smi">_a_</span> <span class="pl-k">=</span> val <span class="pl-k">*</span> <span class="pl-c1">2</span>;
+	}
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 4</span></pre></div>
+<p><strong>Note:</strong> In this example, we actually store the specified value <code>2</code> of the assignment (<code>[[Put]]</code> operation) into another variable <code>_a_</code>. The <code>_a_</code> name is purely by convention for this example and implies nothing special about its behavior -- it's a normal property like any other.</p>
+<h3><a id="user-content-existence" class="anchor" aria-hidden="true" href="#existence"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Existence</h3>
+<p>We showed earlier that a property access like <code>myObject.a</code> may result in an <code>undefined</code> value if either the explicit <code>undefined</code> is stored there or the <code>a</code> property doesn't exist at all. So, if the value is the same in both cases, how else do we distinguish them?</p>
+<p>We can ask an object if it has a certain property <em>without</em> asking to get that property's value:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+(<span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> <span class="pl-k">in</span> myObject);				<span class="pl-c"><span class="pl-c">//</span> true</span>
+(<span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span> <span class="pl-k">in</span> myObject);				<span class="pl-c"><span class="pl-c">//</span> false</span>
+
+<span class="pl-smi">myObject</span>.<span class="pl-en">hasOwnProperty</span>( <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> );	<span class="pl-c"><span class="pl-c">//</span> true</span>
+<span class="pl-smi">myObject</span>.<span class="pl-en">hasOwnProperty</span>( <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span> );	<span class="pl-c"><span class="pl-c">//</span> false</span></pre></div>
+<p>The <code>in</code> operator will check to see if the property is <em>in</em> the object, or if it exists at any higher level of the <code>[[Prototype]]</code> chain object traversal (see Chapter 5). By contrast, <code>hasOwnProperty(..)</code> checks to see if <em>only</em> <code>myObject</code> has the property or not, and will <em>not</em> consult the <code>[[Prototype]]</code> chain. We'll come back to the important differences between these two operations in Chapter 5 when we explore <code>[[Prototype]]</code>s in detail.</p>
+<p><code>hasOwnProperty(..)</code> is accessible for all normal objects via delegation to <code>Object.prototype</code> (see Chapter 5). But it's possible to create an object that does not link to <code>Object.prototype</code> (via <code>Object.create(null)</code> -- see Chapter 5). In this case, a method call like <code>myObject.hasOwnProperty(..)</code> would fail.</p>
+<p>In that scenario, a more robust way of performing such a check is <code>Object.prototype.hasOwnProperty.call(myObject,"a")</code>, which borrows the base <code>hasOwnProperty(..)</code> method and uses <em>explicit <code>this</code> binding</em> (see Chapter 2) to apply it against our <code>myObject</code>.</p>
+<p><strong>Note:</strong> The <code>in</code> operator has the appearance that it will check for the existence of a <em>value</em> inside a container, but it actually checks for the existence of a property name. This difference is important to note with respect to arrays, as the temptation to try a check like <code>4 in [2, 4, 6]</code> is strong, but this will not behave as expected.</p>
+<h4><a id="user-content-enumeration" class="anchor" aria-hidden="true" href="#enumeration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enumeration</h4>
+<p>Previously, we explained briefly the idea of "enumerability" when we looked at the <code>enumerable</code> property descriptor characteristic. Let's revisit that and examine it in more close detail.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> { };
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>(
+	myObject,
+	<span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> make `a` enumerable, as normal</span>
+	{ enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>, value<span class="pl-k">:</span> <span class="pl-c1">2</span> }
+);
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>(
+	myObject,
+	<span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> make `b` NON-enumerable</span>
+	{ enumerable<span class="pl-k">:</span> <span class="pl-c1">false</span>, value<span class="pl-k">:</span> <span class="pl-c1">3</span> }
+);
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">b</span>; <span class="pl-c"><span class="pl-c">//</span> 3</span>
+(<span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span> <span class="pl-k">in</span> myObject); <span class="pl-c"><span class="pl-c">//</span> true</span>
+<span class="pl-smi">myObject</span>.<span class="pl-en">hasOwnProperty</span>( <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span> ); <span class="pl-c"><span class="pl-c">//</span> true</span>
+
+<span class="pl-c"><span class="pl-c">//</span> .......</span>
+
+<span class="pl-k">for</span> (<span class="pl-k">var</span> k <span class="pl-k">in</span> myObject) {
+	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( k, myObject[k] );
+}
+<span class="pl-c"><span class="pl-c">//</span> "a" 2</span></pre></div>
+<p>You'll notice that <code>myObject.b</code> in fact <strong>exists</strong> and has an accessible value, but it doesn't show up in a <code>for..in</code> loop (though, surprisingly, it <strong>is</strong> revealed by the <code>in</code> operator existence check). That's because "enumerable" basically means "will be included if the object's properties are iterated through".</p>
+<p><strong>Note:</strong> <code>for..in</code> loops applied to arrays can give somewhat unexpected results, in that the enumeration of an array will include not only all the numeric indices, but also any enumerable properties. It's a good idea to use <code>for..in</code> loops <em>only</em> on objects, and traditional <code>for</code> loops with numeric index iteration for the values stored in arrays.</p>
+<p>Another way that enumerable and non-enumerable properties can be distinguished:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> { };
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>(
+	myObject,
+	<span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> make `a` enumerable, as normal</span>
+	{ enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>, value<span class="pl-k">:</span> <span class="pl-c1">2</span> }
+);
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>(
+	myObject,
+	<span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span>,
+	<span class="pl-c"><span class="pl-c">//</span> make `b` non-enumerable</span>
+	{ enumerable<span class="pl-k">:</span> <span class="pl-c1">false</span>, value<span class="pl-k">:</span> <span class="pl-c1">3</span> }
+);
+
+<span class="pl-smi">myObject</span>.<span class="pl-en">propertyIsEnumerable</span>( <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> ); <span class="pl-c"><span class="pl-c">//</span> true</span>
+<span class="pl-smi">myObject</span>.<span class="pl-en">propertyIsEnumerable</span>( <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span> ); <span class="pl-c"><span class="pl-c">//</span> false</span>
+
+<span class="pl-c1">Object</span>.<span class="pl-c1">keys</span>( myObject ); <span class="pl-c"><span class="pl-c">//</span> ["a"]</span>
+<span class="pl-c1">Object</span>.<span class="pl-en">getOwnPropertyNames</span>( myObject ); <span class="pl-c"><span class="pl-c">//</span> ["a", "b"]</span></pre></div>
+<p><code>propertyIsEnumerable(..)</code> tests whether the given property name exists <em>directly</em> on the object and is also <code>enumerable:true</code>.</p>
+<p><code>Object.keys(..)</code> returns an array of all enumerable properties, whereas <code>Object.getOwnPropertyNames(..)</code> returns an array of <em>all</em> properties, enumerable or not.</p>
+<p>Whereas <code>in</code> vs. <code>hasOwnProperty(..)</code> differ in whether they consult the <code>[[Prototype]]</code> chain or not, <code>Object.keys(..)</code> and <code>Object.getOwnPropertyNames(..)</code> both inspect <em>only</em> the direct object specified.</p>
+<p>There's (currently) no built-in way to get a list of <strong>all properties</strong> which is equivalent to what the <code>in</code> operator test would consult (traversing all properties on the entire <code>[[Prototype]]</code> chain, as explained in Chapter 5). You could approximate such a utility by recursively traversing the <code>[[Prototype]]</code> chain of an object, and for each level, capturing the list from <code>Object.keys(..)</code> -- only enumerable properties.</p>
+<h2><a id="user-content-iteration" class="anchor" aria-hidden="true" href="#iteration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Iteration</h2>
+<p>The <code>for..in</code> loop iterates over the list of enumerable properties on an object (including its <code>[[Prototype]]</code> chain). But what if you instead want to iterate over the values?</p>
+<p>With numerically-indexed arrays, iterating over the values is typically done with a standard <code>for</code> loop, like:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myArray <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>];
+
+<span class="pl-k">for</span> (<span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">myArray</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
+	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( myArray[i] );
+}
+<span class="pl-c"><span class="pl-c">//</span> 1 2 3</span></pre></div>
+<p>This isn't iterating over the values, though, but iterating over the indices, where you then use the index to reference the value, as <code>myArray[i]</code>.</p>
+<p>ES5 also added several iteration helpers for arrays, including <code>forEach(..)</code>, <code>every(..)</code>, and <code>some(..)</code>. Each of these helpers accepts a function callback to apply to each element in the array, differing only in how they respectively respond to a return value from the callback.</p>
+<p><code>forEach(..)</code> will iterate over all values in the array, and ignores any callback return values. <code>every(..)</code> keeps going until the end <em>or</em> the callback returns a <code>false</code> (or "falsy") value, whereas <code>some(..)</code> keeps going until the end <em>or</em> the callback returns a <code>true</code> (or "truthy") value.</p>
+<p>These special return values inside <code>every(..)</code> and <code>some(..)</code> act somewhat like a <code>break</code> statement inside a normal <code>for</code> loop, in that they stop the iteration early before it reaches the end.</p>
+<p>If you iterate on an object with a <code>for..in</code> loop, you're also only getting at the values indirectly, because it's actually iterating only over the enumerable properties of the object, leaving you to access the properties manually to get the values.</p>
+<p><strong>Note:</strong> As contrasted with iterating over an array's indices in a numerically ordered way (<code>for</code> loop or other iterators), the order of iteration over an object's properties is <strong>not guaranteed</strong> and may vary between different JS engines. <strong>Do not rely</strong> on any observed ordering for anything that requires consistency among environments, as any observed agreement is unreliable.</p>
+<p>But what if you want to iterate over the values directly instead of the array indices (or object properties)? Helpfully, ES6 adds a <code>for..of</code> loop syntax for iterating over arrays (and objects, if the object defines its own custom iterator):</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myArray <span class="pl-k">=</span> [ <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> ];
+
+<span class="pl-k">for</span> (<span class="pl-k">var</span> v <span class="pl-k">of</span> myArray) {
+	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( v );
+}
+<span class="pl-c"><span class="pl-c">//</span> 1</span>
+<span class="pl-c"><span class="pl-c">//</span> 2</span>
+<span class="pl-c"><span class="pl-c">//</span> 3</span></pre></div>
+<p>The <code>for..of</code> loop asks for an iterator object (from a default internal function known as <code>@@iterator</code> in spec-speak) of the <em>thing</em> to be iterated, and the loop then iterates over the successive return values from calling that iterator object's <code>next()</code> method, once for each loop iteration.</p>
+<p>Arrays have a built-in <code>@@iterator</code>, so <code>for..of</code> works easily on them, as shown. But let's manually iterate the array, using the built-in <code>@@iterator</code>, to see how it works:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myArray <span class="pl-k">=</span> [ <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span> ];
+<span class="pl-k">var</span> it <span class="pl-k">=</span> myArray[<span class="pl-c1">Symbol</span>.<span class="pl-smi">iterator</span>]();
+
+<span class="pl-smi">it</span>.<span class="pl-c1">next</span>(); <span class="pl-c"><span class="pl-c">//</span> { value:1, done:false }</span>
+<span class="pl-smi">it</span>.<span class="pl-c1">next</span>(); <span class="pl-c"><span class="pl-c">//</span> { value:2, done:false }</span>
+<span class="pl-smi">it</span>.<span class="pl-c1">next</span>(); <span class="pl-c"><span class="pl-c">//</span> { value:3, done:false }</span>
+<span class="pl-smi">it</span>.<span class="pl-c1">next</span>(); <span class="pl-c"><span class="pl-c">//</span> { done:true }</span></pre></div>
+<p><strong>Note:</strong> We get at the <code>@@iterator</code> <em>internal property</em> of an object using an ES6 <code>Symbol</code>: <code>Symbol.iterator</code>. We briefly mentioned <code>Symbol</code> semantics earlier in the chapter (see "Computed Property Names"), so the same reasoning applies here. You'll always want to reference such special properties by <code>Symbol</code> name reference instead of by the special value it may hold. Also, despite the name's implications, <code>@@iterator</code> is <strong>not the iterator object</strong> itself, but a <strong>function that returns</strong> the iterator object -- a subtle but important detail!</p>
+<p>As the above snippet reveals, the return value from an iterator's <code>next()</code> call is an object of the form <code>{ value: .. , done: .. }</code>, where <code>value</code> is the current iteration value, and <code>done</code> is a <code>boolean</code> that indicates if there's more to iterate.</p>
+<p>Notice the value <code>3</code> was returned with a <code>done:false</code>, which seems strange at first glance. You have to call the <code>next()</code> a fourth time (which the <code>for..of</code> loop in the previous snippet automatically does) to get <code>done:true</code> and know you're truly done iterating. The reason for this quirk is beyond the scope of what we'll discuss here, but it comes from the semantics of ES6 generator functions.</p>
+<p>While arrays do automatically iterate in <code>for..of</code> loops, regular objects <strong>do not have a built-in <code>@@iterator</code></strong>. The reasons for this intentional omission are more complex than we will examine here, but in general it was better to not include some implementation that could prove troublesome for future types of objects.</p>
+<p>It <em>is</em> possible to define your own default <code>@@iterator</code> for any object that you care to iterate over. For example:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+	b<span class="pl-k">:</span> <span class="pl-c1">3</span>
+};
+
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( myObject, <span class="pl-c1">Symbol</span>.<span class="pl-smi">iterator</span>, {
+	enumerable<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+	writable<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+	configurable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	<span class="pl-en">value</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+		<span class="pl-k">var</span> o <span class="pl-k">=</span> <span class="pl-c1">this</span>;
+		<span class="pl-k">var</span> idx <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+		<span class="pl-k">var</span> ks <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-c1">keys</span>( o );
+		<span class="pl-k">return</span> {
+			<span class="pl-en">next</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+				<span class="pl-k">return</span> {
+					value<span class="pl-k">:</span> o[ks[idx<span class="pl-k">++</span>]],
+					done<span class="pl-k">:</span> (idx <span class="pl-k">&gt;</span> <span class="pl-smi">ks</span>.<span class="pl-c1">length</span>)
+				};
+			}
+		};
+	}
+} );
+
+<span class="pl-c"><span class="pl-c">//</span> iterate `myObject` manually</span>
+<span class="pl-k">var</span> it <span class="pl-k">=</span> myObject[<span class="pl-c1">Symbol</span>.<span class="pl-smi">iterator</span>]();
+<span class="pl-smi">it</span>.<span class="pl-c1">next</span>(); <span class="pl-c"><span class="pl-c">//</span> { value:2, done:false }</span>
+<span class="pl-smi">it</span>.<span class="pl-c1">next</span>(); <span class="pl-c"><span class="pl-c">//</span> { value:3, done:false }</span>
+<span class="pl-smi">it</span>.<span class="pl-c1">next</span>(); <span class="pl-c"><span class="pl-c">//</span> { value:undefined, done:true }</span>
+
+<span class="pl-c"><span class="pl-c">//</span> iterate `myObject` with `for..of`</span>
+<span class="pl-k">for</span> (<span class="pl-k">var</span> v <span class="pl-k">of</span> myObject) {
+	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( v );
+}
+<span class="pl-c"><span class="pl-c">//</span> 2</span>
+<span class="pl-c"><span class="pl-c">//</span> 3</span></pre></div>
+<p><strong>Note:</strong> We used <code>Object.defineProperty(..)</code> to define our custom <code>@@iterator</code> (mostly so we could make it non-enumerable), but using the <code>Symbol</code> as a <em>computed property name</em> (covered earlier in this chapter), we could have declared it directly, like <code>var myObject = { a:2, b:3, [Symbol.iterator]: function(){ /* .. */ } }</code>.</p>
+<p>Each time the <code>for..of</code> loop calls <code>next()</code> on <code>myObject</code>'s iterator object, the internal pointer will advance and return back the next value from the object's properties list (see a previous note about iteration ordering on object properties/values).</p>
+<p>The iteration we just demonstrated is a simple value-by-value iteration, but you can of course define arbitrarily complex iterations for your custom data structures, as you see fit. Custom iterators combined with ES6's <code>for..of</code> loop are a powerful new syntactic tool for manipulating user-defined objects.</p>
+<p>For example, a list of <code>Pixel</code> objects (with <code>x</code> and <code>y</code> coordinate values) could decide to order its iteration based on the linear distance from the <code>(0,0)</code> origin, or filter out points that are "too far away", etc. As long as your iterator returns the expected <code>{ value: .. }</code> return values from <code>next()</code> calls, and a <code>{ done: true }</code> after the iteration is complete, ES6's <code>for..of</code> can iterate over it.</p>
+<p>In fact, you can even generate "infinite" iterators which never "finish" and always return a new value (such as a random number, an incremented value, a unique identifier, etc), though you probably will not use such iterators with an unbounded <code>for..of</code> loop, as it would never end and would hang your program.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> randoms <span class="pl-k">=</span> {
+	[<span class="pl-c1">Symbol</span>.<span class="pl-smi">iterator</span>]<span class="pl-k">:</span> <span class="pl-k">function</span>() {
+		<span class="pl-k">return</span> {
+			<span class="pl-en">next</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+				<span class="pl-k">return</span> { value<span class="pl-k">:</span> <span class="pl-c1">Math</span>.<span class="pl-c1">random</span>() };
+			}
+		};
+	}
+};
+
+<span class="pl-k">var</span> randoms_pool <span class="pl-k">=</span> [];
+<span class="pl-k">for</span> (<span class="pl-k">var</span> n <span class="pl-k">of</span> randoms) {
+	<span class="pl-smi">randoms_pool</span>.<span class="pl-c1">push</span>( n );
+
+	<span class="pl-c"><span class="pl-c">//</span> don't proceed unbounded!</span>
+	<span class="pl-k">if</span> (<span class="pl-smi">randoms_pool</span>.<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">100</span>) <span class="pl-k">break</span>;
+}</pre></div>
+<p>This iterator will generate random numbers "forever", so we're careful to only pull out 100 values so our program doesn't hang.</p>
+<h2><a id="user-content-review-tldr" class="anchor" aria-hidden="true" href="#review-tldr"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Review (TL;DR)</h2>
+<p>Objects in JS have both a literal form (such as <code>var a = { .. }</code>) and a constructed form (such as <code>var a = new Array(..)</code>). The literal form is almost always preferred, but the constructed form offers, in some cases, more creation options.</p>
+<p>Many people mistakenly claim "everything in JavaScript is an object", but this is incorrect. Objects are one of the 6 (or 7, depending on your perspective) primitive types. Objects have sub-types, including <code>function</code>, and also can be behavior-specialized, like <code>[object Array]</code> as the internal label representing the array object sub-type.</p>
+<p>Objects are collections of key/value pairs. The values can be accessed as properties, via <code>.propName</code> or <code>["propName"]</code> syntax. Whenever a property is accessed, the engine actually invokes the internal default <code>[[Get]]</code> operation (and <code>[[Put]]</code> for setting values), which not only looks for the property directly on the object, but which will traverse the <code>[[Prototype]]</code> chain (see Chapter 5) if not found.</p>
+<p>Properties have certain characteristics that can be controlled through property descriptors, such as <code>writable</code> and <code>configurable</code>. In addition, objects can have their mutability (and that of their properties) controlled to various levels of immutability using <code>Object.preventExtensions(..)</code>, <code>Object.seal(..)</code>, and <code>Object.freeze(..)</code>.</p>
+<p>Properties don't have to contain values -- they can be "accessor properties" as well, with getters/setters. They can also be either <em>enumerable</em> or not, which controls if they show up in <code>for..in</code> loop iterations, for instance.</p>
+<p>You can also iterate over <strong>the values</strong> in data structures (arrays, objects, etc) using the ES6 <code>for..of</code> syntax, which looks for either a built-in or custom <code>@@iterator</code> object consisting of a <code>next()</code> method to advance through the data values one at a time.</p>
+</article>
+  </div>
+
+  </div>
+
+  <details class="details-reset details-overlay details-overlay-dark">
+    <summary data-hotkey="l" aria-label="Jump to line"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast linejump" aria-label="Jump to line">
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-jump-to-line-form Box-body d-flex" action="" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <input class="form-control flex-auto mr-3 linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" aria-label="Jump to line" autofocus>
+        <button type="submit" class="btn" data-close-dialog>Go</button>
+</form>    </details-dialog>
+  </details>
+
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+
+        
+<div class="footer container-lg px-3" role="contentinfo">
+  <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap ">
+      <li class="mr-3">&copy; 2018 <span title="0.14623s from unicorn-548747546d-bpw9l">GitHub</span>, Inc.</li>
+        <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
+        <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li class="mr-3"><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com">Help</a></li>
+    </ul>
+
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon mr-lg-4" href="https://github.com">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+   <ul class="list-style-none d-flex flex-wrap ">
+        <li class="mr-3"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
+        <li class="mr-3"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
+      <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+        <li class="mr-3"><a href="https://blog.github.com" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+    </button>
+    You can’t perform that action at this time.
+  </div>
+
+
+    <script crossorigin="anonymous" integrity="sha512-RJ1ufbxsSbKjRCyYvinsPNKvTBvcvvKUvEOJ8g+GjtWI5SuRr+QPBlZcvRDws4H9YwAgdQFcGxfL8UbwEfdI7A==" type="application/javascript" src="https://assets-cdn.github.com/assets/compat-daf14de28fadf1e2bc40d100cb773e2b.js"></script>
+    <script crossorigin="anonymous" integrity="sha512-IC5Ai6c7cUBfMx54JUAsIjA7VroipzkizlZ8F6/0efsGGyZStweZV7bX9bxSFL07nUNLfwrKSEysVIijX+CeUw==" type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-5874e38105ec062c740350eeb96bdd8a.js"></script>
+    
+    <script crossorigin="anonymous" async="async" integrity="sha512-Y0wWbyMvuM4AncqCZ3JmN2XZmX623PfWR2gZgiD2zI2cCqaCpRQyKEm2eCeDhYx4zHiXIhZQW8XCbXYxfs8ZKA==" type="application/javascript" src="https://assets-cdn.github.com/assets/github-d08b5457fa55c9386abe7ed707d05017.js"></script>
+    
+    
+    
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+  </div>
+  <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+    </button>
+  </div>
+</div>
+
+  <template id="site-details-dialog">
+  <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark" open>
+    <summary aria-haspopup="dialog" aria-label="Close dialog"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast">
+      <button class="Box-btn-octicon m-0 btn-octicon position-absolute right-0 top-0" type="button" aria-label="Close dialog" data-close-dialog>
+        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+      </button>
+      <div class="octocat-spinner my-6 js-details-dialog-spinner"></div>
+    </details-dialog>
+  </details>
+</template>
+
+  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
+  </div>
+</div>
+
+<div id="hovercard-aria-description" class="sr-only">
+  Press h to open a hovercard with more details.
+</div>
+
+
+  </body>
+</html>
+

@@ -30,7 +30,7 @@ buy this book: <https://www.ebooks.com/1647631/you-don-t-know-js-scope-closures/
   1. this or that?............... |thisOrThat|
   2. this All Makes Sense Now!... |thisAllMakesSenseNow|
   3. Objects..................... |Objects|
-  4. Mixing (Up) "Class" Objects. |MixingClassObjects|
+  4. Mixing (Up) "Class" Objects. |../book3/ch4|
   5. Prototypes.................. |Prototypes|
   6. Behavior Delegation......... |BehaviorDelegation|
 buy this book: <http://www.ebooks.com/1734321/you-don-t-know-js-this-object-prototypes/simpson-kyle/>

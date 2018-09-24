@@ -1,0 +1,11 @@
+--2018-09-24 13:53:30--  https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/types%20%26%20grammar/ch2.md
+Risoluzione di raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.12.133
+Connessione a raw.githubusercontent.com (raw.githubusercontent.com)|151.101.12.133|:443... connesso.
+Richiesta HTTP inviata, in attesa di risposta... 200 OK
+Lunghezza: 42887 (42K) [text/plain]
+Salvataggio in: "ch2.md"
+
+     0K .......... .......... .......... .......... .         100% 1.46M=0.03s
+
+2018-09-24 13:53:30 (1.46 MB/s) - "ch2.md" salvato [42887/42887]
+

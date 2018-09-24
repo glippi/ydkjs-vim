@@ -1,0 +1,1223 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://assets-cdn.github.com">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-/yZA7MGD9acBi5MmgjnivwjGeiNsmimsI/bhLlK7akrRuw+hMxNpJoQEMO9Zt0Nq6ZRu1m1NGV6r95Ib0zx7Qw==" rel="stylesheet" href="https://assets-cdn.github.com/assets/frameworks-1ca00d32d1a8adc78ae7bb6677410eb1.css" />
+  <link crossorigin="anonymous" media="all" integrity="sha512-pHF1luoMSUFxvz63bW3jEbbifYl/pruHUw+kljThAPi2g0nhgMdvWj4bQRh4O8MYp9NR60XYcylaLXmYA8YXSw==" rel="stylesheet" href="https://assets-cdn.github.com/assets/github-5043b3d96d50b119b971c2cdde4e0a62.css" />
+  
+  
+  <link crossorigin="anonymous" media="all" integrity="sha512-yiJlaqOzeTU+S1E7OWf1xHkAosW1l4Lum0URPcPeQqKjKdZuSb9JoS5h1Dn8vs5rmdGshJ8pTr/FWwGKHlr1SQ==" rel="stylesheet" href="https://assets-cdn.github.com/assets/site-f84f81f77b3e1a4462036783c13c150d.css" />
+  
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>You-Dont-Know-JS/ch5.md at master · getify/You-Dont-Know-JS · GitHub</title>
+    <meta name="description" content="A book series on JavaScript. @YDKJS on twitter. Contribute to getify/You-Dont-Know-JS development by creating an account on GitHub.">
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    
+    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/150330?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="getify/You-Dont-Know-JS" /><meta property="og:url" content="https://github.com/getify/You-Dont-Know-JS" /><meta property="og:description" content="A book series on JavaScript. @YDKJS on twitter. Contribute to getify/You-Dont-Know-JS development by creating an account on GitHub." />
+
+  <link rel="assets" href="https://assets-cdn.github.com/">
+  
+  <meta name="pjax-timeout" content="1000">
+  
+  <meta name="request-id" content="F976:37B6:49B5D8D:7705325:5BA8D2E6" data-pjax-transient>
+
+
+  
+
+  <meta name="selected-link" value="repo_source" data-pjax-transient>
+
+      <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+    <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="F976:37B6:49B5D8D:7705325:5BA8D2E6" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" />
+<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
+
+
+
+    <meta name="google-analytics" content="UA-3769691-2">
+
+
+<meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+
+  
+
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+      <meta name="expected-hostname" content="github.com">
+    <meta name="js-proxy-site-detection-payload" content="NTI2NDY5Y2M2YmE0MTcyMTJiMDU0NTljMThiNGM2MzE3OWJmODQ5ZTdhMTFjODE5ZGUxMmYzY2I2NjQ4ZTAzNHx7InJlbW90ZV9hZGRyZXNzIjoiMzEuMjcuMzguOTUiLCJyZXF1ZXN0X2lkIjoiRjk3NjozN0I2OjQ5QjVEOEQ6NzcwNTMyNTo1QkE4RDJFNiIsInRpbWVzdGFtcCI6MTUzNzc5MDY5NSwiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
+
+    <meta name="enabled-features" content="DASHBOARD_V2_LAYOUT_OPT_IN,EXPLORE_DISCOVER_REPOSITORIES,UNIVERSE_BANNER,MARKETPLACE_PLAN_RESTRICTION_EDITOR,QUOTE_MARKDOWN">
+
+  <meta name="html-safe-nonce" content="4f3a10d97d26fd3873cbef02f6fb95c47fa6975e">
+
+  <meta http-equiv="x-pjax-version" content="48839070ece5a75b6db249504aa0072e">
+  
+
+      <link href="https://github.com/getify/You-Dont-Know-JS/commits/master.atom" rel="alternate" title="Recent Commits to You-Dont-Know-JS:master" type="application/atom+xml">
+
+  <meta name="go-import" content="github.com/getify/You-Dont-Know-JS git https://github.com/getify/You-Dont-Know-JS.git">
+
+  <meta name="octolytics-dimension-user_id" content="150330" /><meta name="octolytics-dimension-user_login" content="getify" /><meta name="octolytics-dimension-repository_id" content="14440270" /><meta name="octolytics-dimension-repository_nwo" content="getify/You-Dont-Know-JS" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="14440270" /><meta name="octolytics-dimension-repository_network_root_nwo" content="getify/You-Dont-Know-JS" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
+
+
+    <link rel="canonical" href="https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md" data-pjax-transient>
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://assets-cdn.github.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+
+  <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
+
+  </head>
+
+  <body class="logged-out env-production page-blob">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    
+
+
+
+        
+
+
+  <header class="Header header-logged-out  position-relative f4 py-3" role="banner" >
+    <div class="container-lg d-flex px-3">
+      <div class="d-flex flex-justify-between flex-items-center">
+        <a class="header-logo-invertocat my-0" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark; experiment:site_header_dropdowns; group:control">
+          <svg height="32" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+
+      </div>
+
+      <div class="HeaderMenu d-flex flex-justify-between flex-auto">
+          <nav class="mt-0">
+            <ul class="d-flex list-style-none">
+                <li class="ml-2">
+                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:features; experiment:site_header_dropdowns; group:control" data-selected-links="/features /features/project-management /features/code-review /features/project-management /features/integrations /features" href="/features">
+                    Features
+</a>                </li>
+                <li class="ml-4">
+                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:business; experiment:site_header_dropdowns; group:control" data-selected-links="/business /business/security /business/customers /business" href="/business">
+                    Business
+</a>                </li>
+
+                <li class="ml-4">
+                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:explore; experiment:site_header_dropdowns; group:control" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore" href="/explore">
+                    Explore
+</a>                </li>
+
+                <li class="ml-4">
+                      <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:marketplace; experiment:site_header_dropdowns; group:control" data-selected-links=" /marketplace" href="/marketplace">
+                        Marketplace
+</a>                </li>
+                <li class="ml-4">
+                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:pricing; experiment:site_header_dropdowns; group:control" data-selected-links="/pricing /pricing/developer /pricing/team /pricing/business-hosted /pricing/business-enterprise /pricing" href="/pricing">
+                    Pricing
+</a>                </li>
+            </ul>
+          </nav>
+
+        <div class="d-flex">
+            <div class="d-lg-flex flex-items-center mr-3">
+              <div class="header-search scoped-search site-scoped-search js-site-search position-relative js-jump-to"
+  role="combobox"
+  aria-owns="jump-to-results"
+  aria-label="Search or jump to"
+  aria-haspopup="listbox"
+  aria-expanded="false"
+>
+  <div class="position-relative">
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" data-scope-type="Repository" data-scope-id="14440270" data-scoped-search-url="/getify/You-Dont-Know-JS/search" data-unscoped-search-url="/search" action="/getify/You-Dont-Know-JS/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <label class="form-control header-search-wrapper header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
+        <input type="text"
+          class="form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+          data-hotkey="s,/"
+          name="q"
+          value=""
+          placeholder="Search"
+          data-unscoped-placeholder="Search GitHub"
+          data-scoped-placeholder="Search"
+          autocapitalize="off"
+          aria-autocomplete="list"
+          aria-controls="jump-to-results"
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=2rr23RYE7K0d90WixGb6qSLBn0Qb92d4ByX7DndiRUl5/dWQU0jNRFvUE/I5gz2IrSUtNGB3rEh4IzeOdiS38Q=="
+          spellcheck="false"
+          autocomplete="off"
+          >
+          <input type="hidden" class="js-site-search-type-field" name="type" >
+            <img src="https://assets-cdn.github.com/images/search-shortcut-hint.svg" alt="" class="mr-2 header-search-key-slash">
+
+            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
+              <ul class="d-none js-jump-to-suggestions-template-container">
+                <li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item" role="option">
+                  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center p-2 jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open" href="">
+                    <div class="jump-to-octicon js-jump-to-octicon mr-2 text-center d-none">
+                      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+                      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+                      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
+                    </div>
+
+                    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+                    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+                    </div>
+
+                    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+                      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+                        In this repository
+                      </span>
+                      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+                        All GitHub
+                      </span>
+                      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+                    </div>
+
+                    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+                      Jump to
+                      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <ul class="d-none js-jump-to-no-results-template-container">
+                <li class="d-flex flex-justify-center flex-items-center p-3 f5 d-none">
+                  <span class="text-gray">No suggested jump to results</span>
+                </li>
+              </ul>
+
+              <ul id="jump-to-results" role="listbox" class="js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container" >
+                <li class="d-flex flex-justify-center flex-items-center p-0 f5">
+                  <img src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" alt="Octocat Spinner Icon" class="m-2" width="28">
+                </li>
+              </ul>
+            </div>
+      </label>
+</form>  </div>
+</div>
+
+            </div>
+
+          <span class="d-inline-block">
+              <div class="HeaderNavlink px-0 py-2 m-0">
+                <a class="text-bold text-white no-underline" href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS%2Fblob%2Fmaster%2Fthis%2520%2526%2520object%2520prototypes%2Fch5.md" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in; experiment:site_header_dropdowns; group:control">Sign in</a>
+                  <span class="text-gray">or</span>
+                  <a class="text-bold text-white no-underline" href="/join?source=header-repo" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up; experiment:site_header_dropdowns; group:control">Sign up</a>
+              </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+    <div id="js-flash-container">
+
+
+</div>
+
+
+
+  <div role="main" class="application-main ">
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode" class="">
+    <div id="js-repo-pjax-container" data-pjax-container >
+      
+
+
+
+
+
+
+
+  <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  ">
+    <div class="repohead-details-container clearfix container">
+
+      <ul class="pagehead-actions">
+  <li>
+      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-s"
+    aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+    Watch
+  </a>
+  <a class="social-count" href="/getify/You-Dont-Know-JS/watchers"
+     aria-label="4796 users are watching this repository">
+    4,796
+  </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-s"
+    aria-label="You must be signed in to star a repository" rel="nofollow">
+    <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="/getify/You-Dont-Know-JS/stargazers"
+      aria-label="88853 users starred this repository">
+      88,853
+    </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
+        class="btn btn-sm btn-with-count tooltipped tooltipped-s"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        Fork
+      </a>
+
+    <a href="/getify/You-Dont-Know-JS/network/members" class="social-count"
+       aria-label="16864 users forked this repository">
+      16,864
+    </a>
+  </li>
+</ul>
+
+      <h1 class="public ">
+  <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author" itemprop="author"><a class="url fn" rel="author" href="/getify">getify</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="/getify/You-Dont-Know-JS">You-Dont-Know-JS</a></strong>
+
+</h1>
+
+    </div>
+    
+<nav class="reponav js-repo-nav js-sidenav-container-pjax container"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a class="js-selected-navigation-item selected reponav-item" itemprop="url" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /getify/You-Dont-Know-JS" href="/getify/You-Dont-Know-JS">
+      <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /getify/You-Dont-Know-JS/issues" href="/getify/You-Dont-Know-JS/issues">
+        <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span itemprop="name">Issues</span>
+        <span class="Counter">110</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /getify/You-Dont-Know-JS/pulls" href="/getify/You-Dont-Know-JS/pulls">
+      <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="Counter">75</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+    <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /getify/You-Dont-Know-JS/projects" href="/getify/You-Dont-Know-JS/projects">
+      <svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      Projects
+      <span class="Counter" >1</span>
+</a>
+
+
+    <a class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /getify/You-Dont-Know-JS/wiki" href="/getify/You-Dont-Know-JS/wiki">
+      <svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
+      Wiki
+</a>
+  <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse alerts /getify/You-Dont-Know-JS/pulse" href="/getify/You-Dont-Know-JS/pulse">
+    <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
+    Insights
+</a>
+
+</nav>
+
+
+  </div>
+
+<div class="container new-discussion-timeline experiment-repo-nav  ">
+  <div class="repository-content ">
+
+    
+  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/getify/You-Dont-Know-JS/blob/0cc17c53ff772e20dfd6a7072c965df2486116e8/this%20%26%20object%20prototypes/ch5.md">Permalink</a>
+
+  <!-- blob contrib key: blob_contributors:v21:305c8bcff3ed54bace131690f4c2de00 -->
+
+      <div class="signup-prompt-bg rounded-1">
+      <div class="signup-prompt p-4 text-center mb-4 rounded-1">
+        <div class="position-relative">
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/site/dismiss_signup_prompt" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="c+HIarQyBaHz+Jw6bmc48dhSYx6EJqCBshRUpySWo6/pZVPJllsvKsQLeoco/w8lnJHiiOjUvngdcUmgZNTlvQ==" />
+            <button type="submit" class="position-absolute top-0 right-0 btn-link link-gray" data-ga-click="(Logged out) Sign up prompt, clicked Dismiss, text:dismiss">
+              Dismiss
+            </button>
+</form>          <h3 class="pt-2">Join GitHub today</h3>
+          <p class="col-6 mx-auto">GitHub is home to over 28 million developers working together to host and review code, manage projects, and build software together.</p>
+          <a class="btn btn-primary" href="/join?source=prompt-blob-show" data-ga-click="(Logged out) Sign up prompt, clicked Sign up, text:sign-up">Sign up</a>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="file-navigation">
+    
+<div class="select-menu branch-select-menu js-menu-container js-select-menu float-left">
+  <button class=" btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
+    
+    type="button" aria-label="Switch branches or tags" aria-expanded="false" aria-haspopup="true">
+      <i>Branch:</i>
+      <span class="js-select-button css-truncate-target">master</span>
+  </button>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax>
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <svg class="octicon octicon-x js-menu-close" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+        <span class="select-menu-title">Switch branches/tags</span>
+      </div>
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open "
+               href="/getify/You-Dont-Know-JS/blob/1ed-zh-CN/this%20&amp;%20object%20prototypes/ch5.md"
+               data-name="1ed-zh-CN"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
+                1ed-zh-CN
+              </span>
+            </a>
+            <a class="select-menu-item js-navigation-item js-navigation-open selected"
+               href="/getify/You-Dont-Know-JS/blob/master/this%20&amp;%20object%20prototypes/ch5.md"
+               data-name="master"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
+                master
+              </span>
+            </a>
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <div class="BtnGroup float-right">
+      <a href="/getify/You-Dont-Know-JS/find/master"
+            class="js-pjax-capture-input btn btn-sm BtnGroup-item"
+            data-pjax
+            data-hotkey="t">
+        Find file
+      </a>
+      <clipboard-copy for="blob-path" class="btn btn-sm BtnGroup-item">
+        Copy path
+      </clipboard-copy>
+    </div>
+    <div id="blob-path" class="breadcrumb">
+      <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/getify/You-Dont-Know-JS"><span>You-Dont-Know-JS</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/getify/You-Dont-Know-JS/tree/master/this%20%26%20object%20prototypes"><span>this &amp; object prototypes</span></a></span><span class="separator">/</span><strong class="final-path">ch5.md</strong>
+    </div>
+  </div>
+
+
+  
+  <div class="commit-tease">
+      <span class="float-right">
+        <a class="commit-tease-sha" href="/getify/You-Dont-Know-JS/commit/23412d21591f4a09037d514c05b49c22da33bf36" data-pjax>
+          23412d2
+        </a>
+        <relative-time datetime="2018-09-16T15:22:37Z">Sep 16, 2018</relative-time>
+      </span>
+      <div>
+        <a rel="contributor" data-skip-pjax="true" data-hovercard-user-id="3153107" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/younesherlock"><img class="avatar" src="https://avatars3.githubusercontent.com/u/3153107?s=40&amp;v=4" width="20" height="20" alt="@younesherlock" /></a>
+        <a class="user-mention" rel="contributor" data-hovercard-user-id="3153107" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/younesherlock">younesherlock</a>
+          <a data-pjax="true" title="Fix typo" class="message" href="/getify/You-Dont-Know-JS/commit/23412d21591f4a09037d514c05b49c22da33bf36">Fix typo</a>
+      </div>
+
+    <div class="commit-tease-contributors">
+      
+<details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark float-left mr-2" id="blob_contributors_box">
+  <summary class="btn-link" aria-haspopup="dialog"  >
+    
+    <span><strong>10</strong> contributors</span>
+  </summary>
+  <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast " aria-label="Users who have contributed to this file">
+    <div class="Box-header">
+      <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
+        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+      </button>
+      <h3 class="Box-title">Users who have contributed to this file</h3>
+    </div>
+    
+        <ul class="list-style-none overflow-auto">
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/getify">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/150330?s=40&amp;v=4" width="20" height="20" />
+                getify
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/zacharyrankin">
+                <img class="avatar mr-2" alt="" src="https://avatars0.githubusercontent.com/u/321407?s=40&amp;v=4" width="20" height="20" />
+                zacharyrankin
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/younesherlock">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/3153107?s=40&amp;v=4" width="20" height="20" />
+                younesherlock
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/wojonet">
+                <img class="avatar mr-2" alt="" src="https://avatars0.githubusercontent.com/u/6930284?s=40&amp;v=4" width="20" height="20" />
+                wojonet
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/whitepear">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/18552013?s=40&amp;v=4" width="20" height="20" />
+                whitepear
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/pdawyndt">
+                <img class="avatar mr-2" alt="" src="https://avatars2.githubusercontent.com/u/5736113?s=40&amp;v=4" width="20" height="20" />
+                pdawyndt
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/pelonpelon">
+                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/254146?s=40&amp;v=4" width="20" height="20" />
+                pelonpelon
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/msach">
+                <img class="avatar mr-2" alt="" src="https://avatars0.githubusercontent.com/u/5993871?s=40&amp;v=4" width="20" height="20" />
+                msach
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/adius">
+                <img class="avatar mr-2" alt="" src="https://avatars1.githubusercontent.com/u/969983?s=40&amp;v=4" width="20" height="20" />
+                adius
+</a>            </li>
+            <li class="Box-row">
+              <a class="link-gray-dark no-underline" href="/bharani91">
+                <img class="avatar mr-2" alt="" src="https://avatars2.githubusercontent.com/u/919147?s=40&amp;v=4" width="20" height="20" />
+                bharani91
+</a>            </li>
+        </ul>
+
+  </details-dialog>
+</details>
+          <a class="avatar-link" data-hovercard-user-id="150330" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=getify">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/150330?s=40&amp;v=4" width="20" height="20" alt="@getify" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="321407" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=zacharyrankin">
+      <img class="avatar" src="https://avatars0.githubusercontent.com/u/321407?s=40&amp;v=4" width="20" height="20" alt="@zacharyrankin" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="3153107" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=younesherlock">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/3153107?s=40&amp;v=4" width="20" height="20" alt="@younesherlock" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="6930284" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=wojonet">
+      <img class="avatar" src="https://avatars0.githubusercontent.com/u/6930284?s=40&amp;v=4" width="20" height="20" alt="@wojonet" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="18552013" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=whitepear">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/18552013?s=40&amp;v=4" width="20" height="20" alt="@whitepear" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="5736113" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=pdawyndt">
+      <img class="avatar" src="https://avatars2.githubusercontent.com/u/5736113?s=40&amp;v=4" width="20" height="20" alt="@pdawyndt" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="254146" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=pelonpelon">
+      <img class="avatar" src="https://avatars3.githubusercontent.com/u/254146?s=40&amp;v=4" width="20" height="20" alt="@pelonpelon" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="5993871" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=msach">
+      <img class="avatar" src="https://avatars0.githubusercontent.com/u/5993871?s=40&amp;v=4" width="20" height="20" alt="@msach" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="969983" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=adius">
+      <img class="avatar" src="https://avatars1.githubusercontent.com/u/969983?s=40&amp;v=4" width="20" height="20" alt="@adius" /> 
+</a>    <a class="avatar-link" data-hovercard-user-id="919147" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md?author=bharani91">
+      <img class="avatar" src="https://avatars2.githubusercontent.com/u/919147?s=40&amp;v=4" width="20" height="20" alt="@bharani91" /> 
+</a>
+
+    </div>
+  </div>
+
+
+
+  <div class="file">
+    <div class="file-header">
+  <div class="file-actions">
+
+    <div class="BtnGroup">
+      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/getify/You-Dont-Know-JS/raw/master/this%20%26%20object%20prototypes/ch5.md">Raw</a>
+        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/getify/You-Dont-Know-JS/blame/master/this%20%26%20object%20prototypes/ch5.md">Blame</a>
+      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch5.md">History</a>
+    </div>
+
+
+        <button type="button" class="btn-octicon disabled tooltipped tooltipped-nw"
+          aria-label="You must be signed in to make or propose changes">
+          <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
+        </button>
+        <button type="button" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
+          aria-label="You must be signed in to make or propose changes">
+          <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
+        </button>
+  </div>
+
+  <div class="file-info">
+      753 lines (474 sloc)
+      <span class="file-info-divider"></span>
+    48.1 KB
+  </div>
+</div>
+
+    
+  <div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-you-dont-know-js-this--object-prototypes" class="anchor" aria-hidden="true" href="#you-dont-know-js-this--object-prototypes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>You Don't Know JS: <em>this</em> &amp; Object Prototypes</h1>
+<h1><a id="user-content-chapter-5-prototypes" class="anchor" aria-hidden="true" href="#chapter-5-prototypes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Chapter 5: Prototypes</h1>
+<p>In Chapters 3 and 4, we mentioned the <code>[[Prototype]]</code> chain several times, but haven't said what exactly it is. We will now examine prototypes in detail.</p>
+<p><strong>Note:</strong> All of the attempts to emulate class-copy behavior, as described previously in Chapter 4, labeled as variations of "mixins", completely circumvent the <code>[[Prototype]]</code> chain mechanism we examine here in this chapter.</p>
+<h2><a id="user-content-prototype" class="anchor" aria-hidden="true" href="#prototype"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>[[Prototype]]</code></h2>
+<p>Objects in JavaScript have an internal property, denoted in the specification as <code>[[Prototype]]</code>, which is simply a reference to another object. Almost all objects are given a non-<code>null</code> value for this property, at the time of their creation.</p>
+<p><strong>Note:</strong> We will see shortly that it <em>is</em> possible for an object to have an empty <code>[[Prototype]]</code> linkage, though this is somewhat less common.</p>
+<p>Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p>What is the <code>[[Prototype]]</code> reference used for? In Chapter 3, we examined the <code>[[Get]]</code> operation that is invoked when you reference a property on an object, such as <code>myObject.a</code>. For that default <code>[[Get]]</code> operation, the first step is to check if the object itself has a property <code>a</code> on it, and if so, it's used.</p>
+<p><strong>Note:</strong> ES6 Proxies are outside of our discussion scope in this book (will be covered in a later book in the series!), but everything we discuss here about normal <code>[[Get]]</code> and <code>[[Put]]</code> behavior does not apply if a <code>Proxy</code> is involved.</p>
+<p>But it's what happens if <code>a</code> <strong>isn't</strong> present on <code>myObject</code> that brings our attention now to the <code>[[Prototype]]</code> link of the object.</p>
+<p>The default <code>[[Get]]</code> operation proceeds to follow the <code>[[Prototype]]</code> <strong>link</strong> of the object if it cannot find the requested property on the object directly.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> anotherObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-c"><span class="pl-c">//</span> create an object linked to `anotherObject`</span>
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( anotherObject );
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p><strong>Note:</strong> We will explain what <code>Object.create(..)</code> does, and how it operates, shortly. For now, just assume it creates an object with the <code>[[Prototype]]</code> linkage we're examining to the object specified.</p>
+<p>So, we have <code>myObject</code> that is now <code>[[Prototype]]</code> linked to <code>anotherObject</code>. Clearly <code>myObject.a</code> doesn't actually exist, but nevertheless, the property access succeeds (being found on <code>anotherObject</code> instead) and indeed finds the value <code>2</code>.</p>
+<p>But, if <code>a</code> weren't found on <code>anotherObject</code> either, its <code>[[Prototype]]</code> chain, if non-empty, is again consulted and followed.</p>
+<p>This process continues until either a matching property name is found, or the <code>[[Prototype]]</code> chain ends. If no matching property is <em>ever</em> found by the end of the chain, the return result from the <code>[[Get]]</code> operation is <code>undefined</code>.</p>
+<p>Similar to this <code>[[Prototype]]</code> chain look-up process, if you use a <code>for..in</code> loop to iterate over an object, any property that can be reached via its chain (and is also <code>enumerable</code> -- see Chapter 3) will be enumerated. If you use the <code>in</code> operator to test for the existence of a property on an object, <code>in</code> will check the entire chain of the object (regardless of <em>enumerability</em>).</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> anotherObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-c"><span class="pl-c">//</span> create an object linked to `anotherObject`</span>
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( anotherObject );
+
+<span class="pl-k">for</span> (<span class="pl-k">var</span> k <span class="pl-k">in</span> myObject) {
+	<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>found: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> k);
+}
+<span class="pl-c"><span class="pl-c">//</span> found: a</span>
+
+(<span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> <span class="pl-k">in</span> myObject); <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p>So, the <code>[[Prototype]]</code> chain is consulted, one link at a time, when you perform property look-ups in various fashions. The look-up stops once the property is found or the chain ends.</p>
+<h3><a id="user-content-objectprototype" class="anchor" aria-hidden="true" href="#objectprototype"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Object.prototype</code></h3>
+<p>But <em>where</em> exactly does the <code>[[Prototype]]</code> chain "end"?</p>
+<p>The top-end of every <em>normal</em> <code>[[Prototype]]</code> chain is the built-in <code>Object.prototype</code>. This object includes a variety of common utilities used all over JS, because all normal (built-in, not host-specific extension) objects in JavaScript "descend from" (aka, have at the top of their <code>[[Prototype]]</code> chain) the <code>Object.prototype</code> object.</p>
+<p>Some utilities found here you may be familiar with include <code>.toString()</code> and <code>.valueOf()</code>. In Chapter 3, we introduced another: <code>.hasOwnProperty(..)</code>. And yet another function on <code>Object.prototype</code> you may not be familiar with, but which we'll address later in this chapter, is <code>.isPrototypeOf(..)</code>.</p>
+<h3><a id="user-content-setting--shadowing-properties" class="anchor" aria-hidden="true" href="#setting--shadowing-properties"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting &amp; Shadowing Properties</h3>
+<p>Back in Chapter 3, we mentioned that setting properties on an object was more nuanced than just adding a new property to the object or changing an existing property's value. We will now revisit this situation more completely.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">myObject</span>.<span class="pl-smi">foo</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>;</pre></div>
+<p>If the <code>myObject</code> object already has a normal data accessor property called <code>foo</code> directly present on it, the assignment is as simple as changing the value of the existing property.</p>
+<p>If <code>foo</code> is not already present directly on <code>myObject</code>, the <code>[[Prototype]]</code> chain is traversed, just like for the <code>[[Get]]</code> operation. If <code>foo</code> is not found anywhere in the chain, the property <code>foo</code> is added directly to <code>myObject</code> with the specified value, as expected.</p>
+<p>However, if <code>foo</code> is already present somewhere higher in the chain, nuanced (and perhaps surprising) behavior can occur with the <code>myObject.foo = "bar"</code> assignment. We'll examine that more in just a moment.</p>
+<p>If the property name <code>foo</code> ends up both on <code>myObject</code> itself and at a higher level of the <code>[[Prototype]]</code> chain that starts at <code>myObject</code>, this is called <em>shadowing</em>. The <code>foo</code> property directly on <code>myObject</code> <em>shadows</em> any <code>foo</code> property which appears higher in the chain, because the <code>myObject.foo</code> look-up would always find the <code>foo</code> property that's lowest in the chain.</p>
+<p>As we just hinted, shadowing <code>foo</code> on <code>myObject</code> is not as simple as it may seem. We will now examine three scenarios for the <code>myObject.foo = "bar"</code> assignment when <code>foo</code> is <strong>not</strong> already on <code>myObject</code> directly, but <strong>is</strong> at a higher level of <code>myObject</code>'s <code>[[Prototype]]</code> chain:</p>
+<ol>
+<li>If a normal data accessor (see Chapter 3) property named <code>foo</code> is found anywhere higher on the <code>[[Prototype]]</code> chain, <strong>and it's not marked as read-only (<code>writable:false</code>)</strong> then a new property called <code>foo</code> is added directly to <code>myObject</code>, resulting in a <strong>shadowed property</strong>.</li>
+<li>If a <code>foo</code> is found higher on the <code>[[Prototype]]</code> chain, but it's marked as <strong>read-only (<code>writable:false</code>)</strong>, then both the setting of that existing property as well as the creation of the shadowed property on <code>myObject</code> <strong>are disallowed</strong>. If the code is running in <code>strict mode</code>, an error will be thrown. Otherwise, the setting of the property value will silently be ignored. Either way, <strong>no shadowing occurs</strong>.</li>
+<li>If a <code>foo</code> is found higher on the <code>[[Prototype]]</code> chain and it's a setter (see Chapter 3), then the setter will always be called. No <code>foo</code> will be added to (aka, shadowed on) <code>myObject</code>, nor will the <code>foo</code> setter be redefined.</li>
+</ol>
+<p>Most developers assume that assignment of a property (<code>[[Put]]</code>) will always result in shadowing if the property already exists higher on the <code>[[Prototype]]</code> chain, but as you can see, that's only true in one (#1) of the three situations just described.</p>
+<p>If you want to shadow <code>foo</code> in cases #2 and #3, you cannot use <code>=</code> assignment, but must instead use <code>Object.defineProperty(..)</code> (see Chapter 3) to add <code>foo</code> to <code>myObject</code>.</p>
+<p><strong>Note:</strong> Case #2 may be the most surprising of the three. The presence of a <em>read-only</em> property prevents a property of the same name being implicitly created (shadowed) at a lower level of a <code>[[Prototype]]</code> chain. The reason for this restriction is primarily to reinforce the illusion of class-inherited properties. If you think of the <code>foo</code> at a higher level of the chain as having been inherited (copied down) to <code>myObject</code>, then it makes sense to enforce the non-writable nature of that <code>foo</code> property on <code>myObject</code>. If you however separate the illusion from the fact, and recognize that no such inheritance copying <em>actually</em> occurred (see Chapters 4 and 5), it's a little unnatural that <code>myObject</code> would be prevented from having a <code>foo</code> property just because some other object had a non-writable <code>foo</code> on it. It's even stranger that this restriction only applies to <code>=</code> assignment, but is not enforced when using <code>Object.defineProperty(..)</code>.</p>
+<p>Shadowing with <strong>methods</strong> leads to ugly <em>explicit pseudo-polymorphism</em> (see Chapter 4) if you need to delegate between them. Usually, shadowing is more complicated and nuanced than it's worth, <strong>so you should try to avoid it if possible</strong>. See Chapter 6 for an alternative design pattern, which among other things discourages shadowing in favor of cleaner alternatives.</p>
+<p>Shadowing can even occur implicitly in subtle ways, so care must be taken if trying to avoid it. Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> anotherObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( anotherObject );
+
+<span class="pl-smi">anotherObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span>
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span>
+
+<span class="pl-smi">anotherObject</span>.<span class="pl-en">hasOwnProperty</span>( <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> ); <span class="pl-c"><span class="pl-c">//</span> true</span>
+<span class="pl-smi">myObject</span>.<span class="pl-en">hasOwnProperty</span>( <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> ); <span class="pl-c"><span class="pl-c">//</span> false</span>
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span><span class="pl-k">++</span>; <span class="pl-c"><span class="pl-c">//</span> oops, implicit shadowing!</span>
+
+<span class="pl-smi">anotherObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span>
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 3</span>
+
+<span class="pl-smi">myObject</span>.<span class="pl-en">hasOwnProperty</span>( <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> ); <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p>Though it may appear that <code>myObject.a++</code> should (via delegation) look-up and just increment the <code>anotherObject.a</code> property itself <em>in place</em>, instead the <code>++</code> operation corresponds to <code>myObject.a = myObject.a + 1</code>. The result is <code>[[Get]]</code> looking up <code>a</code> property via <code>[[Prototype]]</code> to get the current value <code>2</code> from <code>anotherObject.a</code>, incrementing the value by one, then <code>[[Put]]</code> assigning the <code>3</code> value to a new shadowed property <code>a</code> on <code>myObject</code>. Oops!</p>
+<p>Be very careful when dealing with delegated properties that you modify. If you wanted to increment <code>anotherObject.a</code>, the only proper way is <code>anotherObject.a++</code>.</p>
+<h2><a id="user-content-class" class="anchor" aria-hidden="true" href="#class"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>"Class"</h2>
+<p>At this point, you might be wondering: "<em>Why</em> does one object need to link to another object?" What's the real benefit? That is a very appropriate question to ask, but we must first understand what <code>[[Prototype]]</code> is <strong>not</strong> before we can fully understand and appreciate what it <em>is</em> and how it's useful.</p>
+<p>As we explained in Chapter 4, in JavaScript, there are no abstract patterns/blueprints for objects called "classes" as there are in class-oriented languages. JavaScript <strong>just</strong> has objects.</p>
+<p>In fact, JavaScript is <strong>almost unique</strong> among languages as perhaps the only language with the right to use the label "object oriented", because it's one of a very short list of languages where an object can be created directly, without a class at all.</p>
+<p>In JavaScript, classes can't (being that they don't exist!) describe what an object can do. The object defines its own behavior directly. <strong>There's <em>just</em> the object.</strong></p>
+<h3><a id="user-content-class-functions" class="anchor" aria-hidden="true" href="#class-functions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>"Class" Functions</h3>
+<p>There's a peculiar kind of behavior in JavaScript that has been shamelessly abused for years to <em>hack</em> something that <em>looks</em> like "classes". We'll examine this approach in detail.</p>
+<p>The peculiar "sort-of class" behavior hinges on a strange characteristic of functions: all functions by default get a public, non-enumerable (see Chapter 3) property on them called <code>prototype</code>, which points at an otherwise arbitrary object.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Foo</span>() {
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+}
+
+<span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>; <span class="pl-c"><span class="pl-c">//</span> { }</span></pre></div>
+<p>This object is often called "Foo's prototype", because we access it via an unfortunately-named <code>Foo.prototype</code> property reference. However, that terminology is hopelessly destined to lead us into confusion, as we'll see shortly. Instead, I will call it "the object formerly known as Foo's prototype". Just kidding. How about: "object arbitrarily labeled 'Foo dot prototype'"?</p>
+<p>Whatever we call it, what exactly is this object?</p>
+<p>The most direct way to explain it is that each object created from calling <code>new Foo()</code> (see Chapter 2) will end up (somewhat arbitrarily) <code>[[Prototype]]</code>-linked to this "Foo dot prototype" object.</p>
+<p>Let's illustrate:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Foo</span>() {
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+}
+
+<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Foo</span>();
+
+<span class="pl-c1">Object</span>.<span class="pl-en">getPrototypeOf</span>( a ) <span class="pl-k">===</span> <span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>; <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p>When <code>a</code> is created by calling <code>new Foo()</code>, one of the things (see Chapter 2 for all <em>four</em> steps) that happens is that <code>a</code> gets an internal <code>[[Prototype]]</code> link to the object that <code>Foo.prototype</code> is pointing at.</p>
+<p>Stop for a moment and ponder the implications of that statement.</p>
+<p>In class-oriented languages, multiple <strong>copies</strong> (aka, "instances") of a class can be made, like stamping something out from a mold. As we saw in Chapter 4, this happens because the process of instantiating (or inheriting from) a class means, "copy the behavior plan from that class into a physical object", and this is done again for each new instance.</p>
+<p>But in JavaScript, there are no such copy-actions performed. You don't create multiple instances of a class. You can create multiple objects that <code>[[Prototype]]</code> <em>link</em> to a common object. But by default, no copying occurs, and thus these objects don't end up totally separate and disconnected from each other, but rather, quite <em><strong>linked</strong></em>.</p>
+<p><code>new Foo()</code> results in a new object (we called it <code>a</code>), and <strong>that</strong> new object <code>a</code> is internally <code>[[Prototype]]</code> linked to the <code>Foo.prototype</code> object.</p>
+<p><strong>We end up with two objects, linked to each other.</strong> That's <em>it</em>. We didn't instantiate a class. We certainly didn't do any copying of behavior from a "class" into a concrete object. We just caused two objects to be linked to each other.</p>
+<p>In fact, the secret, which eludes most JS developers, is that the <code>new Foo()</code> function calling had really almost nothing <em>direct</em> to do with the process of creating the link. <strong>It was sort of an accidental side-effect.</strong> <code>new Foo()</code> is an indirect, round-about way to end up with what we want: <strong>a new object linked to another object</strong>.</p>
+<p>Can we get what we want in a more <em>direct</em> way? <strong>Yes!</strong> The hero is <code>Object.create(..)</code>. But we'll get to that in a little bit.</p>
+<h4><a id="user-content-whats-in-a-name" class="anchor" aria-hidden="true" href="#whats-in-a-name"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What's in a name?</h4>
+<p>In JavaScript, we don't make <em>copies</em> from one object ("class") to another ("instance"). We make <em>links</em> between objects. For the <code>[[Prototype]]</code> mechanism, visually, the arrows move from right to left, and from bottom to top.</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/fig3.png"><img src="/getify/You-Dont-Know-JS/raw/master/this%20%26%20object%20prototypes/fig3.png" style="max-width:100%;"></a></p>
+<p>This mechanism is often called "prototypal inheritance" (we'll explore the code in detail shortly), which is commonly said to be the dynamic-language version of "classical inheritance". It's an attempt to piggy-back on the common understanding of what "inheritance" means in the class-oriented world, but <em>tweak</em> (<strong>read: pave over</strong>) the understood semantics, to fit dynamic scripting.</p>
+<p>The word "inheritance" has a very strong meaning (see Chapter 4), with plenty of mental precedent. Merely adding "prototypal" in front to distinguish the <em>actually nearly opposite</em> behavior in JavaScript has left in its wake nearly two decades of miry confusion.</p>
+<p>I like to say that sticking "prototypal" in front of "inheritance" to drastically reverse its actual meaning is like holding an orange in one hand, an apple in the other, and insisting on calling the apple a "red orange". No matter what confusing label I put in front of it, that doesn't change the <em>fact</em> that one fruit is an apple and the other is an orange.</p>
+<p>The better approach is to plainly call an apple an apple -- to use the most accurate and direct terminology. That makes it easier to understand both their similarities and their <strong>many differences</strong>, because we all have a simple, shared understanding of what "apple" means.</p>
+<p>Because of the confusion and conflation of terms, I believe the label "prototypal inheritance" itself (and trying to mis-apply all its associated class-orientation terminology, like "class", "constructor", "instance", "polymorphism", etc) has done <strong>more harm than good</strong> in explaining how JavaScript's mechanism <em>really</em> works.</p>
+<p>"Inheritance" implies a <em>copy</em> operation, and JavaScript doesn't copy object properties (natively, by default). Instead, JS creates a link between two objects, where one object can essentially <em>delegate</em> property/function access to another object. "Delegation" (see Chapter 6) is a much more accurate term for JavaScript's object-linking mechanism.</p>
+<p>Another term which is sometimes thrown around in JavaScript is "differential inheritance". The idea here is that we describe an object's behavior in terms of what is <em>different</em> from a more general descriptor. For example, you explain that a car is a kind of vehicle, but one that has exactly 4 wheels, rather than re-describing all the specifics of what makes up a general vehicle (engine, etc).</p>
+<p>If you try to think of any given object in JS as the sum total of all behavior that is <em>available</em> via delegation, and <strong>in your mind you flatten</strong> all that behavior into one tangible <em>thing</em>, then you can (sorta) see how "differential inheritance" might fit.</p>
+<p>But just like with "prototypal inheritance", "differential inheritance" pretends that your mental model is more important than what is physically happening in the language. It overlooks the fact that object <code>B</code> is not actually differentially constructed, but is instead built with specific characteristics defined, alongside "holes" where nothing is defined. It is in these "holes" (gaps in, or lack of, definition) that delegation <em>can</em> take over and, on the fly, "fill them in" with delegated behavior.</p>
+<p>The object is not, by native default, flattened into the single differential object, <strong>through copying</strong>, that the mental model of "differential inheritance" implies. As such, "differential inheritance" is just not as natural a fit for describing how JavaScript's <code>[[Prototype]]</code> mechanism actually works.</p>
+<p>You <em>can choose</em> to prefer the "differential inheritance" terminology and mental model, as a matter of taste, but there's no denying the fact that it <em>only</em> fits the mental acrobatics in your mind, not the physical behavior in the engine.</p>
+<h3><a id="user-content-constructors" class="anchor" aria-hidden="true" href="#constructors"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>"Constructors"</h3>
+<p>Let's go back to some earlier code:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Foo</span>() {
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+}
+
+<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Foo</span>();</pre></div>
+<p>What exactly leads us to think <code>Foo</code> is a "class"?</p>
+<p>For one, we see the use of the <code>new</code> keyword, just like class-oriented languages do when they construct class instances. For another, it appears that we are in fact executing a <em>constructor</em> method of a class, because <code>Foo()</code> is actually a method that gets called, just like how a real class's constructor gets called when you instantiate that class.</p>
+<p>To further the confusion of "constructor" semantics, the arbitrarily labeled <code>Foo.prototype</code> object has another trick up its sleeve. Consider this code:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Foo</span>() {
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+}
+
+<span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">constructor</span> <span class="pl-k">===</span> Foo; <span class="pl-c"><span class="pl-c">//</span> true</span>
+
+<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Foo</span>();
+<span class="pl-smi">a</span>.<span class="pl-c1">constructor</span> <span class="pl-k">===</span> Foo; <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p>The <code>Foo.prototype</code> object by default (at declaration time on line 1 of the snippet!) gets a public, non-enumerable (see Chapter 3) property called <code>.constructor</code>, and this property is a reference back to the function (<code>Foo</code> in this case) that the object is associated with. Moreover, we see that object <code>a</code> created by the "constructor" call <code>new Foo()</code> <em>seems</em> to also have a property on it called <code>.constructor</code> which similarly points to "the function which created it".</p>
+<p><strong>Note:</strong> This is not actually true. <code>a</code> has no <code>.constructor</code> property on it, and though <code>a.constructor</code> does in fact resolve to the <code>Foo</code> function, "constructor" <strong>does not actually mean</strong> "was constructed by", as it appears. We'll explain this strangeness shortly.</p>
+<p>Oh, yeah, also... by convention in the JavaScript world, "class"es are named with a capital letter, so the fact that it's <code>Foo</code> instead of <code>foo</code> is a strong clue that we intend it to be a "class". That's totally obvious to you, right!?</p>
+<p><strong>Note:</strong> This convention is so strong that many JS linters actually <em>complain</em> if you call <code>new</code> on a method with a lowercase name, or if we don't call <code>new</code> on a function that happens to start with a capital letter. That sort of boggles the mind that we struggle so much to get (fake) "class-orientation" <em>right</em> in JavaScript that we create linter rules to ensure we use capital letters, even though the capital letter doesn't mean <strong><em>anything</em> at all</strong> to the JS engine.</p>
+<h4><a id="user-content-constructor-or-call" class="anchor" aria-hidden="true" href="#constructor-or-call"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Constructor Or Call?</h4>
+<p>In the above snippet, it's tempting to think that <code>Foo</code> is a "constructor", because we call it with <code>new</code> and we observe that it "constructs" an object.</p>
+<p>In reality, <code>Foo</code> is no more a "constructor" than any other function in your program. Functions themselves are <strong>not</strong> constructors. However, when you put the <code>new</code> keyword in front of a normal function call, that makes that function call a "constructor call". In fact, <code>new</code> sort of hijacks any normal function and calls it in a fashion that constructs an object, <strong>in addition to whatever else it was going to do</strong>.</p>
+<p>For example:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">NothingSpecial</span>() {
+	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>Don't mind me!<span class="pl-pds">"</span></span> );
+}
+
+<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">NothingSpecial</span>();
+<span class="pl-c"><span class="pl-c">//</span> "Don't mind me!"</span>
+
+a; <span class="pl-c"><span class="pl-c">//</span> {}</span></pre></div>
+<p><code>NothingSpecial</code> is just a plain old normal function, but when called with <code>new</code>, it <em>constructs</em> an object, almost as a side-effect, which we happen to assign to <code>a</code>. The <strong>call</strong> was a <em>constructor call</em>, but <code>NothingSpecial</code> is not, in and of itself, a <em>constructor</em>.</p>
+<p>In other words, in JavaScript, it's most appropriate to say that a "constructor" is <strong>any function called with the <code>new</code> keyword</strong> in front of it.</p>
+<p>Functions aren't constructors, but function calls are "constructor calls" if and only if <code>new</code> is used.</p>
+<h3><a id="user-content-mechanics" class="anchor" aria-hidden="true" href="#mechanics"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mechanics</h3>
+<p>Are <em>those</em> the only common triggers for ill-fated "class" discussions in JavaScript?</p>
+<p><strong>Not quite.</strong> JS developers have strived to simulate as much as they can of class-orientation:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Foo</span>(<span class="pl-smi">name</span>) {
+	<span class="pl-c1">this</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> name;
+}
+
+<span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">myName</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+	<span class="pl-k">return</span> <span class="pl-c1">this</span>.<span class="pl-c1">name</span>;
+};
+
+<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Foo</span>( <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> );
+<span class="pl-k">var</span> b <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Foo</span>( <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span> );
+
+<span class="pl-smi">a</span>.<span class="pl-en">myName</span>(); <span class="pl-c"><span class="pl-c">//</span> "a"</span>
+<span class="pl-smi">b</span>.<span class="pl-en">myName</span>(); <span class="pl-c"><span class="pl-c">//</span> "b"</span></pre></div>
+<p>This snippet shows two additional "class-orientation" tricks in play:</p>
+<ol>
+<li>
+<p><code>this.name = name</code>: adds the <code>.name</code> property onto each object (<code>a</code> and <code>b</code>, respectively; see Chapter 2 about <code>this</code> binding), similar to how class instances encapsulate data values.</p>
+</li>
+<li>
+<p><code>Foo.prototype.myName = ...</code>: perhaps the more interesting technique, this adds a property (function) to the <code>Foo.prototype</code> object. Now, <code>a.myName()</code> works, but perhaps surprisingly. How?</p>
+</li>
+</ol>
+<p>In the above snippet, it's strongly tempting to think that when <code>a</code> and <code>b</code> are created, the properties/functions on the <code>Foo.prototype</code> object are <em>copied</em> over to each of <code>a</code> and <code>b</code> objects. <strong>However, that's not what happens.</strong></p>
+<p>At the beginning of this chapter, we explained the <code>[[Prototype]]</code> link, and how it provides the fall-back look-up steps if a property reference isn't found directly on an object, as part of the default <code>[[Get]]</code> algorithm.</p>
+<p>So, by virtue of how they are created, <code>a</code> and <code>b</code> each end up with an internal <code>[[Prototype]]</code> linkage to <code>Foo.prototype</code>. When <code>myName</code> is not found on <code>a</code> or <code>b</code>, respectively, it's instead found (through delegation, see Chapter 6) on <code>Foo.prototype</code>.</p>
+<h4><a id="user-content-constructor-redux" class="anchor" aria-hidden="true" href="#constructor-redux"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>"Constructor" Redux</h4>
+<p>Recall the discussion from earlier about the <code>.constructor</code> property, and how it <em>seems</em> like <code>a.constructor === Foo</code> being true means that <code>a</code> has an actual <code>.constructor</code> property on it, pointing at <code>Foo</code>? <strong>Not correct.</strong></p>
+<p>This is just unfortunate confusion. In actuality, the <code>.constructor</code> reference is also <em>delegated</em> up to <code>Foo.prototype</code>, which <strong>happens to</strong>, by default, have a <code>.constructor</code> that points at <code>Foo</code>.</p>
+<p>It <em>seems</em> awfully convenient that an object <code>a</code> "constructed by" <code>Foo</code> would have access to a <code>.constructor</code> property that points to <code>Foo</code>. But that's nothing more than a false sense of security. It's a happy accident, almost tangentially, that <code>a.constructor</code> <em>happens</em> to point at <code>Foo</code> via this default <code>[[Prototype]]</code> delegation. There are actually several ways that the ill-fated assumption of <code>.constructor</code> meaning "was constructed by" can come back to bite you.</p>
+<p>For one, the <code>.constructor</code> property on <code>Foo.prototype</code> is only there by default on the object created when <code>Foo</code> the function is declared. If you create a new object, and replace a function's default <code>.prototype</code> object reference, the new object will not by default magically get a <code>.constructor</code> on it.</p>
+<p>Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Foo</span>() { <span class="pl-c"><span class="pl-c">/*</span> .. <span class="pl-c">*/</span></span> }
+
+<span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> { <span class="pl-c"><span class="pl-c">/*</span> .. <span class="pl-c">*/</span></span> }; <span class="pl-c"><span class="pl-c">//</span> create a new prototype object</span>
+
+<span class="pl-k">var</span> a1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Foo</span>();
+<span class="pl-smi">a1</span>.<span class="pl-c1">constructor</span> <span class="pl-k">===</span> Foo; <span class="pl-c"><span class="pl-c">//</span> false!</span>
+<span class="pl-smi">a1</span>.<span class="pl-c1">constructor</span> <span class="pl-k">===</span> <span class="pl-c1">Object</span>; <span class="pl-c"><span class="pl-c">//</span> true!</span></pre></div>
+<p><code>Object(..)</code> didn't "construct" <code>a1</code> did it? It sure seems like <code>Foo()</code> "constructed" it. Many developers think of <code>Foo()</code> as doing the construction, but where everything falls apart is when you think "constructor" means "was constructed by", because by that reasoning, <code>a1.constructor</code> should be <code>Foo</code>, but it isn't!</p>
+<p>What's happening? <code>a1</code> has no <code>.constructor</code> property, so it delegates up the <code>[[Prototype]]</code> chain to <code>Foo.prototype</code>. But that object doesn't have a <code>.constructor</code> either (like the default <code>Foo.prototype</code> object would have had!), so it keeps delegating, this time up to <code>Object.prototype</code>, the top of the delegation chain. <em>That</em> object indeed has a <code>.constructor</code> on it, which points to the built-in <code>Object(..)</code> function.</p>
+<p><strong>Misconception, busted.</strong></p>
+<p>Of course, you can add <code>.constructor</code> back to the <code>Foo.prototype</code> object, but this takes manual work, especially if you want to match native behavior and have it be non-enumerable (see Chapter 3).</p>
+<p>For example:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Foo</span>() { <span class="pl-c"><span class="pl-c">/*</span> .. <span class="pl-c">*/</span></span> }
+
+<span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> { <span class="pl-c"><span class="pl-c">/*</span> .. <span class="pl-c">*/</span></span> }; <span class="pl-c"><span class="pl-c">//</span> create a new prototype object</span>
+
+<span class="pl-c"><span class="pl-c">//</span> Need to properly "fix" the missing `.constructor`</span>
+<span class="pl-c"><span class="pl-c">//</span> property on the new object serving as `Foo.prototype`.</span>
+<span class="pl-c"><span class="pl-c">//</span> See Chapter 3 for `defineProperty(..)`.</span>
+<span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( <span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>, <span class="pl-s"><span class="pl-pds">"</span>constructor<span class="pl-pds">"</span></span> , {
+	enumerable<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+	writable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	configurable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+	value<span class="pl-k">:</span> Foo    <span class="pl-c"><span class="pl-c">//</span> point `.constructor` at `Foo`</span>
+} );</pre></div>
+<p>That's a lot of manual work to fix <code>.constructor</code>. Moreover, all we're really doing is perpetuating the misconception that "constructor" means "was constructed by". That's an <em>expensive</em> illusion.</p>
+<p>The fact is, <code>.constructor</code> on an object arbitrarily points, by default, at a function who, reciprocally, has a reference back to the object -- a reference which it calls <code>.prototype</code>. The words "constructor" and "prototype" only have a loose default meaning that might or might not hold true later. The best thing to do is remind yourself, "constructor does not mean constructed by".</p>
+<p><code>.constructor</code> is not a magic immutable property. It <em>is</em> non-enumerable (see snippet above), but its value is writable (can be changed), and moreover, you can add or overwrite (intentionally or accidentally) a property of the name <code>constructor</code> on any object in any <code>[[Prototype]]</code> chain, with any value you see fit.</p>
+<p>By virtue of how the <code>[[Get]]</code> algorithm traverses the <code>[[Prototype]]</code> chain, a <code>.constructor</code> property reference found anywhere may resolve quite differently than you'd expect.</p>
+<p>See how arbitrary its meaning actually is?</p>
+<p>The result? Some arbitrary object-property reference like <code>a1.constructor</code> cannot actually be <em>trusted</em> to be the assumed default function reference. Moreover, as we'll see shortly, just by simple omission, <code>a1.constructor</code> can even end up pointing somewhere quite surprising and insensible.</p>
+<p><code>.constructor</code> is extremely unreliable, and an unsafe reference to rely upon in your code. <strong>Generally, such references should be avoided where possible.</strong></p>
+<h2><a id="user-content-prototypal-inheritance" class="anchor" aria-hidden="true" href="#prototypal-inheritance"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>"(Prototypal) Inheritance"</h2>
+<p>We've seen some approximations of "class" mechanics as typically hacked into JavaScript programs. But JavaScript "class"es would be rather hollow if we didn't have an approximation of "inheritance".</p>
+<p>Actually, we've already seen the mechanism which is commonly called "prototypal inheritance" at work when <code>a</code> was able to "inherit from" <code>Foo.prototype</code>, and thus get access to the <code>myName()</code> function. But we traditionally think of "inheritance" as being a relationship between two "classes", rather than between "class" and "instance".</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/fig3.png"><img src="/getify/You-Dont-Know-JS/raw/master/this%20%26%20object%20prototypes/fig3.png" style="max-width:100%;"></a></p>
+<p>Recall this figure from earlier, which shows not only delegation from an object (aka, "instance") <code>a1</code> to object <code>Foo.prototype</code>, but from <code>Bar.prototype</code> to <code>Foo.prototype</code>, which somewhat resembles the concept of Parent-Child class inheritance. <em>Resembles</em>, except of course for the direction of the arrows, which show these are delegation links rather than copy operations.</p>
+<p>And, here's the typical "prototype style" code that creates such links:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Foo</span>(<span class="pl-smi">name</span>) {
+	<span class="pl-c1">this</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> name;
+}
+
+<span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">myName</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+	<span class="pl-k">return</span> <span class="pl-c1">this</span>.<span class="pl-c1">name</span>;
+};
+
+<span class="pl-k">function</span> <span class="pl-en">Bar</span>(<span class="pl-smi">name</span>,<span class="pl-smi">label</span>) {
+	<span class="pl-smi">Foo</span>.<span class="pl-c1">call</span>( <span class="pl-c1">this</span>, name );
+	<span class="pl-c1">this</span>.<span class="pl-c1">label</span> <span class="pl-k">=</span> label;
+}
+
+<span class="pl-c"><span class="pl-c">//</span> here, we make a new `Bar.prototype`</span>
+<span class="pl-c"><span class="pl-c">//</span> linked to `Foo.prototype`</span>
+<span class="pl-smi">Bar</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( <span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span> );
+
+<span class="pl-c"><span class="pl-c">//</span> Beware! Now `Bar.prototype.constructor` is gone,</span>
+<span class="pl-c"><span class="pl-c">//</span> and might need to be manually "fixed" if you're</span>
+<span class="pl-c"><span class="pl-c">//</span> in the habit of relying on such properties!</span>
+
+<span class="pl-smi">Bar</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">myLabel</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+	<span class="pl-k">return</span> <span class="pl-c1">this</span>.<span class="pl-c1">label</span>;
+};
+
+<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Bar</span>( <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>obj a<span class="pl-pds">"</span></span> );
+
+<span class="pl-smi">a</span>.<span class="pl-en">myName</span>(); <span class="pl-c"><span class="pl-c">//</span> "a"</span>
+<span class="pl-smi">a</span>.<span class="pl-en">myLabel</span>(); <span class="pl-c"><span class="pl-c">//</span> "obj a"</span></pre></div>
+<p><strong>Note:</strong> To understand why <code>this</code> points to <code>a</code> in the above code snippet, see Chapter 2.</p>
+<p>The important part is <code>Bar.prototype = Object.create( Foo.prototype )</code>. <code>Object.create(..)</code> <em>creates</em> a "new" object out of thin air, and links that new object's internal <code>[[Prototype]]</code> to the object you specify (<code>Foo.prototype</code> in this case).</p>
+<p>In other words, that line says: "make a <em>new</em> 'Bar dot prototype' object that's linked to 'Foo dot prototype'."</p>
+<p>When <code>function Bar() { .. }</code> is declared, <code>Bar</code>, like any other function, has a <code>.prototype</code> link to its default object. But <em>that</em> object is not linked to <code>Foo.prototype</code> like we want. So, we create a <em>new</em> object that <em>is</em> linked as we want, effectively throwing away the original incorrectly-linked object.</p>
+<p><strong>Note:</strong> A common mis-conception/confusion here is that either of the following approaches would <em>also</em> work, but they do not work as you'd expect:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> doesn't work like you want!</span>
+<span class="pl-smi">Bar</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> <span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>;
+
+<span class="pl-c"><span class="pl-c">//</span> works kinda like you want, but with</span>
+<span class="pl-c"><span class="pl-c">//</span> side-effects you probably don't want :(</span>
+<span class="pl-smi">Bar</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Foo</span>();</pre></div>
+<p><code>Bar.prototype = Foo.prototype</code> doesn't create a new object for <code>Bar.prototype</code> to be linked to. It just makes <code>Bar.prototype</code> be another reference to <code>Foo.prototype</code>, which effectively links <code>Bar</code> directly to <strong>the same object as</strong> <code>Foo</code> links to: <code>Foo.prototype</code>. This means when you start assigning, like <code>Bar.prototype.myLabel = ...</code>, you're modifying <strong>not a separate object</strong> but <em>the</em> shared <code>Foo.prototype</code> object itself, which would affect any objects linked to <code>Foo.prototype</code>. This is almost certainly not what you want. If it <em>is</em> what you want, then you likely don't need <code>Bar</code> at all, and should just use only <code>Foo</code> and make your code simpler.</p>
+<p><code>Bar.prototype = new Foo()</code> <strong>does in fact</strong> create a new object which is duly linked to <code>Foo.prototype</code> as we'd want. But, it uses the <code>Foo(..)</code> "constructor call" to do it. If that function has any side-effects (such as logging, changing state, registering against other objects, <strong>adding data properties to <code>this</code></strong>, etc.), those side-effects happen at the time of this linking (and likely against the wrong object!), rather than only when the eventual <code>Bar()</code> "descendants" are created, as would likely be expected.</p>
+<p>So, we're left with using <code>Object.create(..)</code> to make a new object that's properly linked, but without having the side-effects of calling <code>Foo(..)</code>. The slight downside is that we have to create a new object, throwing the old one away, instead of modifying the existing default object we're provided.</p>
+<p>It would be <em>nice</em> if there was a standard and reliable way to modify the linkage of an existing object. Prior to ES6, there's a non-standard and not fully-cross-browser way, via the <code>.__proto__</code> property, which is settable. ES6 adds a <code>Object.setPrototypeOf(..)</code> helper utility, which does the trick in a standard and predictable way.</p>
+<p>Compare the pre-ES6 and ES6-standardized techniques for linking <code>Bar.prototype</code> to <code>Foo.prototype</code>, side-by-side:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> pre-ES6</span>
+<span class="pl-c"><span class="pl-c">//</span> throws away default existing `Bar.prototype`</span>
+<span class="pl-smi">Bar</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( <span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span> );
+
+<span class="pl-c"><span class="pl-c">//</span> ES6+</span>
+<span class="pl-c"><span class="pl-c">//</span> modifies existing `Bar.prototype`</span>
+<span class="pl-c1">Object</span>.<span class="pl-en">setPrototypeOf</span>( <span class="pl-smi">Bar</span>.<span class="pl-c1">prototype</span>, <span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span> );</pre></div>
+<p>Ignoring the slight performance disadvantage (throwing away an object that's later garbage collected) of the <code>Object.create(..)</code> approach, it's a little bit shorter and may be perhaps a little easier to read than the ES6+ approach. But it's probably a syntactic wash either way.</p>
+<h3><a id="user-content-inspecting-class-relationships" class="anchor" aria-hidden="true" href="#inspecting-class-relationships"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inspecting "Class" Relationships</h3>
+<p>What if you have an object like <code>a</code> and want to find out what object (if any) it delegates to? Inspecting an instance (just an object in JS) for its inheritance ancestry (delegation linkage in JS) is often called <em>introspection</em> (or <em>reflection</em>) in traditional class-oriented environments.</p>
+<p>Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">Foo</span>() {
+	<span class="pl-c"><span class="pl-c">//</span> ...</span>
+}
+
+<span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>.<span class="pl-smi">blah</span> <span class="pl-k">=</span> <span class="pl-k">...</span>;
+
+<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Foo</span>();</pre></div>
+<p>How do we then introspect <code>a</code> to find out its "ancestry" (delegation linkage)? The first approach embraces the "class" confusion:</p>
+<div class="highlight highlight-source-js"><pre>a <span class="pl-k">instanceof</span> Foo; <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p>The <code>instanceof</code> operator takes a plain object as its left-hand operand and a <strong>function</strong> as its right-hand operand. The question <code>instanceof</code> answers is: <strong>in the entire <code>[[Prototype]]</code> chain of <code>a</code>, does the object arbitrarily pointed to by <code>Foo.prototype</code> ever appear?</strong></p>
+<p>Unfortunately, this means that you can only inquire about the "ancestry" of some object (<code>a</code>) if you have some <strong>function</strong> (<code>Foo</code>, with its attached <code>.prototype</code> reference) to test with. If you have two arbitrary objects, say <code>a</code> and <code>b</code>, and want to find out if <em>the objects</em> are related to each other through a <code>[[Prototype]]</code> chain, <code>instanceof</code> alone can't help.</p>
+<p><strong>Note:</strong> If you use the built-in <code>.bind(..)</code> utility to make a hard-bound function (see Chapter 2), the function created will not have a <code>.prototype</code> property. Using <code>instanceof</code> with such a function transparently substitutes the <code>.prototype</code> of the <em>target function</em> that the hard-bound function was created from.</p>
+<p>It's fairly uncommon to use hard-bound functions as "constructor calls", but if you do, it will behave as if the original <em>target function</em> was invoked instead, which means that using <code>instanceof</code> with a hard-bound function also behaves according to the original function.</p>
+<p>This snippet illustrates the ridiculousness of trying to reason about relationships between <strong>two objects</strong> using "class" semantics and <code>instanceof</code>:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> helper utility to see if `o1` is</span>
+<span class="pl-c"><span class="pl-c">//</span> related to (delegates to) `o2`</span>
+<span class="pl-k">function</span> <span class="pl-en">isRelatedTo</span>(<span class="pl-smi">o1</span>, <span class="pl-smi">o2</span>) {
+	<span class="pl-k">function</span> <span class="pl-en">F</span>(){}
+	<span class="pl-c1">F</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> o2;
+	<span class="pl-k">return</span> o1 <span class="pl-k">instanceof</span> <span class="pl-c1">F</span>;
+}
+
+<span class="pl-k">var</span> a <span class="pl-k">=</span> {};
+<span class="pl-k">var</span> b <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( a );
+
+<span class="pl-en">isRelatedTo</span>( b, a ); <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p>Inside <code>isRelatedTo(..)</code>, we borrow a throw-away function <code>F</code>, reassign its <code>.prototype</code> to arbitrarily point to some object <code>o2</code>, then ask if <code>o1</code> is an "instance of" <code>F</code>. Obviously <code>o1</code> isn't <em>actually</em> inherited or descended or even constructed from <code>F</code>, so it should be clear why this kind of exercise is silly and confusing. <strong>The problem comes down to the awkwardness of class semantics forced upon JavaScript</strong>, in this case as revealed by the indirect semantics of <code>instanceof</code>.</p>
+<p>The second, and much cleaner, approach to <code>[[Prototype]]</code> reflection is:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">isPrototypeOf</span>( a ); <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p>Notice that in this case, we don't really care about (or even <em>need</em>) <code>Foo</code>, we just need an <strong>object</strong> (in our case, arbitrarily labeled <code>Foo.prototype</code>) to test against another <strong>object</strong>. The question <code>isPrototypeOf(..)</code> answers is: <strong>in the entire <code>[[Prototype]]</code> chain of <code>a</code>, does <code>Foo.prototype</code> ever appear?</strong></p>
+<p>Same question, and exact same answer. But in this second approach, we don't actually need the indirection of referencing a <strong>function</strong> (<code>Foo</code>) whose <code>.prototype</code> property will automatically be consulted.</p>
+<p>We <em>just need</em> two <strong>objects</strong> to inspect a relationship between them. For example:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> Simply: does `b` appear anywhere in</span>
+<span class="pl-c"><span class="pl-c">//</span> `c`s [[Prototype]] chain?</span>
+<span class="pl-smi">b</span>.<span class="pl-en">isPrototypeOf</span>( c );</pre></div>
+<p>Notice, this approach doesn't require a function ("class") at all. It just uses object references directly to <code>b</code> and <code>c</code>, and inquires about their relationship. In other words, our <code>isRelatedTo(..)</code> utility above is built-in to the language, and it's called <code>isPrototypeOf(..)</code>.</p>
+<p>We can also directly retrieve the <code>[[Prototype]]</code> of an object. As of ES5, the standard way to do this is:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">Object</span>.<span class="pl-en">getPrototypeOf</span>( a );</pre></div>
+<p>And you'll notice that object reference is what we'd expect:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">Object</span>.<span class="pl-en">getPrototypeOf</span>( a ) <span class="pl-k">===</span> <span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>; <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p>Most browsers (not all!) have also long supported a non-standard alternate way of accessing the internal <code>[[Prototype]]</code>:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-smi">a</span>.<span class="pl-smi">__proto__</span> <span class="pl-k">===</span> <span class="pl-smi">Foo</span>.<span class="pl-c1">prototype</span>; <span class="pl-c"><span class="pl-c">//</span> true</span></pre></div>
+<p>The strange <code>.__proto__</code> (not standardized until ES6!) property "magically" retrieves the internal <code>[[Prototype]]</code> of an object as a reference, which is quite helpful if you want to directly inspect (or even traverse: <code>.__proto__.__proto__...</code>) the chain.</p>
+<p>Just as we saw earlier with <code>.constructor</code>, <code>.__proto__</code> doesn't actually exist on the object you're inspecting (<code>a</code> in our running example). In fact, it exists (non-enumerable; see Chapter 2) on the built-in <code>Object.prototype</code>, along with the other common utilities (<code>.toString()</code>, <code>.isPrototypeOf(..)</code>, etc).</p>
+<p>Moreover, <code>.__proto__</code> looks like a property, but it's actually more appropriate to think of it as a getter/setter (see Chapter 3).</p>
+<p>Roughly, we could envision <code>.__proto__</code> implemented (see Chapter 3 for object property definitions) like this:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">Object</span>.<span class="pl-en">defineProperty</span>( <span class="pl-c1">Object</span>.<span class="pl-c1">prototype</span>, <span class="pl-s"><span class="pl-pds">"</span>__proto__<span class="pl-pds">"</span></span>, {
+	<span class="pl-en">get</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+		<span class="pl-k">return</span> <span class="pl-c1">Object</span>.<span class="pl-en">getPrototypeOf</span>( <span class="pl-c1">this</span> );
+	},
+	<span class="pl-en">set</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">o</span>) {
+		<span class="pl-c"><span class="pl-c">//</span> setPrototypeOf(..) as of ES6</span>
+		<span class="pl-c1">Object</span>.<span class="pl-en">setPrototypeOf</span>( <span class="pl-c1">this</span>, o );
+		<span class="pl-k">return</span> o;
+	}
+} );</pre></div>
+<p>So, when we access (retrieve the value of) <code>a.__proto__</code>, it's like calling <code>a.__proto__()</code> (calling the getter function). <em>That</em> function call has <code>a</code> as its <code>this</code> even though the getter function exists on the <code>Object.prototype</code> object (see Chapter 2 for <code>this</code> binding rules), so it's just like saying <code>Object.getPrototypeOf( a )</code>.</p>
+<p><code>.__proto__</code> is also a settable property, just like using ES6's <code>Object.setPrototypeOf(..)</code> shown earlier. However, generally you <strong>should not change the <code>[[Prototype]]</code> of an existing object</strong>.</p>
+<p>There are some very complex, advanced techniques used deep in some frameworks that allow tricks like "subclassing" an <code>Array</code>, but this is commonly frowned on in general programming practice, as it usually leads to <em>much</em> harder to understand/maintain code.</p>
+<p><strong>Note:</strong> As of ES6, the <code>class</code> keyword will allow something that approximates "subclassing" of built-in's like <code>Array</code>. See Appendix A for discussion of the <code>class</code> syntax added in ES6.</p>
+<p>The only other narrow exception (as mentioned earlier) would be setting the <code>[[Prototype]]</code> of a default function's <code>.prototype</code> object to reference some other object (besides <code>Object.prototype</code>). That would avoid replacing that default object entirely with a new linked object. Otherwise, <strong>it's best to treat object <code>[[Prototype]]</code> linkage as a read-only characteristic</strong> for ease of reading your code later.</p>
+<p><strong>Note:</strong> The JavaScript community unofficially coined a term for the double-underscore, specifically the leading one in properties like <code>__proto__</code>: "dunder". So, the "cool kids" in JavaScript would generally pronounce <code>__proto__</code> as "dunder proto".</p>
+<h2><a id="user-content-object-links" class="anchor" aria-hidden="true" href="#object-links"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Object Links</h2>
+<p>As we've now seen, the <code>[[Prototype]]</code> mechanism is an internal link that exists on one object which references some other object.</p>
+<p>This linkage is (primarily) exercised when a property/method reference is made against the first object, and no such property/method exists. In that case, the <code>[[Prototype]]</code> linkage tells the engine to look for the property/method on the linked-to object. In turn, if that object cannot fulfill the look-up, its <code>[[Prototype]]</code> is followed, and so on. This series of links between objects forms what is called the "prototype chain".</p>
+<h3><a id="user-content-createing-links" class="anchor" aria-hidden="true" href="#createing-links"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Create()</code>ing Links</h3>
+<p>We've thoroughly debunked why JavaScript's <code>[[Prototype]]</code> mechanism is <strong>not</strong> like <em>classes</em>, and we've seen how it instead creates <strong>links</strong> between proper objects.</p>
+<p>What's the point of the <code>[[Prototype]]</code> mechanism? Why is it so common for JS developers to go to so much effort (emulating classes) in their code to wire up these linkages?</p>
+<p>Remember we said much earlier in this chapter that <code>Object.create(..)</code> would be a hero? Now, we're ready to see how.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> foo <span class="pl-k">=</span> {
+	<span class="pl-en">something</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>Tell me something good...<span class="pl-pds">"</span></span> );
+	}
+};
+
+<span class="pl-k">var</span> bar <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( foo );
+
+<span class="pl-smi">bar</span>.<span class="pl-en">something</span>(); <span class="pl-c"><span class="pl-c">//</span> Tell me something good...</span></pre></div>
+<p><code>Object.create(..)</code> creates a new object (<code>bar</code>) linked to the object we specified (<code>foo</code>), which gives us all the power (delegation) of the <code>[[Prototype]]</code> mechanism, but without any of the unnecessary complication of <code>new</code> functions acting as classes and constructor calls, confusing <code>.prototype</code> and <code>.constructor</code> references, or any of that extra stuff.</p>
+<p><strong>Note:</strong> <code>Object.create(null)</code> creates an object that has an empty (aka, <code>null</code>) <code>[[Prototype]]</code> linkage, and thus the object can't delegate anywhere. Since such an object has no prototype chain, the <code>instanceof</code> operator (explained earlier) has nothing to check, so it will always return <code>false</code>. These special empty-<code>[[Prototype]]</code> objects are often called "dictionaries" as they are typically used purely for storing data in properties, mostly because they have no possible surprise effects from any delegated properties/functions on the <code>[[Prototype]]</code> chain, and are thus purely flat data storage.</p>
+<p>We don't <em>need</em> classes to create meaningful relationships between two objects. The only thing we should <strong>really care about</strong> is objects linked together for delegation, and <code>Object.create(..)</code> gives us that linkage without all the class cruft.</p>
+<h4><a id="user-content-objectcreate-polyfilled" class="anchor" aria-hidden="true" href="#objectcreate-polyfilled"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Object.create()</code> Polyfilled</h4>
+<p><code>Object.create(..)</code> was added in ES5. You may need to support pre-ES5 environments (like older IE's), so let's take a look at a simple <strong>partial</strong> polyfill for <code>Object.create(..)</code> that gives us the capability that we need even in those older JS environments:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">Object</span>.<span class="pl-smi">create</span>) {
+	<span class="pl-c1">Object</span>.<span class="pl-en">create</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">o</span>) {
+		<span class="pl-k">function</span> <span class="pl-en">F</span>(){}
+		<span class="pl-c1">F</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> o;
+		<span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">F</span>();
+	};
+}</pre></div>
+<p>This polyfill works by using a throw-away <code>F</code> function and overriding its <code>.prototype</code> property to point to the object we want to link to. Then we use <code>new F()</code> construction to make a new object that will be linked as we specified.</p>
+<p>This usage of <code>Object.create(..)</code> is by far the most common usage, because it's the part that <em>can be</em> polyfilled. There's an additional set of functionality that the standard ES5 built-in <code>Object.create(..)</code> provides, which is <strong>not polyfillable</strong> for pre-ES5. As such, this capability is far-less commonly used. For completeness sake, let's look at that additional functionality:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> anotherObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( anotherObject, {
+	b<span class="pl-k">:</span> {
+		enumerable<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+		writable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+		configurable<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+		value<span class="pl-k">:</span> <span class="pl-c1">3</span>
+	},
+	c<span class="pl-k">:</span> {
+		enumerable<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+		writable<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+		configurable<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+		value<span class="pl-k">:</span> <span class="pl-c1">4</span>
+	}
+} );
+
+<span class="pl-smi">myObject</span>.<span class="pl-en">hasOwnProperty</span>( <span class="pl-s"><span class="pl-pds">"</span>a<span class="pl-pds">"</span></span> ); <span class="pl-c"><span class="pl-c">//</span> false</span>
+<span class="pl-smi">myObject</span>.<span class="pl-en">hasOwnProperty</span>( <span class="pl-s"><span class="pl-pds">"</span>b<span class="pl-pds">"</span></span> ); <span class="pl-c"><span class="pl-c">//</span> true</span>
+<span class="pl-smi">myObject</span>.<span class="pl-en">hasOwnProperty</span>( <span class="pl-s"><span class="pl-pds">"</span>c<span class="pl-pds">"</span></span> ); <span class="pl-c"><span class="pl-c">//</span> true</span>
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span>
+<span class="pl-smi">myObject</span>.<span class="pl-smi">b</span>; <span class="pl-c"><span class="pl-c">//</span> 3</span>
+<span class="pl-smi">myObject</span>.<span class="pl-smi">c</span>; <span class="pl-c"><span class="pl-c">//</span> 4</span></pre></div>
+<p>The second argument to <code>Object.create(..)</code> specifies property names to add to the newly created object, via declaring each new property's <em>property descriptor</em> (see Chapter 3). Because polyfilling property descriptors into pre-ES5 is not possible, this additional functionality on <code>Object.create(..)</code> also cannot be polyfilled.</p>
+<p>The vast majority of usage of <code>Object.create(..)</code> uses the polyfill-safe subset of functionality, so most developers are fine with using the <strong>partial polyfill</strong> in pre-ES5 environments.</p>
+<p>Some developers take a much stricter view, which is that no function should be polyfilled unless it can be <em>fully</em> polyfilled. Since <code>Object.create(..)</code> is one of those partial-polyfill'able utilities, this narrower perspective says that if you need to use any of the functionality of <code>Object.create(..)</code> in a pre-ES5 environment, instead of polyfilling, you should use a custom utility, and stay away from using the name <code>Object.create</code> entirely. You could instead define your own utility, like:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">createAndLinkObject</span>(<span class="pl-smi">o</span>) {
+	<span class="pl-k">function</span> <span class="pl-en">F</span>(){}
+	<span class="pl-c1">F</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> o;
+	<span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">F</span>();
+}
+
+<span class="pl-k">var</span> anotherObject <span class="pl-k">=</span> {
+	a<span class="pl-k">:</span> <span class="pl-c1">2</span>
+};
+
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> <span class="pl-en">createAndLinkObject</span>( anotherObject );
+
+<span class="pl-smi">myObject</span>.<span class="pl-smi">a</span>; <span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
+<p>I do not share this strict opinion. I fully endorse the common partial-polyfill of <code>Object.create(..)</code> as shown above, and using it in your code even in pre-ES5. I'll leave it to you to make your own decision.</p>
+<h3><a id="user-content-links-as-fallbacks" class="anchor" aria-hidden="true" href="#links-as-fallbacks"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Links As Fallbacks?</h3>
+<p>It may be tempting to think that these links between objects <em>primarily</em> provide a sort of fallback for "missing" properties or methods. While that may be an observed outcome, I don't think it represents the right way of thinking about <code>[[Prototype]]</code>.</p>
+<p>Consider:</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> anotherObject <span class="pl-k">=</span> {
+	<span class="pl-en">cool</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>cool!<span class="pl-pds">"</span></span> );
+	}
+};
+
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( anotherObject );
+
+<span class="pl-smi">myObject</span>.<span class="pl-en">cool</span>(); <span class="pl-c"><span class="pl-c">//</span> "cool!"</span></pre></div>
+<p>That code will work by virtue of <code>[[Prototype]]</code>, but if you wrote it that way so that <code>anotherObject</code> was acting as a fallback <strong>just in case</strong> <code>myObject</code> couldn't handle some property/method that some developer may try to call, odds are that your software is going to be a bit more "magical" and harder to understand and maintain.</p>
+<p>That's not to say there aren't cases where fallbacks are an appropriate design pattern, but it's not very common or idiomatic in JS, so if you find yourself doing so, you might want to take a step back and reconsider if that's really appropriate and sensible design.</p>
+<p><strong>Note:</strong> In ES6, an advanced functionality called <code>Proxy</code> is introduced which can provide something of a "method not found" type of behavior. <code>Proxy</code> is beyond the scope of this book, but will be covered in detail in a later book in the <em>"You Don't Know JS"</em> series.</p>
+<p><strong>Don't miss an important but nuanced point here.</strong></p>
+<p>Designing software where you intend for a developer to, for instance, call <code>myObject.cool()</code> and have that work even though there is no <code>cool()</code> method on <code>myObject</code> introduces some "magic" into your API design that can be surprising for future developers who maintain your software.</p>
+<p>You can however design your API with less "magic" to it, but still take advantage of the power of <code>[[Prototype]]</code> linkage.</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> anotherObject <span class="pl-k">=</span> {
+	<span class="pl-en">cool</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {
+		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>cool!<span class="pl-pds">"</span></span> );
+	}
+};
+
+<span class="pl-k">var</span> myObject <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>( anotherObject );
+
+<span class="pl-smi">myObject</span>.<span class="pl-en">doCool</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+	<span class="pl-c1">this</span>.<span class="pl-en">cool</span>(); <span class="pl-c"><span class="pl-c">//</span> internal delegation!</span>
+};
+
+<span class="pl-smi">myObject</span>.<span class="pl-en">doCool</span>(); <span class="pl-c"><span class="pl-c">//</span> "cool!"</span></pre></div>
+<p>Here, we call <code>myObject.doCool()</code>, which is a method that <em>actually exists</em> on <code>myObject</code>, making our API design more explicit (less "magical"). <em>Internally</em>, our implementation follows the <strong>delegation design pattern</strong> (see Chapter 6), taking advantage of <code>[[Prototype]]</code> delegation to <code>anotherObject.cool()</code>.</p>
+<p>In other words, delegation will tend to be less surprising/confusing if it's an internal implementation detail rather than plainly exposed in your API design. We will expound on <strong>delegation</strong> in great detail in the next chapter.</p>
+<h2><a id="user-content-review-tldr" class="anchor" aria-hidden="true" href="#review-tldr"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Review (TL;DR)</h2>
+<p>When attempting a property access on an object that doesn't have that property, the object's internal <code>[[Prototype]]</code> linkage defines where the <code>[[Get]]</code> operation (see Chapter 3) should look next. This cascading linkage from object to object essentially defines a "prototype chain" (somewhat similar to a nested scope chain) of objects to traverse for property resolution.</p>
+<p>All normal objects have the built-in <code>Object.prototype</code> as the top of the prototype chain (like the global scope in scope look-up), where property resolution will stop if not found anywhere prior in the chain. <code>toString()</code>, <code>valueOf()</code>, and several other common utilities exist on this <code>Object.prototype</code> object, explaining how all objects in the language are able to access them.</p>
+<p>The most common way to get two objects linked to each other is using the <code>new</code> keyword with a function call, which among its four steps (see Chapter 2), it creates a new object linked to another object.</p>
+<p>The "another object" that the new object is linked to happens to be the object referenced by the arbitrarily named <code>.prototype</code> property of the function called with <code>new</code>. Functions called with <code>new</code> are often called "constructors", despite the fact that they are not actually instantiating a class as <em>constructors</em> do in traditional class-oriented languages.</p>
+<p>While these JavaScript mechanisms can seem to resemble "class instantiation" and "class inheritance" from traditional class-oriented languages, the key distinction is that in JavaScript, no copies are made. Rather, objects end up linked to each other via an internal <code>[[Prototype]]</code> chain.</p>
+<p>For a variety of reasons, not the least of which is terminology precedent, "inheritance" (and "prototypal inheritance") and all the other OO terms just do not make sense when considering how JavaScript <em>actually</em> works (not just applied to our forced mental models).</p>
+<p>Instead, "delegation" is a more appropriate term, because these relationships are not <em>copies</em> but delegation <strong>links</strong>.</p>
+</article>
+  </div>
+
+  </div>
+
+  <details class="details-reset details-overlay details-overlay-dark">
+    <summary data-hotkey="l" aria-label="Jump to line"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast linejump" aria-label="Jump to line">
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-jump-to-line-form Box-body d-flex" action="" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <input class="form-control flex-auto mr-3 linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" aria-label="Jump to line" autofocus>
+        <button type="submit" class="btn" data-close-dialog>Go</button>
+</form>    </details-dialog>
+  </details>
+
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+
+        
+<div class="footer container-lg px-3" role="contentinfo">
+  <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap ">
+      <li class="mr-3">&copy; 2018 <span title="0.14624s from unicorn-3458045817-1nttg">GitHub</span>, Inc.</li>
+        <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
+        <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li class="mr-3"><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com">Help</a></li>
+    </ul>
+
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon mr-lg-4" href="https://github.com">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+   <ul class="list-style-none d-flex flex-wrap ">
+        <li class="mr-3"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
+        <li class="mr-3"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
+      <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+        <li class="mr-3"><a href="https://blog.github.com" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+    </button>
+    You can’t perform that action at this time.
+  </div>
+
+
+    <script crossorigin="anonymous" integrity="sha512-RJ1ufbxsSbKjRCyYvinsPNKvTBvcvvKUvEOJ8g+GjtWI5SuRr+QPBlZcvRDws4H9YwAgdQFcGxfL8UbwEfdI7A==" type="application/javascript" src="https://assets-cdn.github.com/assets/compat-daf14de28fadf1e2bc40d100cb773e2b.js"></script>
+    <script crossorigin="anonymous" integrity="sha512-IC5Ai6c7cUBfMx54JUAsIjA7VroipzkizlZ8F6/0efsGGyZStweZV7bX9bxSFL07nUNLfwrKSEysVIijX+CeUw==" type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-5874e38105ec062c740350eeb96bdd8a.js"></script>
+    
+    <script crossorigin="anonymous" async="async" integrity="sha512-Y0wWbyMvuM4AncqCZ3JmN2XZmX623PfWR2gZgiD2zI2cCqaCpRQyKEm2eCeDhYx4zHiXIhZQW8XCbXYxfs8ZKA==" type="application/javascript" src="https://assets-cdn.github.com/assets/github-d08b5457fa55c9386abe7ed707d05017.js"></script>
+    
+    
+    
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+  </div>
+  <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+    </button>
+  </div>
+</div>
+
+  <template id="site-details-dialog">
+  <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark" open>
+    <summary aria-haspopup="dialog" aria-label="Close dialog"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast">
+      <button class="Box-btn-octicon m-0 btn-octicon position-absolute right-0 top-0" type="button" aria-label="Close dialog" data-close-dialog>
+        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+      </button>
+      <div class="octocat-spinner my-6 js-details-dialog-spinner"></div>
+    </details-dialog>
+  </details>
+</template>
+
+  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
+  </div>
+</div>
+
+<div id="hovercard-aria-description" class="sr-only">
+  Press h to open a hovercard with more details.
+</div>
+
+
+  </body>
+</html>
+
