@@ -15,9 +15,9 @@ The rules for valid format and combinations of instructions is called a *compute
 
 Statements~
 In a computer language, a group of words, numbers, and operators that performs a specific task is a *statement*. In JavaScript, a statement might look as follows:
-```js
-a = b * 2;
-```
+>
+	a = b * 2;
+
 The characters `a` and `b` are called *variables* (see "Variables"), which are like simple boxes you can store any of your stuff in. In programs, variables hold values (like the number `42`) to be used by the program. Think of them as symbolic placeholders for the values themselves.
 By contrast, the `2` is just a value itself, called a *literal value*, because it stands alone without being stored in a variable.
 The `=` and `*` characters are *operators* (see "Operators") -- they perform actions with the values and variables such as assignment and mathematic multiplication.
@@ -28,9 +28,9 @@ Programs are just collections of many such statements, which together describe a
 Expressions~
 Statements are made up of one or more *expressions*. An expression is any reference to a variable or value, or a set of variable(s) and value(s) combined with operators.
 For example:
-```js
-a = b * 2;
-```
+>
+	a = b * 2;
+
 9
 
 * `2` is a *literal value expression*
@@ -38,14 +38,14 @@ a = b * 2;
 * `b * 2` is an *arithmetic expression*, which means to do the multiplication
 * `a = b * 2` is an *assignment expression*, which means to assign the result of the `b * 2` expression to the variable `a` (more on assignments later)
 A general expression that stands alone is also called an *expression statement*, such as the following:
-```js
-b * 2;
-```
+>
+	b * 2;
+
 This flavor of expression statement is not very common or useful, as generally it wouldn't have any effect on the running of the program -- it would retrieve the value of `b` and multiply it by `2`, but then wouldn't do anything with that result.
 A more common expression statement is a *call expression* statement (see "Functions"), as the entire statement is the function call expression itself:
-```js
-alert( a );
-```
+>
+	alert( a );
+
 
 Executing a Program~
 How do those collections of programming statements tell the computer what to do? The program needs to be *executed*, also referred to as *running the program*.
@@ -76,9 +76,9 @@ You may have guessed, but that's exactly how we print text (aka *output* to the 
 First, the `log( b )` part is referred to as a function call (see "Functions"). What's happening is we're handing the `b` variable to that function, which asks it to take the value of `b` and print it to the console.
 Second, the `console.` part is an object reference where the `log(..)` function is located. We cover objects and their properties in more detail in Chapter 2.
 Another way of creating output that you can see is to run an `alert(..)` statement. For example:
-```js
-alert( b );
-```
+>
+	alert( b );
+
 If you run that, you'll notice that instead of printing the output to the console, it shows a popup "OK" box with the contents of the `b` variable. However, using `console.log(..)` is generally going to make learning about coding and running your programs in the console easier than using `alert(..)`, because you can output many values at once without interrupting the browser interface.
 For this book, we'll use `console.log(..)` for output.
 
@@ -190,9 +190,9 @@ Consider:
 ```
 The `//` single-line comment is appropriate if you're going to put a comment right above a single statement, or even at the end of a line. Everything on the line after the `//` is treated as the comment (and thus ignored by the compiler), all the way to the end of the line. There's no restriction to what can appear inside a single-line comment.
 Consider:
-```js
-var a = 42;		// 42 is the meaning of life
-```
+>
+	var a = 42;		// 42 is the meaning of life
+
 The `/* .. */` multiline comment is appropriate if you have several lines worth of explanation to make in your comment.
 Here's a common usage of multiline comments:
 ```js
@@ -536,9 +536,9 @@ The rules for valid format and combinations of instructions is called a *compute
 
 Statements~
 In a computer language, a group of words, numbers, and operators that performs a specific task is a *statement*. In JavaScript, a statement might look as follows:
-```js
-a = b * 2;
-```
+>
+	a = b * 2;
+
 The characters `a` and `b` are called *variables* (see "Variables"), which are like simple boxes you can store any of your stuff in. In programs, variables hold values (like the number `42`) to be used by the program. Think of them as symbolic placeholders for the values themselves.
 By contrast, the `2` is just a value itself, called a *literal value*, because it stands alone without being stored in a variable.
 The `=` and `*` characters are *operators* (see "Operators") -- they perform actions with the values and variables such as assignment and mathematic multiplication.
@@ -549,23 +549,23 @@ Programs are just collections of many such statements, which together describe a
 Expressions~
 Statements are made up of one or more *expressions*. An expression is any reference to a variable or value, or a set of variable(s) and value(s) combined with operators.
 For example:
-```js
-a = b * 2;
-```
+>
+	a = b * 2;
+
 This statement has four expressions in it:
 * `2` is a *literal value expression*
 * `b` is a *variable expression*, which means to retrieve its current value
 * `b * 2` is an *arithmetic expression*, which means to do the multiplication
 * `a = b * 2` is an *assignment expression*, which means to assign the result of the `b * 2` expression to the variable `a` (more on assignments later)
 A general expression that stands alone is also called an *expression statement*, such as the following:
-```js
-b * 2;
-```
+>
+	b * 2;
+
 This flavor of expression statement is not very common or useful, as generally it wouldn't have any effect on the running of the program -- it would retrieve the value of `b` and multiply it by `2`, but then wouldn't do anything with that result.
 A more common expression statement is a *call expression* statement (see "Functions"), as the entire statement is the function call expression itself:
-```js
-alert( a );
-```
+>
+	alert( a );
+
 
 Executing a Program~
 How do those collections of programming statements tell the computer what to do? The program needs to be *executed*, also referred to as *running the program*.
@@ -596,9 +596,9 @@ You may have guessed, but that's exactly how we print text (aka *output* to the 
 First, the `log( b )` part is referred to as a function call (see "Functions"). What's happening is we're handing the `b` variable to that function, which asks it to take the value of `b` and print it to the console.
 Second, the `console.` part is an object reference where the `log(..)` function is located. We cover objects and their properties in more detail in Chapter 2.
 Another way of creating output that you can see is to run an `alert(..)` statement. For example:
-```js
-alert( b );
-```
+>
+	alert( b );
+
 If you run that, you'll notice that instead of printing the output to the console, it shows a popup "OK" box with the contents of the `b` variable. However, using `console.log(..)` is generally going to make learning about coding and running your programs in the console easier than using `alert(..)`, because you can output many values at once without interrupting the browser interface.
 For this book, we'll use `console.log(..)` for output.
 
@@ -710,9 +710,9 @@ Consider:
 ```
 The `//` single-line comment is appropriate if you're going to put a comment right above a single statement, or even at the end of a line. Everything on the line after the `//` is treated as the comment (and thus ignored by the compiler), all the way to the end of the line. There's no restriction to what can appear inside a single-line comment.
 Consider:
-```js
-var a = 42;		// 42 is the meaning of life
-```
+>
+	var a = 42;		// 42 is the meaning of life
+
 The `/* .. */` multiline comment is appropriate if you have several lines worth of explanation to make in your comment.
 Here's a common usage of multiline comments:
 ```js
@@ -2261,14 +2261,14 @@ Actually, let's be a little more precise. An RHS look-up is indistinguishable, f
 Being slightly glib for a moment, you could also think "RHS" instead means "retrieve his/her source (value)", implying that RHS means "go get the value of...".
 Let's dig into that deeper.
 When I say:
-```js
-console.log( a );
-```
+>
+	console.log( a );
+
 The reference to `a` is an RHS reference, because nothing is being assigned to `a` here. Instead, we're looking-up to retrieve the value of `a`, so that the value can be passed to `console.log(..)`.
 By contrast:
-```js
-a = 2;
-```
+>
+	a = 2;
+
 The reference to `a` here is an LHS reference, because we don't actually care what the current value is, we simply want to find the variable as a target for the `= 2` assignment operation.
 Note: LHS and RHS meaning "left/right-hand side of an assignment" doesn't necessarily literally mean "left/right side of the `=` assignment operator". There are several other ways that assignments happen, and so it's better to conceptually think about it as: "who's the target of the assignment (LHS)" and "who's the source of the assignment (RHS)".
 Consider this program, which has both LHS and RHS references:
@@ -12443,9 +12443,9 @@ Object.prototype.toString.call( a ); // "[object String]"
 The result of the constructor form of value creation (`new String("abc")`) is an object wrapper around the primitive (`"abc"`) value.
 Importantly, `typeof` shows that these objects are not their own special *types*, but more appropriately they are subtypes of the `object` type.
 This object wrapper can further be observed with:
-```js
-console.log( a );
-```
+>
+	console.log( a );
+
 The output of that statement varies depending on your browser, as developer consoles are free to choose however they feel it's appropriate to serialize the object for developer inspection.
 Note: At the time of writing, the latest Chrome prints something like this: `String {0: "a", 1: "b", 2: "c", length: 3, [[PrimitiveValue]]: "abc"}`. But older versions of Chrome used to just print this: `String {0: "a", 1: "b", 2: "c"}`. The latest Firefox currently prints `String ["a","b","c"]`, but used to print `"abc"` in italics, which was clickable to open the object inspector. Of course, these results are subject to rapid change and your experience may vary.
 The point is, `new String("abc")` creates a string wrapper object around `"abc"`, not just the primitive `"abc"` value itself.
@@ -12662,9 +12662,9 @@ Tip: Technically, in addition to the general `Error(..)` native, there are sever
 New as of ES6, an additional primitive value type has been added, called "Symbol". Symbols are special "unique" (not strictly guaranteed!) values that can be used as properties on objects with little fear of any collision. They're primarily designed for special built-in behaviors of ES6 constructs, but you can also define your own symbols.
 Symbols can be used as property names, but you cannot see or access the actual value of a symbol from your program, nor from the developer console. If you evaluate a symbol in the developer console, what's shown looks like `Symbol(Symbol.create)`, for example.
 There are several predefined symbols in ES6, accessed as static properties of the `Symbol` function object, like `Symbol.create`, `Symbol.iterator`, etc. To use them, do something like:
-```js
-obj[Symbol.iterator] = function(){ /*..*/ };
-```
+>
+	obj[Symbol.iterator] = function(){ /*..*/ };
+
 To define your own custom symbols, use the `Symbol(..)` native. The `Symbol(..)` native "constructor" is unique in that you're not allowed to use `new` with it, as doing so will throw an error.
 ```js
 var mysym = Symbol( "my own symbol" );
@@ -13065,9 +13065,9 @@ d; // 8.14
 ```
 The unary `-` operator also coerces like `+` does, but it also flips the sign of the number. However, you cannot put two `--` next to each other to unflip the sign, as that's parsed as the decrement operator. Instead, you would need to do: `- -"3.14"` with a space in between, and that would result in coercion to `3.14`.
 You can probably dream up all sorts of hideous combinations of binary operators (like `+` for addition) next to the unary form of an operator. Here's another crazy example:
-```js
-1 + - + + + - + 1;	// 2
-```
+>
+	1 + - + + + - + 1;	// 2
+
 You should strongly consider avoiding unary `+` (or `-`) coercion when it's immediately adjacent to other operators. While the above works, it would almost universally be considered a bad idea. Even `d = +c` (or `d =+ c` for that matter!) can far too easily be confused for `d += c`, which is entirely different!
 Note: Another extremely confusing place for unary `+` to be used adjacent to another operator would be the `++` increment operator and `--` decrement operator. For example: `a +++b`, `a + ++b`, and `a + + +b`. See "Expression Side-Effects" in Chapter 5 for more about `++`.
 Remember, we're trying to be explicit and *reduce* confusion, not make it much worse!
@@ -13079,9 +13079,9 @@ var d = new Date( "Mon, 18 Aug 2014 08:53:06 CDT" );
 +d; // 1408369986000
 ```
 The most common usage of this idiom is to get the current *now* moment as a timestamp, such as:
-```js
-var timestamp = +new Date();
-```
+>
+	var timestamp = +new Date();
+
 Note: Some developers are aware of a peculiar syntactic "trick" in JavaScript, which is that the `()` set on a constructor call (a function called with `new`) is *optional* if there are no arguments to pass. So you may run across the `var timestamp = +new Date;` form. However, not all developers agree that omitting the `()` improves readability, as it's an uncommon syntax exception that only applies to the `new fn()` call form and not the regular `fn()` call form.
 But coercion is not the only way to get the timestamp out of a `Date` object. A noncoercion approach is perhaps even preferable, as it's even more explicit:
 ```js
@@ -13090,9 +13090,9 @@ var timestamp = new Date().getTime();
 // var timestamp = (new Date).getTime();
 ```
 But an *even more* preferable noncoercion option is to use the ES5 added `Date.now()` static function:
-```js
-var timestamp = Date.now();
-```
+>
+	var timestamp = Date.now();
+
 And if you want to polyfill `Date.now()` into older browsers, it's pretty simple:
 ```js
 if (!Date.now) {
@@ -13243,17 +13243,17 @@ As of ES5, `parseInt(..)` no longer guesses octal. Unless you say otherwise, it 
 
 Parsing Non-Strings~
 One somewhat infamous example of `parseInt(..)`'s behavior is highlighted in a sarcastic joke post a few years ago, poking fun at this JS behavior:
-```js
-parseInt( 1/0, 19 ); // 18
-```
+>
+	parseInt( 1/0, 19 ); // 18
+
 The assumptive (but totally invalid) assertion was, "If I pass in Infinity, and parse an integer out of that, I should get Infinity back, not 18." Surely, JS must be crazy for this outcome, right?
 Though this example is obviously contrived and unreal, let's indulge the madness for a moment and examine whether JS really is that crazy.
 First off, the most obvious sin committed here is to pass a non-`string` to `parseInt(..)`. That's a no-no. Do it and you're asking for trouble. But even if you do, JS politely coerces what you pass in into a `string` that it can try to parse.
 Some would argue that this is unreasonable behavior, and that `parseInt(..)` should refuse to operate on a non-`string` value. Should it perhaps throw an error? That would be very Java-like, frankly. I shudder at thinking JS should start throwing errors all over the place so that `try..catch` is needed around almost every line.
 Should it return `NaN`? Maybe. But... what about:
-```js
-parseInt( new String( "42") );
-```
+>
+	parseInt( new String( "42") );
+
 Should that fail, too? It's a non-`string` value. If you want that `String` object wrapper to be unboxed to `"42"`, then is it really so unusual for `42` to first become `"42"` so that `42` can be parsed back out?
 I would argue that this half-*explicit*, half-*implicit* coercion that can occur can often be a very helpful thing. For example:
 ```js
@@ -13361,14 +13361,14 @@ Let's define the goal of *implicit* coercion as: to reduce verbosity, boilerplat
 
 Simplifying Implicitly~
 Before we even get to JavaScript, let me suggest something pseudo-code'ish from some theoretical strongly typed language to illustrate:
-```js
-SomeType x = SomeType( AnotherType( y ) )
-```
+>
+	SomeType x = SomeType( AnotherType( y ) )
+
 In this example, I have some arbitrary type of value in `y` that I want to convert to the `SomeType` type. The problem is, this language can't go directly from whatever `y` currently is to `SomeType`. It needs an intermediate step, where it first converts to `AnotherType`, and then from `AnotherType` to `SomeType`.
 Now, what if that language (or definition you could create yourself with the language) *did* just let you say:
-```js
-SomeType x = SomeType( y )
-```
+>
+	SomeType x = SomeType( y )
+
 Wouldn't you generally agree that we simplified the type conversion here to reduce the unnecessary "noise" of the intermediate conversion step? I mean, is it *really* all that important, right here at this point in the code, to see and deal with the fact that `y` goes to `AnotherType` first before then going to `SomeType`?
 Some would argue, at least in some circumstances, yes. But I think an equal argument can be made of many other circumstances that here, the simplification *actually aids in the readability of the code* by abstracting or hiding away such details, either in the language itself or in our own abstractions.
 Undoubtedly, behind the scenes, somewhere, the intermediate conversion step is still happening. But if that detail is hidden from view here, we can just reason about getting `y` to type `SomeType` as a generic operation and hide the messy details.
@@ -13573,9 +13573,9 @@ foo( "yeah", "yeah!" );	// "yeah yeah!"
 
 The `a = a || "hello"` idiom (sometimes said to be JavaScript's version of the C"null coalescing operator") acts to test `a` and if it has no value (or only an undesired falsy value), provides a backup default value (`"hello"`).~
 *Be careful*, though!
-```js
-foo( "That's it!", "" ); // "That's it! world" <-- Oops!
-```
+>
+	foo( "That's it!", "" ); // "That's it! world" <-- Oops!
+
 See the problem? `""` as the second argument is a falsy value (see `ToBoolean` earlier in this chapter), so the `b = b || "world"` test fails, and the `"world"` default value is substituted, even though the intent probably was to have the explicitly passed `""` be the value assigned to `b`.
 This `||` idiom is extremely common, and quite helpful, but you have to use it only in cases where *all falsy values* should be skipped. Otherwise, you'll need to be more explicit in your test, and probably use a `? :` ternary instead.
 This *default value assignment* idiom is so common (and useful!) that even those who publicly and vehemently decry JavaScript coercion often use it in their own code!
@@ -13876,9 +13876,9 @@ However, seven of the comparisons are marked with "UH OH!" because as false posi
 
 The Crazy Ones~
 We don't have to stop there, though. We can keep looking for even more troublesome coercions:
-```js
-[] == ![];		// true
-```
+>
+	[] == ![];		// true
+
 Oooo, that seems at a higher level of crazy, right!? Your brain may likely trick you that you're comparing a truthy to a falsy value, so the `true` result is surprising, as we *know* a value can never be truthy and falsy at the same time!
 But that's not what's actually happening. Let's break it down. What do we know about the `!` unary operator? It explicitly coerces to a `boolean` using the `ToBoolean` rules (and it also flips the parity). So before `[] == ![]` is even processed, it's actually already translated to `[] == false`. We already saw that form in our above list (`false == []`), so its surprise result is *not new* to us.
 How about other corner cases?
@@ -13894,9 +13894,9 @@ But what exactly *should* these `string` coercions result in? I can't really thi
 You could rightly make the case that since `String(null)` becomes `"null"`, then `String([null])` should also become `"null"`. That's a reasonable assertion. So, that's the real culprit.
 *Implicit* coercion itself isn't the evil here. Even an *explicit* coercion of `[null]` to a `string` results in `""`. What's at odds is whether it's sensible at all for `array` values to stringify to the equivalent of their contents, and exactly how that happens. So, direct your frustration at the rules for `String( [..] )`, because that's where the craziness stems from. Perhaps there should be no stringification coercion of `array`s at all? But that would have lots of other downsides in other parts of the language.
 Another famously cited gotcha:
-```js
-0 == "\n";		// true
-```
+>
+	0 == "\n";		// true
+
 As we discussed earlier with empty `""`, `"\n"` (or `" "` or any other whitespace combination) is coerced via `ToNumber`, and the result is `0`. What other `number` value would you expect whitespace to coerce to? Does it bother you that *explicit* `Number(" ")` yields `0`?
 Really the only other reasonable `number` value that empty strings or whitespace strings could coerce to is the `NaN`. But would that *really* be better? The comparison `" " == NaN` would of course fail, but it's unclear that we'd have really *fixed* any of the underlying concerns.
 The chances that a real-world JS program fails because `0 == "\n"` are awfully rare, and such corner cases are easy to avoid.
@@ -14383,13 +14383,13 @@ else {
 }
 ```
 But there's a hidden characteristic of the JS grammar here: there is no `else if`. But `if` and `else` statements are allowed to omit the `{ }` around their attached block if they only contain a single statement. You've seen this many times before, undoubtedly:
-```js
-if (a) doSomething( a );
-```
+>
+	if (a) doSomething( a );
+
 Many JS style guides will insist that you always use `{ }` around a single statement block, like:
-```js
-if (a) { doSomething( a ); }
-```
+>
+	if (a) { doSomething( a ); }
+
 However, the exact same grammar rule applies to the `else` clause, so the `else if` form you've likely always coded is *actually* parsed as:
 ```js
 if (a) {
@@ -14510,17 +14510,17 @@ Here, we're checking for `opts.cache` first, and if it's present, we don't call 
 
 Tighter Binding~
 But let's turn our attention back to that earlier complex statement example with all the chained operators, specifically the `? :` ternary operator parts. Does the `? :` operator have more or less precedence than the `&&` and `||` operators?
-```js
-a && b || c ? c || b ? a : c && b : a
-```
+>
+	a && b || c ? c || b ? a : c && b : a
+
 Is that more like this:
-```js
-a && b || (c ? c || (b ? a : c) && b : a)
-```
+>
+	a && b || (c ? c || (b ? a : c) && b : a)
+
 or this?
-```js
-(a && b || c) ? (c || b) ? a : (c && b) : a
-```
+>
+	(a && b || c) ? (c || b) ? a : (c && b) : a
+
 The answer is the second one. But why?
 Because `&&` is more precedent than `||`, and `||` is more precedent than `? :`.
 So, the expression `(a && b || c)` is evaluated *first* before the `? :` it participates in. Another way this is commonly explained is that `&&` and `||` "bind more tightly" than `? :`. If the reverse was true, then `c ? c...` would bind more tightly, and it would behave (as the first choice) like `a && b || (c ? c..)`.
@@ -14530,9 +14530,9 @@ So, the `&&` and `||` operators bind first, then the `? :` operator. But what ab
 In general, operators are either left-associative or right-associative, referring to whether *grouping happens from the left or from the right*.
 It's important to note that associativity is *not* the same thing as left-to-right or right-to-left processing.
 But why does it matter whether processing is left-to-right or right-to-left? Because expressions can have side effects, like for instance with function calls:
-```js
-var a = foo() && bar();
-```
+>
+	var a = foo() && bar();
+
 Here, `foo()` is evaluated first, and then possibly `bar()` depending on the result of the `foo()` expression. That definitely could result in different program behavior than if `bar()` was called before `foo()`.
 But this behavior is *just* left-to-right processing (the default behavior in JavaScript!) -- it has nothing to do with the associativity of `&&`. In that example, since there's only one `&&` and thus no relevant grouping here, associativity doesn't even come into play.
 But with an expression like `a && b && c`, grouping *will* happen implicitly, meaning that either `a && b` or `b && c` will be evaluated first.
@@ -14541,9 +14541,9 @@ Note: If hypothetically `&&` was right-associative, it would be processed the sa
 So it doesn't really matter that much that `&&` and `||` are left-associative, other than to be accurate in how we discuss their definitions.
 But that's not always the case. Some operators would behave very differently depending on left-associativity vs. right-associativity.
 Consider the `? :` ("ternary" or "conditional") operator:
-```js
-a ? b : c ? d : e;
-```
+>
+	a ? b : c ? d : e;
+
 `? :` is right-associative, so which grouping represents how it will be processed?
 * `a ? b : (c ? d : e)`
 * `(a ? b : c) ? d : e`
@@ -14582,9 +14582,9 @@ var d = a && b || c ? c || b ? a : c && b : a;
 d;		// 42
 ```
 Armed with our knowledge of precedence and associativity, we should now be able to break down the code into its grouping behavior like this:
-```js
-((a && b) || c) ? ((c || b) ? a : (c && b)) : a
-```
+>
+	((a && b) || c) ? ((c || b) ? a : (c && b)) : a
+
 Or, to present it indented if that's easier to understand:
 ```js
 (
@@ -14701,9 +14701,9 @@ In particular, there have long been a number of specific conditions that should 
 Since execution of your code has not begun yet, these errors are not catchable with `try..catch`; they will just fail the parsing/compilation of your program.
 Tip: There's no requirement in the spec about exactly how browsers (and developer tools) should report errors. So you may see variations across browsers in the following error examples, in what specific subtype of error is reported or what the included error message text will be.
 One simple example is with syntax inside a regular expression literal. There's nothing wrong with the JS syntax here, but the invalid regex will throw an early error:
-```js
-var a = /+foo/;		// Error!
-```
+>
+	var a = /+foo/;		// Error!
+
 The target of an assignment must be an identifier (or an ES6 destructuring expression that produces one or more identifiers), so a value like `42` in that position is illegal and can be reported right away:
 ```js
 var a;
@@ -17869,9 +17869,9 @@ s1();		// a = b + 3;
 s2();		// b = a * 2;
 ```
 Before I tell you the results, can you figure out what `a` and `b` are after the preceding program? No cheating!
-```js
-console.log( a, b );	// 12 18
-```
+>
+	console.log( a, b );	// 12 18
+
 Note: As an exercise for the reader, try to see how many other combinations of results you can get back rearranging the order of the `s1()` and `s2()` calls. Don't forget you'll always need three `s1()` calls and four `s2()` calls. Recall the discussion earlier about matching `next()` with `yield` for the reasons why.
 You almost certainly won't want to intentionally create *this* level of interleaving confusion, as it creates incredibly difficult to understand code. But the exercise is interesting and instructive to understand more about how multiple generators can run concurrently in the same shared scope, because there will be places where this capability is quite useful.
 We'll discuss generator concurrency in more detail at the end of this chapter.
@@ -17982,9 +17982,9 @@ it.next().value;	// 5
 ..
 ```
 In the previous code listing that defined `something`, you may have noticed this line:
-```js
-[Symbol.iterator]: function(){ return this; }
-```
+>
+	[Symbol.iterator]: function(){ return this; }
+
 That little bit of confusing code is making the `something` value -- the interface of the `something` *iterator* -- also an *iterable*; it's now both an *iterable* and an *iterator*. Then, we pass `something` to the `for..of` loop:
 ```js
 for (var v of something) {
@@ -18149,9 +18149,9 @@ In `yield foo(11,31)`, first the `foo(11,31)` call is made, which returns nothin
 We're not using `yield` in a message passing sense here, only in a flow control sense to pause/block. Actually, it will have message passing, but only in one direction, after the generator is resumed.
 So, the generator pauses at the `yield`, essentially asking the question, "what value should I return to assign to the variable `text`?" Who's going to answer that question?
 Look at `foo(..)`. If the Ajax request is successful, we call:
-```js
-it.next( data );
-```
+>
+	it.next( data );
+
 That's resuming the generator with the response data, which means that our paused `yield` expression receives that value directly, and then as it restarts the generator code, that value gets assigned to the local variable `text`.
 Pretty cool, huh?
 Take a step back and consider the implications. We have totally synchronous-looking code inside the generator (other than the `yield` keyword itself), but hidden behind the scenes, inside of `foo(..)`, the operations can complete asynchronously.
@@ -19268,9 +19268,9 @@ Alternatively, you'd want to know how these two pieces could "communicate" if th
 All these are great questions to consider as we explore a feature added to the web platform circa HTML5 called "Web Workers." This is a feature of the browser (aka host environment) and actually has almost nothing to do with the JS language itself. That is, JavaScript does not *currently* have any features that support threaded execution.
 But an environment like your browser can easily provide multiple instances of the JavaScript engine, each on its own thread, and let you run a different program in each thread. Each of those separate threaded pieces of your program is called a "(Web) Worker." This type of parallelism is called "task parallelism," as the emphasis is on splitting up chunks of your program to run in parallel.
 From your main JS program (or another Worker), you instantiate a Worker like so:
-```js
-var w1 = new Worker( "http://some.url.1/mycoolworker.js" );
-```
+>
+	var w1 = new Worker( "http://some.url.1/mycoolworker.js" );
+
 The URL should point to the location of a JS file (not an HTML page!) which is intended to be loaded into a Worker. The browser will then spin up a separate thread and let that file run as an independent program in that thread.
 Note: The kind of Worker created with such a URL is called a "Dedicated Worker." But instead of providing a URL to an external file, you can also create an "Inline Worker" by providing a Blob URL (another HTML5 feature); essentially it's an inline file stored in a single (binary) value. However, Blobs are beyond the scope of what we'll discuss here.
 Workers do not share any scope or resources with each other or the main program -- that would bring all the nightmares of threaded programming to the forefront -- but instead have a basic event messaging mechanism connecting them.
@@ -19282,9 +19282,9 @@ w1.addEventListener( "message", function(evt){
 } );
 ```
 And you can send the `"message"` event to the Worker:
-```js
-w1.postMessage( "something cool to say" );
-```
+>
+	w1.postMessage( "something cool to say" );
+
 Inside the Worker, the messaging is totally symmetrical:
 ```js
 // "mycoolworker.js"
@@ -19334,9 +19334,9 @@ Shared Workers~
 If your site or app allows for loading multiple tabs of the same page (a common feature), you may very well want to reduce the resource usage of their system by preventing duplicate dedicated Workers; the most common limited resource in this respect is a socket network connection, as browsers limit the number of simultaneous connections to a single host. Of course, limiting multiple connections from a client also eases your server resource requirements.
 In this case, creating a single centralized Worker that all the page instances of your site or app can *share* is quite useful.
 That's called a `SharedWorker`, which you create like so (support for this is limited to Firefox and Chrome):
-```js
-var w1 = new SharedWorker( "http://some.url.1/mycoolworker.js" );
-```
+>
+	var w1 = new SharedWorker( "http://some.url.1/mycoolworker.js" );
+
 Because a shared Worker can be connected to or from more than one program instance or page on your site, the Worker needs a way to know which program a message comes from. This unique identification is called a "port" -- think network socket ports. So the calling program must use the `port` object of the Worker for communication:
 ```js
 w1.port.addEventListener( "message", handleMessages );
@@ -19344,9 +19344,9 @@ w1.port.addEventListener( "message", handleMessages );
 w1.port.postMessage( "something cool" );
 ```
 Also, the port connection must be initialized, as:
-```js
-w1.port.start();
-```
+>
+	w1.port.start();
+
 Inside the shared Worker, an extra event must be handled: `"connect"`. This event provides the port `object` for that particular connection. The most convenient way to keep multiple connections separate is to use closure (see *Scope & Closures* title of this series) over the `port`, as shown next, with the event listening and transmitting for that connection defined inside the handler for the `"connect"` event:
 ```js
 // inside the shared Worker
@@ -19415,9 +19415,9 @@ var b = a | 0;
 ```
 Here, we've used the `|` ("binary OR") with value `0`, which has no effect on the value other than to make sure it's a 32-bit integer. That code run in a normal JS engine works just fine, but when run in an asm.js-aware JS engine it *can* signal that `b` should always be treated as a 32-bit integer, so the coercion tracking can be skipped.
 Similarly, the addition operation between two variables can be restricted to a more performant integer addition (instead of floating point):
-```js
-(a + b) | 0
-```
+>
+	(a + b) | 0
+
 Again, the asm.js-aware JS engine can see that hint and infer that the `+` operation should be 32-bit integer addition because the end result of the whole expression would automatically be 32-bit integer conformed anyway.
 
 asm.js Modules~
@@ -19425,13 +19425,13 @@ One of the biggest detractors to performance in JS is around memory allocation, 
 For an asm.js module, you need to explicitly pass in a tightly conformed namespace -- this is referred to in the spec as `stdlib`, as it should represent standard libraries needed -- to import necessary symbols, rather than just using globals via lexical scope. In the base case, the `window` object is an acceptable `stdlib` object for asm.js module purposes, but you could and perhaps should construct an even more restricted one.
 You also must declare a "heap" -- which is just a fancy term for a reserved spot in memory where variables can already be used without asking for more memory or releasing previously used memory -- and pass that in, so that the asm.js module won't need to do anything that would cause memory churn; it can just use the pre-reserved space.
 A "heap" is likely a typed `ArrayBuffer`, such as:
-```js
-var heap = new ArrayBuffer( 0x10000 );	// 64k heap
-```
+>
+	var heap = new ArrayBuffer( 0x10000 );	// 64k heap
+
 Using that pre-reserved 64k of binary space, an asm.js module can store and retrieve values in that buffer without any memory allocation or garbage collection penalties. For example, the `heap` buffer could be used inside the module to back an array of 64-bit float values like this:
-```js
-var arr = new Float64Array( heap );
-```
+>
+	var arr = new Float64Array( heap );
+
 OK, so let's make a quick, silly example of an asm.js-styled module to illustrate how these pieces fit together. We'll define a `foo(..)` that takes a start (`x`) and end (`y`) integer for a range, and calculates all the inner adjacent multiplications of the values in the range, and then finally averages those values together:
 ```js
 function fooASM(stdlib,foreign,heap) {
@@ -19551,9 +19551,9 @@ a = a + "w";
 b = a.charAt( 1 );
 ```
 Then, you set up your test `setup` as follows:
-```js
-var a = "x";
-```
+>
+	var a = "x";
+
 Your temptation is probably to believe that `a` is starting out as `"x"` for each test iteration.
 But it's not! It's starting `a` at `"x"` for each test cycle, and then your repeated `+ "w"` concatenations will be making a larger and larger `a` value, even though you're only ever accessing the character `"w"` at the `1` position.
 Where this most commonly bites you is when you make side effect changes to something like the DOM, like appending a child element. You may think your parent element is set as empty each time, but it's actually getting lots of elements added, and that can significantly sway the results of your tests.
@@ -20236,9 +20236,9 @@ foo( ...[1,2,3] );				// 1 2 3
 ```
 When `...` is used in front of an array (actually, any *iterable*, which we cover in Chapter 3), it acts to "spread" it out into its individual values.
 You'll typically see that usage as is shown in that previous snippet, when spreading out an array as a set of arguments to a function call. In this usage, `...` acts to give us a simpler syntactic replacement for the `apply(..)` method, which we would typically have used pre-ES6 as:
-```js
-foo.apply( null, [1,2,3] );		// 1 2 3
-```
+>
+	foo.apply( null, [1,2,3] );		// 1 2 3
+
 But `...` can be used to spread out/expand a value in other contexts as well, such as inside another array declaration:
 ```js
 var a = [2,3,4];
@@ -20307,9 +20307,9 @@ foo( 5 );			// 36
 foo( null, 6 );		// 17
 ```
 Of course, if you've used this pattern before, you know that it's both helpful and a little bit dangerous, if for example you need to be able to pass in what would otherwise be considered a falsy value for one of the parameters. Consider:
-```js
-foo( 0, 42 );		// 53 <-- Oops, not 42
-```
+>
+	foo( 0, 42 );		// 53 <-- Oops, not 42
+
 Why? Because the `0` is falsy, and so the `x || 11` results in `11`, not the directly passed in `0`.
 To fix this gotcha, some people will instead write the check more verbosely like this:
 ```js
@@ -20466,9 +20466,9 @@ console.log( o.a, o.b );			// 10 20
 In `{ a: X, b: Y }`, we know that `a` is the object property, and `X` is the source value that gets assigned to it. In other words, the syntactic pattern is `target: source`, or more obviously, `property-alias: value`. We intuitively understand this because it's the same as `=` assignment, where the pattern is `target = source`.
 However, when you use object destructuring assignment -- that is, putting the `{ .. }` object literal-looking syntax on the lefthand side of the `=` operator -- you invert that `target: source` pattern.
 Recall:
-```js
-var { x: bam, y: baz, z: bap } = bar();
-```
+>
+	var { x: bam, y: baz, z: bap } = bar();
+
 The syntactic pattern here is `source: target` (or `value: variable-alias`). `x: bam` means the `x` property is the source value and `bam` is the target variable to assign to. In other words, object literals are `target <-- source`, and object destructuring assignments are `source --> target`. See how that's flipped?
 There's another way to think about this syntax though, which may help ease the confusion. Consider:
 ```js
@@ -20664,9 +20664,9 @@ var o1 = { x: { y: 42 }, z: { y: z } };
 ( { x: z = { y: x } } = o1 );
 ```
 Can you tell from that snippet what values `x`, `y`, and `z` have at the end? Takes a moment of pondering, I would imagine. I'll end the suspense:
-```js
-console.log( x.y, y.y, z.y );		// 300 100 42
-```
+>
+	console.log( x.y, y.y, z.y );		// 300 100 42
+
 The takeaway here: destructuring is great and can be very useful, but it's also a sharp sword that can cause injury (to someone's brain) if used unwisely.
 
 Nested Destructuring~
@@ -20749,9 +20749,9 @@ f6();								// 10 10
 ```
 At first, it would seem that we've declared a default value of `10` for both the `x` and `y` parameters, but in two different ways. However, these two different approaches will behave differently in certain cases, and the difference is awfully subtle.
 Consider:
-```js
-f6( {}, {} );						// 10 undefined
-```
+>
+	f6( {}, {} );						// 10 undefined
+
 Wait, why did that happen? It's pretty clear that named parameter `x` is defaulting to `10` if not passed as a property of that same name in the first argument's object.
 But what about `y` being `undefined`? The `{ y: 10 }` value is an object as a function parameter default value, not a destructuring default value. As such, it only applies if the second argument is not passed at all, or is passed as `undefined`.
 In the previous snippet, we *are* passing a second argument (`{}`), so the default `{ y: 10 }` value is not used, and the `{ y }` destructuring occurs against the passed in `{}` empty object value.
@@ -20809,9 +20809,9 @@ config.options.enable = (config.options.enable !== undefined) ?
 ```
 Yuck.
 Others may prefer the assign-overwrite approach to this task. You might be tempted by the ES6 `Object.assign(..)` utility (see Chapter 6) to clone the properties first from `defaults` and then overwritten with the cloned properties from `config`, as so:
-```js
-config = Object.assign( {}, defaults, config );
-```
+>
+	config = Object.assign( {}, defaults, config );
+
 That looks way nicer, huh? But there's a major problem! `Object.assign(..)` is shallow, which means when it copies `defaults.options`, it just copies that object reference, not deep cloning that object's properties to a `config.options` object. `Object.assign(..)` would need to be applied (sort of "recursively") at all levels of your object's tree to get the deep cloning you're expecting.
 Note: Many JS utility libraries/frameworks provide their own option for deep cloning of an object, but those approaches and their gotchas are beyond our scope to discuss here.
 So let's examine if ES6 object destructuring with defaults can help at all:
@@ -20964,9 +20964,9 @@ var controller = {
 };
 ```
 That looks fine, and should work if you always invoke the method as `controller.makeRequest(..)`. But you now have a *this* binding gotcha if you do something like:
-```js
-btn.addEventListener( "click", controller.makeRequest, false );
-```
+>
+	btn.addEventListener( "click", controller.makeRequest, false );
+
 Of course, you can solve that by passing `controller.makeRequest.bind(controller)` as the handler reference to bind the event to. But yuck -- it isn't very appealing.
 Or what if your inner `this.makeRequest(..)` call needs to be made from a nested function? You'll have another *this* binding hazard, which people will often solve with the hacky `var self = this`, such as:
 ```js
@@ -21501,9 +21501,9 @@ Warning: Despite the name implication, "UTF-16" doesn't strictly mean 16 bits. M
 An example (straight from the ES6 specification): 𝄞 (the musical symbol G-clef) is Unicode point U+1D11E (0x1D11E).
 If this character appears in a regular expression pattern (like `/𝄞/`), the standard BMP interpretation would be that it's two separate characters (0xD834 and 0xDD1E) to match with. But the new ES6 Unicode-aware mode means that `/𝄞/u` (or the escaped Unicode form `/\u{1D11E}/u`) will match `"𝄞"` in a string as a single matched character.
 You might be wondering why this matters? In non-Unicode BMP mode, the pattern is treated as two separate characters, but would still find the match in a string with the `"𝄞"` character in it, as you can see if you try:
-```js
-/𝄞/.test( "𝄞-clef" );			// true
-```
+>
+	/𝄞/.test( "𝄞-clef" );			// true
+
 The length of the match is what matters. For example:
 ```js
 /^.-clef/ .test( "𝄞-clef" );		// false
@@ -21863,9 +21863,9 @@ Some things to note:
 * The parameter passed to `Symbol(..)` is optional. If passed, it should be a string that gives a friendly description for the symbol's purpose.
 * The `typeof` output is a new value (`"symbol"`) that is the primary way to identify a symbol.
 The description, if provided, is solely used for the stringification representation of the symbol:
-```js
-sym.toString();		// "Symbol(some optional description)"
-```
+>
+	sym.toString();		// "Symbol(some optional description)"
+
 Similar to how primitive string values are not instances of `String`, symbols are also not instances of `Symbol`. If, for some reason, you want to construct a boxed wrapper object form of a symbol value, you can do the following:
 ```js
 sym instanceof Symbol;		// false
@@ -21877,9 +21877,9 @@ Note: `symObj` in this snippet is interchangeable with `sym`; either form can be
 The internal value of a symbol itself -- referred to as its `name` -- is hidden from the code and cannot be obtained. You can think of this symbol value as an automatically generated, unique (within your application) string value.
 But if the value is hidden and unobtainable, what's the point of having a symbol at all?
 The main point of a symbol is to create a string-like value that can't collide with any other value. So, for example, consider using a symbol as a constant representing an event name:
-```js
-const EVT_LOGIN = Symbol( "event.login" );
-```
+>
+	const EVT_LOGIN = Symbol( "event.login" );
+
 You'd then use `EVT_LOGIN` in place of a generic string literal like `"event.login"`:
 ```js
 evthub.listen( EVT_LOGIN, function(data){
@@ -21969,9 +21969,9 @@ var o = {
 Object.getOwnPropertyNames( o );	// [ "foo","baz" ]
 ```
 To retrieve an object's symbol properties:
-```js
-Object.getOwnPropertySymbols( o );	// [ Symbol(bar) ]
-```
+>
+	Object.getOwnPropertySymbols( o );	// [ Symbol(bar) ]
+
 This makes it clear that a property symbol is not actually hidden or inaccessible, as you can always see it in the `Object.getOwnPropertySymbols(..)` list.
 
 Built-In Symbols~
@@ -22033,9 +22033,9 @@ If you recall from "Built-In Symbols" in Chapter 2, `@@iterator` is the special 
 
 IteratorResult~
 The `IteratorResult` interface specifies that the return value from any iterator operation will be an object of the form:
-```js
-{ value: .. , done: true / false }
-```
+>
+	{ value: .. , done: true / false }
+
 Built-in iterators will always return values of this form, but more properties are, of course, allowed to be present on the return value, as necessary.
 For example, a custom iterator may add additional metadata to the result object (e.g., where the data came from, how long it took to retrieve, cache expiration length, frequency for the appropriate next request, etc.).
 Note: Technically, `value` is optional if it would otherwise be considered absent or unset, such as in the case of the value `undefined`. Because accessing `res.value` will produce `undefined` whether it's present with that value or absent entirely, the presence/absence of the property is more an implementation detail or an optimization (or both), rather than a functional issue.
@@ -22264,9 +22264,9 @@ Note: I've expounded on this particular technique in this blog post (http://blog
 Iterator Consumption~
 We've already shown consuming an iterator item by item with the `for..of` loop. But there are other ES6 structures that can consume iterators.
 Let's consider the iterator attached to this array (though any iterator we choose would have the following behaviors):
-```js
-var a = [1,2,3,4,5];
-```
+>
+	var a = [1,2,3,4,5];
+
 The `...` spread operator fully exhausts an iterator. Consider:
 ```js
 function foo(x,y,z,w,p) {
@@ -22327,9 +22327,9 @@ Consistency eases understanding and learning.
 
 Executing a Generator~
 Though a generator is declared with `*`, you still execute it like a normal function:
-```js
-foo();
-```
+>
+	foo();
+
 You can still pass it arguments, as in:
 ```js
 function *foo(x,y) {
@@ -22526,13 +22526,13 @@ it.next();				// { value: 1, done: false }
 That first `next()` call is starting up the generator from its initial paused state, and running it to the first `yield`. At the moment you call that first `next()`, there's no `yield ..` expression waiting for a completion. If you passed a value to that first `next()` call, it would currently just be thrown away, because no `yield` is waiting to receive such a value.
 Note: An early proposal for the "beyond ES6" timeframe *would* let you access a value passed to an initial `next(..)` call via a separate meta property (see Chapter 7) inside the generator.
 Now, let's answer the currently pending question, "What value should I assign to `x`?" We'll answer it by sending a value to the *next* `next(..)` call:
-```js
-it.next( "foo" );		// { value: 2, done: false }
-```
+>
+	it.next( "foo" );		// { value: 2, done: false }
+
 Now, the `x` will have the value `"foo"`, but we've also asked a new question, "What value should I assign to `y`?" And we answer:
-```js
-it.next( "bar" );		// { value: 3, done: false }
-```
+>
+	it.next( "bar" );		// { value: 3, done: false }
+
 Answer given, another question asked. Final answer:
 ```js
 it.next( "baz" );		// "foo" "bar" "baz"
@@ -22965,9 +22965,9 @@ Those forms are similar to just first importing from the `"baz"` module then lis
 `import`ing API Members~
 To import a module, unsurprisingly you use the `import` statement. Just as `export` has several nuanced variations, so does `import`, so spend plenty of time considering the following issues and experimenting with your options.
 If you want to import certain specific named members of a module's API into your top-level scope, you use this syntax:
-```js
-import { foo, bar, baz } from "foo";
-```
+>
+	import { foo, bar, baz } from "foo";
+
 Warning: The `{ .. }` syntax here may look like an object literal, or even an object destructuring syntax. However, its form is special just for modules, so be careful not to confuse it with other `{ .. }` patterns elsewhere.
 The `"foo"` string is called a *module specifier*. Because the whole goal is statically analyzable syntax, the module specifier must be a string literal; it cannot be a variable holding the string value.
 From the perspective of your ES6 code and the JS engine itself, the contents of this string literal are completely opaque and meaningless. The module loader will interpret this string as an instruction of where to find the desired module, either as a URL path or a local filesystem path.
@@ -23055,9 +23055,9 @@ import { foo } from "foo";
 ```
 `foo()` can run because not only did the static resolution of the `import ..` statement figure out what `foo` is during compilation, but it also "hoisted" the declaration to the top of the module's scope, thus making it available throughout the module.
 Finally, the most basic form of the `import` looks like this:
-```js
-import "foo";
-```
+>
+	import "foo";
+
 This form does not actually import any of the module's bindings into your scope. It loads (if not already loaded), compiles (if not already compiled), and evaluates (if not already run) the `"foo"` module.
 In general, that sort of import is probably not going to be terribly useful. There may be niche cases where a module's definition has side effects (such as assigning things to the `window`/global object). You could also envision using `import "foo"` as a sort of preload for a module that may be needed later.
 
@@ -24147,9 +24147,9 @@ var arrLike = {
 var arr = Array.prototype.slice.call( arrLike );
 ```
 Another common task where `slice(..)` is often used is in duplicating a real array:
-```js
-var arr2 = arr.slice();
-```
+>
+	var arr2 = arr.slice();
+
 In both cases, the new ES6 `Array.from(..)` method can be a more understandable and graceful -- if also less verbose -- approach:
 ```js
 var arr = Array.from( arrLike );
@@ -24184,9 +24184,9 @@ var a = Array( 4 );								// four empty slots!
 var b = Array.apply( null, { length: 4 } );		// four `undefined` values
 ```
 But `Array.from(..)` now makes this easier:
-```js
-var c = Array.from( { length: 4 } );			// four `undefined` values
-```
+>
+	var c = Array.from( { length: 4 } );			// four `undefined` values
+
 Warning: Using an empty slot array like `a` in the previous snippets would work with some array functions, but others ignore empty slots (like `map(..)`, etc.). You should never intentionally work with empty slots, as it will almost certainly lead to strange/unpredictable behavior in your programs.
 
 Mapping~
@@ -24260,9 +24260,9 @@ Consider:
 The `copyWithin(..)` method does not extend the array's length, as the first example in the previous snippet shows. Copying simply stops when the end of the array is reached.
 Contrary to what you might think, the copying doesn't always go in left-to-right (ascending index) order. It's possible this would result in repeatedly copying an already copied value if the from and target ranges overlap, which is presumably not desired behavior.
 So internally, the algorithm avoids this case by copying in reverse order to avoid that gotcha. Consider:
-```js
-[1,2,3,4,5].copyWithin( 2, 1 );		// ???
-```
+>
+	[1,2,3,4,5].copyWithin( 2, 1 );		// ???
+
 If the algorithm was strictly moving left to right, then the `2` should be copied to overwrite the `3`, then *that* copied `2` should be copied to overwrite `4`, then *that* copied `2` should be copied to overwrite `5`, and you'd end up with `[1,2,2,2,2]`.
 Instead, the copying algorithm reverses direction and copies `4` to overwrite `5`, then copies `3` to overwrite `4`, then copies `2` to overwrite `3`, and the final result is `[1,2,2,3,4]`. That's probably more "correct" in terms of expectation, but it can be confusing if you're only thinking about the copying algorithm in a naive left-to-right fashion.
 
@@ -24557,9 +24557,9 @@ You may still prefer the coercion, in which case using the global `isFinite(..)`
 Integer-Related Static Functions~
 JavaScript number values are always floating point (IEEE-754). So the notion of determining if a number is an "integer" is not about checking its type, because JS makes no such distinction.
 Instead, you need to check if there's any non-zero decimal portion of the value. The easiest way to do that has commonly been:
-```js
-x === Math.floor( x );
-```
+>
+	x === Math.floor( x );
+
 ES6 adds a `Number.isInteger(..)` helper utility that potentially can determine this quality slightly more efficiently:
 ```js
 Number.isInteger( 4 );				// true
@@ -24626,14 +24626,14 @@ In the resultant string, `\` and `t` are separate raw characters, not the one es
 
 `repeat(..)` Prototype Function~
 In languages like Python and Ruby, you can repeat a string as:
-```js
-"foo" * 3;							// "foofoofoo"
-```
+>
+	"foo" * 3;							// "foofoofoo"
+
 That doesn't work in JS, because `*` multiplication is only defined for numbers, and thus `"foo"` coerces to the `NaN` number.
 However, ES6 defines a string prototype method `repeat(..)` to accomplish the task:
-```js
-"foo".repeat( 3 );					// "foofoofoo"
-```
+>
+	"foo".repeat( 3 );					// "foofoofoo"
+
 
 String Inspection Functions~
 In addition to `String#indexOf(..)` and `String#lastIndexOf(..)` from prior to ES6, three new methods for searching/inspection have been added: `startsWith(..)`, `endsWith(..)`, and `includes(..)`.
@@ -25793,9 +25793,9 @@ obj.c;			// 3
 ```
 The change set (`"recalc"` custom event) has been queued for delivery to the observer, but not delivered yet, which is why `obj.c` is still `3`.
 The changes are by default delivered at the end of the current event loop (see the *Async & Performance* title of this series). If you want to deliver them immediately, use `Object.deliverChangeRecords(observer)`. Once the change events are delivered, you can observe `obj.c` updated as expected:
-```js
-obj.c;			// 42
-```
+>
+	obj.c;			// 42
+
 In the previous example, we called `notifier.notify(..)` with the complete change event record. An alternative form for queuing change records is to use `performChange(..)`, which separates specifying the type of the event from the rest of event record's properties (via a function callback). Consider:
 ```js
 notifier.performChange( "recalc", function(){
