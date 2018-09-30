@@ -64,7 +64,7 @@ buy this book: <http://www.ebooks.com/1977375/you-don-t-know-js-async-performanc
 buy this book: <http://www.ebooks.com/2481820/you-don-t-know-js-es6-beyond/simpson-kyle/>
 
 =====================================================================================================================================================
-BOOK 1 - CHAPTER 1                                                                                                                            *UpGoing*
+BOOK 1 - CHAPTER 1                                                                                                                    *IntoProgramming*
 
 Chapter 1: Into Programming~
 Welcome to the *You Don't Know JS* (*YDKJS*) series.
@@ -6846,7 +6846,7 @@ The `null` type has just one value: `null`, and likewise the `undefined` type ha
 Simple scalar primitives (`string`s, `number`s, etc.) are assigned/passed by value-copy, but compound values (`object`s, etc.) are assigned/passed by reference-copy. References are not like references/pointers in other languages -- they're never pointed at other variables/references, only at the underlying values.
 
 ========================================================================================================================================================================================================
-BOOK 4 - CHAPTER 3                                                                                                                                                                         *Types&Grammar*
+BOOK 4 - CHAPTER 3                                                                                                                                                                               *Natives*
 
 Chapter 3: Natives~
 Several times in Chapters 1 and 2, we alluded to various built-ins, usually called "natives," like `String` and `Number`. Let's examine those in detail now.
