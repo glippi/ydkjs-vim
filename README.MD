@@ -1,6 +1,6 @@
 # You Don't Know JS (book series) in Vim doc!
 
-![YDKJS inside Vim](/images/ydkjs.jpg)
+![YDKJS inside Vim](./ydkjs.jpg)
 
 This is the awesome series of books diving deep into the core mechanisms of the JavaScript language, written by Kyle Simpson, made available right at your fingertips in Vim documentation.
 
