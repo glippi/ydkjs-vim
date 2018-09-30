@@ -34,6 +34,31 @@ Or buy here:
   * Async & Performance: [Buy Now](http://www.ebooks.com/1977375/you-don-t-know-js-async-performance/simpson-kyle/)
   * ES6 & Beyond: [Buy Now](http://www.ebooks.com/2481820/you-don-t-know-js-es6-beyond/simpson-kyle/)
 
+## Installation
+* [**Vundle**](https://github.com/gmarik/vundle), add the following line to your `~/.vimrc`:
+
+    Bundle 'GabrieleLippi/ydkjs-vim'
+
+    $ vim +'PluginInstall! ydkjs-vim' +qall
+
+* [**vim-plug**](https://github.com/junegunn/vim-plug), add the following to your plugin section:
+
+    Plug 'GabrieleLippi/ydkjs-vim'
+
+    $ vim +PlugInstall
+
+* [**NeoBundle**](https://github.com/Shougo/neobundle.vim), add the following line to your `~/.vimrc`:
+
+    NeoBundle 'GabrieleLippi/ydkjs-vim'
+
+    $ vim +NeoBundleInstall +qall
+
+* [**Pathogen**](https://github.com/tpope/vim-pathogen), execute the following in your shell:
+
+    $ cd ~/.vim/bundle
+
+    $ git clone https://github.com/GabrieleLippi/ydkjs-vim.git
+
 ## Self-Promotion
 
 If you like this plugin, you are welcome to:
