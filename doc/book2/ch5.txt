@@ -1,1152 +1,597 @@
+# You Don't Know JS: Scope & Closures
+# Chapter 5: Scope Closure
 
+We arrive at this point with hopefully a very healthy, solid understanding of how scope works.
 
+We turn our attention to an incredibly important, but persistently elusive, *almost mythological*, part of the language: **closure**. If you have followed our discussion of lexical scope thus far, the payoff is that closure is going to be, largely, anticlimactic, almost self-obvious. *There's a man behind the wizard's curtain, and we're about to see him*. No, his name is not Crockford!
 
+If however you have nagging questions about lexical scope, now would be a good time to go back and review Chapter 2 before proceeding.
 
+## Enlightenment
 
+For those who are somewhat experienced in JavaScript, but have perhaps never fully grasped the concept of closures, *understanding closure* can seem like a special nirvana that one must strive and sacrifice to attain.
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-  <link rel="dns-prefetch" href="https://assets-cdn.github.com">
-  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
-  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+I recall years back when I had a firm grasp on JavaScript, but had no idea what closure was. The hint that there was *this other side* to the language, one which promised even more capability than I already possessed, teased and taunted me. I remember reading through the source code of early frameworks trying to understand how it actually worked. I remember the first time something of the "module pattern" began to emerge in my mind. I remember the *a-ha!* moments quite vividly.
 
+What I didn't know back then, what took me years to understand, and what I hope to impart to you presently, is this secret: **closure is all around you in JavaScript, you just have to recognize and embrace it.** Closures are not a special opt-in tool that you must learn new syntax and patterns for. No, closures are not even a weapon that you must learn to wield and master as Luke trained in The Force.
 
+Closures happen as a result of writing code that relies on lexical scope. They just happen. You do not even really have to intentionally create closures to take advantage of them. Closures are created and used for you all over your code. What you are *missing* is the proper mental context to recognize, embrace, and leverage closures for your own will.
 
-  <link crossorigin="anonymous" media="all" integrity="sha512-/yZA7MGD9acBi5MmgjnivwjGeiNsmimsI/bhLlK7akrRuw+hMxNpJoQEMO9Zt0Nq6ZRu1m1NGV6r95Ib0zx7Qw==" rel="stylesheet" href="https://assets-cdn.github.com/assets/frameworks-1ca00d32d1a8adc78ae7bb6677410eb1.css" />
-  <link crossorigin="anonymous" media="all" integrity="sha512-pHF1luoMSUFxvz63bW3jEbbifYl/pruHUw+kljThAPi2g0nhgMdvWj4bQRh4O8MYp9NR60XYcylaLXmYA8YXSw==" rel="stylesheet" href="https://assets-cdn.github.com/assets/github-5043b3d96d50b119b971c2cdde4e0a62.css" />
-  
-  
-  <link crossorigin="anonymous" media="all" integrity="sha512-yiJlaqOzeTU+S1E7OWf1xHkAosW1l4Lum0URPcPeQqKjKdZuSb9JoS5h1Dn8vs5rmdGshJ8pTr/FWwGKHlr1SQ==" rel="stylesheet" href="https://assets-cdn.github.com/assets/site-f84f81f77b3e1a4462036783c13c150d.css" />
-  
+The enlightenment moment should be: **oh, closures are already occurring all over my code, I can finally *see* them now.** Understanding closures is like when Neo sees the Matrix for the first time.
 
-  <meta name="viewport" content="width=device-width">
-  
-  <title>You-Dont-Know-JS/ch5.md at master · getify/You-Dont-Know-JS · GitHub</title>
-    <meta name="description" content="A book series on JavaScript. @YDKJS on twitter. Contribute to getify/You-Dont-Know-JS development by creating an account on GitHub.">
-    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
-  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
-  <meta property="fb:app_id" content="1401488693436528">
+## Nitty Gritty
 
-    
-    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/150330?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="getify/You-Dont-Know-JS" /><meta property="og:url" content="https://github.com/getify/You-Dont-Know-JS" /><meta property="og:description" content="A book series on JavaScript. @YDKJS on twitter. Contribute to getify/You-Dont-Know-JS development by creating an account on GitHub." />
+OK, enough hyperbole and shameless movie references.
 
-  <link rel="assets" href="https://assets-cdn.github.com/">
-  
-  <meta name="pjax-timeout" content="1000">
-  
-  <meta name="request-id" content="F801:37B4:13DEE35:2068C63:5BA8D28C" data-pjax-transient>
+Here's a down-n-dirty definition of what you need to know to understand and recognize closures:
 
+> Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.
 
-  
+Let's jump into some code to illustrate that definition.
 
-  <meta name="selected-link" value="repo_source" data-pjax-transient>
+```js
+function foo() {
+	var a = 2;
 
-      <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
-    <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
-    <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
-
-  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="F801:37B4:13DEE35:2068C63:5BA8D28C" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" />
-<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
-
-
-
-    <meta name="google-analytics" content="UA-3769691-2">
-
-
-<meta class="js-ga-set" name="dimension1" content="Logged Out">
-
-
-
-  
-
-      <meta name="hostname" content="github.com">
-    <meta name="user-login" content="">
-
-      <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="OWRlYTZiNTk0NDViYWJkYjc5OWE5MjdhM2Q5M2IxY2IxN2MyYmU3NGEwYmExNTkyZmQ1ZDkyZDQzMWI5MTE3OXx7InJlbW90ZV9hZGRyZXNzIjoiMzEuMjcuMzguOTUiLCJyZXF1ZXN0X2lkIjoiRjgwMTozN0I0OjEzREVFMzU6MjA2OEM2Mzo1QkE4RDI4QyIsInRpbWVzdGFtcCI6MTUzNzc5MDYwNCwiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
-
-    <meta name="enabled-features" content="DASHBOARD_V2_LAYOUT_OPT_IN,EXPLORE_DISCOVER_REPOSITORIES,UNIVERSE_BANNER,MARKETPLACE_PLAN_RESTRICTION_EDITOR,QUOTE_MARKDOWN">
-
-  <meta name="html-safe-nonce" content="e029d77baba434686bea2f542faca039f5746a8c">
-
-  <meta http-equiv="x-pjax-version" content="48839070ece5a75b6db249504aa0072e">
-  
-
-      <link href="https://github.com/getify/You-Dont-Know-JS/commits/master.atom" rel="alternate" title="Recent Commits to You-Dont-Know-JS:master" type="application/atom+xml">
-
-  <meta name="go-import" content="github.com/getify/You-Dont-Know-JS git https://github.com/getify/You-Dont-Know-JS.git">
-
-  <meta name="octolytics-dimension-user_id" content="150330" /><meta name="octolytics-dimension-user_login" content="getify" /><meta name="octolytics-dimension-repository_id" content="14440270" /><meta name="octolytics-dimension-repository_nwo" content="getify/You-Dont-Know-JS" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="14440270" /><meta name="octolytics-dimension-repository_network_root_nwo" content="getify/You-Dont-Know-JS" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
-
-
-    <link rel="canonical" href="https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch5.md" data-pjax-transient>
-
-
-  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
-
-  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
-
-  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
-  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://assets-cdn.github.com/favicon.ico">
-
-<meta name="theme-color" content="#1e2327">
-
-
-
-  <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
-
-  </head>
-
-  <body class="logged-out env-production page-blob">
-    
-
-  <div class="position-relative js-header-wrapper ">
-    <a href="#start-of-content" tabindex="1" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
-    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
-
-    
-    
-    
-
-
-
-        
-
-
-  <header class="Header header-logged-out  position-relative f4 py-3" role="banner" data-ga-load="(Logged out) Header, view, experiment:site_header_dropdowns; group:control">
-    <div class="container-lg d-flex px-3">
-      <div class="d-flex flex-justify-between flex-items-center">
-        <a class="header-logo-invertocat my-0" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark; experiment:site_header_dropdowns; group:control">
-          <svg height="32" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-        </a>
-
-      </div>
-
-      <div class="HeaderMenu d-flex flex-justify-between flex-auto">
-          <nav class="mt-0">
-            <ul class="d-flex list-style-none">
-                <li class="ml-2">
-                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:features; experiment:site_header_dropdowns; group:control" data-selected-links="/features /features/project-management /features/code-review /features/project-management /features/integrations /features" href="/features">
-                    Features
-</a>                </li>
-                <li class="ml-4">
-                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:business; experiment:site_header_dropdowns; group:control" data-selected-links="/business /business/security /business/customers /business" href="/business">
-                    Business
-</a>                </li>
-
-                <li class="ml-4">
-                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:explore; experiment:site_header_dropdowns; group:control" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore" href="/explore">
-                    Explore
-</a>                </li>
-
-                <li class="ml-4">
-                      <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:marketplace; experiment:site_header_dropdowns; group:control" data-selected-links=" /marketplace" href="/marketplace">
-                        Marketplace
-</a>                </li>
-                <li class="ml-4">
-                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:pricing; experiment:site_header_dropdowns; group:control" data-selected-links="/pricing /pricing/developer /pricing/team /pricing/business-hosted /pricing/business-enterprise /pricing" href="/pricing">
-                    Pricing
-</a>                </li>
-            </ul>
-          </nav>
-
-        <div class="d-flex">
-            <div class="d-lg-flex flex-items-center mr-3">
-              <div class="header-search scoped-search site-scoped-search js-site-search position-relative js-jump-to"
-  role="combobox"
-  aria-owns="jump-to-results"
-  aria-label="Search or jump to"
-  aria-haspopup="listbox"
-  aria-expanded="false"
->
-  <div class="position-relative">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" data-scope-type="Repository" data-scope-id="14440270" data-scoped-search-url="/getify/You-Dont-Know-JS/search" data-unscoped-search-url="/search" action="/getify/You-Dont-Know-JS/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-      <label class="form-control header-search-wrapper header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
-        <input type="text"
-          class="form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
-          data-hotkey="s,/"
-          name="q"
-          value=""
-          placeholder="Search"
-          data-unscoped-placeholder="Search GitHub"
-          data-scoped-placeholder="Search"
-          autocapitalize="off"
-          aria-autocomplete="list"
-          aria-controls="jump-to-results"
-          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=+R5sEwo1Q1puGdFR8KSmvZRJG/hJ6yOohpKrTeuGblLKXS2Hlt9UZqjVZ2oz7dUOV5RzbhEgpv2MdyHmSXSepw=="
-          spellcheck="false"
-          autocomplete="off"
-          >
-          <input type="hidden" class="js-site-search-type-field" name="type" >
-            <img src="https://assets-cdn.github.com/images/search-shortcut-hint.svg" alt="" class="mr-2 header-search-key-slash">
-
-            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
-              <ul class="d-none js-jump-to-suggestions-template-container">
-                <li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item" role="option">
-                  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center p-2 jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open" href="">
-                    <div class="jump-to-octicon js-jump-to-octicon mr-2 text-center d-none">
-                      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
-                      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
-                      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
-                    </div>
-
-                    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
-
-                    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
-                    </div>
-
-                    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
-                      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
-                        In this repository
-                      </span>
-                      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
-                        All GitHub
-                      </span>
-                      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
-                    </div>
-
-                    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
-                      Jump to
-                      <span class="d-inline-block ml-1 v-align-middle">↵</span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-              <ul class="d-none js-jump-to-no-results-template-container">
-                <li class="d-flex flex-justify-center flex-items-center p-3 f5 d-none">
-                  <span class="text-gray">No suggested jump to results</span>
-                </li>
-              </ul>
-
-              <ul id="jump-to-results" role="listbox" class="js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container" >
-                <li class="d-flex flex-justify-center flex-items-center p-0 f5">
-                  <img src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" alt="Octocat Spinner Icon" class="m-2" width="28">
-                </li>
-              </ul>
-            </div>
-      </label>
-</form>  </div>
-</div>
-
-            </div>
-
-          <span class="d-inline-block">
-              <div class="HeaderNavlink px-0 py-2 m-0">
-                <a class="text-bold text-white no-underline" href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS%2Fblob%2Fmaster%2Fscope%2520%2526%2520closures%2Fch5.md" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in; experiment:site_header_dropdowns; group:control">Sign in</a>
-                  <span class="text-gray">or</span>
-                  <a class="text-bold text-white no-underline" href="/join?source=experiment-header-control-repo" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up; experiment:site_header_dropdowns; group:control">Sign up</a>
-              </div>
-          </span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  </div>
-
-  <div id="start-of-content" class="show-on-focus"></div>
-
-    <div id="js-flash-container">
-
-
-</div>
-
-
-
-  <div role="main" class="application-main ">
-        <div itemscope itemtype="http://schema.org/SoftwareSourceCode" class="">
-    <div id="js-repo-pjax-container" data-pjax-container >
-      
-
-
-
-
-
-
-
-  <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  ">
-    <div class="repohead-details-container clearfix container">
-
-      <ul class="pagehead-actions">
-  <li>
-      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
-    class="btn btn-sm btn-with-count tooltipped tooltipped-s"
-    aria-label="You must be signed in to watch a repository" rel="nofollow">
-    <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
-    Watch
-  </a>
-  <a class="social-count" href="/getify/You-Dont-Know-JS/watchers"
-     aria-label="4796 users are watching this repository">
-    4,796
-  </a>
-
-  </li>
-
-  <li>
-      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
-    class="btn btn-sm btn-with-count tooltipped tooltipped-s"
-    aria-label="You must be signed in to star a repository" rel="nofollow">
-    <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
-    Star
-  </a>
-
-    <a class="social-count js-social-count" href="/getify/You-Dont-Know-JS/stargazers"
-      aria-label="88853 users starred this repository">
-      88,853
-    </a>
-
-  </li>
-
-  <li>
-      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
-        class="btn btn-sm btn-with-count tooltipped tooltipped-s"
-        aria-label="You must be signed in to fork a repository" rel="nofollow">
-        <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
-        Fork
-      </a>
-
-    <a href="/getify/You-Dont-Know-JS/network/members" class="social-count"
-       aria-label="16864 users forked this repository">
-      16,864
-    </a>
-  </li>
-</ul>
-
-      <h1 class="public ">
-  <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
-  <span class="author" itemprop="author"><a class="url fn" rel="author" href="/getify">getify</a></span><!--
---><span class="path-divider">/</span><!--
---><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="/getify/You-Dont-Know-JS">You-Dont-Know-JS</a></strong>
-
-</h1>
-
-    </div>
-    
-<nav class="reponav js-repo-nav js-sidenav-container-pjax container"
-     itemscope
-     itemtype="http://schema.org/BreadcrumbList"
-     role="navigation"
-     data-pjax="#js-repo-pjax-container">
-
-  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a class="js-selected-navigation-item selected reponav-item" itemprop="url" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /getify/You-Dont-Know-JS" href="/getify/You-Dont-Know-JS">
-      <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
-      <span itemprop="name">Code</span>
-      <meta itemprop="position" content="1">
-</a>  </span>
-
-    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-      <a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /getify/You-Dont-Know-JS/issues" href="/getify/You-Dont-Know-JS/issues">
-        <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
-        <span itemprop="name">Issues</span>
-        <span class="Counter">110</span>
-        <meta itemprop="position" content="2">
-</a>    </span>
-
-  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /getify/You-Dont-Know-JS/pulls" href="/getify/You-Dont-Know-JS/pulls">
-      <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
-      <span itemprop="name">Pull requests</span>
-      <span class="Counter">75</span>
-      <meta itemprop="position" content="3">
-</a>  </span>
-
-    <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /getify/You-Dont-Know-JS/projects" href="/getify/You-Dont-Know-JS/projects">
-      <svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
-      Projects
-      <span class="Counter" >1</span>
-</a>
-
-
-    <a class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /getify/You-Dont-Know-JS/wiki" href="/getify/You-Dont-Know-JS/wiki">
-      <svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
-      Wiki
-</a>
-  <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse alerts /getify/You-Dont-Know-JS/pulse" href="/getify/You-Dont-Know-JS/pulse">
-    <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
-    Insights
-</a>
-
-</nav>
-
-
-  </div>
-
-<div class="container new-discussion-timeline experiment-repo-nav  ">
-  <div class="repository-content ">
-
-    
-  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/getify/You-Dont-Know-JS/blob/0cc17c53ff772e20dfd6a7072c965df2486116e8/scope%20%26%20closures/ch5.md">Permalink</a>
-
-  <!-- blob contrib key: blob_contributors:v21:a238163c941dcd9f6ddea770195ae83d -->
-
-      <div class="signup-prompt-bg rounded-1">
-      <div class="signup-prompt p-4 text-center mb-4 rounded-1">
-        <div class="position-relative">
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/site/dismiss_signup_prompt" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="/AgvsatgZaTPTD4HwcbbyMMEWWqsEo4uTTOjYOnCkGQ2Zt5BLEvk1aJ9Qs8tP4GDdjOjdMh3VGIG9XvOKvlotg==" />
-            <button type="submit" class="position-absolute top-0 right-0 btn-link link-gray" data-ga-click="(Logged out) Sign up prompt, clicked Dismiss, text:dismiss">
-              Dismiss
-            </button>
-</form>          <h3 class="pt-2">Join GitHub today</h3>
-          <p class="col-6 mx-auto">GitHub is home to over 28 million developers working together to host and review code, manage projects, and build software together.</p>
-          <a class="btn btn-primary" href="/join?source=prompt-blob-show" data-ga-click="(Logged out) Sign up prompt, clicked Sign up, text:sign-up">Sign up</a>
-        </div>
-      </div>
-    </div>
-
-
-  <div class="file-navigation">
-    
-<div class="select-menu branch-select-menu js-menu-container js-select-menu float-left">
-  <button class=" btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
-    
-    type="button" aria-label="Switch branches or tags" aria-expanded="false" aria-haspopup="true">
-      <i>Branch:</i>
-      <span class="js-select-button css-truncate-target">master</span>
-  </button>
-
-  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax>
-
-    <div class="select-menu-modal">
-      <div class="select-menu-header">
-        <svg class="octicon octicon-x js-menu-close" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-        <span class="select-menu-title">Switch branches/tags</span>
-      </div>
-
-      <div class="select-menu-filters">
-        <div class="select-menu-text-filter">
-          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
-        </div>
-        <div class="select-menu-tabs">
-          <ul>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
-            </li>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
-
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
-
-
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/getify/You-Dont-Know-JS/blob/1ed-zh-CN/scope%20&amp;%20closures/ch5.md"
-               data-name="1ed-zh-CN"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
-                1ed-zh-CN
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/getify/You-Dont-Know-JS/blob/master/scope%20&amp;%20closures/ch5.md"
-               data-name="master"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
-                master
-              </span>
-            </a>
-        </div>
-
-          <div class="select-menu-no-results">Nothing to show</div>
-      </div>
-
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
-
-
-        </div>
-
-        <div class="select-menu-no-results">Nothing to show</div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-    <div class="BtnGroup float-right">
-      <a href="/getify/You-Dont-Know-JS/find/master"
-            class="js-pjax-capture-input btn btn-sm BtnGroup-item"
-            data-pjax
-            data-hotkey="t">
-        Find file
-      </a>
-      <clipboard-copy for="blob-path" class="btn btn-sm BtnGroup-item">
-        Copy path
-      </clipboard-copy>
-    </div>
-    <div id="blob-path" class="breadcrumb">
-      <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/getify/You-Dont-Know-JS"><span>You-Dont-Know-JS</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/getify/You-Dont-Know-JS/tree/master/scope%20%26%20closures"><span>scope &amp; closures</span></a></span><span class="separator">/</span><strong class="final-path">ch5.md</strong>
-    </div>
-  </div>
-
-
-  
-  <div class="commit-tease">
-      <span class="float-right">
-        <a class="commit-tease-sha" href="/getify/You-Dont-Know-JS/commit/a11b3a368bd20f9bc83d4d224e71ffa60034233f" data-pjax>
-          a11b3a3
-        </a>
-        <relative-time datetime="2016-04-24T18:08:57Z">Apr 25, 2016</relative-time>
-      </span>
-      <div>
-        <a rel="contributor" data-skip-pjax="true" data-hovercard-user-id="13938666" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ascasson"><img class="avatar" src="https://avatars1.githubusercontent.com/u/13938666?s=40&amp;v=4" width="20" height="20" alt="@ascasson" /></a>
-        <a class="user-mention" rel="contributor" data-hovercard-user-id="13938666" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/ascasson">ascasson</a>
-          <a data-pjax="true" title="Replace anti-climatic with anticlimactic" class="message" href="/getify/You-Dont-Know-JS/commit/a11b3a368bd20f9bc83d4d224e71ffa60034233f">Replace anti-climatic with anticlimactic</a>
-      </div>
-
-    <div class="commit-tease-contributors">
-      
-<details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark float-left mr-2" id="blob_contributors_box">
-  <summary class="btn-link" aria-haspopup="dialog"  >
-    
-    <span><strong>8</strong> contributors</span>
-  </summary>
-  <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast " aria-label="Users who have contributed to this file">
-    <div class="Box-header">
-      <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
-        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-      </button>
-      <h3 class="Box-title">Users who have contributed to this file</h3>
-    </div>
-    
-        <ul class="list-style-none overflow-auto">
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/getify">
-                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/150330?s=40&amp;v=4" width="20" height="20" />
-                getify
-</a>            </li>
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/varun06">
-                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/1284070?s=40&amp;v=4" width="20" height="20" />
-                varun06
-</a>            </li>
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/ryngonzalez">
-                <img class="avatar mr-2" alt="" src="https://avatars1.githubusercontent.com/u/635300?s=40&amp;v=4" width="20" height="20" />
-                ryngonzalez
-</a>            </li>
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/michaelck">
-                <img class="avatar mr-2" alt="" src="https://avatars1.githubusercontent.com/u/1706901?s=40&amp;v=4" width="20" height="20" />
-                michaelck
-</a>            </li>
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/diogocampos">
-                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/152130?s=40&amp;v=4" width="20" height="20" />
-                diogocampos
-</a>            </li>
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/dannyc">
-                <img class="avatar mr-2" alt="" src="https://avatars0.githubusercontent.com/u/640558?s=40&amp;v=4" width="20" height="20" />
-                dannyc
-</a>            </li>
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/SupaJoon">
-                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/10734386?s=40&amp;v=4" width="20" height="20" />
-                SupaJoon
-</a>            </li>
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/ascasson">
-                <img class="avatar mr-2" alt="" src="https://avatars1.githubusercontent.com/u/13938666?s=40&amp;v=4" width="20" height="20" />
-                ascasson
-</a>            </li>
-        </ul>
-
-  </details-dialog>
-</details>
-          <a class="avatar-link" data-hovercard-user-id="150330" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/scope%20%26%20closures/ch5.md?author=getify">
-      <img class="avatar" src="https://avatars3.githubusercontent.com/u/150330?s=40&amp;v=4" width="20" height="20" alt="@getify" /> 
-</a>    <a class="avatar-link" data-hovercard-user-id="1284070" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/scope%20%26%20closures/ch5.md?author=varun06">
-      <img class="avatar" src="https://avatars3.githubusercontent.com/u/1284070?s=40&amp;v=4" width="20" height="20" alt="@varun06" /> 
-</a>    <a class="avatar-link" data-hovercard-user-id="635300" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/scope%20%26%20closures/ch5.md?author=ryngonzalez">
-      <img class="avatar" src="https://avatars1.githubusercontent.com/u/635300?s=40&amp;v=4" width="20" height="20" alt="@ryngonzalez" /> 
-</a>    <a class="avatar-link" data-hovercard-user-id="1706901" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/scope%20%26%20closures/ch5.md?author=michaelck">
-      <img class="avatar" src="https://avatars1.githubusercontent.com/u/1706901?s=40&amp;v=4" width="20" height="20" alt="@michaelck" /> 
-</a>    <a class="avatar-link" data-hovercard-user-id="152130" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/scope%20%26%20closures/ch5.md?author=diogocampos">
-      <img class="avatar" src="https://avatars3.githubusercontent.com/u/152130?s=40&amp;v=4" width="20" height="20" alt="@diogocampos" /> 
-</a>    <a class="avatar-link" data-hovercard-user-id="640558" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/scope%20%26%20closures/ch5.md?author=dannyc">
-      <img class="avatar" src="https://avatars0.githubusercontent.com/u/640558?s=40&amp;v=4" width="20" height="20" alt="@dannyc" /> 
-</a>    <a class="avatar-link" data-hovercard-user-id="10734386" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/scope%20%26%20closures/ch5.md?author=SupaJoon">
-      <img class="avatar" src="https://avatars3.githubusercontent.com/u/10734386?s=40&amp;v=4" width="20" height="20" alt="@SupaJoon" /> 
-</a>    <a class="avatar-link" data-hovercard-user-id="13938666" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/scope%20%26%20closures/ch5.md?author=ascasson">
-      <img class="avatar" src="https://avatars1.githubusercontent.com/u/13938666?s=40&amp;v=4" width="20" height="20" alt="@ascasson" /> 
-</a>
-
-    </div>
-  </div>
-
-
-
-  <div class="file">
-    <div class="file-header">
-  <div class="file-actions">
-
-    <div class="BtnGroup">
-      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/getify/You-Dont-Know-JS/raw/master/scope%20%26%20closures/ch5.md">Raw</a>
-        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/getify/You-Dont-Know-JS/blame/master/scope%20%26%20closures/ch5.md">Blame</a>
-      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/getify/You-Dont-Know-JS/commits/master/scope%20%26%20closures/ch5.md">History</a>
-    </div>
-
-
-        <button type="button" class="btn-octicon disabled tooltipped tooltipped-nw"
-          aria-label="You must be signed in to make or propose changes">
-          <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
-        </button>
-        <button type="button" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
-          aria-label="You must be signed in to make or propose changes">
-          <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
-        </button>
-  </div>
-
-  <div class="file-info">
-      597 lines (398 sloc)
-      <span class="file-info-divider"></span>
-    26.1 KB
-  </div>
-</div>
-
-    
-  <div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-you-dont-know-js-scope--closures" class="anchor" aria-hidden="true" href="#you-dont-know-js-scope--closures"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>You Don't Know JS: Scope &amp; Closures</h1>
-<h1><a id="user-content-chapter-5-scope-closure" class="anchor" aria-hidden="true" href="#chapter-5-scope-closure"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Chapter 5: Scope Closure</h1>
-<p>We arrive at this point with hopefully a very healthy, solid understanding of how scope works.</p>
-<p>We turn our attention to an incredibly important, but persistently elusive, <em>almost mythological</em>, part of the language: <strong>closure</strong>. If you have followed our discussion of lexical scope thus far, the payoff is that closure is going to be, largely, anticlimactic, almost self-obvious. <em>There's a man behind the wizard's curtain, and we're about to see him</em>. No, his name is not Crockford!</p>
-<p>If however you have nagging questions about lexical scope, now would be a good time to go back and review Chapter 2 before proceeding.</p>
-<h2><a id="user-content-enlightenment" class="anchor" aria-hidden="true" href="#enlightenment"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enlightenment</h2>
-<p>For those who are somewhat experienced in JavaScript, but have perhaps never fully grasped the concept of closures, <em>understanding closure</em> can seem like a special nirvana that one must strive and sacrifice to attain.</p>
-<p>I recall years back when I had a firm grasp on JavaScript, but had no idea what closure was. The hint that there was <em>this other side</em> to the language, one which promised even more capability than I already possessed, teased and taunted me. I remember reading through the source code of early frameworks trying to understand how it actually worked. I remember the first time something of the "module pattern" began to emerge in my mind. I remember the <em>a-ha!</em> moments quite vividly.</p>
-<p>What I didn't know back then, what took me years to understand, and what I hope to impart to you presently, is this secret: <strong>closure is all around you in JavaScript, you just have to recognize and embrace it.</strong> Closures are not a special opt-in tool that you must learn new syntax and patterns for. No, closures are not even a weapon that you must learn to wield and master as Luke trained in The Force.</p>
-<p>Closures happen as a result of writing code that relies on lexical scope. They just happen. You do not even really have to intentionally create closures to take advantage of them. Closures are created and used for you all over your code. What you are <em>missing</em> is the proper mental context to recognize, embrace, and leverage closures for your own will.</p>
-<p>The enlightenment moment should be: <strong>oh, closures are already occurring all over my code, I can finally <em>see</em> them now.</strong> Understanding closures is like when Neo sees the Matrix for the first time.</p>
-<h2><a id="user-content-nitty-gritty" class="anchor" aria-hidden="true" href="#nitty-gritty"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nitty Gritty</h2>
-<p>OK, enough hyperbole and shameless movie references.</p>
-<p>Here's a down-n-dirty definition of what you need to know to understand and recognize closures:</p>
-<blockquote>
-<p>Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.</p>
-</blockquote>
-<p>Let's jump into some code to illustrate that definition.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>() {
-	<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-c1">2</span>;
-
-	<span class="pl-k">function</span> <span class="pl-en">bar</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( a ); <span class="pl-c"><span class="pl-c">//</span> 2</span>
+	function bar() {
+		console.log( a ); // 2
 	}
 
-	<span class="pl-en">bar</span>();
+	bar();
 }
 
-<span class="pl-en">foo</span>();</pre></div>
-<p>This code should look familiar from our discussions of Nested Scope. Function <code>bar()</code> has <em>access</em> to the variable <code>a</code> in the outer enclosing scope because of lexical scope look-up rules (in this case, it's an RHS reference look-up).</p>
-<p>Is this "closure"?</p>
-<p>Well, technically... <em>perhaps</em>. But by our what-you-need-to-know definition above... <em>not exactly</em>. I think the most accurate way to explain <code>bar()</code> referencing <code>a</code> is via lexical scope look-up rules, and those rules are <em>only</em> (an important!) <strong>part</strong> of what closure is.</p>
-<p>From a purely academic perspective, what is said of the above snippet is that the function <code>bar()</code> has a <em>closure</em> over the scope of <code>foo()</code> (and indeed, even over the rest of the scopes it has access to, such as the global scope in our case). Put slightly differently, it's said that <code>bar()</code> closes over the scope of <code>foo()</code>. Why? Because <code>bar()</code> appears nested inside of <code>foo()</code>. Plain and simple.</p>
-<p>But, closure defined in this way is not directly <em>observable</em>, nor do we see closure <em>exercised</em> in that snippet. We clearly see lexical scope, but closure remains sort of a mysterious shifting shadow behind the code.</p>
-<p>Let us then consider code which brings closure into full light:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>() {
-	<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+foo();
+```
 
-	<span class="pl-k">function</span> <span class="pl-en">bar</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( a );
+This code should look familiar from our discussions of Nested Scope. Function `bar()` has *access* to the variable `a` in the outer enclosing scope because of lexical scope look-up rules (in this case, it's an RHS reference look-up).
+
+Is this "closure"?
+
+Well, technically... *perhaps*. But by our what-you-need-to-know definition above... *not exactly*. I think the most accurate way to explain `bar()` referencing `a` is via lexical scope look-up rules, and those rules are *only* (an important!) **part** of what closure is.
+
+From a purely academic perspective, what is said of the above snippet is that the function `bar()` has a *closure* over the scope of `foo()` (and indeed, even over the rest of the scopes it has access to, such as the global scope in our case). Put slightly differently, it's said that `bar()` closes over the scope of `foo()`. Why? Because `bar()` appears nested inside of `foo()`. Plain and simple.
+
+But, closure defined in this way is not directly *observable*, nor do we see closure *exercised* in that snippet. We clearly see lexical scope, but closure remains sort of a mysterious shifting shadow behind the code.
+
+Let us then consider code which brings closure into full light:
+
+```js
+function foo() {
+	var a = 2;
+
+	function bar() {
+		console.log( a );
 	}
 
-	<span class="pl-k">return</span> bar;
+	return bar;
 }
 
-<span class="pl-k">var</span> baz <span class="pl-k">=</span> <span class="pl-en">foo</span>();
+var baz = foo();
 
-<span class="pl-en">baz</span>(); <span class="pl-c"><span class="pl-c">//</span> 2 -- Whoa, closure was just observed, man.</span></pre></div>
-<p>The function <code>bar()</code> has lexical scope access to the inner scope of <code>foo()</code>. But then, we take <code>bar()</code>, the function itself, and pass it <em>as</em> a value. In this case, we <code>return</code> the function object itself that <code>bar</code> references.</p>
-<p>After we execute <code>foo()</code>, we assign the value it returned (our inner <code>bar()</code> function) to a variable called <code>baz</code>, and then we actually invoke <code>baz()</code>, which of course is invoking our inner function <code>bar()</code>, just by a different identifier reference.</p>
-<p><code>bar()</code> is executed, for sure. But in this case, it's executed <em>outside</em> of its declared lexical scope.</p>
-<p>After <code>foo()</code> executed, normally we would expect that the entirety of the inner scope of <code>foo()</code> would go away, because we know that the <em>Engine</em> employs a <em>Garbage Collector</em> that comes along and frees up memory once it's no longer in use. Since it would appear that the contents of <code>foo()</code> are no longer in use, it would seem natural that they should be considered <em>gone</em>.</p>
-<p>But the "magic" of closures does not let this happen. That inner scope is in fact <em>still</em> "in use", and thus does not go away. Who's using it? <strong>The function <code>bar()</code> itself</strong>.</p>
-<p>By virtue of where it was declared, <code>bar()</code> has a lexical scope closure over that inner scope of <code>foo()</code>, which keeps that scope alive for <code>bar()</code> to reference at any later time.</p>
-<p><strong><code>bar()</code> still has a reference to that scope, and that reference is called closure.</strong></p>
-<p>So, a few microseconds later, when the variable <code>baz</code> is invoked (invoking the inner function we initially labeled <code>bar</code>), it duly has <em>access</em> to author-time lexical scope, so it can access the variable <code>a</code> just as we'd expect.</p>
-<p>The function is being invoked well outside of its author-time lexical scope. <strong>Closure</strong> lets the function continue to access the lexical scope it was defined in at author-time.</p>
-<p>Of course, any of the various ways that functions can be <em>passed around</em> as values, and indeed invoked in other locations, are all examples of observing/exercising closure.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>() {
-	<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+baz(); // 2 -- Whoa, closure was just observed, man.
+```
 
-	<span class="pl-k">function</span> <span class="pl-en">baz</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( a ); <span class="pl-c"><span class="pl-c">//</span> 2</span>
+The function `bar()` has lexical scope access to the inner scope of `foo()`. But then, we take `bar()`, the function itself, and pass it *as* a value. In this case, we `return` the function object itself that `bar` references.
+
+After we execute `foo()`, we assign the value it returned (our inner `bar()` function) to a variable called `baz`, and then we actually invoke `baz()`, which of course is invoking our inner function `bar()`, just by a different identifier reference.
+
+`bar()` is executed, for sure. But in this case, it's executed *outside* of its declared lexical scope.
+
+After `foo()` executed, normally we would expect that the entirety of the inner scope of `foo()` would go away, because we know that the *Engine* employs a *Garbage Collector* that comes along and frees up memory once it's no longer in use. Since it would appear that the contents of `foo()` are no longer in use, it would seem natural that they should be considered *gone*.
+
+But the "magic" of closures does not let this happen. That inner scope is in fact *still* "in use", and thus does not go away. Who's using it? **The function `bar()` itself**.
+
+By virtue of where it was declared, `bar()` has a lexical scope closure over that inner scope of `foo()`, which keeps that scope alive for `bar()` to reference at any later time.
+
+**`bar()` still has a reference to that scope, and that reference is called closure.**
+
+So, a few microseconds later, when the variable `baz` is invoked (invoking the inner function we initially labeled `bar`), it duly has *access* to author-time lexical scope, so it can access the variable `a` just as we'd expect.
+
+The function is being invoked well outside of its author-time lexical scope. **Closure** lets the function continue to access the lexical scope it was defined in at author-time.
+
+Of course, any of the various ways that functions can be *passed around* as values, and indeed invoked in other locations, are all examples of observing/exercising closure.
+
+```js
+function foo() {
+	var a = 2;
+
+	function baz() {
+		console.log( a ); // 2
 	}
 
-	<span class="pl-en">bar</span>( baz );
+	bar( baz );
 }
 
-<span class="pl-k">function</span> <span class="pl-en">bar</span>(<span class="pl-smi">fn</span>) {
-	<span class="pl-en">fn</span>(); <span class="pl-c"><span class="pl-c">//</span> look ma, I saw closure!</span>
-}</pre></div>
-<p>We pass the inner function <code>baz</code> over to <code>bar</code>, and call that inner function (labeled <code>fn</code> now), and when we do, its closure over the inner scope of <code>foo()</code> is observed, by accessing <code>a</code>.</p>
-<p>These passings-around of functions can be indirect, too.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> fn;
+function bar(fn) {
+	fn(); // look ma, I saw closure!
+}
+```
 
-<span class="pl-k">function</span> <span class="pl-en">foo</span>() {
-	<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+We pass the inner function `baz` over to `bar`, and call that inner function (labeled `fn` now), and when we do, its closure over the inner scope of `foo()` is observed, by accessing `a`.
 
-	<span class="pl-k">function</span> <span class="pl-en">baz</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( a );
+These passings-around of functions can be indirect, too.
+
+```js
+var fn;
+
+function foo() {
+	var a = 2;
+
+	function baz() {
+		console.log( a );
 	}
 
-	fn <span class="pl-k">=</span> baz; <span class="pl-c"><span class="pl-c">//</span> assign `baz` to global variable</span>
+	fn = baz; // assign `baz` to global variable
 }
 
-<span class="pl-k">function</span> <span class="pl-en">bar</span>() {
-	<span class="pl-en">fn</span>(); <span class="pl-c"><span class="pl-c">//</span> look ma, I saw closure!</span>
+function bar() {
+	fn(); // look ma, I saw closure!
 }
 
-<span class="pl-en">foo</span>();
+foo();
 
-<span class="pl-en">bar</span>(); <span class="pl-c"><span class="pl-c">//</span> 2</span></pre></div>
-<p>Whatever facility we use to <em>transport</em> an inner function outside of its lexical scope, it will maintain a scope reference to where it was originally declared, and wherever we execute it, that closure will be exercised.</p>
-<h2><a id="user-content-now-i-can-see" class="anchor" aria-hidden="true" href="#now-i-can-see"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Now I Can See</h2>
-<p>The previous code snippets are somewhat academic and artificially constructed to illustrate <em>using closure</em>. But I promised you something more than just a cool new toy. I promised that closure was something all around you in your existing code. Let us now <em>see</em> that truth.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">wait</span>(<span class="pl-smi">message</span>) {
+bar(); // 2
+```
 
-	<span class="pl-c1">setTimeout</span>( <span class="pl-k">function</span> <span class="pl-en">timer</span>(){
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( message );
-	}, <span class="pl-c1">1000</span> );
+Whatever facility we use to *transport* an inner function outside of its lexical scope, it will maintain a scope reference to where it was originally declared, and wherever we execute it, that closure will be exercised.
+
+## Now I Can See
+
+The previous code snippets are somewhat academic and artificially constructed to illustrate *using closure*. But I promised you something more than just a cool new toy. I promised that closure was something all around you in your existing code. Let us now *see* that truth.
+
+```js
+function wait(message) {
+
+	setTimeout( function timer(){
+		console.log( message );
+	}, 1000 );
 
 }
 
-<span class="pl-en">wait</span>( <span class="pl-s"><span class="pl-pds">"</span>Hello, closure!<span class="pl-pds">"</span></span> );</pre></div>
-<p>We take an inner function (named <code>timer</code>) and pass it to <code>setTimeout(..)</code>. But <code>timer</code> has a scope closure over the scope of <code>wait(..)</code>, indeed keeping and using a reference to the variable <code>message</code>.</p>
-<p>A thousand milliseconds after we have executed <code>wait(..)</code>, and its inner scope should otherwise be long gone, that inner function <code>timer</code> still has closure over that scope.</p>
-<p>Deep down in the guts of the <em>Engine</em>, the built-in utility <code>setTimeout(..)</code> has reference to some parameter, probably called <code>fn</code> or <code>func</code> or something like that. <em>Engine</em> goes to invoke that function, which is invoking our inner <code>timer</code> function, and the lexical scope reference is still intact.</p>
-<p><strong>Closure.</strong></p>
-<p>Or, if you're of the jQuery persuasion (or any JS framework, for that matter):</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">setupBot</span>(<span class="pl-smi">name</span>,<span class="pl-smi">selector</span>) {
-	<span class="pl-en">$</span>( selector ).<span class="pl-c1">click</span>( <span class="pl-k">function</span> <span class="pl-en">activator</span>(){
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>Activating: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> name );
+wait( "Hello, closure!" );
+```
+
+We take an inner function (named `timer`) and pass it to `setTimeout(..)`. But `timer` has a scope closure over the scope of `wait(..)`, indeed keeping and using a reference to the variable `message`.
+
+A thousand milliseconds after we have executed `wait(..)`, and its inner scope should otherwise be long gone, that inner function `timer` still has closure over that scope.
+
+Deep down in the guts of the *Engine*, the built-in utility `setTimeout(..)` has reference to some parameter, probably called `fn` or `func` or something like that. *Engine* goes to invoke that function, which is invoking our inner `timer` function, and the lexical scope reference is still intact.
+
+**Closure.**
+
+Or, if you're of the jQuery persuasion (or any JS framework, for that matter):
+
+```js
+function setupBot(name,selector) {
+	$( selector ).click( function activator(){
+		console.log( "Activating: " + name );
 	} );
 }
 
-<span class="pl-en">setupBot</span>( <span class="pl-s"><span class="pl-pds">"</span>Closure Bot 1<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>#bot_1<span class="pl-pds">"</span></span> );
-<span class="pl-en">setupBot</span>( <span class="pl-s"><span class="pl-pds">"</span>Closure Bot 2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>#bot_2<span class="pl-pds">"</span></span> );</pre></div>
-<p>I am not sure what kind of code you write, but I regularly write code which is responsible for controlling an entire global drone army of closure bots, so this is totally realistic!</p>
-<p>(Some) joking aside, essentially <em>whenever</em> and <em>wherever</em> you treat functions (which access their own respective lexical scopes) as first-class values and pass them around, you are likely to see those functions exercising closure. Be that timers, event handlers, Ajax requests, cross-window messaging, web workers, or any of the other asynchronous (or synchronous!) tasks, when you pass in a <em>callback function</em>, get ready to sling some closure around!</p>
-<p><strong>Note:</strong> Chapter 3 introduced the IIFE pattern. While it is often said that IIFE (alone) is an example of observed closure, I would somewhat disagree, by our definition above.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+setupBot( "Closure Bot 1", "#bot_1" );
+setupBot( "Closure Bot 2", "#bot_2" );
+```
 
-(<span class="pl-k">function</span> <span class="pl-en">IIFE</span>(){
-	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( a );
-})();</pre></div>
-<p>This code "works", but it's not strictly an observation of closure. Why? Because the function (which we named "IIFE" here) is not executed outside its lexical scope. It's still invoked right there in the same scope as it was declared (the enclosing/global scope that also holds <code>a</code>). <code>a</code> is found via normal lexical scope look-up, not really via closure.</p>
-<p>While closure might technically be happening at declaration time, it is <em>not</em> strictly observable, and so, as they say, <em>it's a tree falling in the forest with no one around to hear it.</em></p>
-<p>Though an IIFE is not <em>itself</em> an example of closure, it absolutely creates scope, and it's one of the most common tools we use to create scope which can be closed over. So IIFEs are indeed heavily related to closure, even if not exercising closure themselves.</p>
-<p>Put this book down right now, dear reader. I have a task for you. Go open up some of your recent JavaScript code. Look for your functions-as-values and identify where you are already using closure and maybe didn't even know it before.</p>
-<p>I'll wait.</p>
-<p>Now... you see!</p>
-<h2><a id="user-content-loops--closure" class="anchor" aria-hidden="true" href="#loops--closure"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Loops + Closure</h2>
-<p>The most common canonical example used to illustrate closure involves the humble for-loop.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">for</span> (<span class="pl-k">var</span> i<span class="pl-k">=</span><span class="pl-c1">1</span>; i<span class="pl-k">&lt;=</span><span class="pl-c1">5</span>; i<span class="pl-k">++</span>) {
-	<span class="pl-c1">setTimeout</span>( <span class="pl-k">function</span> <span class="pl-en">timer</span>(){
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( i );
-	}, i<span class="pl-k">*</span><span class="pl-c1">1000</span> );
-}</pre></div>
-<p><strong>Note:</strong> Linters often complain when you put functions inside of loops, because the mistakes of not understanding closure are <strong>so common among developers</strong>. We explain how to do so properly here, leveraging the full power of closure. But that subtlety is often lost on linters and they will complain regardless, assuming you don't <em>actually</em> know what you're doing.</p>
-<p>The spirit of this code snippet is that we would normally <em>expect</em> for the behavior to be that the numbers "1", "2", .. "5" would be printed out, one at a time, one per second, respectively.</p>
-<p>In fact, if you run this code, you get "6" printed out 5 times, at the one-second intervals.</p>
-<p><strong>Huh?</strong></p>
-<p>Firstly, let's explain where <code>6</code> comes from. The terminating condition of the loop is when <code>i</code> is <em>not</em> <code>&lt;=5</code>. The first time that's the case is when <code>i</code> is 6. So, the output is reflecting the final value of the <code>i</code> after the loop terminates.</p>
-<p>This actually seems obvious on second glance. The timeout function callbacks are all running well after the completion of the loop. In fact, as timers go, even if it was <code>setTimeout(.., 0)</code> on each iteration, all those function callbacks would still run strictly after the completion of the loop, and thus print <code>6</code> each time.</p>
-<p>But there's a deeper question at play here. What's <em>missing</em> from our code to actually have it behave as we semantically have implied?</p>
-<p>What's missing is that we are trying to <em>imply</em> that each iteration of the loop "captures" its own copy of <code>i</code>, at the time of the iteration. But, the way scope works, all 5 of those functions, though they are defined separately in each loop iteration, all <strong>are closed over the same shared global scope</strong>, which has, in fact, only one <code>i</code> in it.</p>
-<p>Put that way, <em>of course</em> all functions share a reference to the same <code>i</code>. Something about the loop structure tends to confuse us into thinking there's something else more sophisticated at work. There is not. There's no difference than if each of the 5 timeout callbacks were just declared one right after the other, with no loop at all.</p>
-<p>OK, so, back to our burning question. What's missing? We need more <del>cowbell</del> closured scope. Specifically, we need a new closured scope for each iteration of the loop.</p>
-<p>We learned in Chapter 3 that the IIFE creates scope by declaring a function and immediately executing it.</p>
-<p>Let's try:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">for</span> (<span class="pl-k">var</span> i<span class="pl-k">=</span><span class="pl-c1">1</span>; i<span class="pl-k">&lt;=</span><span class="pl-c1">5</span>; i<span class="pl-k">++</span>) {
-	(<span class="pl-k">function</span>(){
-		<span class="pl-c1">setTimeout</span>( <span class="pl-k">function</span> <span class="pl-en">timer</span>(){
-			<span class="pl-en">console</span>.<span class="pl-c1">log</span>( i );
-		}, i<span class="pl-k">*</span><span class="pl-c1">1000</span> );
+I am not sure what kind of code you write, but I regularly write code which is responsible for controlling an entire global drone army of closure bots, so this is totally realistic!
+
+(Some) joking aside, essentially *whenever* and *wherever* you treat functions (which access their own respective lexical scopes) as first-class values and pass them around, you are likely to see those functions exercising closure. Be that timers, event handlers, Ajax requests, cross-window messaging, web workers, or any of the other asynchronous (or synchronous!) tasks, when you pass in a *callback function*, get ready to sling some closure around!
+
+**Note:** Chapter 3 introduced the IIFE pattern. While it is often said that IIFE (alone) is an example of observed closure, I would somewhat disagree, by our definition above.
+
+```js
+var a = 2;
+
+(function IIFE(){
+	console.log( a );
+})();
+```
+
+This code "works", but it's not strictly an observation of closure. Why? Because the function (which we named "IIFE" here) is not executed outside its lexical scope. It's still invoked right there in the same scope as it was declared (the enclosing/global scope that also holds `a`). `a` is found via normal lexical scope look-up, not really via closure.
+
+While closure might technically be happening at declaration time, it is *not* strictly observable, and so, as they say, *it's a tree falling in the forest with no one around to hear it.*
+
+Though an IIFE is not *itself* an example of closure, it absolutely creates scope, and it's one of the most common tools we use to create scope which can be closed over. So IIFEs are indeed heavily related to closure, even if not exercising closure themselves.
+
+Put this book down right now, dear reader. I have a task for you. Go open up some of your recent JavaScript code. Look for your functions-as-values and identify where you are already using closure and maybe didn't even know it before.
+
+I'll wait.
+
+Now... you see!
+
+## Loops + Closure
+
+The most common canonical example used to illustrate closure involves the humble for-loop.
+
+```js
+for (var i=1; i<=5; i++) {
+	setTimeout( function timer(){
+		console.log( i );
+	}, i*1000 );
+}
+```
+
+**Note:** Linters often complain when you put functions inside of loops, because the mistakes of not understanding closure are **so common among developers**. We explain how to do so properly here, leveraging the full power of closure. But that subtlety is often lost on linters and they will complain regardless, assuming you don't *actually* know what you're doing.
+
+The spirit of this code snippet is that we would normally *expect* for the behavior to be that the numbers "1", "2", .. "5" would be printed out, one at a time, one per second, respectively.
+
+In fact, if you run this code, you get "6" printed out 5 times, at the one-second intervals.
+
+**Huh?**
+
+Firstly, let's explain where `6` comes from. The terminating condition of the loop is when `i` is *not* `<=5`. The first time that's the case is when `i` is 6. So, the output is reflecting the final value of the `i` after the loop terminates.
+
+This actually seems obvious on second glance. The timeout function callbacks are all running well after the completion of the loop. In fact, as timers go, even if it was `setTimeout(.., 0)` on each iteration, all those function callbacks would still run strictly after the completion of the loop, and thus print `6` each time.
+
+But there's a deeper question at play here. What's *missing* from our code to actually have it behave as we semantically have implied?
+
+What's missing is that we are trying to *imply* that each iteration of the loop "captures" its own copy of `i`, at the time of the iteration. But, the way scope works, all 5 of those functions, though they are defined separately in each loop iteration, all **are closed over the same shared global scope**, which has, in fact, only one `i` in it.
+
+Put that way, *of course* all functions share a reference to the same `i`. Something about the loop structure tends to confuse us into thinking there's something else more sophisticated at work. There is not. There's no difference than if each of the 5 timeout callbacks were just declared one right after the other, with no loop at all.
+
+OK, so, back to our burning question. What's missing? We need more ~~cowbell~~ closured scope. Specifically, we need a new closured scope for each iteration of the loop.
+
+We learned in Chapter 3 that the IIFE creates scope by declaring a function and immediately executing it.
+
+Let's try:
+
+```js
+for (var i=1; i<=5; i++) {
+	(function(){
+		setTimeout( function timer(){
+			console.log( i );
+		}, i*1000 );
 	})();
-}</pre></div>
-<p>Does that work? Try it. Again, I'll wait.</p>
-<p>I'll end the suspense for you. <strong>Nope.</strong> But why? We now obviously have more lexical scope. Each timeout function callback is indeed closing over its own per-iteration scope created respectively by each IIFE.</p>
-<p>It's not enough to have a scope to close over <strong>if that scope is empty</strong>. Look closely. Our IIFE is just an empty do-nothing scope. It needs <em>something</em> in it to be useful to us.</p>
-<p>It needs its own variable, with a copy of the <code>i</code> value at each iteration.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">for</span> (<span class="pl-k">var</span> i<span class="pl-k">=</span><span class="pl-c1">1</span>; i<span class="pl-k">&lt;=</span><span class="pl-c1">5</span>; i<span class="pl-k">++</span>) {
-	(<span class="pl-k">function</span>(){
-		<span class="pl-k">var</span> j <span class="pl-k">=</span> i;
-		<span class="pl-c1">setTimeout</span>( <span class="pl-k">function</span> <span class="pl-en">timer</span>(){
-			<span class="pl-en">console</span>.<span class="pl-c1">log</span>( j );
-		}, j<span class="pl-k">*</span><span class="pl-c1">1000</span> );
+}
+```
+
+Does that work? Try it. Again, I'll wait.
+
+I'll end the suspense for you. **Nope.** But why? We now obviously have more lexical scope. Each timeout function callback is indeed closing over its own per-iteration scope created respectively by each IIFE.
+
+It's not enough to have a scope to close over **if that scope is empty**. Look closely. Our IIFE is just an empty do-nothing scope. It needs *something* in it to be useful to us.
+
+It needs its own variable, with a copy of the `i` value at each iteration.
+
+```js
+for (var i=1; i<=5; i++) {
+	(function(){
+		var j = i;
+		setTimeout( function timer(){
+			console.log( j );
+		}, j*1000 );
 	})();
-}</pre></div>
-<p><strong>Eureka! It works!</strong></p>
-<p>A slight variation some prefer is:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">for</span> (<span class="pl-k">var</span> i<span class="pl-k">=</span><span class="pl-c1">1</span>; i<span class="pl-k">&lt;=</span><span class="pl-c1">5</span>; i<span class="pl-k">++</span>) {
-	(<span class="pl-k">function</span>(<span class="pl-smi">j</span>){
-		<span class="pl-c1">setTimeout</span>( <span class="pl-k">function</span> <span class="pl-en">timer</span>(){
-			<span class="pl-en">console</span>.<span class="pl-c1">log</span>( j );
-		}, j<span class="pl-k">*</span><span class="pl-c1">1000</span> );
+}
+```
+
+**Eureka! It works!**
+
+A slight variation some prefer is:
+
+```js
+for (var i=1; i<=5; i++) {
+	(function(j){
+		setTimeout( function timer(){
+			console.log( j );
+		}, j*1000 );
 	})( i );
-}</pre></div>
-<p>Of course, since these IIFEs are just functions, we can pass in <code>i</code>, and we can call it <code>j</code> if we prefer, or we can even call it <code>i</code> again. Either way, the code works now.</p>
-<p>The use of an IIFE inside each iteration created a new scope for each iteration, which gave our timeout function callbacks the opportunity to close over a new scope for each iteration, one which had a variable with the right per-iteration value in it for us to access.</p>
-<p>Problem solved!</p>
-<h3><a id="user-content-block-scoping-revisited" class="anchor" aria-hidden="true" href="#block-scoping-revisited"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Block Scoping Revisited</h3>
-<p>Look carefully at our analysis of the previous solution. We used an IIFE to create new scope per-iteration. In other words, we actually <em>needed</em> a per-iteration <strong>block scope</strong>. Chapter 3 showed us the <code>let</code> declaration, which hijacks a block and declares a variable right there in the block.</p>
-<p><strong>It essentially turns a block into a scope that we can close over.</strong> So, the following awesome code "just works":</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">for</span> (<span class="pl-k">var</span> i<span class="pl-k">=</span><span class="pl-c1">1</span>; i<span class="pl-k">&lt;=</span><span class="pl-c1">5</span>; i<span class="pl-k">++</span>) {
-	<span class="pl-k">let</span> j <span class="pl-k">=</span> i; <span class="pl-c"><span class="pl-c">//</span> yay, block-scope for closure!</span>
-	<span class="pl-c1">setTimeout</span>( <span class="pl-k">function</span> <span class="pl-en">timer</span>(){
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( j );
-	}, j<span class="pl-k">*</span><span class="pl-c1">1000</span> );
-}</pre></div>
-<p><em>But, that's not all!</em> (in my best Bob Barker voice). There's a special behavior defined for <code>let</code> declarations used in the head of a for-loop. This behavior says that the variable will be declared not just once for the loop, <strong>but each iteration</strong>. And, it will, helpfully, be initialized at each subsequent iteration with the value from the end of the previous iteration.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">for</span> (<span class="pl-k">let</span> i<span class="pl-k">=</span><span class="pl-c1">1</span>; i<span class="pl-k">&lt;=</span><span class="pl-c1">5</span>; i<span class="pl-k">++</span>) {
-	<span class="pl-c1">setTimeout</span>( <span class="pl-k">function</span> <span class="pl-en">timer</span>(){
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( i );
-	}, i<span class="pl-k">*</span><span class="pl-c1">1000</span> );
-}</pre></div>
-<p>How cool is that? Block scoping and closure working hand-in-hand, solving all the world's problems. I don't know about you, but that makes me a happy JavaScripter.</p>
-<h2><a id="user-content-modules" class="anchor" aria-hidden="true" href="#modules"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modules</h2>
-<p>There are other code patterns which leverage the power of closure but which do not on the surface appear to be about callbacks. Let's examine the most powerful of them: <em>the module</em>.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>() {
-	<span class="pl-k">var</span> something <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>cool<span class="pl-pds">"</span></span>;
-	<span class="pl-k">var</span> another <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>];
+}
+```
 
-	<span class="pl-k">function</span> <span class="pl-en">doSomething</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( something );
+Of course, since these IIFEs are just functions, we can pass in `i`, and we can call it `j` if we prefer, or we can even call it `i` again. Either way, the code works now.
+
+The use of an IIFE inside each iteration created a new scope for each iteration, which gave our timeout function callbacks the opportunity to close over a new scope for each iteration, one which had a variable with the right per-iteration value in it for us to access.
+
+Problem solved!
+
+### Block Scoping Revisited
+
+Look carefully at our analysis of the previous solution. We used an IIFE to create new scope per-iteration. In other words, we actually *needed* a per-iteration **block scope**. Chapter 3 showed us the `let` declaration, which hijacks a block and declares a variable right there in the block.
+
+**It essentially turns a block into a scope that we can close over.** So, the following awesome code "just works":
+
+```js
+for (var i=1; i<=5; i++) {
+	let j = i; // yay, block-scope for closure!
+	setTimeout( function timer(){
+		console.log( j );
+	}, j*1000 );
+}
+```
+
+*But, that's not all!* (in my best Bob Barker voice). There's a special behavior defined for `let` declarations used in the head of a for-loop. This behavior says that the variable will be declared not just once for the loop, **but each iteration**. And, it will, helpfully, be initialized at each subsequent iteration with the value from the end of the previous iteration.
+
+```js
+for (let i=1; i<=5; i++) {
+	setTimeout( function timer(){
+		console.log( i );
+	}, i*1000 );
+}
+```
+
+How cool is that? Block scoping and closure working hand-in-hand, solving all the world's problems. I don't know about you, but that makes me a happy JavaScripter.
+
+## Modules
+
+There are other code patterns which leverage the power of closure but which do not on the surface appear to be about callbacks. Let's examine the most powerful of them: *the module*.
+
+```js
+function foo() {
+	var something = "cool";
+	var another = [1, 2, 3];
+
+	function doSomething() {
+		console.log( something );
 	}
 
-	<span class="pl-k">function</span> <span class="pl-en">doAnother</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">another</span>.<span class="pl-c1">join</span>( <span class="pl-s"><span class="pl-pds">"</span> ! <span class="pl-pds">"</span></span> ) );
+	function doAnother() {
+		console.log( another.join( " ! " ) );
 	}
-}</pre></div>
-<p>As this code stands right now, there's no observable closure going on. We simply have some private data variables <code>something</code> and <code>another</code>, and a couple of inner functions <code>doSomething()</code> and <code>doAnother()</code>, which both have lexical scope (and thus closure!) over the inner scope of <code>foo()</code>.</p>
-<p>But now consider:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">CoolModule</span>() {
-	<span class="pl-k">var</span> something <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>cool<span class="pl-pds">"</span></span>;
-	<span class="pl-k">var</span> another <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>];
+}
+```
 
-	<span class="pl-k">function</span> <span class="pl-en">doSomething</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( something );
+As this code stands right now, there's no observable closure going on. We simply have some private data variables `something` and `another`, and a couple of inner functions `doSomething()` and `doAnother()`, which both have lexical scope (and thus closure!) over the inner scope of `foo()`.
+
+But now consider:
+
+```js
+function CoolModule() {
+	var something = "cool";
+	var another = [1, 2, 3];
+
+	function doSomething() {
+		console.log( something );
 	}
 
-	<span class="pl-k">function</span> <span class="pl-en">doAnother</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">another</span>.<span class="pl-c1">join</span>( <span class="pl-s"><span class="pl-pds">"</span> ! <span class="pl-pds">"</span></span> ) );
+	function doAnother() {
+		console.log( another.join( " ! " ) );
 	}
 
-	<span class="pl-k">return</span> {
-		doSomething<span class="pl-k">:</span> doSomething,
-		doAnother<span class="pl-k">:</span> doAnother
+	return {
+		doSomething: doSomething,
+		doAnother: doAnother
 	};
 }
 
-<span class="pl-k">var</span> foo <span class="pl-k">=</span> <span class="pl-en">CoolModule</span>();
+var foo = CoolModule();
 
-<span class="pl-smi">foo</span>.<span class="pl-en">doSomething</span>(); <span class="pl-c"><span class="pl-c">//</span> cool</span>
-<span class="pl-smi">foo</span>.<span class="pl-en">doAnother</span>(); <span class="pl-c"><span class="pl-c">//</span> 1 ! 2 ! 3</span></pre></div>
-<p>This is the pattern in JavaScript we call <em>module</em>. The most common way of implementing the module pattern is often called "Revealing Module", and it's the variation we present here.</p>
-<p>Let's examine some things about this code.</p>
-<p>Firstly, <code>CoolModule()</code> is just a function, but it <em>has to be invoked</em> for there to be a module instance created. Without the execution of the outer function, the creation of the inner scope and the closures would not occur.</p>
-<p>Secondly, the <code>CoolModule()</code> function returns an object, denoted by the object-literal syntax <code>{ key: value, ... }</code>. The object we return has references on it to our inner functions, but <em>not</em> to our inner data variables. We keep those hidden and private. It's appropriate to think of this object return value as essentially a <strong>public API for our module</strong>.</p>
-<p>This object return value is ultimately assigned to the outer variable <code>foo</code>, and then we can access those property methods on the API, like <code>foo.doSomething()</code>.</p>
-<p><strong>Note:</strong> It is not required that we return an actual object (literal) from our module. We could just return back an inner function directly. jQuery is actually a good example of this. The <code>jQuery</code> and <code>$</code> identifiers are the public API for the jQuery "module", but they are, themselves, just a function (which can itself have properties, since all functions are objects).</p>
-<p>The <code>doSomething()</code> and <code>doAnother()</code> functions have closure over the inner scope of the module "instance" (arrived at by actually invoking <code>CoolModule()</code>). When we transport those functions outside of the lexical scope, by way of property references on the object we return, we have now set up a condition by which closure can be observed and exercised.</p>
-<p>To state it more simply, there are two "requirements" for the module pattern to be exercised:</p>
-<ol>
-<li>
-<p>There must be an outer enclosing function, and it must be invoked at least once (each time creates a new module instance).</p>
-</li>
-<li>
-<p>The enclosing function must return back at least one inner function, so that this inner function has closure over the private scope, and can access and/or modify that private state.</p>
-</li>
-</ol>
-<p>An object with a function property on it alone is not <em>really</em> a module. An object which is returned from a function invocation which only has data properties on it and no closured functions is not <em>really</em> a module, in the observable sense.</p>
-<p>The code snippet above shows a standalone module creator called <code>CoolModule()</code> which can be invoked any number of times, each time creating a new module instance. A slight variation on this pattern is when you only care to have one instance, a "singleton" of sorts:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> foo <span class="pl-k">=</span> (<span class="pl-k">function</span> <span class="pl-en">CoolModule</span>() {
-	<span class="pl-k">var</span> something <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>cool<span class="pl-pds">"</span></span>;
-	<span class="pl-k">var</span> another <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>];
+foo.doSomething(); // cool
+foo.doAnother(); // 1 ! 2 ! 3
+```
 
-	<span class="pl-k">function</span> <span class="pl-en">doSomething</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( something );
+This is the pattern in JavaScript we call *module*. The most common way of implementing the module pattern is often called "Revealing Module", and it's the variation we present here.
+
+Let's examine some things about this code.
+
+Firstly, `CoolModule()` is just a function, but it *has to be invoked* for there to be a module instance created. Without the execution of the outer function, the creation of the inner scope and the closures would not occur.
+
+Secondly, the `CoolModule()` function returns an object, denoted by the object-literal syntax `{ key: value, ... }`. The object we return has references on it to our inner functions, but *not* to our inner data variables. We keep those hidden and private. It's appropriate to think of this object return value as essentially a **public API for our module**.
+
+This object return value is ultimately assigned to the outer variable `foo`, and then we can access those property methods on the API, like `foo.doSomething()`.
+
+**Note:** It is not required that we return an actual object (literal) from our module. We could just return back an inner function directly. jQuery is actually a good example of this. The `jQuery` and `$` identifiers are the public API for the jQuery "module", but they are, themselves, just a function (which can itself have properties, since all functions are objects).
+
+The `doSomething()` and `doAnother()` functions have closure over the inner scope of the module "instance" (arrived at by actually invoking `CoolModule()`). When we transport those functions outside of the lexical scope, by way of property references on the object we return, we have now set up a condition by which closure can be observed and exercised.
+
+To state it more simply, there are two "requirements" for the module pattern to be exercised:
+
+1. There must be an outer enclosing function, and it must be invoked at least once (each time creates a new module instance).
+
+2. The enclosing function must return back at least one inner function, so that this inner function has closure over the private scope, and can access and/or modify that private state.
+
+An object with a function property on it alone is not *really* a module. An object which is returned from a function invocation which only has data properties on it and no closured functions is not *really* a module, in the observable sense.
+
+The code snippet above shows a standalone module creator called `CoolModule()` which can be invoked any number of times, each time creating a new module instance. A slight variation on this pattern is when you only care to have one instance, a "singleton" of sorts:
+
+```js
+var foo = (function CoolModule() {
+	var something = "cool";
+	var another = [1, 2, 3];
+
+	function doSomething() {
+		console.log( something );
 	}
 
-	<span class="pl-k">function</span> <span class="pl-en">doAnother</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">another</span>.<span class="pl-c1">join</span>( <span class="pl-s"><span class="pl-pds">"</span> ! <span class="pl-pds">"</span></span> ) );
+	function doAnother() {
+		console.log( another.join( " ! " ) );
 	}
 
-	<span class="pl-k">return</span> {
-		doSomething<span class="pl-k">:</span> doSomething,
-		doAnother<span class="pl-k">:</span> doAnother
+	return {
+		doSomething: doSomething,
+		doAnother: doAnother
 	};
 })();
 
-<span class="pl-smi">foo</span>.<span class="pl-en">doSomething</span>(); <span class="pl-c"><span class="pl-c">//</span> cool</span>
-<span class="pl-smi">foo</span>.<span class="pl-en">doAnother</span>(); <span class="pl-c"><span class="pl-c">//</span> 1 ! 2 ! 3</span></pre></div>
-<p>Here, we turned our module function into an IIFE (see Chapter 3), and we <em>immediately</em> invoked it and assigned its return value directly to our single module instance identifier <code>foo</code>.</p>
-<p>Modules are just functions, so they can receive parameters:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">CoolModule</span>(<span class="pl-smi">id</span>) {
-	<span class="pl-k">function</span> <span class="pl-en">identify</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( id );
+foo.doSomething(); // cool
+foo.doAnother(); // 1 ! 2 ! 3
+```
+
+Here, we turned our module function into an IIFE (see Chapter 3), and we *immediately* invoked it and assigned its return value directly to our single module instance identifier `foo`.
+
+Modules are just functions, so they can receive parameters:
+
+```js
+function CoolModule(id) {
+	function identify() {
+		console.log( id );
 	}
 
-	<span class="pl-k">return</span> {
-		identify<span class="pl-k">:</span> identify
+	return {
+		identify: identify
 	};
 }
 
-<span class="pl-k">var</span> foo1 <span class="pl-k">=</span> <span class="pl-en">CoolModule</span>( <span class="pl-s"><span class="pl-pds">"</span>foo 1<span class="pl-pds">"</span></span> );
-<span class="pl-k">var</span> foo2 <span class="pl-k">=</span> <span class="pl-en">CoolModule</span>( <span class="pl-s"><span class="pl-pds">"</span>foo 2<span class="pl-pds">"</span></span> );
+var foo1 = CoolModule( "foo 1" );
+var foo2 = CoolModule( "foo 2" );
 
-<span class="pl-smi">foo1</span>.<span class="pl-en">identify</span>(); <span class="pl-c"><span class="pl-c">//</span> "foo 1"</span>
-<span class="pl-smi">foo2</span>.<span class="pl-en">identify</span>(); <span class="pl-c"><span class="pl-c">//</span> "foo 2"</span></pre></div>
-<p>Another slight but powerful variation on the module pattern is to name the object you are returning as your public API:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> foo <span class="pl-k">=</span> (<span class="pl-k">function</span> <span class="pl-en">CoolModule</span>(<span class="pl-smi">id</span>) {
-	<span class="pl-k">function</span> <span class="pl-en">change</span>() {
-		<span class="pl-c"><span class="pl-c">//</span> modifying the public API</span>
-		<span class="pl-smi">publicAPI</span>.<span class="pl-smi">identify</span> <span class="pl-k">=</span> identify2;
+foo1.identify(); // "foo 1"
+foo2.identify(); // "foo 2"
+```
+
+Another slight but powerful variation on the module pattern is to name the object you are returning as your public API:
+
+```js
+var foo = (function CoolModule(id) {
+	function change() {
+		// modifying the public API
+		publicAPI.identify = identify2;
 	}
 
-	<span class="pl-k">function</span> <span class="pl-en">identify1</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( id );
+	function identify1() {
+		console.log( id );
 	}
 
-	<span class="pl-k">function</span> <span class="pl-en">identify2</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">id</span>.<span class="pl-c1">toUpperCase</span>() );
+	function identify2() {
+		console.log( id.toUpperCase() );
 	}
 
-	<span class="pl-k">var</span> publicAPI <span class="pl-k">=</span> {
-		change<span class="pl-k">:</span> change,
-		identify<span class="pl-k">:</span> identify1
+	var publicAPI = {
+		change: change,
+		identify: identify1
 	};
 
-	<span class="pl-k">return</span> publicAPI;
-})( <span class="pl-s"><span class="pl-pds">"</span>foo module<span class="pl-pds">"</span></span> );
+	return publicAPI;
+})( "foo module" );
 
-<span class="pl-smi">foo</span>.<span class="pl-en">identify</span>(); <span class="pl-c"><span class="pl-c">//</span> foo module</span>
-<span class="pl-smi">foo</span>.<span class="pl-en">change</span>();
-<span class="pl-smi">foo</span>.<span class="pl-en">identify</span>(); <span class="pl-c"><span class="pl-c">//</span> FOO MODULE</span></pre></div>
-<p>By retaining an inner reference to the public API object inside your module instance, you can modify that module instance <strong>from the inside</strong>, including adding and removing methods, properties, <em>and</em> changing their values.</p>
-<h3><a id="user-content-modern-modules" class="anchor" aria-hidden="true" href="#modern-modules"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modern Modules</h3>
-<p>Various module dependency loaders/managers essentially wrap up this pattern of module definition into a friendly API. Rather than examine any one particular library, let me present a <em>very simple</em> proof of concept <strong>for illustration purposes (only)</strong>:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> MyModules <span class="pl-k">=</span> (<span class="pl-k">function</span> <span class="pl-en">Manager</span>() {
-	<span class="pl-k">var</span> modules <span class="pl-k">=</span> {};
+foo.identify(); // foo module
+foo.change();
+foo.identify(); // FOO MODULE
+```
 
-	<span class="pl-k">function</span> <span class="pl-en">define</span>(<span class="pl-smi">name</span>, <span class="pl-smi">deps</span>, <span class="pl-smi">impl</span>) {
-		<span class="pl-k">for</span> (<span class="pl-k">var</span> i<span class="pl-k">=</span><span class="pl-c1">0</span>; i<span class="pl-k">&lt;</span><span class="pl-smi">deps</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
-			deps[i] <span class="pl-k">=</span> modules[deps[i]];
+By retaining an inner reference to the public API object inside your module instance, you can modify that module instance **from the inside**, including adding and removing methods, properties, *and* changing their values.
+
+### Modern Modules
+
+Various module dependency loaders/managers essentially wrap up this pattern of module definition into a friendly API. Rather than examine any one particular library, let me present a *very simple* proof of concept **for illustration purposes (only)**:
+
+```js
+var MyModules = (function Manager() {
+	var modules = {};
+
+	function define(name, deps, impl) {
+		for (var i=0; i<deps.length; i++) {
+			deps[i] = modules[deps[i]];
 		}
-		modules[name] <span class="pl-k">=</span> <span class="pl-smi">impl</span>.<span class="pl-c1">apply</span>( impl, deps );
+		modules[name] = impl.apply( impl, deps );
 	}
 
-	<span class="pl-k">function</span> <span class="pl-en">get</span>(<span class="pl-smi">name</span>) {
-		<span class="pl-k">return</span> modules[name];
+	function get(name) {
+		return modules[name];
 	}
 
-	<span class="pl-k">return</span> {
-		define<span class="pl-k">:</span> define,
-		get<span class="pl-k">:</span> get
+	return {
+		define: define,
+		get: get
 	};
-})();</pre></div>
-<p>The key part of this code is <code>modules[name] = impl.apply(impl, deps)</code>. This is invoking the definition wrapper function for a module (passing in any dependencies), and storing the return value, the module's API, into an internal list of modules tracked by name.</p>
-<p>And here's how I might use it to define some modules:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-smi">MyModules</span>.<span class="pl-en">define</span>( <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>, [], <span class="pl-k">function</span>(){
-	<span class="pl-k">function</span> <span class="pl-en">hello</span>(<span class="pl-smi">who</span>) {
-		<span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Let me introduce: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> who;
+})();
+```
+
+The key part of this code is `modules[name] = impl.apply(impl, deps)`. This is invoking the definition wrapper function for a module (passing in any dependencies), and storing the return value, the module's API, into an internal list of modules tracked by name.
+
+And here's how I might use it to define some modules:
+
+```js
+MyModules.define( "bar", [], function(){
+	function hello(who) {
+		return "Let me introduce: " + who;
 	}
 
-	<span class="pl-k">return</span> {
-		hello<span class="pl-k">:</span> hello
-	};
-} );
-
-<span class="pl-smi">MyModules</span>.<span class="pl-en">define</span>( <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>, [<span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>], <span class="pl-k">function</span>(<span class="pl-smi">bar</span>){
-	<span class="pl-k">var</span> hungry <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>hippo<span class="pl-pds">"</span></span>;
-
-	<span class="pl-k">function</span> <span class="pl-en">awesome</span>() {
-		<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">bar</span>.<span class="pl-en">hello</span>( hungry ).<span class="pl-c1">toUpperCase</span>() );
-	}
-
-	<span class="pl-k">return</span> {
-		awesome<span class="pl-k">:</span> awesome
+	return {
+		hello: hello
 	};
 } );
 
-<span class="pl-k">var</span> bar <span class="pl-k">=</span> <span class="pl-smi">MyModules</span>.<span class="pl-c1">get</span>( <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span> );
-<span class="pl-k">var</span> foo <span class="pl-k">=</span> <span class="pl-smi">MyModules</span>.<span class="pl-c1">get</span>( <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> );
+MyModules.define( "foo", ["bar"], function(bar){
+	var hungry = "hippo";
 
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>(
-	<span class="pl-smi">bar</span>.<span class="pl-en">hello</span>( <span class="pl-s"><span class="pl-pds">"</span>hippo<span class="pl-pds">"</span></span> )
-); <span class="pl-c"><span class="pl-c">//</span> Let me introduce: hippo</span>
+	function awesome() {
+		console.log( bar.hello( hungry ).toUpperCase() );
+	}
 
-<span class="pl-smi">foo</span>.<span class="pl-en">awesome</span>(); <span class="pl-c"><span class="pl-c">//</span> LET ME INTRODUCE: HIPPO</span></pre></div>
-<p>Both the "foo" and "bar" modules are defined with a function that returns a public API. "foo" even receives the instance of "bar" as a dependency parameter, and can use it accordingly.</p>
-<p>Spend some time examining these code snippets to fully understand the power of closures put to use for our own good purposes. The key take-away is that there's not really any particular "magic" to module managers. They fulfill both characteristics of the module pattern I listed above: invoking a function definition wrapper, and keeping its return value as the API for that module.</p>
-<p>In other words, modules are just modules, even if you put a friendly wrapper tool on top of them.</p>
-<h3><a id="user-content-future-modules" class="anchor" aria-hidden="true" href="#future-modules"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Future Modules</h3>
-<p>ES6 adds first-class syntax support for the concept of modules. When loaded via the module system, ES6 treats a file as a separate module. Each module can both import other modules or specific API members, as well export their own public API members.</p>
-<p><strong>Note:</strong> Function-based modules aren't a statically recognized pattern (something the compiler knows about), so their API semantics aren't considered until run-time. That is, you can actually modify a module's API during the run-time (see earlier <code>publicAPI</code> discussion).</p>
-<p>By contrast, ES6 Module APIs are static (the APIs don't change at run-time). Since the compiler knows <em>that</em>, it can (and does!) check during (file loading and) compilation that a reference to a member of an imported module's API <em>actually exists</em>. If the API reference doesn't exist, the compiler throws an "early" error at compile-time, rather than waiting for traditional dynamic run-time resolution (and errors, if any).</p>
-<p>ES6 modules <strong>do not</strong> have an "inline" format, they must be defined in separate files (one per module). The browsers/engines have a default "module loader" (which is overridable, but that's well-beyond our discussion here) which synchronously loads a module file when it's imported.</p>
-<p>Consider:</p>
-<p><strong>bar.js</strong></p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">hello</span>(<span class="pl-smi">who</span>) {
-	<span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Let me introduce: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> who;
+	return {
+		awesome: awesome
+	};
+} );
+
+var bar = MyModules.get( "bar" );
+var foo = MyModules.get( "foo" );
+
+console.log(
+	bar.hello( "hippo" )
+); // Let me introduce: hippo
+
+foo.awesome(); // LET ME INTRODUCE: HIPPO
+```
+
+Both the "foo" and "bar" modules are defined with a function that returns a public API. "foo" even receives the instance of "bar" as a dependency parameter, and can use it accordingly.
+
+Spend some time examining these code snippets to fully understand the power of closures put to use for our own good purposes. The key take-away is that there's not really any particular "magic" to module managers. They fulfill both characteristics of the module pattern I listed above: invoking a function definition wrapper, and keeping its return value as the API for that module.
+
+In other words, modules are just modules, even if you put a friendly wrapper tool on top of them.
+
+### Future Modules
+
+ES6 adds first-class syntax support for the concept of modules. When loaded via the module system, ES6 treats a file as a separate module. Each module can both import other modules or specific API members, as well export their own public API members.
+
+**Note:** Function-based modules aren't a statically recognized pattern (something the compiler knows about), so their API semantics aren't considered until run-time. That is, you can actually modify a module's API during the run-time (see earlier `publicAPI` discussion).
+
+By contrast, ES6 Module APIs are static (the APIs don't change at run-time). Since the compiler knows *that*, it can (and does!) check during (file loading and) compilation that a reference to a member of an imported module's API *actually exists*. If the API reference doesn't exist, the compiler throws an "early" error at compile-time, rather than waiting for traditional dynamic run-time resolution (and errors, if any).
+
+ES6 modules **do not** have an "inline" format, they must be defined in separate files (one per module). The browsers/engines have a default "module loader" (which is overridable, but that's well-beyond our discussion here) which synchronously loads a module file when it's imported.
+
+Consider:
+
+**bar.js**
+```js
+function hello(who) {
+	return "Let me introduce: " + who;
 }
 
-<span class="pl-k">export</span> <span class="pl-smi">hello</span>;</pre></div>
-<p><strong>foo.js</strong></p>
-<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> import only `hello()` from the "bar" module</span>
-<span class="pl-k">import</span> <span class="pl-smi">hello</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>;
+export hello;
+```
 
-<span class="pl-k">var</span> hungry <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>hippo<span class="pl-pds">"</span></span>;
+**foo.js**
+```js
+// import only `hello()` from the "bar" module
+import hello from "bar";
 
-<span class="pl-k">function</span> <span class="pl-en">awesome</span>() {
-	<span class="pl-en">console</span>.<span class="pl-c1">log</span>(
-		<span class="pl-en">hello</span>( hungry ).<span class="pl-c1">toUpperCase</span>()
+var hungry = "hippo";
+
+function awesome() {
+	console.log(
+		hello( hungry ).toUpperCase()
 	);
 }
 
-<span class="pl-k">export</span> <span class="pl-smi">awesome</span>;</pre></div>
-<div class="highlight highlight-source-js"><pre><span class="pl-c"><span class="pl-c">//</span> import the entire "foo" and "bar" modules</span>
-<span class="pl-c1">module</span> foo from <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>;
-<span class="pl-c1">module</span> bar from <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span>;
+export awesome;
+```
 
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>(
-	<span class="pl-smi">bar</span>.<span class="pl-en">hello</span>( <span class="pl-s"><span class="pl-pds">"</span>rhino<span class="pl-pds">"</span></span> )
-); <span class="pl-c"><span class="pl-c">//</span> Let me introduce: rhino</span>
+```js
+// import the entire "foo" and "bar" modules
+module foo from "foo";
+module bar from "bar";
 
-<span class="pl-smi">foo</span>.<span class="pl-en">awesome</span>(); <span class="pl-c"><span class="pl-c">//</span> LET ME INTRODUCE: HIPPO</span></pre></div>
-<p><strong>Note:</strong> Separate files <strong>"foo.js"</strong> and <strong>"bar.js"</strong> would need to be created, with the contents as shown in the first two snippets, respectively. Then, your program would load/import those modules to use them, as shown in the third snippet.</p>
-<p><code>import</code> imports one or more members from a module's API into the current scope, each to a bound variable (<code>hello</code> in our case). <code>module</code> imports an entire module API to a bound variable (<code>foo</code>, <code>bar</code> in our case). <code>export</code> exports an identifier (variable, function) to the public API for the current module. These operators can be used as many times in a module's definition as is necessary.</p>
-<p>The contents inside the <em>module file</em> are treated as if enclosed in a scope closure, just like with the function-closure modules seen earlier.</p>
-<h2><a id="user-content-review-tldr" class="anchor" aria-hidden="true" href="#review-tldr"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Review (TL;DR)</h2>
-<p>Closure seems to the un-enlightened like a mystical world set apart inside of JavaScript which only the few bravest souls can reach. But it's actually just a standard and almost obvious fact of how we write code in a lexically scoped environment, where functions are values and can be passed around at will.</p>
-<p><strong>Closure is when a function can remember and access its lexical scope even when it's invoked outside its lexical scope.</strong></p>
-<p>Closures can trip us up, for instance with loops, if we're not careful to recognize them and how they work. But they are also an immensely powerful tool, enabling patterns like <em>modules</em> in their various forms.</p>
-<p>Modules require two key characteristics: 1) an outer wrapping function being invoked, to create the enclosing scope 2) the return value of the wrapping function must include reference to at least one inner function that then has closure over the private inner scope of the wrapper.</p>
-<p>Now we can see closures all around our existing code, and we have the ability to recognize and leverage them to our own benefit!</p>
-</article>
-  </div>
+console.log(
+	bar.hello( "rhino" )
+); // Let me introduce: rhino
 
-  </div>
+foo.awesome(); // LET ME INTRODUCE: HIPPO
+```
 
-  <details class="details-reset details-overlay details-overlay-dark">
-    <summary data-hotkey="l" aria-label="Jump to line"></summary>
-    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast linejump" aria-label="Jump to line">
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-jump-to-line-form Box-body d-flex" action="" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-        <input class="form-control flex-auto mr-3 linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" aria-label="Jump to line" autofocus>
-        <button type="submit" class="btn" data-close-dialog>Go</button>
-</form>    </details-dialog>
-  </details>
+**Note:** Separate files **"foo.js"** and **"bar.js"** would need to be created, with the contents as shown in the first two snippets, respectively. Then, your program would load/import those modules to use them, as shown in the third snippet.
 
+`import` imports one or more members from a module's API into the current scope, each to a bound variable (`hello` in our case). `module` imports an entire module API to a bound variable (`foo`, `bar` in our case). `export` exports an identifier (variable, function) to the public API for the current module. These operators can be used as many times in a module's definition as is necessary.
 
-  </div>
-  <div class="modal-backdrop js-touch-events"></div>
-</div>
+The contents inside the *module file* are treated as if enclosed in a scope closure, just like with the function-closure modules seen earlier.
 
-    </div>
-  </div>
+## Review (TL;DR)
 
-  </div>
+Closure seems to the un-enlightened like a mystical world set apart inside of JavaScript which only the few bravest souls can reach. But it's actually just a standard and almost obvious fact of how we write code in a lexically scoped environment, where functions are values and can be passed around at will.
 
-        
-<div class="footer container-lg px-3" role="contentinfo">
-  <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
-    <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2018 <span title="0.20089s from unicorn-3458045817-wvgql">GitHub</span>, Inc.</li>
-        <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
-        <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
-        <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>
-        <li class="mr-3"><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
-        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com">Help</a></li>
-    </ul>
+**Closure is when a function can remember and access its lexical scope even when it's invoked outside its lexical scope.**
 
-    <a aria-label="Homepage" title="GitHub" class="footer-octicon mr-lg-4" href="https://github.com">
-      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-</a>
-   <ul class="list-style-none d-flex flex-wrap ">
-        <li class="mr-3"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
-        <li class="mr-3"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
-      <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
-      <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
-        <li class="mr-3"><a href="https://blog.github.com" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
-        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+Closures can trip us up, for instance with loops, if we're not careful to recognize them and how they work. But they are also an immensely powerful tool, enabling patterns like *modules* in their various forms.
 
-    </ul>
-  </div>
-  <div class="d-flex flex-justify-center pb-6">
-    <span class="f6 text-gray-light"></span>
-  </div>
-</div>
+Modules require two key characteristics: 1) an outer wrapping function being invoked, to create the enclosing scope 2) the return value of the wrapping function must include reference to at least one inner function that then has closure over the private inner scope of the wrapper.
 
-
-
-  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
-    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
-    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
-      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-    </button>
-    You can’t perform that action at this time.
-  </div>
-
-
-    <script crossorigin="anonymous" integrity="sha512-RJ1ufbxsSbKjRCyYvinsPNKvTBvcvvKUvEOJ8g+GjtWI5SuRr+QPBlZcvRDws4H9YwAgdQFcGxfL8UbwEfdI7A==" type="application/javascript" src="https://assets-cdn.github.com/assets/compat-daf14de28fadf1e2bc40d100cb773e2b.js"></script>
-    <script crossorigin="anonymous" integrity="sha512-IC5Ai6c7cUBfMx54JUAsIjA7VroipzkizlZ8F6/0efsGGyZStweZV7bX9bxSFL07nUNLfwrKSEysVIijX+CeUw==" type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-5874e38105ec062c740350eeb96bdd8a.js"></script>
-    
-    <script crossorigin="anonymous" async="async" integrity="sha512-Y0wWbyMvuM4AncqCZ3JmN2XZmX623PfWR2gZgiD2zI2cCqaCpRQyKEm2eCeDhYx4zHiXIhZQW8XCbXYxfs8ZKA==" type="application/javascript" src="https://assets-cdn.github.com/assets/github-d08b5457fa55c9386abe7ed707d05017.js"></script>
-    
-    
-    
-  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
-    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
-    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
-    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
-  </div>
-  <div class="facebox" id="facebox" style="display:none;">
-  <div class="facebox-popup">
-    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
-    </div>
-    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
-      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-    </button>
-  </div>
-</div>
-
-  <template id="site-details-dialog">
-  <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark" open>
-    <summary aria-haspopup="dialog" aria-label="Close dialog"></summary>
-    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast">
-      <button class="Box-btn-octicon m-0 btn-octicon position-absolute right-0 top-0" type="button" aria-label="Close dialog" data-close-dialog>
-        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-      </button>
-      <div class="octocat-spinner my-6 js-details-dialog-spinner"></div>
-    </details-dialog>
-  </details>
-</template>
-
-  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
-  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
-  </div>
-</div>
-
-<div id="hovercard-aria-description" class="sr-only">
-  Press h to open a hovercard with more details.
-</div>
-
-
-  </body>
-</html>
+Now we can see closures all around our existing code, and we have the ability to recognize and leverage them to our own benefit!
 
