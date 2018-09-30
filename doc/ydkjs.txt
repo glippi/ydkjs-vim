@@ -12,13 +12,13 @@
 =====================================================================================================================================================
 CONTENTS                                                         *YDKJSContents*
 
-1. Up & going.................... |UpGoing|
+1. Up & going
   1. Into Programming............ |IntoProgramming|
   2. Into JavaScript............. |IntoJavaScript|
   3. Into YDKS................... |IntoYDKJS|
 buy this book: <https://www.ebooks.com/1993212/you-don-t-know-js-up-going/simpson-kyle/>
 
-2. Scope & Closures.............. |Scope&Closures|
+2. Scope & Closures
   1. What is Scope ?............. |WhatIsScope|
   2. Lexical Scope............... |LexicalScope|
   3. Function vs. Block Scope.... |FunctionVsBlockScope|
@@ -26,7 +26,7 @@ buy this book: <https://www.ebooks.com/1993212/you-don-t-know-js-up-going/simpso
   5. Scope Closures.............. |ScopeClosure|
 buy this book: <https://www.ebooks.com/1647631/you-don-t-know-js-scope-closures/simpson-kyle/>
 
-3. this & Object Prototypes...... |this&ObjectPrototypes|
+3. this & Object Prototypes
   1. this or that?............... |thisOrThat|
   2. this All Makes Sense Now!... |thisAllMakesSenseNow|
   3. Objects..................... |Objects|
@@ -35,7 +35,7 @@ buy this book: <https://www.ebooks.com/1647631/you-don-t-know-js-scope-closures/
   6. Behavior Delegation......... |BehaviorDelegation|
 buy this book: <http://www.ebooks.com/1734321/you-don-t-know-js-this-object-prototypes/simpson-kyle/>
 
-4. Types & Grammar............... |types&Grammar|
+4. Types & Grammar
   1. Types....................... |Types|
   2. Values...................... |Values|
   3. Natives..................... |Natives|
@@ -43,7 +43,7 @@ buy this book: <http://www.ebooks.com/1734321/you-don-t-know-js-this-object-prot
   5. Grammar..................... |Grammar|
 buy this book: <http://www.ebooks.com/1935541/you-don-t-know-js-types-grammar/simpson-kyle/>
 
-5. Async & Performance........... |Async&Performance|
+5. Async & Performance
   1. Asynchrony: Now & Later..... |AsynchronyNow&Later|
   2. Callbacks................... |Callbacks|
   3. Promises.................... |Promises|
@@ -52,7 +52,7 @@ buy this book: <http://www.ebooks.com/1935541/you-don-t-know-js-types-grammar/si
   6. Benchmarking & Turing....... |Benchmarking&Turing|
 buy this book: <http://www.ebooks.com/1977375/you-don-t-know-js-async-performance/simpson-kyle/>
 
-6. ES6 & Beyond.................. |ES6&Beyond|
+6. ES6 & Beyond
   1. ES? Now & Future............ |ESNow&Future|
   2. Syntax...................... |Syntax|
   3. Organization................ |Organization|
