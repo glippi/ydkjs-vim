@@ -23,7 +23,7 @@ The materials herein are all &copy; 2013-2018 Kyle Simpson.
 
 Please note that all the books are written by Kyle Simpson, and all credits go to him; I only made available in Vim's documentation format the text that everyone could read for free here:
 
-  * [getify/You-Dont-Know-JS]: (https://github.com/getify/You-Dont-Know-JS)
+  * [getify/You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)
 
 Or buy here: 
 
