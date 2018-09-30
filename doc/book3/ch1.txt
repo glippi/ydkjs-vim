@@ -1,902 +1,281 @@
+# You Don't Know JS: *this* & Object Prototypes
+# Chapter 1: `this` Or That?
 
+One of the most confused mechanisms in JavaScript is the `this` keyword. It's a special identifier keyword that's automatically defined in the scope of every function, but what exactly it refers to bedevils even seasoned JavaScript developers.
 
+> Any sufficiently *advanced* technology is indistinguishable from magic. -- Arthur C. Clarke
 
+JavaScript's `this` mechanism isn't actually *that* advanced, but developers often paraphrase that quote in their own mind by inserting "complex" or "confusing", and there's no question that without lack of clear understanding, `this` can seem downright magical in *your* confusion.
 
+**Note:** The word "this" is a terribly common pronoun in general discourse. So, it can be very difficult, especially verbally, to determine whether we are using "this" as a pronoun or using it to refer to the actual keyword identifier. For clarity, I will always use `this` to refer to the special keyword, and "this" or *this* or this otherwise.
 
+## Why `this`?
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-  <link rel="dns-prefetch" href="https://assets-cdn.github.com">
-  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
-  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+If the `this` mechanism is so confusing, even to seasoned JavaScript developers, one may wonder why it's even useful? Is it more trouble than it's worth? Before we jump into the *how*, we should examine the *why*.
 
+Let's try to illustrate the motivation and utility of `this`:
 
-
-  <link crossorigin="anonymous" media="all" integrity="sha512-/yZA7MGD9acBi5MmgjnivwjGeiNsmimsI/bhLlK7akrRuw+hMxNpJoQEMO9Zt0Nq6ZRu1m1NGV6r95Ib0zx7Qw==" rel="stylesheet" href="https://assets-cdn.github.com/assets/frameworks-1ca00d32d1a8adc78ae7bb6677410eb1.css" />
-  <link crossorigin="anonymous" media="all" integrity="sha512-pHF1luoMSUFxvz63bW3jEbbifYl/pruHUw+kljThAPi2g0nhgMdvWj4bQRh4O8MYp9NR60XYcylaLXmYA8YXSw==" rel="stylesheet" href="https://assets-cdn.github.com/assets/github-5043b3d96d50b119b971c2cdde4e0a62.css" />
-  
-  
-  <link crossorigin="anonymous" media="all" integrity="sha512-yiJlaqOzeTU+S1E7OWf1xHkAosW1l4Lum0URPcPeQqKjKdZuSb9JoS5h1Dn8vs5rmdGshJ8pTr/FWwGKHlr1SQ==" rel="stylesheet" href="https://assets-cdn.github.com/assets/site-f84f81f77b3e1a4462036783c13c150d.css" />
-  
-
-  <meta name="viewport" content="width=device-width">
-  
-  <title>You-Dont-Know-JS/ch1.md at master · getify/You-Dont-Know-JS · GitHub</title>
-    <meta name="description" content="A book series on JavaScript. @YDKJS on twitter. Contribute to getify/You-Dont-Know-JS development by creating an account on GitHub.">
-    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
-  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
-  <meta property="fb:app_id" content="1401488693436528">
-
-    
-    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/150330?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="getify/You-Dont-Know-JS" /><meta property="og:url" content="https://github.com/getify/You-Dont-Know-JS" /><meta property="og:description" content="A book series on JavaScript. @YDKJS on twitter. Contribute to getify/You-Dont-Know-JS development by creating an account on GitHub." />
-
-  <link rel="assets" href="https://assets-cdn.github.com/">
-  
-  <meta name="pjax-timeout" content="1000">
-  
-  <meta name="request-id" content="F906:37B6:49B5012:7703A70:5BA8D2CB" data-pjax-transient>
-
-
-  
-
-  <meta name="selected-link" value="repo_source" data-pjax-transient>
-
-      <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
-    <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
-    <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
-
-  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="F906:37B6:49B5012:7703A70:5BA8D2CB" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" />
-<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
-
-
-
-    <meta name="google-analytics" content="UA-3769691-2">
-
-
-<meta class="js-ga-set" name="dimension1" content="Logged Out">
-
-
-
-  
-
-      <meta name="hostname" content="github.com">
-    <meta name="user-login" content="">
-
-      <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="ZGQyYjBlNDVhNTk5MGEyZjlhOTgyNmI4ZmYxYTMyNzJmNjA5OTczMzZiNmM1YzJhNzE4MTAxZjg4YTI2NjVhYnx7InJlbW90ZV9hZGRyZXNzIjoiMzEuMjcuMzguOTUiLCJyZXF1ZXN0X2lkIjoiRjkwNjozN0I2OjQ5QjUwMTI6NzcwM0E3MDo1QkE4RDJDQiIsInRpbWVzdGFtcCI6MTUzNzc5MDY2NywiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
-
-    <meta name="enabled-features" content="DASHBOARD_V2_LAYOUT_OPT_IN,EXPLORE_DISCOVER_REPOSITORIES,UNIVERSE_BANNER,MARKETPLACE_PLAN_RESTRICTION_EDITOR,QUOTE_MARKDOWN">
-
-  <meta name="html-safe-nonce" content="00d1b59d35d7cc8aa5f5b9bf065922c113d391f1">
-
-  <meta http-equiv="x-pjax-version" content="48839070ece5a75b6db249504aa0072e">
-  
-
-      <link href="https://github.com/getify/You-Dont-Know-JS/commits/master.atom" rel="alternate" title="Recent Commits to You-Dont-Know-JS:master" type="application/atom+xml">
-
-  <meta name="go-import" content="github.com/getify/You-Dont-Know-JS git https://github.com/getify/You-Dont-Know-JS.git">
-
-  <meta name="octolytics-dimension-user_id" content="150330" /><meta name="octolytics-dimension-user_login" content="getify" /><meta name="octolytics-dimension-repository_id" content="14440270" /><meta name="octolytics-dimension-repository_nwo" content="getify/You-Dont-Know-JS" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="14440270" /><meta name="octolytics-dimension-repository_network_root_nwo" content="getify/You-Dont-Know-JS" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
-
-
-    <link rel="canonical" href="https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch1.md" data-pjax-transient>
-
-
-  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
-
-  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
-
-  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
-  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://assets-cdn.github.com/favicon.ico">
-
-<meta name="theme-color" content="#1e2327">
-
-
-
-  <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
-
-  </head>
-
-  <body class="logged-out env-production page-blob">
-    
-
-  <div class="position-relative js-header-wrapper ">
-    <a href="#start-of-content" tabindex="1" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
-    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
-
-    
-    
-    
-
-
-
-        
-
-
-  <header class="Header header-logged-out  position-relative f4 py-3" role="banner" >
-    <div class="container-lg d-flex px-3">
-      <div class="d-flex flex-justify-between flex-items-center">
-        <a class="header-logo-invertocat my-0" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark; experiment:site_header_dropdowns; group:control">
-          <svg height="32" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-        </a>
-
-      </div>
-
-      <div class="HeaderMenu d-flex flex-justify-between flex-auto">
-          <nav class="mt-0">
-            <ul class="d-flex list-style-none">
-                <li class="ml-2">
-                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:features; experiment:site_header_dropdowns; group:control" data-selected-links="/features /features/project-management /features/code-review /features/project-management /features/integrations /features" href="/features">
-                    Features
-</a>                </li>
-                <li class="ml-4">
-                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:business; experiment:site_header_dropdowns; group:control" data-selected-links="/business /business/security /business/customers /business" href="/business">
-                    Business
-</a>                </li>
-
-                <li class="ml-4">
-                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:explore; experiment:site_header_dropdowns; group:control" data-selected-links="/explore /trending /trending/developers /integrations /integrations/feature/code /integrations/feature/collaborate /integrations/feature/ship showcases showcases_search showcases_landing /explore" href="/explore">
-                    Explore
-</a>                </li>
-
-                <li class="ml-4">
-                      <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:marketplace; experiment:site_header_dropdowns; group:control" data-selected-links=" /marketplace" href="/marketplace">
-                        Marketplace
-</a>                </li>
-                <li class="ml-4">
-                  <a class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0" data-ga-click="Header, click, Nav menu - item:pricing; experiment:site_header_dropdowns; group:control" data-selected-links="/pricing /pricing/developer /pricing/team /pricing/business-hosted /pricing/business-enterprise /pricing" href="/pricing">
-                    Pricing
-</a>                </li>
-            </ul>
-          </nav>
-
-        <div class="d-flex">
-            <div class="d-lg-flex flex-items-center mr-3">
-              <div class="header-search scoped-search site-scoped-search js-site-search position-relative js-jump-to"
-  role="combobox"
-  aria-owns="jump-to-results"
-  aria-label="Search or jump to"
-  aria-haspopup="listbox"
-  aria-expanded="false"
->
-  <div class="position-relative">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" data-scope-type="Repository" data-scope-id="14440270" data-scoped-search-url="/getify/You-Dont-Know-JS/search" data-unscoped-search-url="/search" action="/getify/You-Dont-Know-JS/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-      <label class="form-control header-search-wrapper header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
-        <input type="text"
-          class="form-control header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
-          data-hotkey="s,/"
-          name="q"
-          value=""
-          placeholder="Search"
-          data-unscoped-placeholder="Search GitHub"
-          data-scoped-placeholder="Search"
-          autocapitalize="off"
-          aria-autocomplete="list"
-          aria-controls="jump-to-results"
-          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=xud+0rQduw6J3MpoNok2DLFqlyBBo0Z/P45RtSjUaNxjKvgjfBJaIj+zRDLqP82u7lGBIXQJ0AkXFMSdV7ELVQ=="
-          spellcheck="false"
-          autocomplete="off"
-          >
-          <input type="hidden" class="js-site-search-type-field" name="type" >
-            <img src="https://assets-cdn.github.com/images/search-shortcut-hint.svg" alt="" class="mr-2 header-search-key-slash">
-
-            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
-              <ul class="d-none js-jump-to-suggestions-template-container">
-                <li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item" role="option">
-                  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center p-2 jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open" href="">
-                    <div class="jump-to-octicon js-jump-to-octicon mr-2 text-center d-none">
-                      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
-                      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
-                      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
-                    </div>
-
-                    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
-
-                    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
-                    </div>
-
-                    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
-                      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
-                        In this repository
-                      </span>
-                      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
-                        All GitHub
-                      </span>
-                      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
-                    </div>
-
-                    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
-                      Jump to
-                      <span class="d-inline-block ml-1 v-align-middle">↵</span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-              <ul class="d-none js-jump-to-no-results-template-container">
-                <li class="d-flex flex-justify-center flex-items-center p-3 f5 d-none">
-                  <span class="text-gray">No suggested jump to results</span>
-                </li>
-              </ul>
-
-              <ul id="jump-to-results" role="listbox" class="js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container" >
-                <li class="d-flex flex-justify-center flex-items-center p-0 f5">
-                  <img src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" alt="Octocat Spinner Icon" class="m-2" width="28">
-                </li>
-              </ul>
-            </div>
-      </label>
-</form>  </div>
-</div>
-
-            </div>
-
-          <span class="d-inline-block">
-              <div class="HeaderNavlink px-0 py-2 m-0">
-                <a class="text-bold text-white no-underline" href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS%2Fblob%2Fmaster%2Fthis%2520%2526%2520object%2520prototypes%2Fch1.md" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in; experiment:site_header_dropdowns; group:control">Sign in</a>
-                  <span class="text-gray">or</span>
-                  <a class="text-bold text-white no-underline" href="/join?source=header-repo" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up; experiment:site_header_dropdowns; group:control">Sign up</a>
-              </div>
-          </span>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  </div>
-
-  <div id="start-of-content" class="show-on-focus"></div>
-
-    <div id="js-flash-container">
-
-
-</div>
-
-
-
-  <div role="main" class="application-main ">
-        <div itemscope itemtype="http://schema.org/SoftwareSourceCode" class="">
-    <div id="js-repo-pjax-container" data-pjax-container >
-      
-
-
-
-
-
-
-
-  <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  ">
-    <div class="repohead-details-container clearfix container">
-
-      <ul class="pagehead-actions">
-  <li>
-      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
-    class="btn btn-sm btn-with-count tooltipped tooltipped-s"
-    aria-label="You must be signed in to watch a repository" rel="nofollow">
-    <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
-    Watch
-  </a>
-  <a class="social-count" href="/getify/You-Dont-Know-JS/watchers"
-     aria-label="4796 users are watching this repository">
-    4,796
-  </a>
-
-  </li>
-
-  <li>
-      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
-    class="btn btn-sm btn-with-count tooltipped tooltipped-s"
-    aria-label="You must be signed in to star a repository" rel="nofollow">
-    <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
-    Star
-  </a>
-
-    <a class="social-count js-social-count" href="/getify/You-Dont-Know-JS/stargazers"
-      aria-label="88853 users starred this repository">
-      88,853
-    </a>
-
-  </li>
-
-  <li>
-      <a href="/login?return_to=%2Fgetify%2FYou-Dont-Know-JS"
-        class="btn btn-sm btn-with-count tooltipped tooltipped-s"
-        aria-label="You must be signed in to fork a repository" rel="nofollow">
-        <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
-        Fork
-      </a>
-
-    <a href="/getify/You-Dont-Know-JS/network/members" class="social-count"
-       aria-label="16864 users forked this repository">
-      16,864
-    </a>
-  </li>
-</ul>
-
-      <h1 class="public ">
-  <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
-  <span class="author" itemprop="author"><a class="url fn" rel="author" href="/getify">getify</a></span><!--
---><span class="path-divider">/</span><!--
---><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="/getify/You-Dont-Know-JS">You-Dont-Know-JS</a></strong>
-
-</h1>
-
-    </div>
-    
-<nav class="reponav js-repo-nav js-sidenav-container-pjax container"
-     itemscope
-     itemtype="http://schema.org/BreadcrumbList"
-     role="navigation"
-     data-pjax="#js-repo-pjax-container">
-
-  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a class="js-selected-navigation-item selected reponav-item" itemprop="url" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /getify/You-Dont-Know-JS" href="/getify/You-Dont-Know-JS">
-      <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
-      <span itemprop="name">Code</span>
-      <meta itemprop="position" content="1">
-</a>  </span>
-
-    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-      <a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /getify/You-Dont-Know-JS/issues" href="/getify/You-Dont-Know-JS/issues">
-        <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
-        <span itemprop="name">Issues</span>
-        <span class="Counter">110</span>
-        <meta itemprop="position" content="2">
-</a>    </span>
-
-  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /getify/You-Dont-Know-JS/pulls" href="/getify/You-Dont-Know-JS/pulls">
-      <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
-      <span itemprop="name">Pull requests</span>
-      <span class="Counter">75</span>
-      <meta itemprop="position" content="3">
-</a>  </span>
-
-    <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /getify/You-Dont-Know-JS/projects" href="/getify/You-Dont-Know-JS/projects">
-      <svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
-      Projects
-      <span class="Counter" >1</span>
-</a>
-
-
-    <a class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /getify/You-Dont-Know-JS/wiki" href="/getify/You-Dont-Know-JS/wiki">
-      <svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
-      Wiki
-</a>
-  <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse alerts /getify/You-Dont-Know-JS/pulse" href="/getify/You-Dont-Know-JS/pulse">
-    <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
-    Insights
-</a>
-
-</nav>
-
-
-  </div>
-
-<div class="container new-discussion-timeline experiment-repo-nav  ">
-  <div class="repository-content ">
-
-    
-  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/getify/You-Dont-Know-JS/blob/0cc17c53ff772e20dfd6a7072c965df2486116e8/this%20%26%20object%20prototypes/ch1.md">Permalink</a>
-
-  <!-- blob contrib key: blob_contributors:v21:99957c02d2153da4e9f6521f48338174 -->
-
-      <div class="signup-prompt-bg rounded-1">
-      <div class="signup-prompt p-4 text-center mb-4 rounded-1">
-        <div class="position-relative">
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/site/dismiss_signup_prompt" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="EcyzXC7/V2kJfPRIIP0r4nQWkt8+5jtEybN5quqB2cWRTt0k0M4wiUlzTEtz+VrhgaJQltC7Km0ITj4+UYEAfg==" />
-            <button type="submit" class="position-absolute top-0 right-0 btn-link link-gray" data-ga-click="(Logged out) Sign up prompt, clicked Dismiss, text:dismiss">
-              Dismiss
-            </button>
-</form>          <h3 class="pt-2">Join GitHub today</h3>
-          <p class="col-6 mx-auto">GitHub is home to over 28 million developers working together to host and review code, manage projects, and build software together.</p>
-          <a class="btn btn-primary" href="/join?source=prompt-blob-show" data-ga-click="(Logged out) Sign up prompt, clicked Sign up, text:sign-up">Sign up</a>
-        </div>
-      </div>
-    </div>
-
-
-  <div class="file-navigation">
-    
-<div class="select-menu branch-select-menu js-menu-container js-select-menu float-left">
-  <button class=" btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
-    
-    type="button" aria-label="Switch branches or tags" aria-expanded="false" aria-haspopup="true">
-      <i>Branch:</i>
-      <span class="js-select-button css-truncate-target">master</span>
-  </button>
-
-  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax>
-
-    <div class="select-menu-modal">
-      <div class="select-menu-header">
-        <svg class="octicon octicon-x js-menu-close" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-        <span class="select-menu-title">Switch branches/tags</span>
-      </div>
-
-      <div class="select-menu-filters">
-        <div class="select-menu-text-filter">
-          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
-        </div>
-        <div class="select-menu-tabs">
-          <ul>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
-            </li>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
-
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
-
-
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/getify/You-Dont-Know-JS/blob/1ed-zh-CN/this%20&amp;%20object%20prototypes/ch1.md"
-               data-name="1ed-zh-CN"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
-                1ed-zh-CN
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/getify/You-Dont-Know-JS/blob/master/this%20&amp;%20object%20prototypes/ch1.md"
-               data-name="master"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg class="octicon octicon-check select-menu-item-icon" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5L12 5z"/></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
-                master
-              </span>
-            </a>
-        </div>
-
-          <div class="select-menu-no-results">Nothing to show</div>
-      </div>
-
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
-
-
-        </div>
-
-        <div class="select-menu-no-results">Nothing to show</div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-    <div class="BtnGroup float-right">
-      <a href="/getify/You-Dont-Know-JS/find/master"
-            class="js-pjax-capture-input btn btn-sm BtnGroup-item"
-            data-pjax
-            data-hotkey="t">
-        Find file
-      </a>
-      <clipboard-copy for="blob-path" class="btn btn-sm BtnGroup-item">
-        Copy path
-      </clipboard-copy>
-    </div>
-    <div id="blob-path" class="breadcrumb">
-      <span class="repo-root js-repo-root"><span class="js-path-segment"><a data-pjax="true" href="/getify/You-Dont-Know-JS"><span>You-Dont-Know-JS</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/getify/You-Dont-Know-JS/tree/master/this%20%26%20object%20prototypes"><span>this &amp; object prototypes</span></a></span><span class="separator">/</span><strong class="final-path">ch1.md</strong>
-    </div>
-  </div>
-
-
-  
-  <div class="commit-tease">
-      <span class="float-right">
-        <a class="commit-tease-sha" href="/getify/You-Dont-Know-JS/commit/e174929eec5b2840c6ef5bc07d6387ae61200b2d" data-pjax>
-          e174929
-        </a>
-        <relative-time datetime="2015-07-21T03:24:32Z">Jul 20, 2015</relative-time>
-      </span>
-      <div>
-        <img class="avatar" width="20" height="20" alt="" src="https://camo.githubusercontent.com/492c15d898fa7ac78c5bacbb1740b6f86d9ea2dd/68747470733a2f2f322e67726176617461722e636f6d2f6176617461722f33366562356539633965636164366532316635376139643462646566633431663f643d68747470732533412532462532466173736574732d63646e2e6769746875622e636f6d253246696d6167657325324667726176617461727325324667726176617461722d757365722d3432302e706e6726723d6726733d313430" data-canonical-src="https://2.gravatar.com/avatar/36eb5e9c9ecad6e21f57a9d4bdefc41f?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=140" />
-        <span class="user-mention">Leslie Zhang</span>
-          <a data-pjax="true" title="Correct the result of code snippet
-
-The snippet just simply logs `undefined` to the console, rather than throws a ReferenceError." class="message" href="/getify/You-Dont-Know-JS/commit/e174929eec5b2840c6ef5bc07d6387ae61200b2d">Correct the result of code snippet</a>
-      </div>
-
-    <div class="commit-tease-contributors">
-      
-<details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark float-left mr-2" id="blob_contributors_box">
-  <summary class="btn-link" aria-haspopup="dialog"  >
-    
-    <span><strong>2</strong> contributors</span>
-  </summary>
-  <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast " aria-label="Users who have contributed to this file">
-    <div class="Box-header">
-      <button class="Box-btn-octicon btn-octicon float-right" type="button" aria-label="Close dialog" data-close-dialog>
-        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-      </button>
-      <h3 class="Box-title">Users who have contributed to this file</h3>
-    </div>
-    
-        <ul class="list-style-none overflow-auto">
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/getify">
-                <img class="avatar mr-2" alt="" src="https://avatars3.githubusercontent.com/u/150330?s=40&amp;v=4" width="20" height="20" />
-                getify
-</a>            </li>
-            <li class="Box-row">
-              <a class="link-gray-dark no-underline" href="/adityapunjani">
-                <img class="avatar mr-2" alt="" src="https://avatars1.githubusercontent.com/u/2103527?s=40&amp;v=4" width="20" height="20" />
-                adityapunjani
-</a>            </li>
-        </ul>
-
-  </details-dialog>
-</details>
-          <a class="avatar-link" data-hovercard-user-id="150330" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch1.md?author=getify">
-      <img class="avatar" src="https://avatars3.githubusercontent.com/u/150330?s=40&amp;v=4" width="20" height="20" alt="@getify" /> 
-</a>    <a class="avatar-link" data-hovercard-user-id="2103527" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch1.md?author=adityapunjani">
-      <img class="avatar" src="https://avatars1.githubusercontent.com/u/2103527?s=40&amp;v=4" width="20" height="20" alt="@adityapunjani" /> 
-</a>
-
-    </div>
-  </div>
-
-
-
-  <div class="file">
-    <div class="file-header">
-  <div class="file-actions">
-
-    <div class="BtnGroup">
-      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/getify/You-Dont-Know-JS/raw/master/this%20%26%20object%20prototypes/ch1.md">Raw</a>
-        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/getify/You-Dont-Know-JS/blame/master/this%20%26%20object%20prototypes/ch1.md">Blame</a>
-      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/getify/You-Dont-Know-JS/commits/master/this%20%26%20object%20prototypes/ch1.md">History</a>
-    </div>
-
-
-        <button type="button" class="btn-octicon disabled tooltipped tooltipped-nw"
-          aria-label="You must be signed in to make or propose changes">
-          <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
-        </button>
-        <button type="button" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
-          aria-label="You must be signed in to make or propose changes">
-          <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
-        </button>
-  </div>
-
-  <div class="file-info">
-      282 lines (190 sloc)
-      <span class="file-info-divider"></span>
-    12.9 KB
-  </div>
-</div>
-
-    
-  <div id="readme" class="readme blob instapaper_body">
-    <article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-you-dont-know-js-this--object-prototypes" class="anchor" aria-hidden="true" href="#you-dont-know-js-this--object-prototypes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>You Don't Know JS: <em>this</em> &amp; Object Prototypes</h1>
-<h1><a id="user-content-chapter-1-this-or-that" class="anchor" aria-hidden="true" href="#chapter-1-this-or-that"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Chapter 1: <code>this</code> Or That?</h1>
-<p>One of the most confused mechanisms in JavaScript is the <code>this</code> keyword. It's a special identifier keyword that's automatically defined in the scope of every function, but what exactly it refers to bedevils even seasoned JavaScript developers.</p>
-<blockquote>
-<p>Any sufficiently <em>advanced</em> technology is indistinguishable from magic. -- Arthur C. Clarke</p>
-</blockquote>
-<p>JavaScript's <code>this</code> mechanism isn't actually <em>that</em> advanced, but developers often paraphrase that quote in their own mind by inserting "complex" or "confusing", and there's no question that without lack of clear understanding, <code>this</code> can seem downright magical in <em>your</em> confusion.</p>
-<p><strong>Note:</strong> The word "this" is a terribly common pronoun in general discourse. So, it can be very difficult, especially verbally, to determine whether we are using "this" as a pronoun or using it to refer to the actual keyword identifier. For clarity, I will always use <code>this</code> to refer to the special keyword, and "this" or <em>this</em> or this otherwise.</p>
-<h2><a id="user-content-why-this" class="anchor" aria-hidden="true" href="#why-this"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why <code>this</code>?</h2>
-<p>If the <code>this</code> mechanism is so confusing, even to seasoned JavaScript developers, one may wonder why it's even useful? Is it more trouble than it's worth? Before we jump into the <em>how</em>, we should examine the <em>why</em>.</p>
-<p>Let's try to illustrate the motivation and utility of <code>this</code>:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">identify</span>() {
-	<span class="pl-k">return</span> <span class="pl-c1">this</span>.<span class="pl-c1">name</span>.<span class="pl-c1">toUpperCase</span>();
+```js
+function identify() {
+	return this.name.toUpperCase();
 }
 
-<span class="pl-k">function</span> <span class="pl-en">speak</span>() {
-	<span class="pl-k">var</span> greeting <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello, I'm <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">identify</span>.<span class="pl-c1">call</span>( <span class="pl-c1">this</span> );
-	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( greeting );
+function speak() {
+	var greeting = "Hello, I'm " + identify.call( this );
+	console.log( greeting );
 }
 
-<span class="pl-k">var</span> me <span class="pl-k">=</span> {
-	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Kyle<span class="pl-pds">"</span></span>
+var me = {
+	name: "Kyle"
 };
 
-<span class="pl-k">var</span> you <span class="pl-k">=</span> {
-	name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Reader<span class="pl-pds">"</span></span>
+var you = {
+	name: "Reader"
 };
 
-<span class="pl-smi">identify</span>.<span class="pl-c1">call</span>( me ); <span class="pl-c"><span class="pl-c">//</span> KYLE</span>
-<span class="pl-smi">identify</span>.<span class="pl-c1">call</span>( you ); <span class="pl-c"><span class="pl-c">//</span> READER</span>
+identify.call( me ); // KYLE
+identify.call( you ); // READER
 
-<span class="pl-smi">speak</span>.<span class="pl-c1">call</span>( me ); <span class="pl-c"><span class="pl-c">//</span> Hello, I'm KYLE</span>
-<span class="pl-smi">speak</span>.<span class="pl-c1">call</span>( you ); <span class="pl-c"><span class="pl-c">//</span> Hello, I'm READER</span></pre></div>
-<p>If the <em>how</em> of this snippet confuses you, don't worry! We'll get to that shortly. Just set those questions aside briefly so we can look into the <em>why</em> more clearly.</p>
-<p>This code snippet allows the <code>identify()</code> and <code>speak()</code> functions to be re-used against multiple <em>context</em> (<code>me</code> and <code>you</code>) objects, rather than needing a separate version of the function for each object.</p>
-<p>Instead of relying on <code>this</code>, you could have explicitly passed in a context object to both <code>identify()</code> and <code>speak()</code>.</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">identify</span>(<span class="pl-smi">context</span>) {
-	<span class="pl-k">return</span> <span class="pl-smi">context</span>.<span class="pl-c1">name</span>.<span class="pl-c1">toUpperCase</span>();
+speak.call( me ); // Hello, I'm KYLE
+speak.call( you ); // Hello, I'm READER
+```
+
+If the *how* of this snippet confuses you, don't worry! We'll get to that shortly. Just set those questions aside briefly so we can look into the *why* more clearly.
+
+This code snippet allows the `identify()` and `speak()` functions to be re-used against multiple *context* (`me` and `you`) objects, rather than needing a separate version of the function for each object.
+
+Instead of relying on `this`, you could have explicitly passed in a context object to both `identify()` and `speak()`.
+
+```js
+function identify(context) {
+	return context.name.toUpperCase();
 }
 
-<span class="pl-k">function</span> <span class="pl-en">speak</span>(<span class="pl-smi">context</span>) {
-	<span class="pl-k">var</span> greeting <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Hello, I'm <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-en">identify</span>( context );
-	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( greeting );
+function speak(context) {
+	var greeting = "Hello, I'm " + identify( context );
+	console.log( greeting );
 }
 
-<span class="pl-en">identify</span>( you ); <span class="pl-c"><span class="pl-c">//</span> READER</span>
-<span class="pl-en">speak</span>( me ); <span class="pl-c"><span class="pl-c">//</span> Hello, I'm KYLE</span></pre></div>
-<p>However, the <code>this</code> mechanism provides a more elegant way of implicitly "passing along" an object reference, leading to cleaner API design and easier re-use.</p>
-<p>The more complex your usage pattern is, the more clearly you'll see that passing context around as an explicit parameter is often messier than passing around a <code>this</code> context. When we explore objects and prototypes, you will see the helpfulness of a collection of functions being able to automatically reference the proper context object.</p>
-<h2><a id="user-content-confusions" class="anchor" aria-hidden="true" href="#confusions"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Confusions</h2>
-<p>We'll soon begin to explain how <code>this</code> <em>actually</em> works, but first we must  dispel some misconceptions about how it <em>doesn't</em> actually work.</p>
-<p>The name "this" creates confusion when developers try to think about it too literally. There are two meanings often assumed, but both are incorrect.</p>
-<h3><a id="user-content-itself" class="anchor" aria-hidden="true" href="#itself"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Itself</h3>
-<p>The first common temptation is to assume <code>this</code> refers to the function itself. That's a reasonable grammatical inference, at least.</p>
-<p>Why would you want to refer to a function from inside itself? The most common reasons would be things like recursion (calling a function from inside itself) or having an event handler that can unbind itself when it's first called.</p>
-<p>Developers new to JS's mechanisms often think that referencing the function as an object (all functions in JavaScript are objects!) lets you store <em>state</em> (values in properties) between function calls. While this is certainly possible and has some limited uses, the rest of the book will expound on many other patterns for <em>better</em> places to store state besides the function object.</p>
-<p>But for just a moment, we'll explore that pattern, to illustrate how <code>this</code> doesn't let a function get a reference to itself like we might have assumed.</p>
-<p>Consider the following code, where we attempt to track how many times a function (<code>foo</code>) was called:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>(<span class="pl-smi">num</span>) {
-	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>foo: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> num );
+identify( you ); // READER
+speak( me ); // Hello, I'm KYLE
+```
 
-	<span class="pl-c"><span class="pl-c">//</span> keep track of how many times `foo` is called</span>
-	<span class="pl-c1">this</span>.<span class="pl-smi">count</span><span class="pl-k">++</span>;
+However, the `this` mechanism provides a more elegant way of implicitly "passing along" an object reference, leading to cleaner API design and easier re-use.
+
+The more complex your usage pattern is, the more clearly you'll see that passing context around as an explicit parameter is often messier than passing around a `this` context. When we explore objects and prototypes, you will see the helpfulness of a collection of functions being able to automatically reference the proper context object.
+
+## Confusions
+
+We'll soon begin to explain how `this` *actually* works, but first we must  dispel some misconceptions about how it *doesn't* actually work.
+
+The name "this" creates confusion when developers try to think about it too literally. There are two meanings often assumed, but both are incorrect.
+
+### Itself
+
+The first common temptation is to assume `this` refers to the function itself. That's a reasonable grammatical inference, at least.
+
+Why would you want to refer to a function from inside itself? The most common reasons would be things like recursion (calling a function from inside itself) or having an event handler that can unbind itself when it's first called.
+
+Developers new to JS's mechanisms often think that referencing the function as an object (all functions in JavaScript are objects!) lets you store *state* (values in properties) between function calls. While this is certainly possible and has some limited uses, the rest of the book will expound on many other patterns for *better* places to store state besides the function object.
+
+But for just a moment, we'll explore that pattern, to illustrate how `this` doesn't let a function get a reference to itself like we might have assumed.
+
+Consider the following code, where we attempt to track how many times a function (`foo`) was called:
+
+```js
+function foo(num) {
+	console.log( "foo: " + num );
+
+	// keep track of how many times `foo` is called
+	this.count++;
 }
 
-<span class="pl-smi">foo</span>.<span class="pl-smi">count</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+foo.count = 0;
 
-<span class="pl-k">var</span> i;
+var i;
 
-<span class="pl-k">for</span> (i<span class="pl-k">=</span><span class="pl-c1">0</span>; i<span class="pl-k">&lt;</span><span class="pl-c1">10</span>; i<span class="pl-k">++</span>) {
-	<span class="pl-k">if</span> (i <span class="pl-k">&gt;</span> <span class="pl-c1">5</span>) {
-		<span class="pl-en">foo</span>( i );
+for (i=0; i<10; i++) {
+	if (i > 5) {
+		foo( i );
 	}
 }
-<span class="pl-c"><span class="pl-c">//</span> foo: 6</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 7</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 8</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 9</span>
+// foo: 6
+// foo: 7
+// foo: 8
+// foo: 9
 
-<span class="pl-c"><span class="pl-c">//</span> how many times was `foo` called?</span>
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">foo</span>.<span class="pl-smi">count</span> ); <span class="pl-c"><span class="pl-c">//</span> 0 -- WTF?</span></pre></div>
-<p><code>foo.count</code> is <em>still</em> <code>0</code>, even though the four <code>console.log</code> statements clearly indicate <code>foo(..)</code> was in fact called four times. The frustration stems from a <em>too literal</em> interpretation of what <code>this</code> (in <code>this.count++</code>) means.</p>
-<p>When the code executes <code>foo.count = 0</code>, indeed it's adding a property <code>count</code> to the function object <code>foo</code>. But for the <code>this.count</code> reference inside of the function, <code>this</code> is not in fact pointing <em>at all</em> to that function object, and so even though the property names are the same, the root objects are different, and confusion ensues.</p>
-<p><strong>Note:</strong> A responsible developer <em>should</em> ask at this point, "If I was incrementing a <code>count</code> property but it wasn't the one I expected, which <code>count</code> <em>was</em> I incrementing?" In fact, were she to dig deeper, she would find that she had accidentally created a global variable <code>count</code> (see Chapter 2 for <em>how</em> that happened!), and it currently has the value <code>NaN</code>. Of course, once she identifies this peculiar outcome, she then has a whole other set of questions: "How was it global, and why did it end up <code>NaN</code> instead of some proper count value?" (see Chapter 2).</p>
-<p>Instead of stopping at this point and digging into why the <code>this</code> reference doesn't seem to be behaving as <em>expected</em>, and answering those tough but important questions, many developers simply avoid the issue altogether, and hack toward some other solution, such as creating another object to hold the <code>count</code> property:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>(<span class="pl-smi">num</span>) {
-	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>foo: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> num );
+// how many times was `foo` called?
+console.log( foo.count ); // 0 -- WTF?
+```
 
-	<span class="pl-c"><span class="pl-c">//</span> keep track of how many times `foo` is called</span>
-	<span class="pl-smi">data</span>.<span class="pl-smi">count</span><span class="pl-k">++</span>;
+`foo.count` is *still* `0`, even though the four `console.log` statements clearly indicate `foo(..)` was in fact called four times. The frustration stems from a *too literal* interpretation of what `this` (in `this.count++`) means.
+
+When the code executes `foo.count = 0`, indeed it's adding a property `count` to the function object `foo`. But for the `this.count` reference inside of the function, `this` is not in fact pointing *at all* to that function object, and so even though the property names are the same, the root objects are different, and confusion ensues.
+
+**Note:** A responsible developer *should* ask at this point, "If I was incrementing a `count` property but it wasn't the one I expected, which `count` *was* I incrementing?" In fact, were she to dig deeper, she would find that she had accidentally created a global variable `count` (see Chapter 2 for *how* that happened!), and it currently has the value `NaN`. Of course, once she identifies this peculiar outcome, she then has a whole other set of questions: "How was it global, and why did it end up `NaN` instead of some proper count value?" (see Chapter 2).
+
+Instead of stopping at this point and digging into why the `this` reference doesn't seem to be behaving as *expected*, and answering those tough but important questions, many developers simply avoid the issue altogether, and hack toward some other solution, such as creating another object to hold the `count` property:
+
+```js
+function foo(num) {
+	console.log( "foo: " + num );
+
+	// keep track of how many times `foo` is called
+	data.count++;
 }
 
-<span class="pl-k">var</span> data <span class="pl-k">=</span> {
-	count<span class="pl-k">:</span> <span class="pl-c1">0</span>
+var data = {
+	count: 0
 };
 
-<span class="pl-k">var</span> i;
+var i;
 
-<span class="pl-k">for</span> (i<span class="pl-k">=</span><span class="pl-c1">0</span>; i<span class="pl-k">&lt;</span><span class="pl-c1">10</span>; i<span class="pl-k">++</span>) {
-	<span class="pl-k">if</span> (i <span class="pl-k">&gt;</span> <span class="pl-c1">5</span>) {
-		<span class="pl-en">foo</span>( i );
+for (i=0; i<10; i++) {
+	if (i > 5) {
+		foo( i );
 	}
 }
-<span class="pl-c"><span class="pl-c">//</span> foo: 6</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 7</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 8</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 9</span>
+// foo: 6
+// foo: 7
+// foo: 8
+// foo: 9
 
-<span class="pl-c"><span class="pl-c">//</span> how many times was `foo` called?</span>
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">data</span>.<span class="pl-smi">count</span> ); <span class="pl-c"><span class="pl-c">//</span> 4</span></pre></div>
-<p>While it is true that this approach "solves" the problem, unfortunately it simply ignores the real problem -- lack of understanding what <code>this</code> means and how it works -- and instead falls back to the comfort zone of a more familiar mechanism: lexical scope.</p>
-<p><strong>Note:</strong> Lexical scope is a perfectly fine and useful mechanism; I am not belittling the use of it, by any means (see <em>"Scope &amp; Closures"</em> title of this book series). But constantly <em>guessing</em> at how to use <code>this</code>, and usually being <em>wrong</em>, is not a good reason to retreat back to lexical scope and never learn <em>why</em> <code>this</code> eludes you.</p>
-<p>To reference a function object from inside itself, <code>this</code> by itself will typically be insufficient. You generally need a reference to the function object via a lexical identifier (variable) that points at it.</p>
-<p>Consider these two functions:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>() {
-	<span class="pl-smi">foo</span>.<span class="pl-smi">count</span> <span class="pl-k">=</span> <span class="pl-c1">4</span>; <span class="pl-c"><span class="pl-c">//</span> `foo` refers to itself</span>
+// how many times was `foo` called?
+console.log( data.count ); // 4
+```
+
+While it is true that this approach "solves" the problem, unfortunately it simply ignores the real problem -- lack of understanding what `this` means and how it works -- and instead falls back to the comfort zone of a more familiar mechanism: lexical scope.
+
+**Note:** Lexical scope is a perfectly fine and useful mechanism; I am not belittling the use of it, by any means (see *"Scope & Closures"* title of this book series). But constantly *guessing* at how to use `this`, and usually being *wrong*, is not a good reason to retreat back to lexical scope and never learn *why* `this` eludes you.
+
+To reference a function object from inside itself, `this` by itself will typically be insufficient. You generally need a reference to the function object via a lexical identifier (variable) that points at it.
+
+Consider these two functions:
+
+```js
+function foo() {
+	foo.count = 4; // `foo` refers to itself
 }
 
-<span class="pl-c1">setTimeout</span>( <span class="pl-k">function</span>(){
-	<span class="pl-c"><span class="pl-c">//</span> anonymous function (no name), cannot</span>
-	<span class="pl-c"><span class="pl-c">//</span> refer to itself</span>
-}, <span class="pl-c1">10</span> );</pre></div>
-<p>In the first function, called a "named function", <code>foo</code> is a reference that can be used to refer to the function from inside itself.</p>
-<p>But in the second example, the function callback passed to <code>setTimeout(..)</code> has no name identifier (so called an "anonymous function"), so there's no proper way to refer to the function object itself.</p>
-<p><strong>Note:</strong> The old-school but now deprecated and frowned-upon <code>arguments.callee</code> reference inside a function <em>also</em> points to the function object of the currently executing function. This reference is typically the only way to access an anonymous function's object from inside itself. The best approach, however, is to avoid the use of anonymous functions altogether, at least for those which require a self-reference, and instead use a named function (expression). <code>arguments.callee</code> is deprecated and should not be used.</p>
-<p>So another solution to our running example would have been to use the <code>foo</code> identifier as a function object reference in each place, and not use <code>this</code> at all, which <em>works</em>:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>(<span class="pl-smi">num</span>) {
-	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>foo: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> num );
+setTimeout( function(){
+	// anonymous function (no name), cannot
+	// refer to itself
+}, 10 );
+```
 
-	<span class="pl-c"><span class="pl-c">//</span> keep track of how many times `foo` is called</span>
-	<span class="pl-smi">foo</span>.<span class="pl-smi">count</span><span class="pl-k">++</span>;
+In the first function, called a "named function", `foo` is a reference that can be used to refer to the function from inside itself.
+
+But in the second example, the function callback passed to `setTimeout(..)` has no name identifier (so called an "anonymous function"), so there's no proper way to refer to the function object itself.
+
+**Note:** The old-school but now deprecated and frowned-upon `arguments.callee` reference inside a function *also* points to the function object of the currently executing function. This reference is typically the only way to access an anonymous function's object from inside itself. The best approach, however, is to avoid the use of anonymous functions altogether, at least for those which require a self-reference, and instead use a named function (expression). `arguments.callee` is deprecated and should not be used.
+
+So another solution to our running example would have been to use the `foo` identifier as a function object reference in each place, and not use `this` at all, which *works*:
+
+```js
+function foo(num) {
+	console.log( "foo: " + num );
+
+	// keep track of how many times `foo` is called
+	foo.count++;
 }
 
-<span class="pl-smi">foo</span>.<span class="pl-smi">count</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+foo.count = 0;
 
-<span class="pl-k">var</span> i;
+var i;
 
-<span class="pl-k">for</span> (i<span class="pl-k">=</span><span class="pl-c1">0</span>; i<span class="pl-k">&lt;</span><span class="pl-c1">10</span>; i<span class="pl-k">++</span>) {
-	<span class="pl-k">if</span> (i <span class="pl-k">&gt;</span> <span class="pl-c1">5</span>) {
-		<span class="pl-en">foo</span>( i );
+for (i=0; i<10; i++) {
+	if (i > 5) {
+		foo( i );
 	}
 }
-<span class="pl-c"><span class="pl-c">//</span> foo: 6</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 7</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 8</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 9</span>
+// foo: 6
+// foo: 7
+// foo: 8
+// foo: 9
 
-<span class="pl-c"><span class="pl-c">//</span> how many times was `foo` called?</span>
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">foo</span>.<span class="pl-smi">count</span> ); <span class="pl-c"><span class="pl-c">//</span> 4</span></pre></div>
-<p>However, that approach similarly side-steps <em>actual</em> understanding of <code>this</code> and relies entirely on the lexical scoping of variable <code>foo</code>.</p>
-<p>Yet another way of approaching the issue is to force <code>this</code> to actually point at the <code>foo</code> function object:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>(<span class="pl-smi">num</span>) {
-	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-s"><span class="pl-pds">"</span>foo: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> num );
+// how many times was `foo` called?
+console.log( foo.count ); // 4
+```
 
-	<span class="pl-c"><span class="pl-c">//</span> keep track of how many times `foo` is called</span>
-	<span class="pl-c"><span class="pl-c">//</span> Note: `this` IS actually `foo` now, based on</span>
-	<span class="pl-c"><span class="pl-c">//</span> how `foo` is called (see below)</span>
-	<span class="pl-c1">this</span>.<span class="pl-smi">count</span><span class="pl-k">++</span>;
+However, that approach similarly side-steps *actual* understanding of `this` and relies entirely on the lexical scoping of variable `foo`.
+
+Yet another way of approaching the issue is to force `this` to actually point at the `foo` function object:
+
+```js
+function foo(num) {
+	console.log( "foo: " + num );
+
+	// keep track of how many times `foo` is called
+	// Note: `this` IS actually `foo` now, based on
+	// how `foo` is called (see below)
+	this.count++;
 }
 
-<span class="pl-smi">foo</span>.<span class="pl-smi">count</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+foo.count = 0;
 
-<span class="pl-k">var</span> i;
+var i;
 
-<span class="pl-k">for</span> (i<span class="pl-k">=</span><span class="pl-c1">0</span>; i<span class="pl-k">&lt;</span><span class="pl-c1">10</span>; i<span class="pl-k">++</span>) {
-	<span class="pl-k">if</span> (i <span class="pl-k">&gt;</span> <span class="pl-c1">5</span>) {
-		<span class="pl-c"><span class="pl-c">//</span> using `call(..)`, we ensure the `this`</span>
-		<span class="pl-c"><span class="pl-c">//</span> points at the function object (`foo`) itself</span>
-		<span class="pl-smi">foo</span>.<span class="pl-c1">call</span>( foo, i );
+for (i=0; i<10; i++) {
+	if (i > 5) {
+		// using `call(..)`, we ensure the `this`
+		// points at the function object (`foo`) itself
+		foo.call( foo, i );
 	}
 }
-<span class="pl-c"><span class="pl-c">//</span> foo: 6</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 7</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 8</span>
-<span class="pl-c"><span class="pl-c">//</span> foo: 9</span>
+// foo: 6
+// foo: 7
+// foo: 8
+// foo: 9
 
-<span class="pl-c"><span class="pl-c">//</span> how many times was `foo` called?</span>
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">foo</span>.<span class="pl-smi">count</span> ); <span class="pl-c"><span class="pl-c">//</span> 4</span></pre></div>
-<p><strong>Instead of avoiding <code>this</code>, we embrace it.</strong> We'll explain in a little bit <em>how</em> such techniques work much more completely, so don't worry if you're still a bit confused!</p>
-<h3><a id="user-content-its-scope" class="anchor" aria-hidden="true" href="#its-scope"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Its Scope</h3>
-<p>The next most common misconception about the meaning of <code>this</code> is that it somehow refers to the function's scope. It's a tricky question, because in one sense there is some truth, but in the other sense, it's quite misguided.</p>
-<p>To be clear, <code>this</code> does not, in any way, refer to a function's <strong>lexical scope</strong>. It is true that internally, scope is kind of like an object with properties for each of the available identifiers. But the scope "object" is not accessible to JavaScript code. It's an inner part of the <em>Engine</em>'s implementation.</p>
-<p>Consider code which attempts (and fails!) to cross over the boundary and use <code>this</code> to implicitly refer to a function's lexical scope:</p>
-<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">foo</span>() {
-	<span class="pl-k">var</span> a <span class="pl-k">=</span> <span class="pl-c1">2</span>;
-	<span class="pl-c1">this</span>.<span class="pl-en">bar</span>();
+// how many times was `foo` called?
+console.log( foo.count ); // 4
+```
+
+**Instead of avoiding `this`, we embrace it.** We'll explain in a little bit *how* such techniques work much more completely, so don't worry if you're still a bit confused!
+
+### Its Scope
+
+The next most common misconception about the meaning of `this` is that it somehow refers to the function's scope. It's a tricky question, because in one sense there is some truth, but in the other sense, it's quite misguided.
+
+To be clear, `this` does not, in any way, refer to a function's **lexical scope**. It is true that internally, scope is kind of like an object with properties for each of the available identifiers. But the scope "object" is not accessible to JavaScript code. It's an inner part of the *Engine*'s implementation.
+
+Consider code which attempts (and fails!) to cross over the boundary and use `this` to implicitly refer to a function's lexical scope:
+
+```js
+function foo() {
+	var a = 2;
+	this.bar();
 }
 
-<span class="pl-k">function</span> <span class="pl-en">bar</span>() {
-	<span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-c1">this</span>.<span class="pl-smi">a</span> );
+function bar() {
+	console.log( this.a );
 }
 
-<span class="pl-en">foo</span>(); <span class="pl-c"><span class="pl-c">//</span>undefined</span></pre></div>
-<p>There's more than one mistake in this snippet. While it may seem contrived, the code you see is a distillation of actual real-world code that has been exchanged in public community help forums. It's a wonderful (if not sad) illustration of just how misguided <code>this</code> assumptions can be.</p>
-<p>Firstly, an attempt is made to reference the <code>bar()</code> function via <code>this.bar()</code>. It is almost certainly an <em>accident</em> that it works, but we'll explain the <em>how</em> of that shortly. The most natural way to have invoked <code>bar()</code> would have been to omit the leading <code>this.</code> and just make a lexical reference to the identifier.</p>
-<p>However, the developer who writes such code is attempting to use <code>this</code> to create a bridge between the lexical scopes of <code>foo()</code> and <code>bar()</code>, so that <code>bar()</code> has access to the variable <code>a</code> in the inner scope of <code>foo()</code>. <strong>No such bridge is possible.</strong> You cannot use a <code>this</code> reference to look something up in a lexical scope. It is not possible.</p>
-<p>Every time you feel yourself trying to mix lexical scope look-ups with <code>this</code>, remind yourself: <em>there is no bridge</em>.</p>
-<h2><a id="user-content-whats-this" class="anchor" aria-hidden="true" href="#whats-this"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What's <code>this</code>?</h2>
-<p>Having set aside various incorrect assumptions, let us now turn our attention to how the <code>this</code> mechanism really works.</p>
-<p>We said earlier that <code>this</code> is not an author-time binding but a runtime binding. It is contextual based on the conditions of the function's invocation. <code>this</code> binding has nothing to do with where a function is declared, but has instead everything to do with the manner in which the function is called.</p>
-<p>When a function is invoked, an activation record, otherwise known as an execution context, is created. This record contains information about where the function was called from (the call-stack), <em>how</em> the function was invoked, what parameters were passed, etc. One of the properties of this record is the <code>this</code> reference which will be used for the duration of that function's execution.</p>
-<p>In the next chapter, we will learn to find a function's <strong>call-site</strong> to determine how its execution will bind <code>this</code>.</p>
-<h2><a id="user-content-review-tldr" class="anchor" aria-hidden="true" href="#review-tldr"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Review (TL;DR)</h2>
-<p><code>this</code> binding is a constant source of confusion for the JavaScript developer who does not take the time to learn how the mechanism actually works. Guesses, trial-and-error, and blind copy-n-paste from Stack Overflow answers is not an effective or proper way to leverage <em>this</em> important <code>this</code> mechanism.</p>
-<p>To learn <code>this</code>, you first have to learn what <code>this</code> is <em>not</em>, despite any assumptions or misconceptions that may lead you down those paths. <code>this</code> is neither a reference to the function itself, nor is it a reference to the function's <em>lexical</em> scope.</p>
-<p><code>this</code> is actually a binding that is made when a function is invoked, and <em>what</em> it references is determined entirely by the call-site where the function is called.</p>
-</article>
-  </div>
+foo(); //undefined
+```
 
-  </div>
+There's more than one mistake in this snippet. While it may seem contrived, the code you see is a distillation of actual real-world code that has been exchanged in public community help forums. It's a wonderful (if not sad) illustration of just how misguided `this` assumptions can be.
 
-  <details class="details-reset details-overlay details-overlay-dark">
-    <summary data-hotkey="l" aria-label="Jump to line"></summary>
-    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast linejump" aria-label="Jump to line">
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-jump-to-line-form Box-body d-flex" action="" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-        <input class="form-control flex-auto mr-3 linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" aria-label="Jump to line" autofocus>
-        <button type="submit" class="btn" data-close-dialog>Go</button>
-</form>    </details-dialog>
-  </details>
+Firstly, an attempt is made to reference the `bar()` function via `this.bar()`. It is almost certainly an *accident* that it works, but we'll explain the *how* of that shortly. The most natural way to have invoked `bar()` would have been to omit the leading `this.` and just make a lexical reference to the identifier.
 
+However, the developer who writes such code is attempting to use `this` to create a bridge between the lexical scopes of `foo()` and `bar()`, so that `bar()` has access to the variable `a` in the inner scope of `foo()`. **No such bridge is possible.** You cannot use a `this` reference to look something up in a lexical scope. It is not possible.
 
-  </div>
-  <div class="modal-backdrop js-touch-events"></div>
-</div>
+Every time you feel yourself trying to mix lexical scope look-ups with `this`, remind yourself: *there is no bridge*.
 
-    </div>
-  </div>
+## What's `this`?
 
-  </div>
+Having set aside various incorrect assumptions, let us now turn our attention to how the `this` mechanism really works.
 
-        
-<div class="footer container-lg px-3" role="contentinfo">
-  <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
-    <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2018 <span title="0.16977s from unicorn-65f99bcd46-llcxg">GitHub</span>, Inc.</li>
-        <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
-        <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
-        <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>
-        <li class="mr-3"><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
-        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com">Help</a></li>
-    </ul>
+We said earlier that `this` is not an author-time binding but a runtime binding. It is contextual based on the conditions of the function's invocation. `this` binding has nothing to do with where a function is declared, but has instead everything to do with the manner in which the function is called.
 
-    <a aria-label="Homepage" title="GitHub" class="footer-octicon mr-lg-4" href="https://github.com">
-      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-</a>
-   <ul class="list-style-none d-flex flex-wrap ">
-        <li class="mr-3"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
-        <li class="mr-3"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
-      <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
-      <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
-        <li class="mr-3"><a href="https://blog.github.com" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
-        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+When a function is invoked, an activation record, otherwise known as an execution context, is created. This record contains information about where the function was called from (the call-stack), *how* the function was invoked, what parameters were passed, etc. One of the properties of this record is the `this` reference which will be used for the duration of that function's execution.
 
-    </ul>
-  </div>
-  <div class="d-flex flex-justify-center pb-6">
-    <span class="f6 text-gray-light"></span>
-  </div>
-</div>
+In the next chapter, we will learn to find a function's **call-site** to determine how its execution will bind `this`.
 
+## Review (TL;DR)
 
+`this` binding is a constant source of confusion for the JavaScript developer who does not take the time to learn how the mechanism actually works. Guesses, trial-and-error, and blind copy-n-paste from Stack Overflow answers is not an effective or proper way to leverage *this* important `this` mechanism.
 
-  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
-    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
-    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
-      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-    </button>
-    You can’t perform that action at this time.
-  </div>
+To learn `this`, you first have to learn what `this` is *not*, despite any assumptions or misconceptions that may lead you down those paths. `this` is neither a reference to the function itself, nor is it a reference to the function's *lexical* scope.
 
-
-    <script crossorigin="anonymous" integrity="sha512-RJ1ufbxsSbKjRCyYvinsPNKvTBvcvvKUvEOJ8g+GjtWI5SuRr+QPBlZcvRDws4H9YwAgdQFcGxfL8UbwEfdI7A==" type="application/javascript" src="https://assets-cdn.github.com/assets/compat-daf14de28fadf1e2bc40d100cb773e2b.js"></script>
-    <script crossorigin="anonymous" integrity="sha512-IC5Ai6c7cUBfMx54JUAsIjA7VroipzkizlZ8F6/0efsGGyZStweZV7bX9bxSFL07nUNLfwrKSEysVIijX+CeUw==" type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-5874e38105ec062c740350eeb96bdd8a.js"></script>
-    
-    <script crossorigin="anonymous" async="async" integrity="sha512-Y0wWbyMvuM4AncqCZ3JmN2XZmX623PfWR2gZgiD2zI2cCqaCpRQyKEm2eCeDhYx4zHiXIhZQW8XCbXYxfs8ZKA==" type="application/javascript" src="https://assets-cdn.github.com/assets/github-d08b5457fa55c9386abe7ed707d05017.js"></script>
-    
-    
-    
-  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
-    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
-    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
-    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
-  </div>
-  <div class="facebox" id="facebox" style="display:none;">
-  <div class="facebox-popup">
-    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
-    </div>
-    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
-      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-    </button>
-  </div>
-</div>
-
-  <template id="site-details-dialog">
-  <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark" open>
-    <summary aria-haspopup="dialog" aria-label="Close dialog"></summary>
-    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast">
-      <button class="Box-btn-octicon m-0 btn-octicon position-absolute right-0 top-0" type="button" aria-label="Close dialog" data-close-dialog>
-        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
-      </button>
-      <div class="octocat-spinner my-6 js-details-dialog-spinner"></div>
-    </details-dialog>
-  </details>
-</template>
-
-  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
-  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
-  </div>
-</div>
-
-<div id="hovercard-aria-description" class="sr-only">
-  Press h to open a hovercard with more details.
-</div>
-
-
-  </body>
-</html>
-
+`this` is actually a binding that is made when a function is invoked, and *what* it references is determined entirely by the call-site where the function is called.
