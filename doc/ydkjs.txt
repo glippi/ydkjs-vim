@@ -1,0 +1,65 @@
+*ydkjs.txt* Read You Don't Know JS in Vim!
+
+                                                    '##:::'##:'########::'##:::'##:::::::'##::'######:: ~
+                                                    . ##:'##:: ##.... ##: ##::'##:::::::: ##:'##... ##: ~
+                                                    :. ####::: ##:::: ##: ##:'##::::::::: ##: ##:::..:: ~
+                                                    ::. ##:::: ##:::: ##: #####:::::::::: ##:. ######:: ~
+                                                    ::: ##:::: ##:::: ##: ##. ##:::'##::: ##::..... ##: ~
+                                                    ::: ##:::: ##:::: ##: ##:. ##:: ##::: ##:'##::: ##: ~
+                                                    ::: ##:::: ########:: ##::. ##:. ######::. ######:: ~
+                                                    :::..:::::........:::..::::..:::......::::......::: ~
+
+=====================================================================================================================================================
+CONTENTS                                                         *YDKSContents*
+
+1. Up & going.................... |Up&going|
+  1. Into Programming............ |IntoProgramming|
+  2. Into JavaScript............. |IntoJavaScript|
+  3. Into YDKS................... |IntoYDKJS|
+buy this book: <https://www.ebooks.com/1993212/you-don-t-know-js-up-going/simpson-kyle/>
+
+2. Scope & Closures.............. |Scope&Closures|
+  1. What is Scope ?............. |WhatIsScope|
+  2. Lexical Scope............... |LexicalScope|
+  3. Function vs. Block Scope.... |FunctionVsBlockScope|
+  4. Hoisting.................... |Hoisting|
+  5. Scope Closures.............. |ScopeClosure|
+buy this book: <https://www.ebooks.com/1647631/you-don-t-know-js-scope-closures/simpson-kyle/>
+
+3. this & Object Prototypes...... |this&ObjectPrototypes|
+  1. this or that?............... |thisOrThat|
+  2. this All Makes Sense Now!... |thisAllMakesSenseNow|
+  3. Objects..................... |Objects|
+  4. Mixing (Up) "Class" Objects. |../book3/ch4|
+  5. Prototypes.................. |Prototypes|
+  6. Behavior Delegation......... |BehaviorDelegation|
+buy this book: <http://www.ebooks.com/1734321/you-don-t-know-js-this-object-prototypes/simpson-kyle/>
+
+4. Types & Grammar............... |types&Grammar|
+  1. Types....................... |Types|
+  2. Values...................... |Values|
+  3. Natives..................... |Natives|
+  4. Coercion.................... |Coercion|
+  5. Grammar..................... |Grammar|
+buy this book: <http://www.ebooks.com/1935541/you-don-t-know-js-types-grammar/simpson-kyle/>
+
+5. Async & Performance........... |Async&Performance|
+  1. Asynchrony: Now & Later..... |AsynchronyNow&Later|
+  2. Callbacks................... |Callbacks|
+  3. Promises.................... |Promises|
+  4. Generators.................. |Generators|
+  5. Program Performance......... |ProgramPerformance|
+  6. Benchmarking & Turing....... |Benchmarking&Turing|
+buy this book: <http://www.ebooks.com/1977375/you-don-t-know-js-async-performance/simpson-kyle/>
+
+6. ES6 & Beyond.................. |ES6&Beyond|
+  1. ES? Now & Future............ |ESNow&Future|
+  2. Syntax...................... |Syntax|
+  3. Organization................ |Organization|
+  4. Async Flow Control.......... |AsyncFlowControl|
+  5. Collections................. |Collections|
+  6. API Additions............... |APIAdditions|
+  7. Meta Programming............ |MetaProgramming|
+  8. Beyond ES6.................. |BeyondES6|
+buy this book: <http://www.ebooks.com/2481820/you-don-t-know-js-es6-beyond/simpson-kyle/>
+=====================================================================================================================================================
