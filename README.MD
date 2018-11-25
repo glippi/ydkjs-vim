@@ -1,4 +1,4 @@
-# You Don't Know JS (book series) in Vim doc!
+# You Don't Know JS (book series) in Vim doc
 
 ![YDKJS inside Vim](./ydkjs.jpg)
 
