@@ -37,19 +37,19 @@ Or buy here:
 ## Installation
 * [**Vundle**](https://github.com/gmarik/vundle), add the following line to your `~/.vimrc`:
 
-    Bundle 'GabrieleLippi/ydkjs-vim'
+    Bundle 'glippi/ydkjs-vim'
 
     $ vim +'PluginInstall! ydkjs-vim' +qall
 
 * [**vim-plug**](https://github.com/junegunn/vim-plug), add the following to your plugin section:
 
-    Plug 'GabrieleLippi/ydkjs-vim'
+    Plug 'glippi/ydkjs-vim'
 
     $ vim +PlugInstall
 
 * [**NeoBundle**](https://github.com/Shougo/neobundle.vim), add the following line to your `~/.vimrc`:
 
-    NeoBundle 'GabrieleLippi/ydkjs-vim'
+    NeoBundle 'glippi/ydkjs-vim'
 
     $ vim +NeoBundleInstall +qall
 
@@ -57,14 +57,14 @@ Or buy here:
 
     $ cd ~/.vim/bundle
 
-    $ git clone https://github.com/GabrieleLippi/ydkjs-vim.git
+    $ git clone https://github.com/glippi/ydkjs-vim.git
 
 ## Self-Promotion
 
 If you like this plugin, you are welcome to:
 
-* Star the repository on [GitHub](https://github.com/GabrieleLippi/ydkjs-vim)
-* Follow me on [Twitter](http://twitter.com/gabriele_lippi) and [GitHub](https://github.com/GabrieleLippi)
+* Star the repository on [GitHub](https://github.com/glippi/ydkjs-vim)
+* Follow me on [Twitter](http://twitter.com/gabriele_lippi) and [GitHub](https://github.com/glippi)
 
 ## License
 
